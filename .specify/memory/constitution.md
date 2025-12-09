@@ -1,55 +1,81 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report:
+Version change: None → 1.0.0
+List of modified principles:
+  - AI-native authoring workflow
+  - Technical accuracy
+  - Clarity for beginner-to-intermediate developers
+  - Reproducibility
+  - Consistent, specification-driven content creation
+Added sections: Additional Standards, Constraints, Success Criteria
+Removed sections: None
+Templates requiring updates:
+  - .specify/templates/plan-template.md: ⚠ pending
+  - .specify/templates/spec-template.md: ⚠ pending
+  - .specify/templates/tasks-template.md: ⚠ pending
+  - .claude/commands/sp.adr.md: ⚠ pending
+  - .claude/commands/sp.analyze.md: ⚠ pending
+  - .claude/commands/sp.checklist.md: ⚠ pending
+  - .claude/commands/sp.clarify.md: ⚠ pending
+  - .claude/commands/sp.constitution.md: ⚠ pending
+  - .claude/commands/sp.git.commit_pr.md: ⚠ pending
+  - .claude/commands/sp.implement.md: ⚠ pending
+  - .claude/commands/sp.phr.md: ⚠ pending
+  - .claude/commands/sp.plan.md: ⚠ pending
+  - .claude/commands/sp.specify.md: ⚠ pending
+  - .claude/commands/sp.tasks.md: ⚠ pending
+  - CLAUDE.md: ⚠ pending
+Follow-up TODOs: None
+-->
+# AI/Spec-Driven Book Creation using Docusaurus and GitHub Pages Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. AI-native authoring workflow
+The book creation process MUST leverage Spec-Kit Plus and Claude Code for AI-assisted authoring, planning, and task execution. This ensures consistency and accelerates content generation while maintaining high quality.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Technical accuracy
+All technical content, code samples, and instructions MUST be rigorously verified against official documentation for Docusaurus, GitHub Pages, and Node.js. Information presented must be factually correct and up-to-date.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Clarity for beginner-to-intermediate developers
+Content MUST be written with a target audience of beginner-to-intermediate developers in mind. Explanations should be clear, concise, and easy to understand, avoiding jargon where simpler terms suffice.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Reproducibility
+All commands, steps, configurations, and deployments described in the book MUST be fully reproducible by the reader. This includes providing complete, copy-paste ready code samples and verified setup instructions.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Consistent, specification-driven content creation
+Content creation MUST follow a specification-driven development (SDD) approach, ensuring all chapters adhere to predefined structures, standards, and learning objectives.
 
-### [PRINCIPLE_6_NAME]
+## Additional Standards
 
+All instructions MUST be verified in a real Docusaurus environment before inclusion.
+Code samples MUST be fully functional and copy-paste ready.
+Documentation format MUST be Markdown, compatible with Docusaurus.
+Tone MUST be educational, structured, and practical.
+Every chapter MUST begin with clear learning objectives and end with a summary plus practice tasks.
+All workflows MUST run successfully on a Windows environment (user requirement).
+Naming, formatting, and file structure MUST remain consistent across the entire book.
 
-[PRINCIPLE__DESCRIPTION]
+## Constraints
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+The total word count for the book MUST be between 12,000 and 18,000 words.
+The book MUST contain a minimum of 8 and a maximum of 12 chapters.
+The output format MUST be a Docusaurus website deployed on GitHub Pages.
+Tools required for development and deployment MUST include Spec-Kit Plus, Claude Code, Node.js, and GitHub.
+The repository MUST be deployable from a public GitHub repository.
+All steps MUST be validated through actual execution before inclusion in the book.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Success Criteria
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+The Docusaurus project MUST build without errors.
+The GitHub Pages deployment MUST be fully functional and publicly accessible.
+All chapters MUST follow spec-driven creation and refinement cycles.
+All commands and code examples MUST be verified as working.
+The entire process, from installation and configuration to writing and deployment, MUST be completely reproducible.
+The book MUST provide beginners with a clear path from initial setup to a fully deployed documentation site.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This Constitution supersedes all other project practices. Amendments require a formal documentation of changes, approval by stakeholders, and a migration plan if applicable. All pull requests and code reviews MUST verify compliance with these principles.
+Complexity MUST be justified and align with project goals.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-06 | **Last Amended**: 2025-12-06
