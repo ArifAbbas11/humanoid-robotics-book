@@ -62,7 +62,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
+            to="/intro">
             Read the Book 📚
           </Link>
         </div>
@@ -273,12 +273,12 @@ function CTASection() {
             <div className={styles.ctaButtons}>
               <Link
                 className="button button--primary button--lg"
-                to="/docs/intro">
+                to="/intro">
                 Read Online
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/intro">
+                to="/intro">
                 Download PDF
               </Link>
             </div>

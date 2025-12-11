@@ -1,6 +1,6 @@
 // @ts-check
 import lightTheme from 'prism-react-renderer/themes/github';
-import darkTheme from 'prism-react-renderer/themes/dracula';
+import darkTheme from 'prism-react-renderer/themes/vsDark';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -57,7 +57,7 @@ const config = {
       navbar: {
         title: 'Humanoid Robotics Book',
         logo: {
-          alt: 'Robotics Book Logo',
+          alt: 'Physical AI & Humanoid Robotics Book',
           src: 'img/logo.svg',
         },
         items: [
@@ -82,19 +82,19 @@ const config = {
             items: [
               {
                 label: 'ROS 2 Fundamentals',
-                to: '/docs/ros-fundamentals/intro',
+                to: '/ros-fundamentals/intro',
               },
               {
                 label: 'Simulation',
-                to: '/docs/simulation/intro',
+                to: '/simulation/intro',
               },
               {
                 label: 'AI Navigation',
-                to: '/docs/ai-navigation/intro',
+                to: '/ai-navigation/intro',
               },
               {
                 label: 'VLA Integration',
-                to: '/docs/vla-integration/intro',
+                to: '/vla-integration/intro',
               },
             ],
           },
