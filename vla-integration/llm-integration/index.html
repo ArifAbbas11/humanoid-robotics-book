@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-vla-integration/llm-integration" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">LLM Integration | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/llm-integration"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="LLM Integration | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/llm-integration"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/llm-integration" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/llm-integration" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-recognition">Voice Recognition</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/vla-integration/llm-integration">LLM Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/cognitive-planning">Cognitive Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/multi-modal">Multi-Modal Processing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-to-action">Voice-to-Action Mapping</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/capstone-project">VLA Capstone Project: Intelligent Humanoid Assistant</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/troubleshooting">Troubleshooting VLA Integration</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 4: Vision-Language-Action (VLA)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">LLM Integration</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="llm-integration">LLM Integration</h1>
+<h2 id="overview">Overview</h2>
+<p>Large Language Model (LLM) integration is a crucial component of Vision-Language-Action (VLA) systems, providing the natural language understanding and reasoning capabilities that allow humanoid robots to interpret complex commands and engage in meaningful conversations. This integration bridges human language with robotic action execution.</p>
+<h2 id="llm-fundamentals">LLM Fundamentals</h2>
+<h3 id="what-are-large-language-models">What are Large Language Models?</h3>
+<p>Large Language Models are deep learning models trained on vast amounts of text data to understand and generate human-like language. They can perform various natural language tasks including:</p>
+<ul>
+<li><strong>Text Generation</strong>: Creating coherent, contextually relevant text</li>
+<li><strong>Question Answering</strong>: Providing answers to user queries</li>
+<li><strong>Instruction Following</strong>: Executing tasks based on natural language instructions</li>
+<li><strong>Reasoning</strong>: Performing logical inference and problem solving</li>
+<li><strong>Context Understanding</strong>: Maintaining context across conversations</li>
+</ul>
+<h3 id="popular-llm-architectures">Popular LLM Architectures</h3>
+<ul>
+<li><strong>Transformer Architecture</strong>: Foundation for most modern LLMs</li>
+<li><strong>GPT Series</strong>: Generative Pre-trained Transformers (OpenAI)</li>
+<li><strong>LLaMA</strong>: Open-source models from Meta</li>
+<li><strong>PaLM</strong>: Pathways Language Model from Google</li>
+<li><strong>Claude</strong>: Anthropic&#x27;s conversational AI models</li>
+</ul>
+<h2 id="llm-integration-approaches">LLM Integration Approaches</h2>
+<h3 id="cloud-based-apis">Cloud-Based APIs</h3>
+<p>Cloud-based LLM services provide easy integration with minimal setup:</p>
+<ul>
+<li><strong>OpenAI API</strong>: GPT models with comprehensive documentation</li>
+<li><strong>Anthropic API</strong>: Claude models focused on helpful, harmless responses</li>
+<li><strong>Google AI API</strong>: PaLM and Gemini models</li>
+<li><strong>AWS Bedrock</strong>: Managed LLM services</li>
+<li><strong>Azure OpenAI</strong>: Microsoft&#x27;s managed OpenAI service</li>
+</ul>
+<h3 id="local-deployment">Local Deployment</h3>
+<p>Local deployment provides privacy and reduced latency:</p>
+<ul>
+<li><strong>Ollama</strong>: Simple local LLM serving</li>
+<li><strong>vLLM</strong>: Fast LLM inference engine</li>
+<li><strong>Hugging Face Transformers</strong>: Open-source model library</li>
+<li><strong>TensorRT-LLM</strong>: NVIDIA&#x27;s optimized inference engine</li>
+<li><strong>llama.cpp</strong>: Lightweight LLM inference in C++</li>
+</ul>
+<h2 id="ros-2-integration-patterns">ROS 2 Integration Patterns</h2>
+<h3 id="llm-service-node">LLM Service Node</h3>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from vla_msgs.srv import LLMQuery  # Custom service
+import openai
+import asyncio
+import threading
+
+class LLMIntegrationNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;llm_integration_node&#x27;)
+
+        # Service for LLM queries
+        self.llm_service = self.create_service(
+            LLMQuery,
+            &#x27;llm_query&#x27;,
+            self.handle_llm_request
+        )
+
+        # Publishers for LLM responses
+        self.response_pub = self.create_publisher(String, &#x27;llm_response&#x27;, 10)
+
+        # Initialize LLM client
+        self.llm_client = self.initialize_llm_client()
+
+        # Conversation history
+        self.conversation_history = []
+
+        self.get_logger().info(&#x27;LLM Integration Node initialized&#x27;)
+
+    def initialize_llm_client(self):
+        &quot;&quot;&quot;Initialize the LLM client based on chosen provider&quot;&quot;&quot;
+        # Example for OpenAI
+        try:
+            openai.api_key = self.get_parameter_or_set_default(
+                &#x27;openai_api_key&#x27;,
+                &#x27;your-api-key-here&#x27;
+            ).value
+
+            return openai
+        except Exception as e:
+            self.get_logger().error(f&#x27;Failed to initialize LLM client: {e}&#x27;)
+            return None
+
+    def handle_llm_request(self, request, response):
+        &quot;&quot;&quot;Handle LLM query requests&quot;&quot;&quot;
+        try:
+            # Add to conversation history
+            self.conversation_history.append({
+                &#x27;role&#x27;: &#x27;user&#x27;,
+                &#x27;content&#x27;: request.query
+            })
+
+            # Generate response from LLM
+            llm_response = self.query_llm(
+                self.conversation_history,
+                request.context
+            )
+
+            # Process the response
+            processed_response = self.process_llm_response(llm_response)
+
+            # Update conversation history
+            self.conversation_history.append({
+                &#x27;role&#x27;: &#x27;assistant&#x27;,
+                &#x27;content&#x27;: processed_response
+            })
+
+            # Publish response
+            response_msg = String()
+            response_msg.data = processed_response
+            self.response_pub.publish(response_msg)
+
+            # Set service response
+            response.success = True
+            response.response = processed_response
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;LLM request failed: {e}&#x27;)
+            response.success = False
+            response.response = f&#x27;Error processing request: {e}&#x27;
+
+        return response
+
+    def query_llm(self, messages, context=None):
+        &quot;&quot;&quot;Query the LLM with conversation history&quot;&quot;&quot;
+        try:
+            # Prepare messages with context if provided
+            full_messages = messages.copy()
+
+            if context:
+                full_messages.insert(0, {
+                    &#x27;role&#x27;: &#x27;system&#x27;,
+                    &#x27;content&#x27;: f&#x27;Context: {context}\n\n&#x27;
+                              f&#x27;You are a helpful assistant for controlling a humanoid robot. &#x27;
+                              f&#x27;Interpret the user\&#x27;s requests and provide appropriate responses. &#x27;
+                              f&#x27;If the user wants to control the robot, respond with structured commands.&#x27;
+                })
+
+            # Call the LLM API
+            result = self.llm_client.ChatCompletion.create(
+                model=&quot;gpt-3.5-turbo&quot;,  # or gpt-4, Claude, etc.
+                messages=full_messages,
+                max_tokens=500,
+                temperature=0.7
+            )
+
+            return result.choices[0].message.content
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;LLM API call failed: {e}&#x27;)
+            return f&quot;Sorry, I couldn&#x27;t process your request: {e}&quot;
+
+    def process_llm_response(self, response):
+        &quot;&quot;&quot;Process and format LLM response for the application&quot;&quot;&quot;
+        # Remove any potentially harmful content
+        # Format response appropriately
+        # Extract structured commands if present
+        return response.strip()
+</code></pre>
+<h2 id="using-open-source-llms-locally">Using Open-Source LLMs Locally</h2>
+<h3 id="ollama-integration">Ollama Integration</h3>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from vla_msgs.srv import LLMQuery
+import requests
+import json
+
+class OllamaLLMNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;ollama_llm_node&#x27;)
+
+        # Service for LLM queries
+        self.llm_service = self.create_service(
+            LLMQuery,
+            &#x27;ollama_query&#x27;,
+            self.handle_ollama_request
+        )
+
+        # Publisher for responses
+        self.response_pub = self.create_publisher(String, &#x27;ollama_response&#x27;, 10)
+
+        # Ollama configuration
+        self.ollama_url = &#x27;http://localhost:11434/api/generate&#x27;
+        self.model_name = &#x27;llama2&#x27;  # or &#x27;mistral&#x27;, &#x27;phi&#x27;, etc.
+
+        # Test connection
+        if self.test_connection():
+            self.get_logger().info(&#x27;Ollama connection established&#x27;)
+        else:
+            self.get_logger().error(&#x27;Failed to connect to Ollama&#x27;)
+
+    def test_connection(self):
+        &quot;&quot;&quot;Test connection to Ollama server&quot;&quot;&quot;
+        try:
+            response = requests.get(&#x27;http://localhost:11434/api/tags&#x27;)
+            return response.status_code == 200
+        except Exception:
+            return False
+
+    def handle_ollama_request(self, request, response):
+        &quot;&quot;&quot;Handle LLM request using Ollama&quot;&quot;&quot;
+        try:
+            # Prepare the request payload
+            payload = {
+                &#x27;model&#x27;: self.model_name,
+                &#x27;prompt&#x27;: request.query,
+                &#x27;stream&#x27;: False,
+                &#x27;options&#x27;: {
+                    &#x27;temperature&#x27;: 0.7,
+                    &#x27;num_ctx&#x27;: 2048
+                }
+            }
+
+            # Send request to Ollama
+            result = requests.post(self.ollama_url, json=payload)
+
+            if result.status_code == 200:
+                result_data = result.json()
+                llm_response = result_data.get(&#x27;response&#x27;, &#x27;&#x27;)
+
+                # Publish and return response
+                response_msg = String()
+                response_msg.data = llm_response
+                self.response_pub.publish(response_msg)
+
+                response.success = True
+                response.response = llm_response
+            else:
+                error_msg = f&#x27;Ollama request failed: {result.status_code}&#x27;
+                self.get_logger().error(error_msg)
+                response.success = False
+                response.response = error_msg
+
+        except Exception as e:
+            error_msg = f&#x27;Ollama processing error: {e}&#x27;
+            self.get_logger().error(error_msg)
+            response.success = False
+            response.response = error_msg
+
+        return response
+</code></pre>
+<h2 id="context-aware-llm-integration">Context-Aware LLM Integration</h2>
+<h3 id="environment-context-integration">Environment Context Integration</h3>
+<pre><code class="language-python">class ContextAwareLLMNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;context_aware_llm_node&#x27;)
+
+        # Service for contextual queries
+        self.contextual_service = self.create_service(
+            LLMQuery,
+            &#x27;contextual_llm_query&#x27;,
+            self.handle_contextual_request
+        )
+
+        # Subscribers for environmental context
+        self.vision_sub = self.create_subscription(
+            String,  # Simplified - would typically be sensor_msgs
+            &#x27;vision_context&#x27;,
+            self.vision_callback,
+            10
+        )
+
+        self.location_sub = self.create_subscription(
+            String,
+            &#x27;robot_location&#x27;,
+            self.location_callback,
+            10
+        )
+
+        # Store environmental context
+        self.current_vision_context = &quot;&quot;
+        self.current_location = &quot;&quot;
+        self.robot_capabilities = self.get_robot_capabilities()
+
+    def get_robot_capabilities(self):
+        &quot;&quot;&quot;Get robot&#x27;s current capabilities and limitations&quot;&quot;&quot;
+        return {
+            &#x27;manipulation&#x27;: True,
+            &#x27;navigation&#x27;: True,
+            &#x27;sensors&#x27;: [&#x27;camera&#x27;, &#x27;lidar&#x27;, &#x27;imu&#x27;],
+            &#x27;max_speed&#x27;: 0.5,
+            &#x27;weight_limit&#x27;: 2.0,  # kg
+            &#x27;reachable_area&#x27;: &#x27;humanoid_workspace&#x27;
+        }
+
+    def vision_callback(self, msg):
+        &quot;&quot;&quot;Update vision context&quot;&quot;&quot;
+        self.current_vision_context = msg.data
+
+    def location_callback(self, msg):
+        &quot;&quot;&quot;Update location context&quot;&quot;&quot;
+        self.current_location = msg.data
+
+    def handle_contextual_request(self, request, response):
+        &quot;&quot;&quot;Handle LLM request with environmental context&quot;&quot;&quot;
+        try:
+            # Build comprehensive context
+            context = self.build_context(request.query)
+
+            # Query LLM with context
+            llm_response = self.query_llm_with_context(
+                request.query,
+                context
+            )
+
+            # Process and return response
+            processed_response = self.process_contextual_response(
+                llm_response,
+                request.query
+            )
+
+            response.success = True
+            response.response = processed_response
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Contextual LLM request failed: {e}&#x27;)
+            response.success = False
+            response.response = f&#x27;Error: {e}&#x27;
+
+        return response
+
+    def build_context(self, query):
+        &quot;&quot;&quot;Build comprehensive context for the LLM&quot;&quot;&quot;
+        context_parts = []
+
+        # Add location context
+        if self.current_location:
+            context_parts.append(f&quot;Robot Location: {self.current_location}&quot;)
+
+        # Add vision context
+        if self.current_vision_context:
+            context_parts.append(f&quot;Current View: {self.current_vision_context}&quot;)
+
+        # Add robot capabilities
+        capabilities = f&quot;Robot Capabilities: {self.robot_capabilities}&quot;
+        context_parts.append(capabilities)
+
+        # Add time context
+        current_time = self.get_clock().now().to_msg()
+        context_parts.append(f&quot;Current Time: {current_time}&quot;)
+
+        return &quot;\n&quot;.join(context_parts)
+
+    def query_llm_with_context(self, query, context):
+        &quot;&quot;&quot;Query LLM with comprehensive context&quot;&quot;&quot;
+        # Prepare messages with context
+        messages = [
+            {
+                &#x27;role&#x27;: &#x27;system&#x27;,
+                &#x27;content&#x27;: f&#x27;You are a helpful assistant for a humanoid robot. &#x27;
+                          f&#x27;Context: {context}\n\n&#x27;
+                          f&#x27;Robot capabilities: {self.robot_capabilities}\n\n&#x27;
+                          f&#x27;Use this information to provide helpful and feasible responses. &#x27;
+                          f&#x27;For action requests, suggest appropriate robot actions when possible.&#x27;
+            },
+            {
+                &#x27;role&#x27;: &#x27;user&#x27;,
+                &#x27;content&#x27;: query
+            }
+        ]
+
+        # Call LLM with context (implementation depends on chosen LLM)
+        return self.query_llm(messages)
+</code></pre>
+<h2 id="structured-output-for-robot-commands">Structured Output for Robot Commands</h2>
+<h3 id="command-extraction-and-validation">Command Extraction and Validation</h3>
+<pre><code class="language-python">import json
+import re
+
+class CommandExtractionNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;command_extraction_node&#x27;)
+
+        # Service for command extraction
+        self.command_service = self.create_service(
+            LLMQuery,
+            &#x27;extract_commands&#x27;,
+            self.handle_command_extraction
+        )
+
+        # Publisher for extracted commands
+        self.command_pub = self.create_publisher(
+            String,  # Would typically be a custom command message
+            &#x27;robot_commands&#x27;,
+            10
+        )
+
+        # Define supported command types
+        self.supported_commands = {
+            &#x27;navigation&#x27;: [&#x27;go to&#x27;, &#x27;move to&#x27;, &#x27;navigate to&#x27;, &#x27;walk to&#x27;],
+            &#x27;manipulation&#x27;: [&#x27;pick up&#x27;, &#x27;grasp&#x27;, &#x27;take&#x27;, &#x27;put down&#x27;, &#x27;place&#x27;],
+            &#x27;interaction&#x27;: [&#x27;greet&#x27;, &#x27;wave&#x27;, &#x27;nod&#x27;, &#x27;shake hands&#x27;],
+            &#x27;information&#x27;: [&#x27;what is&#x27;, &#x27;where is&#x27;, &#x27;find&#x27;, &#x27;show me&#x27;]
+        }
+
+    def handle_command_extraction(self, request, response):
+        &quot;&quot;&quot;Extract structured commands from LLM response&quot;&quot;&quot;
+        try:
+            # Get LLM response
+            llm_response = self.query_llm([{
+                &#x27;role&#x27;: &#x27;user&#x27;,
+                &#x27;content&#x27;: f&#x27;Extract structured commands from this request: {request.query}. &#x27;
+                          f&#x27;Respond in JSON format with command type and parameters.&#x27;
+            }])
+
+            # Parse structured response
+            structured_commands = self.parse_structured_response(llm_response)
+
+            # Validate commands
+            valid_commands = self.validate_commands(structured_commands)
+
+            # Publish valid commands
+            for command in valid_commands:
+                cmd_msg = String()
+                cmd_msg.data = json.dumps(command)
+                self.command_pub.publish(cmd_msg)
+
+            response.success = True
+            response.response = json.dumps(valid_commands)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Command extraction failed: {e}&#x27;)
+            response.success = False
+            response.response = f&#x27;Error extracting commands: {e}&#x27;
+
+        return response
+
+    def parse_structured_response(self, llm_response):
+        &quot;&quot;&quot;Parse LLM response to extract structured commands&quot;&quot;&quot;
+        try:
+            # Try to parse as JSON first
+            return json.loads(llm_response)
+        except json.JSONDecodeError:
+            # If not JSON, try to extract using regex or other methods
+            return self.extract_commands_regex(llm_response)
+
+    def extract_commands_regex(self, text):
+        &quot;&quot;&quot;Extract commands using regex patterns&quot;&quot;&quot;
+        commands = []
+
+        # Navigation commands
+        nav_pattern = r&#x27;(?:go to|move to|navigate to|walk to) (.+)&#x27;
+        nav_matches = re.findall(nav_pattern, text, re.IGNORECASE)
+        for match in nav_matches:
+            commands.append({
+                &#x27;type&#x27;: &#x27;navigation&#x27;,
+                &#x27;target&#x27;: match.strip(),
+                &#x27;parameters&#x27;: {}
+            })
+
+        # Manipulation commands
+        manip_pattern = r&#x27;(?:pick up|grasp|take) (.+)&#x27;
+        manip_matches = re.findall(manip_pattern, text, re.IGNORECASE)
+        for match in manip_matches:
+            commands.append({
+                &#x27;type&#x27;: &#x27;manipulation&#x27;,
+                &#x27;target&#x27;: match.strip(),
+                &#x27;parameters&#x27;: {}
+            })
+
+        return commands
+
+    def validate_commands(self, commands):
+        &quot;&quot;&quot;Validate extracted commands for robot feasibility&quot;&quot;&quot;
+        valid_commands = []
+
+        for command in commands:
+            if self.is_command_valid(command):
+                valid_commands.append(command)
+
+        return valid_commands
+
+    def is_command_valid(self, command):
+        &quot;&quot;&quot;Check if a command is valid for the robot&quot;&quot;&quot;
+        # Check if command type is supported
+        if command.get(&#x27;type&#x27;) not in self.supported_commands:
+            return False
+
+        # Check if target is specified
+        if not command.get(&#x27;target&#x27;):
+            return False
+
+        # Additional validation logic can be added here
+        return True
+</code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="caching-and-batching">Caching and Batching</h3>
+<pre><code class="language-python">import functools
+import time
+from collections import OrderedDict
+
+class OptimizedLLMNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;optimized_llm_node&#x27;)
+
+        # Initialize cache
+        self.response_cache = OrderedDict()
+        self.cache_size = 50
+        self.cache_timeout = 300  # 5 minutes
+
+        # Rate limiting
+        self.request_times = []
+        self.max_requests_per_minute = 10
+
+    @functools.lru_cache(maxsize=128)
+    def cached_llm_query(self, query_hash):
+        &quot;&quot;&quot;Cached LLM query to avoid repeated requests&quot;&quot;&quot;
+        # This would call the actual LLM with the original query
+        # Implementation depends on the specific LLM being used
+        pass
+
+    def should_rate_limit(self):
+        &quot;&quot;&quot;Check if request should be rate limited&quot;&quot;&quot;
+        current_time = time.time()
+
+        # Remove old requests
+        self.request_times = [
+            req_time for req_time in self.request_times
+            if current_time - req_time &lt; 60
+        ]
+
+        # Check if we&#x27;re over the limit
+        if len(self.request_times) &gt;= self.max_requests_per_minute:
+            return True
+
+        # Add current request
+        self.request_times.append(current_time)
+        return False
+
+    def query_with_caching(self, query, context=None):
+        &quot;&quot;&quot;Query LLM with caching and rate limiting&quot;&quot;&quot;
+        # Create cache key
+        cache_key = f&quot;{query}_{context or &#x27;&#x27;}&quot; if context else query
+
+        # Check cache first
+        if cache_key in self.response_cache:
+            cached_response, timestamp = self.response_cache[cache_key]
+            if time.time() - timestamp &lt; self.cache_timeout:
+                return cached_response
+
+        # Check rate limit
+        if self.should_rate_limit():
+            return &quot;Please wait - processing too many requests&quot;
+
+        # Call LLM
+        response = self.call_llm(query, context)
+
+        # Cache the response
+        self.cache_response(cache_key, response)
+
+        return response
+
+    def cache_response(self, key, response):
+        &quot;&quot;&quot;Cache LLM response&quot;&quot;&quot;
+        if len(self.response_cache) &gt;= self.cache_size:
+            # Remove oldest entry
+            self.response_cache.popitem(last=False)
+
+        self.response_cache[key] = (response, time.time())
+</code></pre>
+<h2 id="safety-and-security-considerations">Safety and Security Considerations</h2>
+<h3 id="content-filtering">Content Filtering</h3>
+<pre><code class="language-python">class SafeLLMNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;safe_llm_node&#x27;)
+
+        # Initialize safety filters
+        self.initialize_safety_filters()
+
+    def initialize_safety_filters(self):
+        &quot;&quot;&quot;Initialize content safety filters&quot;&quot;&quot;
+        self.blocked_keywords = [
+            &#x27;harm&#x27;, &#x27;injure&#x27;, &#x27;damage&#x27;, &#x27;unsafe&#x27;, &#x27;dangerous&#x27;,
+            &#x27;break&#x27;, &#x27;destroy&#x27;, &#x27;hurt&#x27;, &#x27;kill&#x27;, &#x27;harmful&#x27;
+        ]
+
+        # Context-specific safety rules
+        self.safety_rules = [
+            # Rule: Don&#x27;t allow commands that could harm humans
+            {
+                &#x27;pattern&#x27;: r&#x27;(?:hurt|harm|injure|attack|hit|slap|push) (?:me|him|her|them|person|people|human)&#x27;,
+                &#x27;response&#x27;: &quot;I cannot perform actions that might harm humans. Is there something else I can help with?&quot;
+            }
+        ]
+
+    def process_safe_response(self, llm_response, original_request):
+        &quot;&quot;&quot;Process LLM response for safety&quot;&quot;&quot;
+        # Check for safety violations
+        if self.contains_blocked_content(llm_response):
+            return self.get_safe_alternative(original_request)
+
+        # Apply safety rules
+        for rule in self.safety_rules:
+            if re.search(rule[&#x27;pattern&#x27;], llm_response, re.IGNORECASE):
+                return rule[&#x27;response&#x27;]
+
+        return llm_response
+
+    def contains_blocked_content(self, text):
+        &quot;&quot;&quot;Check if text contains blocked content&quot;&quot;&quot;
+        text_lower = text.lower()
+        return any(keyword in text_lower for keyword in self.blocked_keywords)
+
+    def get_safe_alternative(self, original_request):
+        &quot;&quot;&quot;Get a safe alternative response&quot;&quot;&quot;
+        safe_response = self.query_llm([{
+            &#x27;role&#x27;: &#x27;user&#x27;,
+            &#x27;content&#x27;: f&#x27;{original_request} - but respond safely and helpfully instead&#x27;
+        }])
+
+        return self.process_safe_response(safe_response, original_request)
+</code></pre>
+<h2 id="integration-with-vision-and-action-systems">Integration with Vision and Action Systems</h2>
+<h3 id="multi-modal-prompt-engineering">Multi-Modal Prompt Engineering</h3>
+<pre><code class="language-python">class MultiModalLLMNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;multi_modal_llm_node&#x27;)
+
+        # Subscribe to vision and sensor data
+        self.vision_sub = self.create_subscription(
+            String,
+            &#x27;vision_description&#x27;,
+            self.vision_callback,
+            10
+        )
+
+        self.sensors_sub = self.create_subscription(
+            String,
+            &#x27;sensor_fusion&#x27;,
+            self.sensors_callback,
+            10
+        )
+
+        # Store multi-modal context
+        self.vision_data = {}
+        self.sensor_data = {}
+
+    def vision_callback(self, msg):
+        &quot;&quot;&quot;Update vision context&quot;&quot;&quot;
+        try:
+            self.vision_data = json.loads(msg.data)
+        except json.JSONDecodeError:
+            self.vision_data = {&#x27;description&#x27;: msg.data}
+
+    def sensors_callback(self, msg):
+        &quot;&quot;&quot;Update sensor context&quot;&quot;&quot;
+        try:
+            self.sensor_data = json.loads(msg.data)
+        except json.JSONDecodeError:
+            self.sensor_data = {&#x27;data&#x27;: msg.data}
+
+    def create_multimodal_prompt(self, user_request):
+        &quot;&quot;&quot;Create prompt combining vision, sensor, and language inputs&quot;&quot;&quot;
+        prompt_parts = []
+
+        # Add user request
+        prompt_parts.append(f&quot;User Request: {user_request}&quot;)
+
+        # Add vision context
+        if self.vision_data:
+            prompt_parts.append(f&quot;Visual Context: {self.vision_data}&quot;)
+
+        # Add sensor context
+        if self.sensor_data:
+            prompt_parts.append(f&quot;Sensor Context: {self.sensor_data}&quot;)
+
+        # Add robot state
+        robot_state = self.get_robot_state()
+        prompt_parts.append(f&quot;Robot State: {robot_state}&quot;)
+
+        # Add capabilities
+        capabilities = self.get_robot_capabilities()
+        prompt_parts.append(f&quot;Robot Capabilities: {capabilities}&quot;)
+
+        return &quot;\n&quot;.join(prompt_parts)
+
+    def get_robot_state(self):
+        &quot;&quot;&quot;Get current robot state&quot;&quot;&quot;
+        # This would typically come from robot state publisher
+        return {
+            &#x27;battery_level&#x27;: 85,
+            &#x27;location&#x27;: &#x27;kitchen&#x27;,
+            &#x27;current_task&#x27;: &#x27;idle&#x27;,
+            &#x27;gripper_status&#x27;: &#x27;open&#x27;
+        }
+</code></pre>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="api-connection-problems">API Connection Problems</h3>
+<p><strong>Issue</strong>: LLM API calls failing due to connection issues.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check API key validity and permissions</li>
+<li>Verify network connectivity</li>
+<li>Implement retry logic with exponential backoff</li>
+<li>Use local fallback models when cloud services are unavailable</li>
+</ol>
+<h3 id="performance-issues">Performance Issues</h3>
+<p><strong>Issue</strong>: High latency in LLM responses affecting real-time interaction.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Use smaller, faster models for real-time responses</li>
+<li>Implement response caching for common queries</li>
+<li>Use streaming responses when supported</li>
+<li>Preload frequently used prompts</li>
+</ol>
+<h3 id="context-window-limitations">Context Window Limitations</h3>
+<p><strong>Issue</strong>: Long conversations exceeding context window limits.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Implement conversation summarization</li>
+<li>Use external memory systems</li>
+<li>Implement sliding window context management</li>
+<li>Compress context when necessary</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="system-design">System Design</h3>
+<ul>
+<li><strong>Modular Architecture</strong>: Keep LLM integration separate for easy replacement</li>
+<li><strong>Fallback Mechanisms</strong>: Provide alternative responses when LLM fails</li>
+<li><strong>Error Handling</strong>: Implement comprehensive error handling and logging</li>
+<li><strong>Performance Monitoring</strong>: Track response times and success rates</li>
+</ul>
+<h3 id="privacy-and-ethics">Privacy and Ethics</h3>
+<ul>
+<li><strong>Data Minimization</strong>: Only send necessary information to LLMs</li>
+<li><strong>Local Processing</strong>: Use local models when privacy is critical</li>
+<li><strong>Consent</strong>: Obtain user consent for LLM interactions</li>
+<li><strong>Transparency</strong>: Inform users when LLMs are being used</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/vla-integration/cognitive-planning">Cognitive Planning</a> to learn how to use LLMs for high-level reasoning and task planning in humanoid robots.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/llm-integration.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/vla-integration/voice-recognition"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Voice Recognition</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/vla-integration/cognitive-planning"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Cognitive Planning</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#llm-fundamentals" class="table-of-contents__link toc-highlight">LLM Fundamentals</a><ul><li><a href="#what-are-large-language-models" class="table-of-contents__link toc-highlight">What are Large Language Models?</a></li><li><a href="#popular-llm-architectures" class="table-of-contents__link toc-highlight">Popular LLM Architectures</a></li></ul></li><li><a href="#llm-integration-approaches" class="table-of-contents__link toc-highlight">LLM Integration Approaches</a><ul><li><a href="#cloud-based-apis" class="table-of-contents__link toc-highlight">Cloud-Based APIs</a></li><li><a href="#local-deployment" class="table-of-contents__link toc-highlight">Local Deployment</a></li></ul></li><li><a href="#ros-2-integration-patterns" class="table-of-contents__link toc-highlight">ROS 2 Integration Patterns</a><ul><li><a href="#llm-service-node" class="table-of-contents__link toc-highlight">LLM Service Node</a></li></ul></li><li><a href="#using-open-source-llms-locally" class="table-of-contents__link toc-highlight">Using Open-Source LLMs Locally</a><ul><li><a href="#ollama-integration" class="table-of-contents__link toc-highlight">Ollama Integration</a></li></ul></li><li><a href="#context-aware-llm-integration" class="table-of-contents__link toc-highlight">Context-Aware LLM Integration</a><ul><li><a href="#environment-context-integration" class="table-of-contents__link toc-highlight">Environment Context Integration</a></li></ul></li><li><a href="#structured-output-for-robot-commands" class="table-of-contents__link toc-highlight">Structured Output for Robot Commands</a><ul><li><a href="#command-extraction-and-validation" class="table-of-contents__link toc-highlight">Command Extraction and Validation</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#caching-and-batching" class="table-of-contents__link toc-highlight">Caching and Batching</a></li></ul></li><li><a href="#safety-and-security-considerations" class="table-of-contents__link toc-highlight">Safety and Security Considerations</a><ul><li><a href="#content-filtering" class="table-of-contents__link toc-highlight">Content Filtering</a></li></ul></li><li><a href="#integration-with-vision-and-action-systems" class="table-of-contents__link toc-highlight">Integration with Vision and Action Systems</a><ul><li><a href="#multi-modal-prompt-engineering" class="table-of-contents__link toc-highlight">Multi-Modal Prompt Engineering</a></li></ul></li><li><a href="#troubleshooting-common-issues" class="table-of-contents__link toc-highlight">Troubleshooting Common Issues</a><ul><li><a href="#api-connection-problems" class="table-of-contents__link toc-highlight">API Connection Problems</a></li><li><a href="#performance-issues" class="table-of-contents__link toc-highlight">Performance Issues</a></li><li><a href="#context-window-limitations" class="table-of-contents__link toc-highlight">Context Window Limitations</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#system-design" class="table-of-contents__link toc-highlight">System Design</a></li><li><a href="#privacy-and-ethics" class="table-of-contents__link toc-highlight">Privacy and Ethics</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

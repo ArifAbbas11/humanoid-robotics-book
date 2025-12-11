@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-vla-integration/mini-project" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Mini-Project: Implementing a VLA System for a Humanoid Robot | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/mini-project"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Mini-Project: Implementing a VLA System for a Humanoid Robot | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/mini-project"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/mini-project" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/mini-project" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a class="navbar__item navbar__link" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="mini-project-implementing-a-vla-system-for-a-humanoid-robot">Mini-Project: Implementing a VLA System for a Humanoid Robot</h1>
+<h2 id="overview">Overview</h2>
+<p>In this mini-project, you&#x27;ll implement a complete Vision-Language-Action (VLA) system for a humanoid robot that can understand natural language commands, perceive objects in its environment, and execute appropriate actions. You&#x27;ll create a system that demonstrates the integration of vision, language, and action components.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Completed previous VLA integration sections</li>
+<li>ROS 2 Humble installed</li>
+<li>Gazebo simulation environment</li>
+<li>Basic understanding of computer vision and natural language processing</li>
+</ul>
+<h2 id="step-1-create-the-robot-model-with-vla-sensors">Step 1: Create the Robot Model with VLA Sensors</h2>
+<p>Create <code>vla_humanoid.urdf.xacro</code>:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;robot xmlns:xacro=&quot;http://www.ros.org/wiki/xacro&quot; name=&quot;vla_humanoid&quot;&gt;
+
+  &lt;!-- Base torso --&gt;
+  &lt;link name=&quot;base_link&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.3 0.2 0.6&quot;/&gt;
+      &lt;/geometry&gt;
+      &lt;material name=&quot;blue&quot;&gt;
+        &lt;color rgba=&quot;0 0 1 0.8&quot;/&gt;
+      &lt;/material&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.3 0.2 0.6&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;50&quot;/&gt;
+      &lt;inertia ixx=&quot;2.5&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;3.5&quot; iyz=&quot;0&quot; izz=&quot;1.5&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;!-- Head with cameras --&gt;
+  &lt;link name=&quot;head&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;sphere radius=&quot;0.1&quot;/&gt;
+      &lt;/geometry&gt;
+      &lt;material name=&quot;white&quot;&gt;
+        &lt;color rgba=&quot;1 1 1 0.8&quot;/&gt;
+      &lt;/material&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;sphere radius=&quot;0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;2&quot;/&gt;
+      &lt;inertia ixx=&quot;0.004&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.004&quot; iyz=&quot;0&quot; izz=&quot;0.004&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;neck_joint&quot; type=&quot;revolute&quot;&gt;
+    &lt;parent link=&quot;base_link&quot;/&gt;
+    &lt;child link=&quot;head&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 0.3&quot; rpy=&quot;0 0 0&quot;/&gt;
+    &lt;axis xyz=&quot;0 1 0&quot;/&gt;
+    &lt;limit lower=&quot;-0.5&quot; upper=&quot;0.5&quot; effort=&quot;100&quot; velocity=&quot;1&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;!-- RGB-D Camera --&gt;
+  &lt;link name=&quot;camera_link&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.05 0.05 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+      &lt;material name=&quot;black&quot;&gt;
+        &lt;color rgba=&quot;0 0 0 0.8&quot;/&gt;
+      &lt;/material&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.05 0.05 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;0.1&quot;/&gt;
+      &lt;inertia ixx=&quot;0.0001&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.0001&quot; iyz=&quot;0&quot; izz=&quot;0.0001&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;camera_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;head&quot;/&gt;
+    &lt;child link=&quot;camera_link&quot;/&gt;
+    &lt;origin xyz=&quot;0.05 0 0&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;!-- Stereo cameras for depth perception --&gt;
+  &lt;link name=&quot;left_camera_link&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.02 0.02 0.02&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.02 0.02 0.02&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;0.05&quot;/&gt;
+      &lt;inertia ixx=&quot;0.00005&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.00005&quot; iyz=&quot;0&quot; izz=&quot;0.00005&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;link name=&quot;right_camera_link&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.02 0.02 0.02&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.02 0.02 0.02&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;0.05&quot;/&gt;
+      &lt;inertia ixx=&quot;0.00005&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.00005&quot; iyz=&quot;0&quot; izz=&quot;0.00005&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_camera_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;head&quot;/&gt;
+    &lt;child link=&quot;left_camera_link&quot;/&gt;
+    &lt;origin xyz=&quot;0.06 0.03 0&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;joint name=&quot;right_camera_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;head&quot;/&gt;
+    &lt;child link=&quot;right_camera_link&quot;/&gt;
+    &lt;origin xyz=&quot;0.06 -0.03 0&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;!-- IMU for balance --&gt;
+  &lt;link name=&quot;imu_link&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.02 0.02 0.02&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.02 0.02 0.02&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;0.05&quot;/&gt;
+      &lt;inertia ixx=&quot;0.000001&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.000001&quot; iyz=&quot;0&quot; izz=&quot;0.000001&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;imu_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;base_link&quot;/&gt;
+    &lt;child link=&quot;imu_link&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 0&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;!-- Left arm --&gt;
+  &lt;link name=&quot;left_shoulder&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;2&quot;/&gt;
+      &lt;inertia ixx=&quot;0.005&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.005&quot; iyz=&quot;0&quot; izz=&quot;0.005&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_shoulder_joint&quot; type=&quot;revolute&quot;&gt;
+    &lt;parent link=&quot;base_link&quot;/&gt;
+    &lt;child link=&quot;left_shoulder&quot;/&gt;
+    &lt;origin xyz=&quot;0.15 0.1 0.1&quot; rpy=&quot;0 0 0&quot;/&gt;
+    &lt;axis xyz=&quot;0 1 0&quot;/&gt;
+    &lt;limit lower=&quot;-1.57&quot; upper=&quot;1.57&quot; effort=&quot;100&quot; velocity=&quot;2&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;left_upper_arm&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.08 0.08 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.08 0.08 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;1.5&quot;/&gt;
+      &lt;inertia ixx=&quot;0.02&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.02&quot; iyz=&quot;0&quot; izz=&quot;0.005&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_elbow_joint&quot; type=&quot;revolute&quot;&gt;
+    &lt;parent link=&quot;left_shoulder&quot;/&gt;
+    &lt;child link=&quot;left_upper_arm&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.15&quot; rpy=&quot;0 0 0&quot;/&gt;
+    &lt;axis xyz=&quot;0 0 1&quot;/&gt;
+    &lt;limit lower=&quot;-2.35&quot; upper=&quot;0&quot; effort=&quot;100&quot; velocity=&quot;2&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;left_forearm&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.06 0.06 0.25&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.06 0.06 0.25&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;1&quot;/&gt;
+      &lt;inertia ixx=&quot;0.01&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.01&quot; iyz=&quot;0&quot; izz=&quot;0.003&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_wrist_joint&quot; type=&quot;revolute&quot;&gt;
+    &lt;parent link=&quot;left_upper_arm&quot;/&gt;
+    &lt;child link=&quot;left_forearm&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.25&quot; rpy=&quot;0 0 0&quot;/&gt;
+    &lt;axis xyz=&quot;0 1 0&quot;/&gt;
+    &lt;limit lower=&quot;-1.57&quot; upper=&quot;1.57&quot; effort=&quot;50&quot; velocity=&quot;2&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;left_hand&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.08 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.08 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;0.3&quot;/&gt;
+      &lt;inertia ixx=&quot;0.001&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.001&quot; iyz=&quot;0&quot; izz=&quot;0.001&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_hand_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;left_forearm&quot;/&gt;
+    &lt;child link=&quot;left_hand&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.05&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;!-- Right arm --&gt;
+  &lt;link name=&quot;right_shoulder&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;2&quot;/&gt;
+      &lt;inertia ixx=&quot;0.005&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.005&quot; iyz=&quot;0&quot; izz=&quot;0.005&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;right_shoulder_joint&quot; type=&quot;revolute&quot;&gt;
+    &lt;parent link=&quot;base_link&quot;/&gt;
+    &lt;child link=&quot;right_shoulder&quot;/&gt;
+    &lt;origin xyz=&quot;0.15 -0.1 0.1&quot; rpy=&quot;0 0 0&quot;/&gt;
+    &lt;axis xyz=&quot;0 1 0&quot;/&gt;
+    &lt;limit lower=&quot;-1.57&quot; upper=&quot;1.57&quot; effort=&quot;100&quot; velocity=&quot;2&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;right_upper_arm&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.08 0.08 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.08 0.08 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;1.5&quot;/&gt;
+      &lt;inertia ixx=&quot;0.02&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.02&quot; iyz=&quot;0&quot; izz=&quot;0.005&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;right_elbow_joint&quot; type=&quot;revolute&quot;&gt;
+    &lt;parent link=&quot;right_shoulder&quot;/&gt;
+    &lt;child link=&quot;right_upper_arm&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.15&quot; rpy=&quot;0 0 0&quot;/&gt;
+    &lt;axis xyz=&quot;0 0 1&quot;/&gt;
+    &lt;limit lower=&quot;-2.35&quot; upper=&quot;0&quot; effort=&quot;100&quot; velocity=&quot;2&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;right_forearm&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.06 0.06 0.25&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.06 0.06 0.25&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;1&quot;/&gt;
+      &lt;inertia ixx=&quot;0.01&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.01&quot; iyz=&quot;0&quot; izz=&quot;0.003&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;right_wrist_joint&quot; type=&quot;revolute&quot;&gt;
+    &lt;parent link=&quot;right_upper_arm&quot;/&gt;
+    &lt;child link=&quot;right_forearm&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.25&quot; rpy=&quot;0 0 0&quot;/&gt;
+    &lt;axis xyz=&quot;0 1 0&quot;/&gt;
+    &lt;limit lower=&quot;-1.57&quot; upper=&quot;1.57&quot; effort=&quot;50&quot; velocity=&quot;2&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;right_hand&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.08 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.08 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;0.3&quot;/&gt;
+      &lt;inertia ixx=&quot;0.001&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.001&quot; iyz=&quot;0&quot; izz=&quot;0.001&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;right_hand_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;right_forearm&quot;/&gt;
+    &lt;child link=&quot;right_hand&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.05&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;!-- Legs for stability --&gt;
+  &lt;link name=&quot;left_hip&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;5&quot;/&gt;
+      &lt;inertia ixx=&quot;0.02&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.02&quot; iyz=&quot;0&quot; izz=&quot;0.02&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_hip_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;base_link&quot;/&gt;
+    &lt;child link=&quot;left_hip&quot;/&gt;
+    &lt;origin xyz=&quot;0 0.1 -0.3&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;left_knee&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;3&quot;/&gt;
+      &lt;inertia ixx=&quot;0.05&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.05&quot; iyz=&quot;0&quot; izz=&quot;0.01&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_knee_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;left_hip&quot;/&gt;
+    &lt;child link=&quot;left_knee&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.2&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;left_ankle&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.2 0.1 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.2 0.1 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;2&quot;/&gt;
+      &lt;inertia ixx=&quot;0.01&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.01&quot; iyz=&quot;0&quot; izz=&quot;0.01&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;left_ankle_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;left_knee&quot;/&gt;
+    &lt;child link=&quot;left_ankle&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.2&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;right_hip&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.1&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;5&quot;/&gt;
+      &lt;inertia ixx=&quot;0.02&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.02&quot; iyz=&quot;0&quot; izz=&quot;0.02&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;right_hip_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;base_link&quot;/&gt;
+    &lt;child link=&quot;right_hip&quot;/&gt;
+    &lt;origin xyz=&quot;0 -0.1 -0.3&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;right_knee&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.1 0.1 0.3&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;3&quot;/&gt;
+      &lt;inertia ixx=&quot;0.05&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.05&quot; iyz=&quot;0&quot; izz=&quot;0.01&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;right_knee_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;right_hip&quot;/&gt;
+    &lt;child link=&quot;right_knee&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.2&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;link name=&quot;right_ankle&quot;&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.2 0.1 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;
+        &lt;box size=&quot;0.2 0.1 0.05&quot;/&gt;
+      &lt;/geometry&gt;
+    &lt;/collision&gt;
+    &lt;inertial&gt;
+      &lt;mass value=&quot;2&quot;/&gt;
+      &lt;inertia ixx=&quot;0.01&quot; ixy=&quot;0&quot; ixz=&quot;0&quot; iyy=&quot;0.01&quot; iyz=&quot;0&quot; izz=&quot;0.01&quot;/&gt;
+    &lt;/inertial&gt;
+  &lt;/link&gt;
+
+  &lt;joint name=&quot;right_ankle_joint&quot; type=&quot;fixed&quot;&gt;
+    &lt;parent link=&quot;right_knee&quot;/&gt;
+    &lt;child link=&quot;right_ankle&quot;/&gt;
+    &lt;origin xyz=&quot;0 0 -0.2&quot; rpy=&quot;0 0 0&quot;/&gt;
+  &lt;/joint&gt;
+
+  &lt;!-- Gazebo plugins --&gt;
+  &lt;gazebo reference=&quot;camera_link&quot;&gt;
+    &lt;sensor type=&quot;camera&quot; name=&quot;rgb_camera&quot;&gt;
+      &lt;update_rate&gt;30.0&lt;/update_rate&gt;
+      &lt;camera name=&quot;head&quot;&gt;
+        &lt;horizontal_fov&gt;1.3962634&lt;/horizontal_fov&gt;
+        &lt;image&gt;
+          &lt;width&gt;640&lt;/width&gt;
+          &lt;height&gt;480&lt;/height&gt;
+          &lt;format&gt;R8G8B8&lt;/format&gt;
+        &lt;/image&gt;
+        &lt;clip&gt;
+          &lt;near&gt;0.02&lt;/near&gt;
+          &lt;far&gt;300&lt;/far&gt;
+        &lt;/clip&gt;
+        &lt;noise&gt;
+          &lt;type&gt;gaussian&lt;/type&gt;
+          &lt;mean&gt;0.0&lt;/mean&gt;
+          &lt;stddev&gt;0.007&lt;/stddev&gt;
+        &lt;/noise&gt;
+      &lt;/camera&gt;
+      &lt;plugin name=&quot;camera_controller&quot; filename=&quot;libgazebo_ros_camera.so&quot;&gt;
+        &lt;frame_name&gt;camera_link&lt;/frame_name&gt;
+        &lt;topic_name&gt;camera/image_raw&lt;/topic_name&gt;
+      &lt;/plugin&gt;
+    &lt;/sensor&gt;
+  &lt;/gazebo&gt;
+
+  &lt;gazebo reference=&quot;left_camera_link&quot;&gt;
+    &lt;sensor type=&quot;camera&quot; name=&quot;left_camera&quot;&gt;
+      &lt;update_rate&gt;30.0&lt;/update_rate&gt;
+      &lt;camera name=&quot;left&quot;&gt;
+        &lt;horizontal_fov&gt;1.3962634&lt;/horizontal_fov&gt;
+        &lt;image&gt;
+          &lt;width&gt;640&lt;/width&gt;
+          &lt;height&gt;480&lt;/height&gt;
+          &lt;format&gt;R8G8B8&lt;/format&gt;
+        &lt;/image&gt;
+        &lt;clip&gt;
+          &lt;near&gt;0.02&lt;/near&gt;
+          &lt;far&gt;300&lt;/far&gt;
+        &lt;/clip&gt;
+      &lt;/camera&gt;
+      &lt;plugin name=&quot;left_camera_controller&quot; filename=&quot;libgazebo_ros_camera.so&quot;&gt;
+        &lt;frame_name&gt;left_camera_link&lt;/frame_name&gt;
+        &lt;topic_name&gt;stereo/left/image_raw&lt;/topic_name&gt;
+      &lt;/plugin&gt;
+    &lt;/sensor&gt;
+  &lt;/gazebo&gt;
+
+  &lt;gazebo reference=&quot;right_camera_link&quot;&gt;
+    &lt;sensor type=&quot;camera&quot; name=&quot;right_camera&quot;&gt;
+      &lt;update_rate&gt;30.0&lt;/update_rate&gt;
+      &lt;camera name=&quot;right&quot;&gt;
+        &lt;horizontal_fov&gt;1.3962634&lt;/horizontal_fov&gt;
+        &lt;image&gt;
+          &lt;width&gt;640&lt;/width&gt;
+          &lt;height&gt;480&lt;/height&gt;
+          &lt;format&gt;R8G8B8&lt;/format&gt;
+        &lt;/image&gt;
+        &lt;clip&gt;
+          &lt;near&gt;0.02&lt;/near&gt;
+          &lt;far&gt;300&lt;/far&gt;
+        &lt;/clip&gt;
+      &lt;/camera&gt;
+      &lt;plugin name=&quot;right_camera_controller&quot; filename=&quot;libgazebo_ros_camera.so&quot;&gt;
+        &lt;frame_name&gt;right_camera_link&lt;/frame_name&gt;
+        &lt;topic_name&gt;stereo/right/image_raw&lt;/topic_name&gt;
+      &lt;/plugin&gt;
+    &lt;/sensor&gt;
+  &lt;/gazebo&gt;
+
+  &lt;gazebo reference=&quot;imu_link&quot;&gt;
+    &lt;sensor type=&quot;imu&quot; name=&quot;imu_sensor&quot;&gt;
+      &lt;always_on&gt;true&lt;/always_on&gt;
+      &lt;update_rate&gt;100&lt;/update_rate&gt;
+      &lt;visualize&gt;false&lt;/visualize&gt;
+      &lt;plugin filename=&quot;libgazebo_ros_imu_sensor.so&quot; name=&quot;imu_plugin&quot;&gt;
+        &lt;topicName&gt;imu&lt;/topicName&gt;
+        &lt;bodyName&gt;base_link&lt;/bodyName&gt;
+        &lt;updateRateHZ&gt;100.0&lt;/updateRateHZ&gt;
+        &lt;gaussianNoise&gt;0.01&lt;/gaussianNoise&gt;
+        &lt;xyzOffset&gt;0 0 0&lt;/xyzOffset&gt;
+        &lt;rpyOffset&gt;0 0 0&lt;/rpyOffset&gt;
+        &lt;frameName&gt;imu_link&lt;/frameName&gt;
+      &lt;/plugin&gt;
+    &lt;/sensor&gt;
+  &lt;/gazebo&gt;
+
+  &lt;!-- Joint state publisher --&gt;
+  &lt;gazebo&gt;
+    &lt;plugin name=&quot;joint_state_publisher&quot; filename=&quot;libgazebo_ros_joint_state_publisher.so&quot;&gt;
+      &lt;update_rate&gt;30&lt;/update_rate&gt;
+      &lt;joint_name&gt;left_shoulder_joint&lt;/joint_name&gt;
+      &lt;joint_name&gt;left_elbow_joint&lt;/joint_name&gt;
+      &lt;joint_name&gt;left_wrist_joint&lt;/joint_name&gt;
+      &lt;joint_name&gt;right_shoulder_joint&lt;/joint_name&gt;
+      &lt;joint_name&gt;right_elbow_joint&lt;/joint_name&gt;
+      &lt;joint_name&gt;right_wrist_joint&lt;/joint_name&gt;
+      &lt;joint_name&gt;neck_joint&lt;/joint_name&gt;
+    &lt;/plugin&gt;
+  &lt;/gazebo&gt;
+
+&lt;/robot&gt;
+</code></pre>
+<h2 id="step-2-create-the-vla-integration-node">Step 2: Create the VLA Integration Node</h2>
+<p>Create <code>vla_integration_node.py</code>:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+from rclpy.action import ActionServer
+from sensor_msgs.msg import Image, CameraInfo
+from std_msgs.msg import String
+from geometry_msgs.msg import Pose, Point
+from cv_bridge import CvBridge
+import cv2
+import numpy as np
+import spacy
+import torch
+from torchvision import transforms
+from transformers import pipeline
+import json
+
+class VLAIntegrationNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;vla_integration_node&#x27;)
+
+        # Initialize CV bridge
+        self.bridge = CvBridge()
+
+        # Initialize NLP model
+        try:
+            self.nlp = spacy.load(&quot;en_core_web_sm&quot;)
+        except OSError:
+            self.get_logger().warn(&quot;spaCy model not found. Install with: python -m spacy download en_core_web_sm&quot;)
+            self.nlp = None
+
+        # Initialize vision model (using a simple detector for this example)
+        self.object_detector = cv2.dnn.readNetFromDarknet(
+            &quot;config/yolo.cfg&quot;,
+            &quot;config/yolo.weights&quot;
+        )  # In practice, you&#x27;d use a proper configuration
+
+        # Publishers and subscribers
+        self.image_sub = self.create_subscription(
+            Image,
+            &#x27;camera/image_raw&#x27;,
+            self.image_callback,
+            10
+        )
+
+        self.command_sub = self.create_subscription(
+            String,
+            &#x27;voice_command&#x27;,
+            self.command_callback,
+            10
+        )
+
+        self.action_pub = self.create_publisher(
+            String,
+            &#x27;robot_action&#x27;,
+            10
+        )
+
+        self.feedback_pub = self.create_publisher(
+            String,
+            &#x27;vla_feedback&#x27;,
+            10
+        )
+
+        # Internal state
+        self.latest_image = None
+        self.detected_objects = []
+        self.current_command = None
+
+        self.get_logger().info(&#x27;VLA Integration Node initialized&#x27;)
+
+    def image_callback(self, msg):
+        &quot;&quot;&quot;Process incoming camera image&quot;&quot;&quot;
+        try:
+            # Convert ROS image to OpenCV
+            cv_image = self.bridge.imgmsg_to_cv2(msg, &quot;bgr8&quot;)
+            self.latest_image = cv_image
+
+            # Process image to detect objects
+            self.detected_objects = self.detect_objects(cv_image)
+
+            # Publish processed results
+            result_msg = String()
+            result_msg.data = f&quot;Detected {len(self.detected_objects)} objects&quot;
+            self.feedback_pub.publish(result_msg)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error processing image: {e}&#x27;)
+
+    def command_callback(self, msg):
+        &quot;&quot;&quot;Process incoming voice command&quot;&quot;&quot;
+        self.current_command = msg.data
+        self.get_logger().info(f&#x27;Received command: {msg.data}&#x27;)
+
+        # Process command with current vision data
+        if self.latest_image is not None:
+            self.process_vla_command(msg.data, self.latest_image)
+
+    def detect_objects(self, image):
+        &quot;&quot;&quot;Detect objects in image using simple method&quot;&quot;&quot;
+        # In a real implementation, you would use a proper object detection model
+        # For this example, we&#x27;ll use a simple color-based detection as placeholder
+        detected = []
+
+        # Convert to HSV for color detection
+        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+        # Define color ranges for simple detection
+        colors = {
+            &#x27;red&#x27;: ([0, 50, 50], [10, 255, 255]),
+            &#x27;blue&#x27;: ([100, 50, 50], [130, 255, 255]),
+            &#x27;green&#x27;: ([40, 50, 50], [80, 255, 255])
+        }
+
+        for color_name, (lower, upper) in colors.items():
+            mask = cv2.inRange(hsv, np.array(lower), np.array(upper))
+            contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+            for contour in contours:
+                if cv2.contourArea(contour) &gt; 1000:  # Filter small contours
+                    x, y, w, h = cv2.boundingRect(contour)
+                    center_x = x + w // 2
+                    center_y = y + h // 2
+
+                    detected.append({
+                        &#x27;name&#x27;: color_name,
+                        &#x27;bbox&#x27;: [x, y, x + w, y + h],
+                        &#x27;center&#x27;: [center_x, center_y],
+                        &#x27;confidence&#x27;: 0.8
+                    })
+
+        return detected
+
+    def parse_command(self, command):
+        &quot;&quot;&quot;Parse natural language command&quot;&quot;&quot;
+        if self.nlp is None:
+            # Simple fallback parsing
+            command_lower = command.lower()
+            parsed = {
+                &#x27;action&#x27;: &#x27;unknown&#x27;,
+                &#x27;object&#x27;: &#x27;unknown&#x27;,
+                &#x27;location&#x27;: &#x27;unknown&#x27;
+            }
+
+            if &#x27;pick&#x27; in command_lower or &#x27;grasp&#x27; in command_lower or &#x27;take&#x27; in command_lower:
+                parsed[&#x27;action&#x27;] = &#x27;grasp&#x27;
+            elif &#x27;put&#x27; in command_lower or &#x27;place&#x27; in command_lower:
+                parsed[&#x27;action&#x27;] = &#x27;place&#x27;
+            elif &#x27;go&#x27; in command_lower or &#x27;move&#x27; in command_lower:
+                parsed[&#x27;action&#x27;] = &#x27;navigate&#x27;
+
+            # Extract object (simplified)
+            for word in command_lower.split():
+                if word in [&#x27;cup&#x27;, &#x27;book&#x27;, &#x27;ball&#x27;, &#x27;red&#x27;, &#x27;blue&#x27;, &#x27;green&#x27;]:
+                    parsed[&#x27;object&#x27;] = word
+                    break
+
+            return parsed
+
+        # Use spaCy for more sophisticated parsing
+        doc = self.nlp(command)
+
+        parsed = {
+            &#x27;action&#x27;: None,
+            &#x27;object&#x27;: None,
+            &#x27;location&#x27;: None
+        }
+
+        # Extract action (verb)
+        for token in doc:
+            if token.pos_ == &quot;VERB&quot;:
+                parsed[&#x27;action&#x27;] = token.lemma_
+                break
+
+        # Extract object
+        for ent in doc.ents:
+            if ent.label_ in [&quot;OBJECT&quot;, &quot;PRODUCT&quot;, &quot;EVENT&quot;]:
+                parsed[&#x27;object&#x27;] = ent.text
+                break
+
+        return parsed
+
+    def match_object(self, command_object, detected_objects):
+        &quot;&quot;&quot;Match command object to detected objects&quot;&quot;&quot;
+        if not detected_objects:
+            return None
+
+        # Simple matching based on color or name
+        for obj in detected_objects:
+            if command_object.lower() in obj[&#x27;name&#x27;].lower():
+                return obj
+
+        # If no exact match, return the first detected object as fallback
+        return detected_objects[0] if detected_objects else None
+
+    def plan_action(self, parsed_command, matched_object):
+        &quot;&quot;&quot;Plan action based on command and detected objects&quot;&quot;&quot;
+        action_plan = {
+            &#x27;action_type&#x27;: parsed_command[&#x27;action&#x27;],
+            &#x27;target_object&#x27;: matched_object,
+            &#x27;success&#x27;: True,
+            &#x27;reasoning&#x27;: []
+        }
+
+        if parsed_command[&#x27;action&#x27;] == &#x27;grasp&#x27;:
+            if matched_object:
+                action_plan[&#x27;reasoning&#x27;].append(f&quot;Found {matched_object[&#x27;name&#x27;]} at {matched_object[&#x27;center&#x27;]}&quot;)
+                action_plan[&#x27;target_pose&#x27;] = self.calculate_grasp_pose(matched_object)
+            else:
+                action_plan[&#x27;success&#x27;] = False
+                action_plan[&#x27;reasoning&#x27;].append(&quot;Target object not found in view&quot;)
+
+        elif parsed_command[&#x27;action&#x27;] == &#x27;navigate&#x27;:
+            # For navigation, we&#x27;d need a map and path planning
+            action_plan[&#x27;reasoning&#x27;].append(&quot;Navigation action planned&quot;)
+
+        elif parsed_command[&#x27;action&#x27;] == &#x27;place&#x27;:
+            action_plan[&#x27;reasoning&#x27;].append(&quot;Placement action planned&quot;)
+
+        return action_plan
+
+    def calculate_grasp_pose(self, object_info):
+        &quot;&quot;&quot;Calculate grasp pose for an object&quot;&quot;&quot;
+        # Convert 2D image coordinates to 3D world coordinates (simplified)
+        # In practice, you&#x27;d use depth information or stereo vision
+        x_2d, y_2d = object_info[&#x27;center&#x27;]
+
+        # Simplified 3D pose calculation
+        pose = Pose()
+        pose.position.x = x_2d / 100.0  # Scale to reasonable units
+        pose.position.y = y_2d / 100.0
+        pose.position.z = 0.5  # Fixed height for this example
+
+        # Default orientation for grasping
+        pose.orientation.w = 1.0  # No rotation
+
+        return pose
+
+    def process_vla_command(self, command, image):
+        &quot;&quot;&quot;Process complete VLA command&quot;&quot;&quot;
+        try:
+            # 1. Parse the language command
+            parsed_command = self.parse_command(command)
+            self.get_logger().info(f&#x27;Parsed command: {parsed_command}&#x27;)
+
+            # 2. Match to detected objects
+            matched_object = self.match_object(parsed_command[&#x27;object&#x27;], self.detected_objects)
+            self.get_logger().info(f&#x27;Matched object: {matched_object}&#x27;)
+
+            # 3. Plan the action
+            action_plan = self.plan_action(parsed_command, matched_object)
+            self.get_logger().info(f&#x27;Action plan: {action_plan}&#x27;)
+
+            # 4. Execute or publish the action
+            if action_plan[&#x27;success&#x27;]:
+                action_msg = String()
+                action_msg.data = json.dumps({
+                    &#x27;action_type&#x27;: action_plan[&#x27;action_type&#x27;],
+                    &#x27;target_object&#x27;: action_plan[&#x27;target_object&#x27;],
+                    &#x27;target_pose&#x27;: {
+                        &#x27;x&#x27;: action_plan.get(&#x27;target_pose&#x27;, {}).position.x if action_plan.get(&#x27;target_pose&#x27;) else 0,
+                        &#x27;y&#x27;: action_plan.get(&#x27;target_pose&#x27;, {}).position.y if action_plan.get(&#x27;target_pose&#x27;) else 0,
+                        &#x27;z&#x27;: action_plan.get(&#x27;target_pose&#x27;, {}).position.z if action_plan.get(&#x27;target_pose&#x27;) else 0
+                    } if action_plan.get(&#x27;target_pose&#x27;) else None
+                })
+                self.action_pub.publish(action_msg)
+
+                feedback_msg = String()
+                feedback_msg.data = f&quot;Executing: {command} - Found {len(self.detected_objects)} objects, matched to {matched_object[&#x27;name&#x27;] if matched_object else &#x27;none&#x27;}&quot;
+                self.feedback_pub.publish(feedback_msg)
+            else:
+                feedback_msg = String()
+                feedback_msg.data = f&quot;Could not execute: {command} - {action_plan[&#x27;reasoning&#x27;]}&quot;
+                self.feedback_pub.publish(feedback_msg)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error processing VLA command: {e}&#x27;)
+            feedback_msg = String()
+            feedback_msg.data = f&quot;Error processing command: {e}&quot;
+            self.feedback_pub.publish(feedback_msg)
+
+def main(args=None):
+    rclpy.init(args=args)
+    vla_node = VLAIntegrationNode()
+
+    try:
+        rclpy.spin(vla_node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        vla_node.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</code></pre>
+<h2 id="step-3-create-supporting-configuration-files">Step 3: Create Supporting Configuration Files</h2>
+<p>Create <code>config/vla_params.yaml</code>:</p>
+<pre><code class="language-yaml">vla_integration_node:
+  ros__parameters:
+    # Vision parameters
+    detection_threshold: 0.5
+    max_detection_objects: 10
+    image_processing_rate: 10.0  # Hz
+
+    # Language parameters
+    language_confidence_threshold: 0.7
+    command_timeout: 30.0  # seconds
+
+    # Action parameters
+    action_execution_timeout: 60.0  # seconds
+    safety_distance: 0.1  # meters
+    max_retries: 3
+
+    # Integration parameters
+    sync_window: 0.1  # seconds
+    uncertainty_threshold: 0.6
+</code></pre>
+<h2 id="step-4-create-the-launch-file">Step 4: Create the Launch File</h2>
+<p>Create <code>launch/vla_demo.launch.py</code>:</p>
+<pre><code class="language-python">from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.conditions import IfCondition
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+def generate_launch_description():
+    ld = LaunchDescription()
+
+    # Launch arguments
+    use_sim_time = LaunchConfiguration(&#x27;use_sim_time&#x27;, default=&#x27;true&#x27;)
+    params_file = LaunchConfiguration(&#x27;params_file&#x27;, default=&#x27;&#x27;)
+
+    ld.add_action(DeclareLaunchArgument(
+        &#x27;use_sim_time&#x27;,
+        default_value=&#x27;true&#x27;,
+        description=&#x27;Use simulation (Gazebo) clock if true&#x27;))
+
+    ld.add_action(DeclareLaunchArgument(
+        &#x27;params_file&#x27;,
+        default_value=PathJoinSubstitution([
+            FindPackageShare(&#x27;my_robot_pkg&#x27;),
+            &#x27;config&#x27;,
+            &#x27;vla_params.yaml&#x27;
+        ]),
+        description=&#x27;Path to parameters file&#x27;))
+
+    # Launch Gazebo
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare(&#x27;gazebo_ros&#x27;),
+                &#x27;launch&#x27;,
+                &#x27;gazebo.launch.py&#x27;
+            ])
+        ]),
+    )
+    ld.add_action(gazebo)
+
+    # Spawn robot in Gazebo
+    spawn_entity = Node(
+        package=&#x27;gazebo_ros&#x27;,
+        executable=&#x27;spawn_entity.py&#x27;,
+        arguments=[
+            &#x27;-topic&#x27;, &#x27;robot_description&#x27;,
+            &#x27;-entity&#x27;, &#x27;vla_humanoid&#x27;,
+            &#x27;-x&#x27;, &#x27;0&#x27;, &#x27;-y&#x27;, &#x27;0&#x27;, &#x27;-z&#x27;, &#x27;0.5&#x27;
+        ],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(spawn_entity)
+
+    # Robot state publisher
+    robot_state_publisher = Node(
+        package=&#x27;robot_state_publisher&#x27;,
+        executable=&#x27;robot_state_publisher&#x27;,
+        name=&#x27;robot_state_publisher&#x27;,
+        output=&#x27;screen&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}]
+    )
+    ld.add_action(robot_state_publisher)
+
+    # Joint state publisher
+    joint_state_publisher = Node(
+        package=&#x27;joint_state_publisher&#x27;,
+        executable=&#x27;joint_state_publisher&#x27;,
+        name=&#x27;joint_state_publisher&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(joint_state_publisher)
+
+    # VLA integration node
+    vla_integration = Node(
+        package=&#x27;my_robot_pkg&#x27;,
+        executable=&#x27;vla_integration_node&#x27;,
+        name=&#x27;vla_integration_node&#x27;,
+        parameters=[
+            {&#x27;use_sim_time&#x27;: use_sim_time},
+            PathJoinSubstitution([
+                FindPackageShare(&#x27;my_robot_pkg&#x27;),
+                &#x27;config&#x27;,
+                &#x27;vla_params.yaml&#x27;
+            ])
+        ],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(vla_integration)
+
+    # Simple voice command simulator (for testing)
+    voice_simulator = Node(
+        package=&#x27;my_robot_pkg&#x27;,
+        executable=&#x27;voice_command_simulator&#x27;,
+        name=&#x27;voice_command_simulator&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(voice_simulator)
+
+    # RViz for visualization
+    rviz_config = PathJoinSubstitution([
+        FindPackageShare(&#x27;my_robot_pkg&#x27;),
+        &#x27;rviz&#x27;,
+        &#x27;vla_demo.rviz&#x27;
+    ])
+    rviz = Node(
+        package=&#x27;rviz2&#x27;,
+        executable=&#x27;rviz2&#x27;,
+        name=&#x27;rviz2&#x27;,
+        arguments=[&#x27;-d&#x27;, rviz_config],
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}]
+    )
+    ld.add_action(rviz)
+
+    return ld
+</code></pre>
+<h2 id="step-5-create-a-simple-voice-command-simulator">Step 5: Create a Simple Voice Command Simulator</h2>
+<p>Create <code>voice_command_simulator.py</code>:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+import time
+
+class VoiceCommandSimulator(Node):
+    def __init__(self):
+        super().__init__(&#x27;voice_command_simulator&#x27;)
+
+        self.command_pub = self.create_publisher(
+            String,
+            &#x27;voice_command&#x27;,
+            10
+        )
+
+        # Timer to send commands periodically
+        self.timer = self.create_timer(10.0, self.send_command)
+        self.command_index = 0
+
+        # Sample commands for demonstration
+        self.commands = [
+            &quot;Pick up the red cup&quot;,
+            &quot;Find the blue ball&quot;,
+            &quot;Move to the kitchen&quot;,
+            &quot;Grasp the green object&quot;,
+            &quot;Put the object on the table&quot;
+        ]
+
+        self.get_logger().info(&#x27;Voice Command Simulator initialized&#x27;)
+
+    def send_command(self):
+        &quot;&quot;&quot;Send a voice command periodically&quot;&quot;&quot;
+        if self.command_index &lt; len(self.commands):
+            command = String()
+            command.data = self.commands[self.command_index]
+            self.command_pub.publish(command)
+            self.get_logger().info(f&#x27;Sent command: {command.data}&#x27;)
+            self.command_index += 1
+        else:
+            # Reset after all commands are sent
+            self.command_index = 0
+
+def main(args=None):
+    rclpy.init(args=args)
+    simulator = VoiceCommandSimulator()
+
+    try:
+        rclpy.spin(simulator)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        simulator.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</code></pre>
+<h2 id="step-6-build-and-run-the-vla-system">Step 6: Build and Run the VLA System</h2>
+<ol>
+<li>Build your ROS 2 package:</li>
+</ol>
+<pre><code class="language-bash">cd ~/ros2_ws
+colcon build --packages-select my_robot_pkg
+source install/setup.bash
+</code></pre>
+<ol start="2">
+<li>Launch the VLA demonstration:</li>
+</ol>
+<pre><code class="language-bash">ros2 launch my_robot_pkg vla_demo.launch.py
+</code></pre>
+<ol start="3">
+<li>In another terminal, you can also manually send commands:</li>
+</ol>
+<pre><code class="language-bash"># Send a voice command
+ros2 topic pub /voice_command std_msgs/String &quot;data: &#x27;Pick up the red cup&#x27;&quot;
+
+# Monitor the robot&#x27;s actions
+ros2 topic echo /robot_action
+
+# Monitor feedback
+ros2 topic echo /vla_feedback
+</code></pre>
+<h2 id="expected-results">Expected Results</h2>
+<ul>
+<li>Robot model appears in Gazebo with appropriate sensors</li>
+<li>Vision system detects colored objects in the environment</li>
+<li>Language system parses natural language commands</li>
+<li>Action system executes appropriate responses based on VLA integration</li>
+<li>Robot successfully demonstrates simple VLA behaviors</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If the VLA system doesn&#x27;t work properly:</p>
+<ol>
+<li>Check that all required ROS 2 packages are installed</li>
+<li>Verify that the robot model is properly configured with sensors</li>
+<li>Ensure vision and language models are correctly loaded</li>
+<li>Check that all topics are properly connected</li>
+<li>Verify TF transforms are properly configured</li>
+</ol>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/vla-integration/troubleshooting">Troubleshooting</a> to learn about common VLA integration issues and solutions.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/mini-project.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#prerequisites" class="table-of-contents__link toc-highlight">Prerequisites</a></li><li><a href="#step-1-create-the-robot-model-with-vla-sensors" class="table-of-contents__link toc-highlight">Step 1: Create the Robot Model with VLA Sensors</a></li><li><a href="#step-2-create-the-vla-integration-node" class="table-of-contents__link toc-highlight">Step 2: Create the VLA Integration Node</a></li><li><a href="#step-3-create-supporting-configuration-files" class="table-of-contents__link toc-highlight">Step 3: Create Supporting Configuration Files</a></li><li><a href="#step-4-create-the-launch-file" class="table-of-contents__link toc-highlight">Step 4: Create the Launch File</a></li><li><a href="#step-5-create-a-simple-voice-command-simulator" class="table-of-contents__link toc-highlight">Step 5: Create a Simple Voice Command Simulator</a></li><li><a href="#step-6-build-and-run-the-vla-system" class="table-of-contents__link toc-highlight">Step 6: Build and Run the VLA System</a></li><li><a href="#expected-results" class="table-of-contents__link toc-highlight">Expected Results</a></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

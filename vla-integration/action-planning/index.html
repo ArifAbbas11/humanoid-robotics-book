@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-vla-integration/action-planning" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Action Planning in VLA Integration | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/action-planning"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Action Planning in VLA Integration | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/action-planning"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/action-planning" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/action-planning" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a class="navbar__item navbar__link" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="action-planning-in-vla-integration">Action Planning in VLA Integration</h1>
+<h2 id="overview">Overview</h2>
+<p>Action planning bridges the gap between language understanding and physical execution in Vision-Language-Action (VLA) systems. It transforms high-level language commands into sequences of executable actions that a humanoid robot can perform while considering environmental constraints, safety requirements, and the robot&#x27;s physical capabilities.</p>
+<h2 id="action-planning-architecture">Action Planning Architecture</h2>
+<h3 id="hierarchical-planning-structure">Hierarchical Planning Structure</h3>
+<p>Action planning typically uses a hierarchical approach:</p>
+<ul>
+<li><strong>Task Planning</strong>: High-level planning of complex behaviors</li>
+<li><strong>Motion Planning</strong>: Path planning for manipulator arms and navigation</li>
+<li><strong>Trajectory Generation</strong>: Creating smooth, executable trajectories</li>
+<li><strong>Control Execution</strong>: Low-level control of robot actuators</li>
+</ul>
+<h3 id="vla-integration-pipeline">VLA Integration Pipeline</h3>
+<p>The action planning pipeline integrates vision and language:</p>
+<ol>
+<li><strong>Command Interpretation</strong>: Understanding the language command</li>
+<li><strong>Environment Perception</strong>: Analyzing the current environment</li>
+<li><strong>Action Selection</strong>: Choosing appropriate actions based on command and environment</li>
+<li><strong>Sequence Planning</strong>: Creating a sequence of actions to achieve the goal</li>
+<li><strong>Execution Monitoring</strong>: Tracking execution and handling failures</li>
+</ol>
+<h2 id="task-planning">Task Planning</h2>
+<h3 id="high-level-task-decomposition">High-Level Task Decomposition</h3>
+<p>Breaking down complex commands into manageable subtasks:</p>
+<pre><code class="language-python">class TaskPlanner:
+    def __init__(self):
+        self.task_library = {
+            &#x27;bring_object&#x27;: self.plan_bring_object,
+            &#x27;clean_surface&#x27;: self.plan_clean_surface,
+            &#x27;set_table&#x27;: self.plan_set_table,
+            &#x27;greet_person&#x27;: self.plan_greet_person
+        }
+
+    def plan_bring_object(self, command):
+        &quot;&quot;&quot;Plan sequence to bring an object to the user&quot;&quot;&quot;
+        # Example: &quot;Bring me the red cup from the kitchen&quot;
+        object_name = command[&#x27;object&#x27;]
+        source_location = command[&#x27;source_location&#x27;]
+        target_location = command[&#x27;target_location&#x27;]  # Usually user location
+
+        return [
+            {&#x27;action&#x27;: &#x27;navigate&#x27;, &#x27;target&#x27;: source_location},
+            {&#x27;action&#x27;: &#x27;locate_object&#x27;, &#x27;object&#x27;: object_name},
+            {&#x27;action&#x27;: &#x27;grasp_object&#x27;, &#x27;object&#x27;: object_name},
+            {&#x27;action&#x27;: &#x27;navigate&#x27;, &#x27;target&#x27;: target_location},
+            {&#x27;action&#x27;: &#x27;place_object&#x27;, &#x27;location&#x27;: target_location}
+        ]
+
+    def plan_clean_surface(self, command):
+        &quot;&quot;&quot;Plan sequence to clean a surface&quot;&quot;&quot;
+        # Example: &quot;Clean the kitchen counter&quot;
+        surface = command[&#x27;surface&#x27;]
+        location = command[&#x27;location&#x27;]
+
+        return [
+            {&#x27;action&#x27;: &#x27;navigate&#x27;, &#x27;target&#x27;: location},
+            {&#x27;action&#x27;: &#x27;identify_surface&#x27;, &#x27;surface&#x27;: surface},
+            {&#x27;action&#x27;: &#x27;plan_cleaning_path&#x27;, &#x27;surface&#x27;: surface},
+            {&#x27;action&#x27;: &#x27;execute_cleaning&#x27;, &#x27;surface&#x27;: surface},
+            {&#x27;action&#x27;: &#x27;verify_cleanliness&#x27;, &#x27;surface&#x27;: surface}
+        ]
+
+    def decompose_task(self, command):
+        &quot;&quot;&quot;Decompose high-level command into subtasks&quot;&quot;&quot;
+        intent = command[&#x27;intent&#x27;]
+        if intent in self.task_library:
+            return self.task_library[intent](command)
+        else:
+            # Fallback to simple action
+            return [{&#x27;action&#x27;: command[&#x27;action&#x27;], &#x27;params&#x27;: command}]
+</code></pre>
+<h3 id="symbolic-planning">Symbolic Planning</h3>
+<p>Using symbolic representations for task planning:</p>
+<ul>
+<li><strong>PDDL (Planning Domain Definition Language)</strong>: Standard language for planning domains</li>
+<li><strong>STRIPS</strong>: Stanford Research Institute Problem Solver</li>
+<li><strong>HTN (Hierarchical Task Networks)</strong>: Hierarchical task decomposition</li>
+<li><strong>Temporal Planning</strong>: Planning with time constraints</li>
+</ul>
+<h3 id="planning-with-uncertainty">Planning with Uncertainty</h3>
+<p>Handling uncertainty in the environment:</p>
+<pre><code class="language-python">class UncertaintyAwarePlanner:
+    def __init__(self):
+        self.belief_state = {}  # Robot&#x27;s belief about the world
+        self.uncertainty_models = {}  # Models of uncertainty sources
+
+    def plan_with_uncertainty(self, goal, initial_state):
+        &quot;&quot;&quot;Plan considering uncertainty in the environment&quot;&quot;&quot;
+        # Use probabilistic planning algorithms
+        # Example: POMDP (Partially Observable Markov Decision Process)
+
+        # Update belief state based on observations
+        self.update_belief_state()
+
+        # Generate plan considering uncertainty
+        plan = self.generate_robust_plan(goal, self.belief_state)
+
+        return plan
+
+    def update_belief_state(self):
+        &quot;&quot;&quot;Update robot&#x27;s belief about the world state&quot;&quot;&quot;
+        # Incorporate new observations
+        # Update probability distributions
+        pass
+
+    def generate_robust_plan(self, goal, belief_state):
+        &quot;&quot;&quot;Generate plan robust to uncertainty&quot;&quot;&quot;
+        # Use techniques like:
+        # - Contingency planning
+        # - Risk-sensitive planning
+        # - Robust optimization
+        pass
+</code></pre>
+<h2 id="motion-planning">Motion Planning</h2>
+<h3 id="navigation-planning">Navigation Planning</h3>
+<p>Planning paths for humanoid locomotion:</p>
+<ul>
+<li><strong>Footstep Planning</strong>: Computing stable foot placements</li>
+<li><strong>Center of Mass Trajectories</strong>: Planning CoM motion for stability</li>
+<li><strong>Dynamic Balance</strong>: Ensuring stability during movement</li>
+<li><strong>Obstacle Avoidance</strong>: Navigating around obstacles</li>
+</ul>
+<h3 id="manipulation-planning">Manipulation Planning</h3>
+<p>Planning arm movements for object interaction:</p>
+<pre><code class="language-python">import numpy as np
+from scipy.spatial import distance
+
+class MotionPlanner:
+    def __init__(self):
+        self.robot_model = None  # Robot kinematic model
+        self.collision_checker = None  # Collision detection
+        self.ik_solver = None  # Inverse kinematics solver
+
+    def plan_manipulation(self, target_pose, current_pose, obstacles):
+        &quot;&quot;&quot;Plan manipulation trajectory to reach target pose&quot;&quot;&quot;
+        # 1. Check if target is reachable
+        if not self.is_reachable(target_pose):
+            raise ValueError(&quot;Target pose is not reachable&quot;)
+
+        # 2. Plan collision-free path
+        path = self.rrt_connect(current_pose, target_pose, obstacles)
+
+        # 3. Smooth the path
+        smoothed_path = self.smooth_path(path)
+
+        return smoothed_path
+
+    def rrt_connect(self, start, goal, obstacles):
+        &quot;&quot;&quot;RRT-Connect algorithm for path planning&quot;&quot;&quot;
+        start_tree = [start]
+        goal_tree = [goal]
+
+        for _ in range(1000):  # Max iterations
+            # Sample random point
+            rand_point = self.sample_configuration_space()
+
+            # Extend start tree toward random point
+            new_node = self.extend_tree(start_tree, rand_point, obstacles)
+            if new_node:
+                # Try to connect to goal tree
+                if self.connect_to_tree(new_node, goal_tree, obstacles):
+                    # Path found
+                    path = self.extract_path(start_tree, goal_tree, new_node)
+                    return path
+
+        return None  # No path found
+
+    def is_reachable(self, target_pose):
+        &quot;&quot;&quot;Check if target pose is within robot&#x27;s workspace&quot;&quot;&quot;
+        # Use robot kinematic model to check reachability
+        joint_limits = self.robot_model.get_joint_limits()
+        workspace = self.robot_model.get_workspace()
+
+        return self.robot_model.is_in_workspace(target_pose)
+
+    def smooth_path(self, path):
+        &quot;&quot;&quot;Smooth the planned path&quot;&quot;&quot;
+        # Apply path smoothing algorithms
+        smoothed_path = []
+        i = 0
+        while i &lt; len(path):
+            j = len(path) - 1
+            while j &gt; i:
+                # Check if direct connection is collision-free
+                if self.is_collision_free(path[i], path[j], path):
+                    smoothed_path.append(path[i])
+                    i = j
+                    break
+                j -= 1
+            if j == i:
+                smoothed_path.append(path[i])
+                i += 1
+
+        return smoothed_path
+</code></pre>
+<h3 id="whole-body-planning">Whole-Body Planning</h3>
+<p>Coordinating multiple parts of the humanoid robot:</p>
+<ul>
+<li><strong>Task Prioritization</strong>: Balancing multiple objectives (balance, manipulation, navigation)</li>
+<li><strong>Null Space Optimization</strong>: Using redundancy for secondary tasks</li>
+<li><strong>Force Control</strong>: Managing contact forces during interaction</li>
+</ul>
+<h2 id="vla-specific-action-planning">VLA-Specific Action Planning</h2>
+<h3 id="vision-guided-action-planning">Vision-Guided Action Planning</h3>
+<p>Using visual information to guide action execution:</p>
+<pre><code class="language-python">class VisionGuidedPlanner:
+    def __init__(self):
+        self.object_detector = None
+        self.pose_estimator = None
+        self.grasp_planner = None
+
+    def plan_grasp_with_vision(self, object_description, visual_features):
+        &quot;&quot;&quot;Plan grasp based on visual information&quot;&quot;&quot;
+        # 1. Detect object in environment
+        detected_objects = self.object_detector.detect(visual_features)
+
+        # 2. Find matching object based on description
+        target_object = self.match_object(
+            detected_objects,
+            object_description
+        )
+
+        if not target_object:
+            return None  # Object not found
+
+        # 3. Estimate object pose
+        object_pose = self.pose_estimator.estimate(
+            target_object,
+            visual_features
+        )
+
+        # 4. Plan appropriate grasp
+        grasp = self.grasp_planner.plan_grasp(
+            object_pose,
+            object_description
+        )
+
+        return {
+            &#x27;action&#x27;: &#x27;grasp_object&#x27;,
+            &#x27;object_pose&#x27;: object_pose,
+            &#x27;grasp_configuration&#x27;: grasp
+        }
+
+    def match_object(self, detected_objects, description):
+        &quot;&quot;&quot;Match detected objects to description&quot;&quot;&quot;
+        for obj in detected_objects:
+            if self.matches_description(obj, description):
+                return obj
+        return None
+
+    def matches_description(self, obj, description):
+        &quot;&quot;&quot;Check if object matches description&quot;&quot;&quot;
+        # Compare object properties (color, shape, size) with description
+        color_match = description.get(&#x27;color&#x27;, &#x27;&#x27;).lower() in obj.get(&#x27;color&#x27;, &#x27;&#x27;).lower()
+        shape_match = description.get(&#x27;shape&#x27;, &#x27;&#x27;).lower() in obj.get(&#x27;shape&#x27;, &#x27;&#x27;).lower()
+        return color_match or shape_match
+</code></pre>
+<h3 id="language-guided-action-planning">Language-Guided Action Planning</h3>
+<p>Incorporating language constraints into action planning:</p>
+<pre><code class="language-python">class LanguageGuidedPlanner:
+    def __init__(self):
+        self.action_templates = {}  # Maps language patterns to actions
+        self.constraint_extractor = None  # Extracts constraints from language
+
+    def plan_with_language_constraints(self, command, environment_state):
+        &quot;&quot;&quot;Plan actions considering language constraints&quot;&quot;&quot;
+        # Extract constraints from command
+        constraints = self.extract_constraints(command)
+
+        # Plan actions that satisfy constraints
+        plan = self.generate_constrained_plan(
+            command[&#x27;action&#x27;],
+            environment_state,
+            constraints
+        )
+
+        return plan
+
+    def extract_constraints(self, command):
+        &quot;&quot;&quot;Extract constraints from language command&quot;&quot;&quot;
+        constraints = {}
+
+        # Extract spatial constraints
+        if &#x27;location&#x27; in command:
+            constraints[&#x27;location&#x27;] = command[&#x27;location&#x27;]
+
+        # Extract temporal constraints
+        if &#x27;speed&#x27; in command:
+            constraints[&#x27;max_speed&#x27;] = command[&#x27;speed&#x27;]
+
+        # Extract safety constraints
+        if &#x27;careful&#x27; in command[&#x27;original_text&#x27;].lower():
+            constraints[&#x27;safety_factor&#x27;] = 2.0
+
+        return constraints
+
+    def generate_constrained_plan(self, action, env_state, constraints):
+        &quot;&quot;&quot;Generate plan considering all constraints&quot;&quot;&quot;
+        # Modify standard planning algorithm to consider constraints
+        base_plan = self.plan_standard_action(action, env_state)
+
+        # Apply constraints to plan
+        constrained_plan = self.apply_constraints(base_plan, constraints)
+
+        return constrained_plan
+</code></pre>
+<h2 id="ros-2-action-integration">ROS 2 Action Integration</h2>
+<h3 id="action-server-implementation">Action Server Implementation</h3>
+<p>Implementing action servers for VLA integration:</p>
+<pre><code class="language-python">import rclpy
+from rclpy.action import ActionServer
+from rclpy.node import Node
+from vla_msgs.action import ExecuteCommand  # Custom action message
+from geometry_msgs.msg import Pose
+from sensor_msgs.msg import JointState
+
+class VLAActionServer(Node):
+    def __init__(self):
+        super().__init__(&#x27;vla_action_server&#x27;)
+
+        # Create action server
+        self._action_server = ActionServer(
+            self,
+            ExecuteCommand,
+            &#x27;execute_vla_command&#x27;,
+            self.execute_callback
+        )
+
+        # Publishers and subscribers
+        self.joint_pub = self.create_publisher(JointState, &#x27;joint_commands&#x27;, 10)
+        self.pose_pub = self.create_publisher(Pose, &#x27;target_pose&#x27;, 10)
+
+        # Initialize planners
+        self.task_planner = TaskPlanner()
+        self.motion_planner = MotionPlanner()
+        self.vision_guided_planner = VisionGuidedPlanner()
+
+    def execute_callback(self, goal_handle):
+        &quot;&quot;&quot;Execute VLA command&quot;&quot;&quot;
+        self.get_logger().info(f&#x27;Executing command: {goal_handle.request.command}&#x27;)
+
+        # Parse command using language understanding
+        parsed_command = self.parse_command(goal_handle.request.command)
+
+        # Plan sequence of actions
+        action_sequence = self.plan_actions(parsed_command)
+
+        # Execute action sequence
+        for i, action in enumerate(action_sequence):
+            if goal_handle.is_cancel_requested:
+                goal_handle.canceled()
+                return ExecuteCommand.Result()
+
+            # Execute individual action
+            success = self.execute_action(action)
+
+            if not success:
+                goal_handle.abort()
+                return ExecuteCommand.Result()
+
+            # Update progress
+            feedback = ExecuteCommand.Feedback()
+            feedback.progress = float(i + 1) / len(action_sequence)
+            feedback.current_action = str(action)
+            goal_handle.publish_feedback(feedback)
+
+        # Return result
+        goal_handle.succeed()
+        result = ExecuteCommand.Result()
+        result.success = True
+        result.message = &quot;Command executed successfully&quot;
+        return result
+
+    def parse_command(self, command_text):
+        &quot;&quot;&quot;Parse natural language command&quot;&quot;&quot;
+        # Use language understanding system to parse command
+        # This would typically call the language understanding node
+        pass
+
+    def plan_actions(self, parsed_command):
+        &quot;&quot;&quot;Plan sequence of actions&quot;&quot;&quot;
+        # Use task planner to decompose command into actions
+        return self.task_planner.decompose_task(parsed_command)
+
+    def execute_action(self, action):
+        &quot;&quot;&quot;Execute individual action&quot;&quot;&quot;
+        action_type = action[&#x27;action&#x27;]
+
+        if action_type == &#x27;navigate&#x27;:
+            return self.execute_navigation(action)
+        elif action_type == &#x27;grasp_object&#x27;:
+            return self.execute_grasp(action)
+        elif action_type == &#x27;place_object&#x27;:
+            return self.execute_placement(action)
+        # Add more action types as needed
+
+        return False
+</code></pre>
+<h2 id="planning-challenges">Planning Challenges</h2>
+<h3 id="real-time-constraints">Real-Time Constraints</h3>
+<p>Meeting timing requirements for natural interaction:</p>
+<ul>
+<li><strong>Planning Frequency</strong>: Generating plans at sufficient frequency</li>
+<li><strong>Replanning</strong>: Adjusting plans as environment changes</li>
+<li><strong>Precomputed Elements</strong>: Precomputing common action sequences</li>
+<li><strong>Approximation Methods</strong>: Using fast approximations when exact solutions are too slow</li>
+</ul>
+<h3 id="safety-considerations">Safety Considerations</h3>
+<p>Ensuring safe action execution:</p>
+<ul>
+<li><strong>Collision Avoidance</strong>: Planning collision-free trajectories</li>
+<li><strong>Dynamic Obstacle Avoidance</strong>: Handling moving obstacles</li>
+<li><strong>Force Limiting</strong>: Controlling interaction forces</li>
+<li><strong>Emergency Stops</strong>: Implementing safety stops</li>
+</ul>
+<h3 id="physical-constraints">Physical Constraints</h3>
+<p>Respecting robot capabilities:</p>
+<ul>
+<li><strong>Joint Limits</strong>: Ensuring planned motions respect joint limits</li>
+<li><strong>Dynamics</strong>: Planning motions within robot&#x27;s dynamic capabilities</li>
+<li><strong>Balance</strong>: Maintaining stability during manipulation</li>
+<li><strong>Workspace</strong>: Staying within reachable workspace</li>
+</ul>
+<h2 id="quality-assessment">Quality Assessment</h2>
+<h3 id="planning-metrics">Planning Metrics</h3>
+<p>Evaluating action planning performance:</p>
+<ul>
+<li><strong>Plan Success Rate</strong>: Percentage of plans that can be executed successfully</li>
+<li><strong>Planning Time</strong>: Time required to generate plans</li>
+<li><strong>Plan Quality</strong>: Optimality and smoothness of generated plans</li>
+<li><strong>Robustness</strong>: Performance under varying conditions</li>
+</ul>
+<h3 id="execution-metrics">Execution Metrics</h3>
+<p>Measuring execution success:</p>
+<ul>
+<li><strong>Task Completion Rate</strong>: Percentage of tasks completed successfully</li>
+<li><strong>Execution Time</strong>: Time to complete tasks</li>
+<li><strong>Safety Violations</strong>: Number of safety-related failures</li>
+<li><strong>Replanning Frequency</strong>: How often plans need adjustment</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="modular-design">Modular Design</h3>
+<p>Creating maintainable action planning systems:</p>
+<ul>
+<li><strong>Separation of Concerns</strong>: Separate task, motion, and control planning</li>
+<li><strong>Interface Design</strong>: Clear interfaces between components</li>
+<li><strong>Configuration</strong>: Make systems configurable for different robots</li>
+<li><strong>Testing</strong>: Comprehensive testing of individual components</li>
+</ul>
+<h3 id="error-handling">Error Handling</h3>
+<p>Robust error handling strategies:</p>
+<ul>
+<li><strong>Graceful Degradation</strong>: Continue operation when parts fail</li>
+<li><strong>Recovery Procedures</strong>: Automated recovery from common failures</li>
+<li><strong>Fallback Plans</strong>: Alternative strategies when primary plan fails</li>
+<li><strong>Human Intervention</strong>: Allow human override when needed</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/vla-integration/integration-challenges">Integration Challenges</a> to learn about challenges in combining vision, language, and action systems.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/action-planning.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#action-planning-architecture" class="table-of-contents__link toc-highlight">Action Planning Architecture</a><ul><li><a href="#hierarchical-planning-structure" class="table-of-contents__link toc-highlight">Hierarchical Planning Structure</a></li><li><a href="#vla-integration-pipeline" class="table-of-contents__link toc-highlight">VLA Integration Pipeline</a></li></ul></li><li><a href="#task-planning" class="table-of-contents__link toc-highlight">Task Planning</a><ul><li><a href="#high-level-task-decomposition" class="table-of-contents__link toc-highlight">High-Level Task Decomposition</a></li><li><a href="#symbolic-planning" class="table-of-contents__link toc-highlight">Symbolic Planning</a></li><li><a href="#planning-with-uncertainty" class="table-of-contents__link toc-highlight">Planning with Uncertainty</a></li></ul></li><li><a href="#motion-planning" class="table-of-contents__link toc-highlight">Motion Planning</a><ul><li><a href="#navigation-planning" class="table-of-contents__link toc-highlight">Navigation Planning</a></li><li><a href="#manipulation-planning" class="table-of-contents__link toc-highlight">Manipulation Planning</a></li><li><a href="#whole-body-planning" class="table-of-contents__link toc-highlight">Whole-Body Planning</a></li></ul></li><li><a href="#vla-specific-action-planning" class="table-of-contents__link toc-highlight">VLA-Specific Action Planning</a><ul><li><a href="#vision-guided-action-planning" class="table-of-contents__link toc-highlight">Vision-Guided Action Planning</a></li><li><a href="#language-guided-action-planning" class="table-of-contents__link toc-highlight">Language-Guided Action Planning</a></li></ul></li><li><a href="#ros-2-action-integration" class="table-of-contents__link toc-highlight">ROS 2 Action Integration</a><ul><li><a href="#action-server-implementation" class="table-of-contents__link toc-highlight">Action Server Implementation</a></li></ul></li><li><a href="#planning-challenges" class="table-of-contents__link toc-highlight">Planning Challenges</a><ul><li><a href="#real-time-constraints" class="table-of-contents__link toc-highlight">Real-Time Constraints</a></li><li><a href="#safety-considerations" class="table-of-contents__link toc-highlight">Safety Considerations</a></li><li><a href="#physical-constraints" class="table-of-contents__link toc-highlight">Physical Constraints</a></li></ul></li><li><a href="#quality-assessment" class="table-of-contents__link toc-highlight">Quality Assessment</a><ul><li><a href="#planning-metrics" class="table-of-contents__link toc-highlight">Planning Metrics</a></li><li><a href="#execution-metrics" class="table-of-contents__link toc-highlight">Execution Metrics</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#modular-design" class="table-of-contents__link toc-highlight">Modular Design</a></li><li><a href="#error-handling" class="table-of-contents__link toc-highlight">Error Handling</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-navigation/vslam" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Visual SLAM (vSLAM) | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/vslam"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Visual SLAM (vSLAM) | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/vslam"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/vslam" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/vslam" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-setup">Isaac Setup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-sim">Isaac Sim</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-ros">Isaac ROS Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/ai-navigation/vslam">Visual SLAM (vSLAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/navigation-planning">Navigation Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/mini-project">Mini-Project: Implementing Navigation for a Humanoid Robot</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/troubleshooting">Troubleshooting AI Navigation for Humanoid Robots</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 3: The AI-Robot Brain (NVIDIA Isaac)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Visual SLAM (vSLAM)</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="visual-slam-vslam">Visual SLAM (vSLAM)</h1>
+<h2 id="overview">Overview</h2>
+<p>Visual SLAM (Simultaneous Localization and Mapping) is a critical technology for humanoid robots that enables them to create maps of their environment while simultaneously determining their position within those maps using visual sensors. This technology is essential for autonomous navigation in unknown environments.</p>
+<h2 id="vslam-fundamentals">vSLAM Fundamentals</h2>
+<h3 id="core-concepts">Core Concepts</h3>
+<p>Visual SLAM combines computer vision and robotics to solve two problems simultaneously:</p>
+<ol>
+<li><strong>Localization</strong>: Determining the robot&#x27;s position and orientation in the environment</li>
+<li><strong>Mapping</strong>: Creating a representation of the environment</li>
+</ol>
+<h3 id="key-components">Key Components</h3>
+<ul>
+<li><strong>Feature Detection</strong>: Identifying distinctive visual features in images</li>
+<li><strong>Feature Tracking</strong>: Following features across multiple frames</li>
+<li><strong>Pose Estimation</strong>: Computing camera/robot motion between frames</li>
+<li><strong>Map Building</strong>: Creating a 3D representation of the environment</li>
+<li><strong>Loop Closure</strong>: Recognizing previously visited locations to correct drift</li>
+</ul>
+<h2 id="vslam-algorithms">vSLAM Algorithms</h2>
+<h3 id="direct-methods">Direct Methods</h3>
+<p>Direct methods work with raw pixel intensities:</p>
+<ul>
+<li><strong>LSD-SLAM</strong>: Large-Scale Direct Monocular SLAM</li>
+<li><strong>DSO</strong>: Direct Sparse Odometry</li>
+<li><strong>ORB-SLAM</strong>: Uses ORB features with direct tracking</li>
+</ul>
+<h3 id="feature-based-methods">Feature-Based Methods</h3>
+<p>Feature-based methods extract and track distinctive features:</p>
+<ul>
+<li><strong>ORB-SLAM2/3</strong>: State-of-the-art feature-based SLAM</li>
+<li><strong>LSD-SLAM</strong>: Semi-direct approach combining direct and feature-based methods</li>
+<li><strong>SVO</strong>: Semi-Direct Visual Odometry</li>
+</ul>
+<h3 id="deep-learning-approaches">Deep Learning Approaches</h3>
+<p>Modern approaches using neural networks:</p>
+<ul>
+<li><strong>DeepVO</strong>: Deep learning-based visual odometry</li>
+<li><strong>CodeSLAM</strong>: Learning a compact representation for SLAM</li>
+<li><strong>ORB-SLAM3</strong>: Supports multiple map types and deep learning integration</li>
+</ul>
+<h2 id="vslam-for-humanoid-robots">vSLAM for Humanoid Robots</h2>
+<h3 id="unique-challenges">Unique Challenges</h3>
+<p>Humanoid robots face specific challenges in vSLAM:</p>
+<ul>
+<li><strong>Dynamic Motion</strong>: Head movement during walking affects visual input</li>
+<li><strong>Sensor Placement</strong>: Cameras mounted on moving body parts</li>
+<li><strong>Balance Constraints</strong>: Limited computational resources due to balance requirements</li>
+<li><strong>Multi-Modal Integration</strong>: Need to integrate with other sensors (IMU, LIDAR)</li>
+</ul>
+<h3 id="advantages-for-humanoids">Advantages for Humanoids</h3>
+<ul>
+<li><strong>Rich Information</strong>: Cameras provide detailed visual information</li>
+<li><strong>Human-like Perception</strong>: Similar to human visual system</li>
+<li><strong>Cost-Effective</strong>: Cameras are relatively inexpensive</li>
+<li><strong>Lightweight</strong>: Cameras are lightweight sensors</li>
+</ul>
+<h2 id="implementation-with-isaac-ros">Implementation with Isaac ROS</h2>
+<h3 id="isaac-ros-visual-slam">Isaac ROS Visual SLAM</h3>
+<p>NVIDIA&#x27;s Isaac ROS provides GPU-accelerated visual SLAM:</p>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image, Imu
+from geometry_msgs.msg import PoseStamped
+from nav_msgs.msg import Odometry
+import cv2
+import numpy as np
+
+class VisualSLAMNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;visual_slam_node&#x27;)
+
+        # Subscribers for stereo camera and IMU
+        self.left_image_sub = self.create_subscription(
+            Image,
+            &#x27;/camera/left/image_rect_color&#x27;,
+            self.left_image_callback,
+            10
+        )
+        self.right_image_sub = self.create_subscription(
+            Image,
+            &#x27;/camera/right/image_rect_color&#x27;,
+            self.right_image_callback,
+            10
+        )
+        self.imu_sub = self.create_subscription(
+            Imu,
+            &#x27;/imu/data&#x27;,
+            self.imu_callback,
+            10
+        )
+
+        # Publishers for pose and map
+        self.pose_pub = self.create_publisher(
+            PoseStamped,
+            &#x27;/visual_slam/pose&#x27;,
+            10
+        )
+        self.odom_pub = self.create_publisher(
+            Odometry,
+            &#x27;/visual_slam/odometry&#x27;,
+            10
+        )
+
+        # Internal state
+        self.left_image = None
+        self.right_image = None
+        self.imu_data = None
+        self.previous_pose = None
+        self.map_points = []
+
+    def left_image_callback(self, msg):
+        &quot;&quot;&quot;Process left camera image&quot;&quot;&quot;
+        self.left_image = self.ros_image_to_cv2(msg)
+        if self.right_image is not None:
+            self.process_stereo_pair()
+
+    def right_image_callback(self, msg):
+        &quot;&quot;&quot;Process right camera image&quot;&quot;&quot;
+        self.right_image = self.ros_image_to_cv2(msg)
+        if self.left_image is not None:
+            self.process_stereo_pair()
+
+    def imu_callback(self, msg):
+        &quot;&quot;&quot;Process IMU data&quot;&quot;&quot;
+        self.imu_data = msg
+
+    def process_stereo_pair(self):
+        &quot;&quot;&quot;Process stereo images for SLAM&quot;&quot;&quot;
+        # This would use Isaac ROS visual SLAM backend
+        # In practice, this integrates with Isaac ROS GPU-accelerated algorithms
+        try:
+            # Perform stereo matching and pose estimation
+            current_pose = self.estimate_pose_with_isaac_ros()
+
+            if current_pose is not None:
+                # Publish pose
+                pose_msg = self.create_pose_message(current_pose)
+                self.pose_pub.publish(pose_msg)
+
+                # Publish odometry
+                odom_msg = self.create_odom_message(current_pose)
+                self.odom_pub.publish(odom_msg)
+
+                self.previous_pose = current_pose
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error in stereo processing: {e}&#x27;)
+
+    def estimate_pose_with_isaac_ros(self):
+        &quot;&quot;&quot;Estimate pose using Isaac ROS backend&quot;&quot;&quot;
+        # This would call Isaac ROS visual SLAM algorithms
+        # which leverage GPU acceleration for performance
+        return None  # Placeholder for actual Isaac ROS integration
+
+    def ros_image_to_cv2(self, ros_image):
+        &quot;&quot;&quot;Convert ROS image to OpenCV format&quot;&quot;&quot;
+        # Implementation would handle the conversion
+        pass
+
+    def create_pose_message(self, pose):
+        &quot;&quot;&quot;Create PoseStamped message from pose data&quot;&quot;&quot;
+        pose_msg = PoseStamped()
+        pose_msg.header.stamp = self.get_clock().now().to_msg()
+        pose_msg.header.frame_id = &quot;map&quot;
+        # Set pose data
+        return pose_msg
+
+    def create_odom_message(self, pose):
+        &quot;&quot;&quot;Create Odometry message from pose data&quot;&quot;&quot;
+        odom_msg = Odometry()
+        odom_msg.header.stamp = self.get_clock().now().to_msg()
+        odom_msg.header.frame_id = &quot;map&quot;
+        odom_msg.child_frame_id = &quot;base_link&quot;
+        # Set pose and twist data
+        return odom_msg
+</code></pre>
+<h2 id="feature-detection-and-tracking">Feature Detection and Tracking</h2>
+<h3 id="orb-features">ORB Features</h3>
+<p>Oriented FAST and Rotated BRIEF features are commonly used:</p>
+<pre><code class="language-python">class FeatureDetector:
+    def __init__(self):
+        # ORB detector with GPU acceleration
+        self.orb = cv2.ORB_create(
+            nfeatures=2000,
+            scaleFactor=1.2,
+            nlevels=8,
+            edgeThreshold=31,
+            patchSize=31
+        )
+
+    def detect_features(self, image):
+        &quot;&quot;&quot;Detect ORB features in image&quot;&quot;&quot;
+        keypoints, descriptors = self.orb.detectAndCompute(image, None)
+        return keypoints, descriptors
+
+    def match_features(self, desc1, desc2):
+        &quot;&quot;&quot;Match features between two images&quot;&quot;&quot;
+        # Use FLANN matcher for GPU acceleration
+        FLANN_INDEX_LSH = 6
+        index_params = dict(algorithm=FLANN_INDEX_LSH, table_number=6, key_size=12, multi_probe_level=1)
+        search_params = dict(checks=50)
+
+        flann = cv2.FlannBasedMatcher(index_params, search_params)
+        matches = flann.match(desc1, desc2)
+        return matches
+</code></pre>
+<h3 id="feature-tracking-pipeline">Feature Tracking Pipeline</h3>
+<pre><code class="language-python">class FeatureTracker:
+    def __init__(self):
+        self.feature_detector = FeatureDetector()
+        self.tracked_features = {}
+        self.feature_id_counter = 0
+
+    def track_features(self, current_image, previous_image):
+        &quot;&quot;&quot;Track features between current and previous images&quot;&quot;&quot;
+        # Detect features in current image
+        curr_kp, curr_desc = self.feature_detector.detect_features(current_image)
+
+        # Match with previous features if available
+        if hasattr(self, &#x27;prev_desc&#x27;) and self.prev_desc is not None:
+            matches = self.feature_detector.match_features(self.prev_desc, curr_desc)
+
+            # Filter good matches
+            good_matches = [m for m in matches if m.distance &lt; 50]
+
+            # Update tracked features
+            self.update_tracked_features(good_matches, curr_kp)
+
+        # Store current descriptors for next iteration
+        self.prev_desc = curr_desc
+        self.prev_kp = curr_kp
+
+    def update_tracked_features(self, matches, current_keypoints):
+        &quot;&quot;&quot;Update tracked feature positions&quot;&quot;&quot;
+        for match in matches:
+            prev_idx = match.queryIdx
+            curr_idx = match.trainIdx
+
+            # Update feature position in tracking
+            # This maintains feature correspondences across frames
+            pass
+</code></pre>
+<h2 id="pose-estimation">Pose Estimation</h2>
+<h3 id="essential-matrix">Essential Matrix</h3>
+<p>For stereo cameras, use the essential matrix to estimate motion:</p>
+<pre><code class="language-python">class PoseEstimator:
+    def estimate_stereo_pose(self, left_points, right_points, K):
+        &quot;&quot;&quot;Estimate pose using stereo point correspondences&quot;&quot;&quot;
+        # Compute essential matrix
+        E, mask = cv2.findEssentialMat(
+            left_points, right_points, K,
+            method=cv2.RANSAC, prob=0.999, threshold=1.0
+        )
+
+        # Decompose essential matrix
+        if E is not None:
+            _, R, t, mask = cv2.recoverPose(E, left_points, right_points, K)
+            return R, t
+        return None, None
+
+    def triangulate_points(self, R, t, left_points, right_points, K):
+        &quot;&quot;&quot;Triangulate 3D points from stereo correspondences&quot;&quot;&quot;
+        # Create projection matrices
+        P1 = K @ np.eye(3, 4)
+        P2 = K @ np.hstack((R, t))
+
+        # Triangulate points
+        points_4d = cv2.triangulatePoints(P1, P2, left_points.T, right_points.T)
+        points_3d = points_4d[:3] / points_4d[3]
+
+        return points_3d.T
+</code></pre>
+<h2 id="map-building-and-optimization">Map Building and Optimization</h2>
+<h3 id="bundle-adjustment">Bundle Adjustment</h3>
+<p>Optimize camera poses and 3D points simultaneously:</p>
+<pre><code class="language-python">class MapOptimizer:
+    def __init__(self):
+        self.keyframes = []
+        self.map_points = []
+
+    def bundle_adjustment(self):
+        &quot;&quot;&quot;Perform bundle adjustment to optimize map&quot;&quot;&quot;
+        # This would use optimization libraries like Ceres or GTSAM
+        # In practice, Isaac ROS provides optimized implementations
+
+        # Pseudocode for bundle adjustment:
+        # 1. Collect all keyframes and their observations
+        # 2. Set up optimization problem
+        # 3. Optimize camera poses and 3D points
+        # 4. Update map with optimized values
+        pass
+
+    def add_keyframe(self, pose, features):
+        &quot;&quot;&quot;Add keyframe to map&quot;&quot;&quot;
+        keyframe = {
+            &#x27;pose&#x27;: pose,
+            &#x27;features&#x27;: features,
+            &#x27;timestamp&#x27;: self.get_clock().now().to_msg()
+        }
+        self.keyframes.append(keyframe)
+
+    def loop_closure_detection(self):
+        &quot;&quot;&quot;Detect loop closures to correct drift&quot;&quot;&quot;
+        # Use bag-of-words approach or deep learning
+        # Compare current features with historical features
+        pass
+</code></pre>
+<h2 id="multi-sensor-fusion">Multi-Sensor Fusion</h2>
+<h3 id="integration-with-imu">Integration with IMU</h3>
+<p>Combine visual and inertial measurements:</p>
+<pre><code class="language-python">class VisualInertialFusion:
+    def __init__(self):
+        self.visual_odometry = None
+        self.imu_integrator = None
+        self.ekf_filter = None  # Extended Kalman Filter
+
+    def fuse_visual_imu(self, image_data, imu_data):
+        &quot;&quot;&quot;Fuse visual and IMU data for robust pose estimation&quot;&quot;&quot;
+        # Visual odometry provides position and orientation
+        visual_pose = self.compute_visual_pose(image_data)
+
+        # IMU provides acceleration and angular velocity
+        imu_prediction = self.integrate_imu(imu_data)
+
+        # Fuse using EKF or other filtering approach
+        fused_pose = self.ekf_filter.update(visual_pose, imu_prediction)
+
+        return fused_pose
+
+    def compute_visual_pose(self, image_data):
+        &quot;&quot;&quot;Compute pose from visual data&quot;&quot;&quot;
+        # Use visual SLAM algorithms
+        pass
+
+    def integrate_imu(self, imu_data):
+        &quot;&quot;&quot;Integrate IMU measurements&quot;&quot;&quot;
+        # Numerical integration of acceleration and angular velocity
+        pass
+</code></pre>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<h3 id="real-time-processing">Real-Time Processing</h3>
+<p>Optimize for real-time performance:</p>
+<ul>
+<li><strong>Multi-threading</strong>: Separate feature detection, tracking, and optimization</li>
+<li><strong>Keyframe Selection</strong>: Process only keyframes to reduce computation</li>
+<li><strong>Feature Management</strong>: Maintain optimal number of features</li>
+<li><strong>GPU Acceleration</strong>: Use GPU for computationally intensive tasks</li>
+</ul>
+<h3 id="computational-efficiency">Computational Efficiency</h3>
+<pre><code class="language-python">class EfficientSLAM:
+    def __init__(self):
+        self.processing_rate = 30  # Hz
+        self.max_features = 1000
+        self.keyframe_threshold = 0.1  # meters
+
+    def should_process_frame(self, current_pose, previous_keyframe_pose):
+        &quot;&quot;&quot;Determine if current frame should be processed&quot;&quot;&quot;
+        # Check if enough motion has occurred
+        translation = np.linalg.norm(
+            current_pose[:3, 3] - previous_keyframe_pose[:3, 3]
+        )
+        return translation &gt; self.keyframe_threshold
+
+    def manage_features(self, features):
+        &quot;&quot;&quot;Manage feature count for efficiency&quot;&quot;&quot;
+        if len(features) &gt; self.max_features:
+            # Remove oldest or least stable features
+            features = features[:self.max_features]
+        elif len(features) &lt; self.max_features // 2:
+            # Add more features if needed
+            pass
+        return features
+</code></pre>
+<h2 id="troubleshooting-vslam">Troubleshooting vSLAM</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><strong>Issue</strong>: Drift in pose estimation over time.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Implement loop closure detection</li>
+<li>Use IMU integration for drift correction</li>
+<li>Increase keyframe frequency</li>
+<li>Improve feature tracking quality</li>
+</ol>
+<p><strong>Issue</strong>: Poor performance in textureless environments.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Use direct methods that work with intensity gradients</li>
+<li>Combine with other sensors (LIDAR, depth cameras)</li>
+<li>Use semantic features instead of geometric features</li>
+<li>Implement active illumination if possible</li>
+</ol>
+<p><strong>Issue</strong>: High computational requirements.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Use GPU acceleration (Isaac ROS)</li>
+<li>Optimize feature count and processing frequency</li>
+<li>Use more efficient algorithms</li>
+<li>Implement multi-resolution processing</li>
+</ol>
+<h3 id="quality-assessment">Quality Assessment</h3>
+<p>Monitor vSLAM quality metrics:</p>
+<ul>
+<li><strong>Feature Tracking Quality</strong>: Number of successfully tracked features</li>
+<li><strong>Pose Consistency</strong>: Consistency of pose estimates over time</li>
+<li><strong>Map Completeness</strong>: Coverage and accuracy of the map</li>
+<li><strong>Computational Performance</strong>: Processing time and resource usage</li>
+</ul>
+<h2 id="integration-with-navigation">Integration with Navigation</h2>
+<h3 id="using-vslam-for-navigation">Using vSLAM for Navigation</h3>
+<pre><code class="language-python">class NavigationWithSLAM:
+    def __init__(self):
+        self.slam_pose = None
+        self.local_map = None
+        self.global_map = None
+
+    def update_navigation(self, slam_pose, local_map):
+        &quot;&quot;&quot;Update navigation system with SLAM data&quot;&quot;&quot;
+        self.slam_pose = slam_pose
+
+        # Update local costmap with SLAM map
+        self.update_local_costmap(local_map)
+
+        # Plan path using current pose and map
+        if self.should_replan():
+            self.replan_path()
+
+    def update_local_costmap(self, slam_map):
+        &quot;&quot;&quot;Update local costmap with SLAM-generated map&quot;&quot;&quot;
+        # Convert SLAM map to navigation costmap format
+        # This integrates visual information into navigation planning
+        pass
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="system-design">System Design</h3>
+<ul>
+<li><strong>Modular Architecture</strong>: Separate SLAM components for maintainability</li>
+<li><strong>Parameter Tuning</strong>: Adjust parameters based on environment characteristics</li>
+<li><strong>Robust Initialization</strong>: Ensure proper initialization before SLAM starts</li>
+<li><strong>Failure Recovery</strong>: Implement graceful degradation when SLAM fails</li>
+</ul>
+<h3 id="testing-and-validation">Testing and Validation</h3>
+<ul>
+<li><strong>Simulation Testing</strong>: Extensive testing in simulation before real-world deployment</li>
+<li><strong>Benchmarking</strong>: Use standard datasets and metrics for evaluation</li>
+<li><strong>Real-world Validation</strong>: Test in diverse environments</li>
+<li><strong>Performance Monitoring</strong>: Continuous monitoring during operation</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/ai-navigation/navigation-planning">Navigation Planning</a> to learn about advanced path planning techniques for humanoid robots using AI.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/vslam.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/ai-navigation/isaac-ros"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Isaac ROS Integration</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/ai-navigation/navigation-planning"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Navigation Planning</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#vslam-fundamentals" class="table-of-contents__link toc-highlight">vSLAM Fundamentals</a><ul><li><a href="#core-concepts" class="table-of-contents__link toc-highlight">Core Concepts</a></li><li><a href="#key-components" class="table-of-contents__link toc-highlight">Key Components</a></li></ul></li><li><a href="#vslam-algorithms" class="table-of-contents__link toc-highlight">vSLAM Algorithms</a><ul><li><a href="#direct-methods" class="table-of-contents__link toc-highlight">Direct Methods</a></li><li><a href="#feature-based-methods" class="table-of-contents__link toc-highlight">Feature-Based Methods</a></li><li><a href="#deep-learning-approaches" class="table-of-contents__link toc-highlight">Deep Learning Approaches</a></li></ul></li><li><a href="#vslam-for-humanoid-robots" class="table-of-contents__link toc-highlight">vSLAM for Humanoid Robots</a><ul><li><a href="#unique-challenges" class="table-of-contents__link toc-highlight">Unique Challenges</a></li><li><a href="#advantages-for-humanoids" class="table-of-contents__link toc-highlight">Advantages for Humanoids</a></li></ul></li><li><a href="#implementation-with-isaac-ros" class="table-of-contents__link toc-highlight">Implementation with Isaac ROS</a><ul><li><a href="#isaac-ros-visual-slam" class="table-of-contents__link toc-highlight">Isaac ROS Visual SLAM</a></li></ul></li><li><a href="#feature-detection-and-tracking" class="table-of-contents__link toc-highlight">Feature Detection and Tracking</a><ul><li><a href="#orb-features" class="table-of-contents__link toc-highlight">ORB Features</a></li><li><a href="#feature-tracking-pipeline" class="table-of-contents__link toc-highlight">Feature Tracking Pipeline</a></li></ul></li><li><a href="#pose-estimation" class="table-of-contents__link toc-highlight">Pose Estimation</a><ul><li><a href="#essential-matrix" class="table-of-contents__link toc-highlight">Essential Matrix</a></li></ul></li><li><a href="#map-building-and-optimization" class="table-of-contents__link toc-highlight">Map Building and Optimization</a><ul><li><a href="#bundle-adjustment" class="table-of-contents__link toc-highlight">Bundle Adjustment</a></li></ul></li><li><a href="#multi-sensor-fusion" class="table-of-contents__link toc-highlight">Multi-Sensor Fusion</a><ul><li><a href="#integration-with-imu" class="table-of-contents__link toc-highlight">Integration with IMU</a></li></ul></li><li><a href="#performance-considerations" class="table-of-contents__link toc-highlight">Performance Considerations</a><ul><li><a href="#real-time-processing" class="table-of-contents__link toc-highlight">Real-Time Processing</a></li><li><a href="#computational-efficiency" class="table-of-contents__link toc-highlight">Computational Efficiency</a></li></ul></li><li><a href="#troubleshooting-vslam" class="table-of-contents__link toc-highlight">Troubleshooting vSLAM</a><ul><li><a href="#common-issues" class="table-of-contents__link toc-highlight">Common Issues</a></li><li><a href="#quality-assessment" class="table-of-contents__link toc-highlight">Quality Assessment</a></li></ul></li><li><a href="#integration-with-navigation" class="table-of-contents__link toc-highlight">Integration with Navigation</a><ul><li><a href="#using-vslam-for-navigation" class="table-of-contents__link toc-highlight">Using vSLAM for Navigation</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#system-design" class="table-of-contents__link toc-highlight">System Design</a></li><li><a href="#testing-and-validation" class="table-of-contents__link toc-highlight">Testing and Validation</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

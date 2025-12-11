@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-navigation/localization" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Localization for Humanoid Robots | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/localization"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Localization for Humanoid Robots | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/localization"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/localization" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/localization" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a class="navbar__item navbar__link" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="localization-for-humanoid-robots">Localization for Humanoid Robots</h1>
+<h2 id="overview">Overview</h2>
+<p>Localization is the process of determining a robot&#x27;s position and orientation within an environment. For humanoid robots, localization presents unique challenges due to the dynamic nature of bipedal locomotion, sensor placement on a moving platform, and the need to maintain balance while navigating.</p>
+<h2 id="localization-challenges-in-humanoid-robots">Localization Challenges in Humanoid Robots</h2>
+<h3 id="sensor-movement-and-vibration">Sensor Movement and Vibration</h3>
+<p>Humanoid robots have sensors mounted on a dynamically moving platform:</p>
+<ul>
+<li><strong>Occlusions</strong>: Body parts may temporarily block sensor views during walking</li>
+<li><strong>Vibration</strong>: Mechanical vibrations from actuators affect sensor accuracy</li>
+<li><strong>Motion Blur</strong>: Moving sensors can cause blurred images and distorted measurements</li>
+<li><strong>Sensor Position Changes</strong>: Joint movements change sensor positions relative to the world</li>
+</ul>
+<h3 id="dynamic-balance-effects">Dynamic Balance Effects</h3>
+<p>The robot&#x27;s balance state affects localization:</p>
+<ul>
+<li><strong>Tilted Sensors</strong>: When the robot leans, sensors may not be level</li>
+<li><strong>Changing Height</strong>: Robot height changes during walking cycles</li>
+<li><strong>Swing Phase Errors</strong>: During leg swing, the robot&#x27;s center of mass shifts</li>
+</ul>
+<h2 id="localization-approaches">Localization Approaches</h2>
+<h3 id="particle-filter-monte-carlo-localization">Particle Filter (Monte Carlo Localization)</h3>
+<p>Particle filters are well-suited for humanoid robots due to their ability to handle uncertainty:</p>
+<pre><code class="language-python">import numpy as np
+from scipy.stats import norm
+
+class HumanoidParticleFilter:
+    def __init__(self, num_particles=1000):
+        self.particles = np.random.uniform(-10, 10, (num_particles, 3))  # x, y, theta
+        self.weights = np.ones(num_particles) / num_particles
+
+    def predict(self, control_input, dt):
+        &quot;&quot;&quot;Predict particle motion based on control input&quot;&quot;&quot;
+        # Add motion model with humanoid-specific dynamics
+        for i in range(len(self.particles)):
+            # Apply control with noise
+            self.particles[i, 0] += control_input[&#x27;vx&#x27;] * dt + np.random.normal(0, 0.05)
+            self.particles[i, 1] += control_input[&#x27;vy&#x27;] * dt + np.random.normal(0, 0.05)
+            self.particles[i, 2] += control_input[&#x27;omega&#x27;] * dt + np.random.normal(0, 0.01)
+
+    def update(self, observation, map_data):
+        &quot;&quot;&quot;Update particle weights based on sensor observation&quot;&quot;&quot;
+        for i in range(len(self.particles)):
+            predicted_obs = self.predict_sensor_reading(self.particles[i], map_data)
+            # Calculate likelihood of observation given prediction
+            likelihood = self.calculate_likelihood(observation, predicted_obs)
+            self.weights[i] *= likelihood
+
+    def resample(self):
+        &quot;&quot;&quot;Resample particles based on weights&quot;&quot;&quot;
+        indices = np.random.choice(len(self.particles), size=len(self.particles), p=self.weights)
+        self.particles = self.particles[indices]
+        self.weights.fill(1.0 / len(self.weights))
+</code></pre>
+<h3 id="extended-kalman-filter-ekf">Extended Kalman Filter (EKF)</h3>
+<p>EKF is effective for humanoid localization when the system can be linearized:</p>
+<ul>
+<li><strong>State Vector</strong>: Position, orientation, and possibly velocities</li>
+<li><strong>Process Model</strong>: Humanoid kinematic model</li>
+<li><strong>Measurement Model</strong>: Sensor observations (landmarks, IMU, etc.)</li>
+</ul>
+<h3 id="visual-inertial-odometry-vio">Visual-Inertial Odometry (VIO)</h3>
+<p>Combines visual and inertial measurements:</p>
+<ul>
+<li><strong>Camera</strong>: Provides visual features for tracking</li>
+<li><strong>IMU</strong>: Provides acceleration and angular velocity</li>
+<li><strong>Sensor Fusion</strong>: Combines measurements for robust localization</li>
+</ul>
+<h2 id="sensor-integration-for-localization">Sensor Integration for Localization</h2>
+<h3 id="imu-integration">IMU Integration</h3>
+<p>Inertial Measurement Units provide crucial localization data:</p>
+<ul>
+<li><strong>Orientation</strong>: Provides heading information</li>
+<li><strong>Acceleration</strong>: Helps estimate position changes</li>
+<li><strong>Bias Estimation</strong>: Correcting for sensor drift over time</li>
+</ul>
+<h3 id="lidar-based-localization">LIDAR-Based Localization</h3>
+<p>LIDAR sensors provide accurate range measurements:</p>
+<ul>
+<li><strong>Scan Matching</strong>: Aligning current scan with map</li>
+<li><strong>Feature Extraction</strong>: Identifying distinctive landmarks</li>
+<li><strong>Loop Closure</strong>: Detecting revisited locations</li>
+</ul>
+<h3 id="vision-based-localization">Vision-Based Localization</h3>
+<p>Camera sensors enable visual localization:</p>
+<ul>
+<li><strong>Visual Odometry</strong>: Tracking visual features over time</li>
+<li><strong>SLAM</strong>: Simultaneous localization and mapping</li>
+<li><strong>Landmark Recognition</strong>: Identifying known objects or markers</li>
+</ul>
+<h3 id="multi-sensor-fusion">Multi-Sensor Fusion</h3>
+<p>Combining multiple sensors for robust localization:</p>
+<pre><code class="language-python">class MultiSensorFusion:
+    def __init__(self):
+        self.imu_data = None
+        self.lidar_data = None
+        self.camera_data = None
+        self.odometry_data = None
+
+    def fuse_sensors(self):
+        &quot;&quot;&quot;Fuse data from multiple sensors for improved localization&quot;&quot;&quot;
+        # Weighted combination of sensor data
+        # Higher weight to more reliable sensors
+        position_estimate = (
+            0.3 * self.imu_position +
+            0.4 * self.lidar_position +
+            0.2 * self.camera_position +
+            0.1 * self.odometry_position
+        )
+        return position_estimate
+</code></pre>
+<h2 id="humanoid-specific-localization-techniques">Humanoid-Specific Localization Techniques</h2>
+<h3 id="zero-moment-point-zmp-integration">Zero Moment Point (ZMP) Integration</h3>
+<p>Using balance information for localization:</p>
+<ul>
+<li><strong>Support Polygon</strong>: Tracking the area where feet contact ground</li>
+<li><strong>Center of Pressure</strong>: Measuring where weight is distributed</li>
+<li><strong>Balance State</strong>: Using balance information to constrain position estimates</li>
+</ul>
+<h3 id="footstep-based-localization">Footstep-Based Localization</h3>
+<p>Leveraging known footstep patterns:</p>
+<ul>
+<li><strong>Step Counting</strong>: Estimating distance traveled based on steps</li>
+<li><strong>Foot Contact Detection</strong>: Using force sensors to detect steps</li>
+<li><strong>Gait Analysis</strong>: Using walking pattern to improve position estimates</li>
+</ul>
+<h3 id="kinematic-constraints">Kinematic Constraints</h3>
+<p>Using robot kinematics for localization:</p>
+<ul>
+<li><strong>Joint Angle Measurements</strong>: Using encoder data for position estimation</li>
+<li><strong>Forward Kinematics</strong>: Calculating end-effector positions</li>
+<li><strong>Constraint Propagation</strong>: Using kinematic constraints to limit possible poses</li>
+</ul>
+<h2 id="ros-2-localization-stack">ROS 2 Localization Stack</h2>
+<h3 id="robot-localization-package">Robot Localization Package</h3>
+<p>The <code>robot_localization</code> package supports humanoid localization:</p>
+<pre><code class="language-yaml"># Example configuration for humanoid robot
+frequency: 50
+sensor_timeout: 0.1
+two_d_mode: false
+transform_time_offset: 0.0
+transform_timeout: 0.0
+print_diagnostics: true
+
+# Map frame to odom frame transform
+map_frame: map
+odom_frame: odom
+base_link_frame: base_link
+world_frame: odom
+
+# IMU configuration
+imu0: imu/data
+imu0_config: [false, false, false,   # x, y, z
+              false, false, false,   # roll, pitch, yaw
+              true, true, true,      # x_dot, y_dot, z_dot
+              false, false, false,   # roll_dot, pitch_dot, yaw_dot
+              true, true, true,      # x_ddot, y_ddot, z_ddot
+              false, false, false]   # roll_ddot, pitch_ddot, yaw_ddot
+
+# Odometry configuration
+odom0: wheel/odometry
+odom0_config: [true, true, false,   # x, y, z
+               false, false, true,   # roll, pitch, yaw
+               false, false, false,  # x_dot, y_dot, z_dot
+               false, false, false,  # roll_dot, pitch_dot, yaw_dot
+               false, false, false,  # x_ddot, y_ddot, z_ddot
+               false, false, false]  # roll_ddot, pitch_ddot, yaw_ddot
+</code></pre>
+<h3 id="custom-localization-nodes">Custom Localization Nodes</h3>
+<p>Develop custom nodes for humanoid-specific localization:</p>
+<ul>
+<li><strong>Balance-Aware Localization</strong>: Incorporating balance state into position estimates</li>
+<li><strong>Multi-Modal Localization</strong>: Handling different locomotion modes</li>
+<li><strong>Social Localization</strong>: Considering human presence in localization</li>
+</ul>
+<h2 id="mapping-integration">Mapping Integration</h2>
+<h3 id="simultaneous-localization-and-mapping-slam">Simultaneous Localization and Mapping (SLAM)</h3>
+<p>SLAM is particularly important for humanoid robots:</p>
+<ul>
+<li><strong>Occupancy Grids</strong>: Creating 2D maps of traversable areas</li>
+<li><strong>3D Mapping</strong>: Creating detailed 3D representations for complex environments</li>
+<li><strong>Semantic Mapping</strong>: Adding object and room labels to maps</li>
+</ul>
+<h3 id="map-management">Map Management</h3>
+<p>Managing maps for humanoid navigation:</p>
+<ul>
+<li><strong>Multi-Level Maps</strong>: Different resolution maps for different purposes</li>
+<li><strong>Dynamic Map Updates</strong>: Updating maps as environment changes</li>
+<li><strong>Map Merging</strong>: Combining maps from multiple sessions</li>
+</ul>
+<h2 id="challenges-and-solutions">Challenges and Solutions</h2>
+<h3 id="drift-correction">Drift Correction</h3>
+<p>Addressing localization drift over time:</p>
+<ul>
+<li><strong>Loop Closure</strong>: Detecting when returning to known locations</li>
+<li><strong>Landmark Recognition</strong>: Using known landmarks for correction</li>
+<li><strong>Map Matching</strong>: Aligning current observations with stored maps</li>
+</ul>
+<h3 id="computational-efficiency">Computational Efficiency</h3>
+<p>Managing computational requirements:</p>
+<ul>
+<li><strong>Approximate Methods</strong>: Using efficient approximations when exact solutions are too slow</li>
+<li><strong>Multi-Resolution Processing</strong>: Processing data at different resolutions</li>
+<li><strong>Parallel Processing</strong>: Using multiple cores for sensor processing</li>
+</ul>
+<h3 id="robustness-to-disturbances">Robustness to Disturbances</h3>
+<p>Handling environmental disturbances:</p>
+<ul>
+<li><strong>Dynamic Obstacles</strong>: Accounting for moving objects in the environment</li>
+<li><strong>Lighting Changes</strong>: Adapting to changing illumination conditions</li>
+<li><strong>Environmental Changes</strong>: Handling changes in the environment over time</li>
+</ul>
+<h2 id="evaluation-and-testing">Evaluation and Testing</h2>
+<h3 id="accuracy-metrics">Accuracy Metrics</h3>
+<p>Measuring localization accuracy:</p>
+<ul>
+<li><strong>Position Error</strong>: Difference between estimated and true position</li>
+<li><strong>Orientation Error</strong>: Difference between estimated and true orientation</li>
+<li><strong>Consistency</strong>: How well uncertainty estimates match actual errors</li>
+</ul>
+<h3 id="performance-evaluation">Performance Evaluation</h3>
+<p>Testing localization performance:</p>
+<ul>
+<li><strong>Real-time Performance</strong>: Ensuring localization runs at required frequency</li>
+<li><strong>Robustness Testing</strong>: Testing under various environmental conditions</li>
+<li><strong>Long-term Stability</strong>: Testing over extended operation periods</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="sensor-calibration">Sensor Calibration</h3>
+<p>Proper calibration is crucial:</p>
+<ul>
+<li><strong>Extrinsic Calibration</strong>: Calibrating sensor positions and orientations</li>
+<li><strong>Intrinsic Calibration</strong>: Calibrating internal sensor parameters</li>
+<li><strong>Temporal Calibration</strong>: Synchronizing sensor timestamps</li>
+</ul>
+<h3 id="fail-safe-mechanisms">Fail-Safe Mechanisms</h3>
+<p>Implementing safety measures:</p>
+<ul>
+<li><strong>Localization Quality Monitoring</strong>: Detecting when localization is unreliable</li>
+<li><strong>Fallback Strategies</strong>: Alternative navigation methods when localization fails</li>
+<li><strong>Emergency Stop</strong>: Mechanisms to stop robot when localization is lost</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/ai-navigation/mapping">Mapping</a> to learn about creating environmental maps for navigation.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/localization.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#localization-challenges-in-humanoid-robots" class="table-of-contents__link toc-highlight">Localization Challenges in Humanoid Robots</a><ul><li><a href="#sensor-movement-and-vibration" class="table-of-contents__link toc-highlight">Sensor Movement and Vibration</a></li><li><a href="#dynamic-balance-effects" class="table-of-contents__link toc-highlight">Dynamic Balance Effects</a></li></ul></li><li><a href="#localization-approaches" class="table-of-contents__link toc-highlight">Localization Approaches</a><ul><li><a href="#particle-filter-monte-carlo-localization" class="table-of-contents__link toc-highlight">Particle Filter (Monte Carlo Localization)</a></li><li><a href="#extended-kalman-filter-ekf" class="table-of-contents__link toc-highlight">Extended Kalman Filter (EKF)</a></li><li><a href="#visual-inertial-odometry-vio" class="table-of-contents__link toc-highlight">Visual-Inertial Odometry (VIO)</a></li></ul></li><li><a href="#sensor-integration-for-localization" class="table-of-contents__link toc-highlight">Sensor Integration for Localization</a><ul><li><a href="#imu-integration" class="table-of-contents__link toc-highlight">IMU Integration</a></li><li><a href="#lidar-based-localization" class="table-of-contents__link toc-highlight">LIDAR-Based Localization</a></li><li><a href="#vision-based-localization" class="table-of-contents__link toc-highlight">Vision-Based Localization</a></li><li><a href="#multi-sensor-fusion" class="table-of-contents__link toc-highlight">Multi-Sensor Fusion</a></li></ul></li><li><a href="#humanoid-specific-localization-techniques" class="table-of-contents__link toc-highlight">Humanoid-Specific Localization Techniques</a><ul><li><a href="#zero-moment-point-zmp-integration" class="table-of-contents__link toc-highlight">Zero Moment Point (ZMP) Integration</a></li><li><a href="#footstep-based-localization" class="table-of-contents__link toc-highlight">Footstep-Based Localization</a></li><li><a href="#kinematic-constraints" class="table-of-contents__link toc-highlight">Kinematic Constraints</a></li></ul></li><li><a href="#ros-2-localization-stack" class="table-of-contents__link toc-highlight">ROS 2 Localization Stack</a><ul><li><a href="#robot-localization-package" class="table-of-contents__link toc-highlight">Robot Localization Package</a></li><li><a href="#custom-localization-nodes" class="table-of-contents__link toc-highlight">Custom Localization Nodes</a></li></ul></li><li><a href="#mapping-integration" class="table-of-contents__link toc-highlight">Mapping Integration</a><ul><li><a href="#simultaneous-localization-and-mapping-slam" class="table-of-contents__link toc-highlight">Simultaneous Localization and Mapping (SLAM)</a></li><li><a href="#map-management" class="table-of-contents__link toc-highlight">Map Management</a></li></ul></li><li><a href="#challenges-and-solutions" class="table-of-contents__link toc-highlight">Challenges and Solutions</a><ul><li><a href="#drift-correction" class="table-of-contents__link toc-highlight">Drift Correction</a></li><li><a href="#computational-efficiency" class="table-of-contents__link toc-highlight">Computational Efficiency</a></li><li><a href="#robustness-to-disturbances" class="table-of-contents__link toc-highlight">Robustness to Disturbances</a></li></ul></li><li><a href="#evaluation-and-testing" class="table-of-contents__link toc-highlight">Evaluation and Testing</a><ul><li><a href="#accuracy-metrics" class="table-of-contents__link toc-highlight">Accuracy Metrics</a></li><li><a href="#performance-evaluation" class="table-of-contents__link toc-highlight">Performance Evaluation</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#sensor-calibration" class="table-of-contents__link toc-highlight">Sensor Calibration</a></li><li><a href="#fail-safe-mechanisms" class="table-of-contents__link toc-highlight">Fail-Safe Mechanisms</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

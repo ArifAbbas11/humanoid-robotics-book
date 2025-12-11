@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-navigation/control-systems" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Control Systems for Humanoid Navigation | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/control-systems"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Control Systems for Humanoid Navigation | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/control-systems"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/control-systems" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/control-systems" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a class="navbar__item navbar__link" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="control-systems-for-humanoid-navigation">Control Systems for Humanoid Navigation</h1>
+<h2 id="overview">Overview</h2>
+<p>Control systems for humanoid navigation must manage the complex dynamics of bipedal locomotion while executing navigation commands. Unlike wheeled robots, humanoid robots require sophisticated control to maintain balance, coordinate multiple joints, and adapt to changing terrain while navigating to a goal.</p>
+<h2 id="humanoid-control-architecture">Humanoid Control Architecture</h2>
+<h3 id="hierarchical-control-structure">Hierarchical Control Structure</h3>
+<p>Humanoid navigation control typically uses a hierarchical approach:</p>
+<ul>
+<li><strong>High-Level Planner</strong>: Determines overall navigation strategy</li>
+<li><strong>Mid-Level Controller</strong>: Generates desired trajectories and gait patterns</li>
+<li><strong>Low-Level Controller</strong>: Executes joint-level commands to achieve desired motion</li>
+</ul>
+<h3 id="balance-control">Balance Control</h3>
+<p>Maintaining balance during navigation is critical:</p>
+<ul>
+<li><strong>Zero Moment Point (ZMP) Control</strong>: Ensures forces act within support polygon</li>
+<li><strong>Capture Point Control</strong>: Predicts where to place feet to stop safely</li>
+<li><strong>Linear Inverted Pendulum Model (LIPM)</strong>: Simplified balance model</li>
+</ul>
+<h2 id="gait-generation-and-control">Gait Generation and Control</h2>
+<h3 id="walking-pattern-generators">Walking Pattern Generators</h3>
+<p>Creating stable walking patterns:</p>
+<ul>
+<li><strong>Footstep Planning</strong>: Computing stable foot placements</li>
+<li><strong>Center of Mass Trajectories</strong>: Planning CoM motion for stability</li>
+<li><strong>Joint Trajectory Generation</strong>: Converting CoM trajectories to joint angles</li>
+</ul>
+<h3 id="common-gait-patterns">Common Gait Patterns</h3>
+<p>Different walking styles for various situations:</p>
+<ul>
+<li><strong>Static Walking</strong>: Stable at each step (slow but stable)</li>
+<li><strong>Dynamic Walking</strong>: Continuous motion (faster but requires active balance)</li>
+<li><strong>Omnidirectional Walking</strong>: Moving in any direction while maintaining balance</li>
+</ul>
+<h3 id="gait-adaptation">Gait Adaptation</h3>
+<p>Adapting gait to different conditions:</p>
+<ul>
+<li><strong>Terrain Adaptation</strong>: Modifying step height and length for uneven terrain</li>
+<li><strong>Speed Adaptation</strong>: Adjusting gait parameters for different speeds</li>
+<li><strong>Stability Adaptation</strong>: Increasing stability margins when needed</li>
+</ul>
+<h2 id="control-algorithms">Control Algorithms</h2>
+<h3 id="inverted-pendulum-control">Inverted Pendulum Control</h3>
+<p>The inverted pendulum model is fundamental for humanoid balance:</p>
+<pre><code class="language-python">import numpy as np
+
+class InvertedPendulumController:
+    def __init__(self, height, gravity=9.81):
+        self.height = height
+        self.gravity = gravity
+        self.omega = np.sqrt(gravity / height)
+
+    def compute_zmp(self, x, y, x_dot, y_dot, x_ddot, y_ddot):
+        &quot;&quot;&quot;Compute ZMP from CoM state&quot;&quot;&quot;
+        zmp_x = x - (self.height / self.gravity) * x_ddot
+        zmp_y = y - (self.height / self.gravity) * y_ddot
+        return zmp_x, zmp_y
+
+    def compute_capture_point(self, x, y, x_dot, y_dot):
+        &quot;&quot;&quot;Compute capture point for stopping&quot;&quot;&quot;
+        capture_x = x + x_dot / self.omega
+        capture_y = y + y_dot / self.omega
+        return capture_x, capture_y
+</code></pre>
+<h3 id="model-predictive-control-mpc">Model Predictive Control (MPC)</h3>
+<p>MPC is effective for humanoid navigation control:</p>
+<ul>
+<li><strong>Prediction Horizon</strong>: Planning several steps ahead</li>
+<li><strong>Optimization</strong>: Minimizing cost function over prediction horizon</li>
+<li><strong>Constraints</strong>: Enforcing stability and joint limits</li>
+</ul>
+<h3 id="feedback-control">Feedback Control</h3>
+<p>Real-time adjustments based on sensor feedback:</p>
+<ul>
+<li><strong>PID Control</strong>: Proportional-Integral-Derivative control</li>
+<li><strong>State Feedback</strong>: Using full state information for control</li>
+<li><strong>Adaptive Control</strong>: Adjusting parameters based on performance</li>
+</ul>
+<h2 id="navigation-specific-control">Navigation-Specific Control</h2>
+<h3 id="path-following-control">Path Following Control</h3>
+<p>Following planned paths while maintaining balance:</p>
+<ul>
+<li><strong>Pure Pursuit</strong>: Following a lookahead point on the path</li>
+<li><strong>Stanley Controller</strong>: Combining cross-track error and heading error</li>
+<li><strong>Lateral Control</strong>: Maintaining position relative to path</li>
+</ul>
+<h3 id="obstacle-avoidance">Obstacle Avoidance</h3>
+<p>Avoiding obstacles while maintaining balance:</p>
+<ul>
+<li><strong>Reactive Avoidance</strong>: Immediate response to detected obstacles</li>
+<li><strong>Predictive Avoidance</strong>: Planning around predicted obstacle movements</li>
+<li><strong>Social Navigation</strong>: Respecting human space and behavior</li>
+</ul>
+<h3 id="stair-navigation">Stair Navigation</h3>
+<p>Specialized control for stair climbing:</p>
+<pre><code class="language-python">class StairNavigationController:
+    def __init__(self):
+        self.stair_detector = StairDetector()
+        self.step_controller = StepController()
+        self.balance_controller = BalanceController()
+
+    def navigate_stairs(self, stair_info):
+        &quot;&quot;&quot;Navigate stairs using specialized control&quot;&quot;&quot;
+        # Approach stairs
+        self.approach_stairs(stair_info[&#x27;start&#x27;])
+
+        # Execute stair climbing gait
+        for step in range(stair_info[&#x27;num_steps&#x27;]):
+            self.climb_single_step(stair_info[&#x27;step_height&#x27;], stair_info[&#x27;step_depth&#x27;])
+            self.maintain_balance()
+
+        # Depart stairs
+        self.depart_stairs(stair_info[&#x27;end&#x27;])
+
+    def approach_stairs(self, start_position):
+        &quot;&quot;&quot;Approach stairs with appropriate gait&quot;&quot;&quot;
+        # Adjust walking pattern for stair approach
+        self.step_controller.set_gait_parameters(
+            step_height=0.05,  # Slightly higher steps
+            step_length=0.2,   # Shorter steps for precision
+            step_timing=1.0    # Slower timing for stability
+        )
+</code></pre>
+<h2 id="ros-2-control-integration">ROS 2 Control Integration</h2>
+<h3 id="ros-2-control-framework">ROS 2 Control Framework</h3>
+<p>The ROS 2 Control framework provides interfaces for humanoid control:</p>
+<pre><code class="language-yaml"># Example controller configuration for humanoid robot
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # Joint trajectory controller for upper body
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    # Balance controller
+    balance_controller:
+      type: balance_controller/BalanceController
+
+    # Walking controller
+    walking_controller:
+      type: walking_controller/WalkingController
+</code></pre>
+<h3 id="navigation2-integration">Navigation2 Integration</h3>
+<p>Integrating with Navigation2 for seamless navigation:</p>
+<pre><code class="language-python"># Example controller that works with Navigation2
+import rclpy
+from rclpy.node import Node
+from nav2_msgs.action import FollowPath
+from geometry_msgs.msg import Twist
+from builtin_interfaces.msg import Duration
+import numpy as np
+
+class HumanoidNavigationController(Node):
+    def __init__(self):
+        super().__init__(&#x27;humanoid_navigation_controller&#x27;)
+
+        # Create action client for path following
+        self.action_client = ActionClient(self, FollowPath, &#x27;follow_path&#x27;)
+
+        # Publisher for velocity commands
+        self.cmd_vel_pub = self.create_publisher(Twist, &#x27;cmd_vel&#x27;, 10)
+
+        # Balance controller
+        self.balance_controller = BalanceController()
+
+        # Footstep planner
+        self.footstep_planner = FootstepPlanner()
+
+    def follow_path(self, path):
+        &quot;&quot;&quot;Follow a given path with balance-aware control&quot;&quot;&quot;
+        for i, pose in enumerate(path.poses):
+            # Plan footstep sequence to reach this pose
+            footstep_sequence = self.footstep_planner.plan_to_pose(pose)
+
+            # Execute footstep sequence with balance control
+            for footstep in footstep_sequence:
+                self.execute_footstep(footstep)
+                self.balance_controller.update()
+
+            # Check if balance is maintained
+            if not self.balance_controller.is_stable():
+                self.emergency_stop()
+                return False
+
+        return True
+</code></pre>
+<h2 id="balance-control-systems">Balance Control Systems</h2>
+<h3 id="center-of-mass-control">Center of Mass Control</h3>
+<p>Managing the robot&#x27;s center of mass for stability:</p>
+<ul>
+<li><strong>ZMP Tracking</strong>: Keeping ZMP within support polygon</li>
+<li><strong>Capture Point Control</strong>: Planning foot placements for stability</li>
+<li><strong>Momentum Control</strong>: Managing linear and angular momentum</li>
+</ul>
+<h3 id="whole-body-control">Whole-Body Control</h3>
+<p>Coordinating all joints for stable navigation:</p>
+<ul>
+<li><strong>Task Prioritization</strong>: Balancing multiple control objectives</li>
+<li><strong>Null Space Optimization</strong>: Using redundancy for secondary tasks</li>
+<li><strong>Force Control</strong>: Managing contact forces with environment</li>
+</ul>
+<h3 id="disturbance-rejection">Disturbance Rejection</h3>
+<p>Handling external disturbances during navigation:</p>
+<ul>
+<li><strong>Push Recovery</strong>: Recovering from external pushes</li>
+<li><strong>Terrain Disturbances</strong>: Adapting to unexpected terrain changes</li>
+<li><strong>Sensor Noise</strong>: Filtering noisy sensor measurements</li>
+</ul>
+<h2 id="control-challenges">Control Challenges</h2>
+<h3 id="real-time-requirements">Real-Time Requirements</h3>
+<p>Meeting strict timing constraints:</p>
+<ul>
+<li><strong>High-Frequency Control</strong>: Balance control at 100Hz+ for stability</li>
+<li><strong>Low Latency</strong>: Minimizing delay between sensing and actuation</li>
+<li><strong>Predictable Timing</strong>: Ensuring consistent control cycle times</li>
+</ul>
+<h3 id="computational-constraints">Computational Constraints</h3>
+<p>Managing computational resources:</p>
+<ul>
+<li><strong>Efficient Algorithms</strong>: Using computationally efficient control methods</li>
+<li><strong>Model Simplification</strong>: Simplifying models while maintaining performance</li>
+<li><strong>Parallel Processing</strong>: Distributing control computations</li>
+</ul>
+<h3 id="safety-considerations">Safety Considerations</h3>
+<p>Ensuring safe operation:</p>
+<ul>
+<li><strong>Fail-Safe Mechanisms</strong>: Safe responses to system failures</li>
+<li><strong>Limit Checking</strong>: Enforcing joint and velocity limits</li>
+<li><strong>Emergency Stop</strong>: Rapid stopping capabilities</li>
+</ul>
+<h2 id="advanced-control-techniques">Advanced Control Techniques</h2>
+<h3 id="learning-based-control">Learning-Based Control</h3>
+<p>Using machine learning for control:</p>
+<ul>
+<li><strong>Reinforcement Learning</strong>: Learning optimal control policies</li>
+<li><strong>Imitation Learning</strong>: Learning from expert demonstrations</li>
+<li><strong>Adaptive Control</strong>: Learning to adapt to changing conditions</li>
+</ul>
+<h3 id="robust-control">Robust Control</h3>
+<p>Handling uncertainties and disturbances:</p>
+<ul>
+<li><strong>H-infinity Control</strong>: Robust control for uncertain systems</li>
+<li><strong>Sliding Mode Control</strong>: Robust control with discontinuous feedback</li>
+<li><strong>Gain Scheduling</strong>: Adjusting controller parameters based on conditions</li>
+</ul>
+<h2 id="implementation-best-practices">Implementation Best Practices</h2>
+<h3 id="controller-design">Controller Design</h3>
+<p>Effective controller design principles:</p>
+<ul>
+<li><strong>Modularity</strong>: Separating different control functions</li>
+<li><strong>Tunability</strong>: Making controllers easily adjustable</li>
+<li><strong>Monitoring</strong>: Providing feedback on controller performance</li>
+</ul>
+<h3 id="testing-and-validation">Testing and Validation</h3>
+<p>Comprehensive testing approach:</p>
+<ul>
+<li><strong>Simulation Testing</strong>: Extensive testing in simulation before deployment</li>
+<li><strong>Incremental Testing</strong>: Gradually increasing test complexity</li>
+<li><strong>Safety Protocols</strong>: Testing emergency procedures</li>
+</ul>
+<h3 id="parameter-tuning">Parameter Tuning</h3>
+<p>Effective parameter tuning strategies:</p>
+<ul>
+<li><strong>Systematic Tuning</strong>: Methodical approach to parameter adjustment</li>
+<li><strong>Performance Metrics</strong>: Quantitative measures of control performance</li>
+<li><strong>Robustness Testing</strong>: Testing across various conditions</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/ai-navigation/mini-project">Mini-Project</a> to apply control system concepts to humanoid navigation.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/control-systems.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#humanoid-control-architecture" class="table-of-contents__link toc-highlight">Humanoid Control Architecture</a><ul><li><a href="#hierarchical-control-structure" class="table-of-contents__link toc-highlight">Hierarchical Control Structure</a></li><li><a href="#balance-control" class="table-of-contents__link toc-highlight">Balance Control</a></li></ul></li><li><a href="#gait-generation-and-control" class="table-of-contents__link toc-highlight">Gait Generation and Control</a><ul><li><a href="#walking-pattern-generators" class="table-of-contents__link toc-highlight">Walking Pattern Generators</a></li><li><a href="#common-gait-patterns" class="table-of-contents__link toc-highlight">Common Gait Patterns</a></li><li><a href="#gait-adaptation" class="table-of-contents__link toc-highlight">Gait Adaptation</a></li></ul></li><li><a href="#control-algorithms" class="table-of-contents__link toc-highlight">Control Algorithms</a><ul><li><a href="#inverted-pendulum-control" class="table-of-contents__link toc-highlight">Inverted Pendulum Control</a></li><li><a href="#model-predictive-control-mpc" class="table-of-contents__link toc-highlight">Model Predictive Control (MPC)</a></li><li><a href="#feedback-control" class="table-of-contents__link toc-highlight">Feedback Control</a></li></ul></li><li><a href="#navigation-specific-control" class="table-of-contents__link toc-highlight">Navigation-Specific Control</a><ul><li><a href="#path-following-control" class="table-of-contents__link toc-highlight">Path Following Control</a></li><li><a href="#obstacle-avoidance" class="table-of-contents__link toc-highlight">Obstacle Avoidance</a></li><li><a href="#stair-navigation" class="table-of-contents__link toc-highlight">Stair Navigation</a></li></ul></li><li><a href="#ros-2-control-integration" class="table-of-contents__link toc-highlight">ROS 2 Control Integration</a><ul><li><a href="#ros-2-control-framework" class="table-of-contents__link toc-highlight">ROS 2 Control Framework</a></li><li><a href="#navigation2-integration" class="table-of-contents__link toc-highlight">Navigation2 Integration</a></li></ul></li><li><a href="#balance-control-systems" class="table-of-contents__link toc-highlight">Balance Control Systems</a><ul><li><a href="#center-of-mass-control" class="table-of-contents__link toc-highlight">Center of Mass Control</a></li><li><a href="#whole-body-control" class="table-of-contents__link toc-highlight">Whole-Body Control</a></li><li><a href="#disturbance-rejection" class="table-of-contents__link toc-highlight">Disturbance Rejection</a></li></ul></li><li><a href="#control-challenges" class="table-of-contents__link toc-highlight">Control Challenges</a><ul><li><a href="#real-time-requirements" class="table-of-contents__link toc-highlight">Real-Time Requirements</a></li><li><a href="#computational-constraints" class="table-of-contents__link toc-highlight">Computational Constraints</a></li><li><a href="#safety-considerations" class="table-of-contents__link toc-highlight">Safety Considerations</a></li></ul></li><li><a href="#advanced-control-techniques" class="table-of-contents__link toc-highlight">Advanced Control Techniques</a><ul><li><a href="#learning-based-control" class="table-of-contents__link toc-highlight">Learning-Based Control</a></li><li><a href="#robust-control" class="table-of-contents__link toc-highlight">Robust Control</a></li></ul></li><li><a href="#implementation-best-practices" class="table-of-contents__link toc-highlight">Implementation Best Practices</a><ul><li><a href="#controller-design" class="table-of-contents__link toc-highlight">Controller Design</a></li><li><a href="#testing-and-validation" class="table-of-contents__link toc-highlight">Testing and Validation</a></li><li><a href="#parameter-tuning" class="table-of-contents__link toc-highlight">Parameter Tuning</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

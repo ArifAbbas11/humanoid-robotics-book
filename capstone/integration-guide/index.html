@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-capstone/integration-guide" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Integration Guide | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/capstone/integration-guide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Integration Guide | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/capstone/integration-guide"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/capstone/integration-guide" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/capstone/integration-guide" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/capstone/intro">Capstone Project: Complete Humanoid Robot Implementation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/capstone/integration-guide">Integration Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/capstone/testing-guide">Testing Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/capstone/troubleshooting">Troubleshooting</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Capstone Project</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Integration Guide</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="integration-guide">Integration Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>System integration is one of the most challenging aspects of humanoid robotics development. This guide provides best practices, strategies, and techniques for successfully integrating the various components of your humanoid robot system, from perception to action.</p>
+<h2 id="integration-architecture">Integration Architecture</h2>
+<h3 id="layered-integration-approach">Layered Integration Approach</h3>
+<p>The recommended approach for integrating humanoid robot systems follows a layered architecture:</p>
+<pre><code>┌─────────────────────────────────────┐
+│            User Interface           │
+├─────────────────────────────────────┤
+│         Task Planning &amp; AI          │
+├─────────────────────────────────────┤
+│        Motion Planning &amp; Control    │
+├─────────────────────────────────────┤
+│          Perception &amp; Sensing       │
+├─────────────────────────────────────┤
+│           Hardware Interface        │
+└─────────────────────────────────────┘
+</code></pre>
+<h3 id="communication-patterns">Communication Patterns</h3>
+<h4 id="ros-2-communication-architecture">ROS 2 Communication Architecture</h4>
+<p>Use appropriate ROS 2 communication patterns for different integration needs:</p>
+<pre><code class="language-python"># Publisher-Subscriber Pattern for sensor data
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image, Imu, JointState
+from geometry_msgs.msg import Twist
+
+class SensorIntegrationNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;sensor_integration_node&#x27;)
+
+        # Publishers for processed sensor data
+        self.vision_pub = self.create_publisher(Image, &#x27;processed_vision&#x27;, 10)
+        self.imu_pub = self.create_publisher(Imu, &#x27;filtered_imu&#x27;, 10)
+        self.joint_pub = self.create_publisher(JointState, &#x27;filtered_joints&#x27;, 10)
+
+        # Subscribers for raw sensor data
+        self.raw_vision_sub = self.create_subscription(
+            Image, &#x27;camera/image_raw&#x27;, self.vision_callback, 10)
+        self.raw_imu_sub = self.create_subscription(
+            Imu, &#x27;imu/data_raw&#x27;, self.imu_callback, 10)
+        self.raw_joint_sub = self.create_subscription(
+            JointState, &#x27;joint_states_raw&#x27;, self.joint_callback, 10)
+
+    def vision_callback(self, msg):
+        &quot;&quot;&quot;Process raw vision data&quot;&quot;&quot;
+        # Apply filtering, calibration, etc.
+        processed_msg = self.process_vision(msg)
+        self.vision_pub.publish(processed_msg)
+
+    def process_vision(self, raw_msg):
+        &quot;&quot;&quot;Apply processing to raw vision data&quot;&quot;&quot;
+        # Implementation would include:
+        # - Camera calibration
+        # - Noise reduction
+        # - Feature extraction
+        # - Object detection
+        return raw_msg  # Placeholder
+</code></pre>
+<h4 id="service-based-integration">Service-Based Integration</h4>
+<p>For request-response interactions:</p>
+<pre><code class="language-python"># Service-based integration for planning
+from vla_msgs.srv import PlanPath, ExecuteAction
+
+class PlanningIntegrationNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;planning_integration_node&#x27;)
+
+        # Services for planning requests
+        self.plan_path_service = self.create_service(
+            PlanPath, &#x27;plan_path&#x27;, self.plan_path_callback)
+        self.execute_action_service = self.create_service(
+            ExecuteAction, &#x27;execute_action&#x27;, self.execute_action_callback)
+
+    def plan_path_callback(self, request, response):
+        &quot;&quot;&quot;Handle path planning requests&quot;&quot;&quot;
+        try:
+            # Plan path using integrated system
+            path = self.integrated_planner.plan_path(
+                request.start, request.goal, request.constraints)
+
+            response.success = True
+            response.path = path
+            response.message = &quot;Path planned successfully&quot;
+
+        except Exception as e:
+            response.success = False
+            response.message = f&quot;Planning failed: {str(e)}&quot;
+
+        return response
+</code></pre>
+<h4 id="action-based-integration">Action-Based Integration</h4>
+<p>For long-running operations with feedback:</p>
+<pre><code class="language-python">from rclpy.action import ActionServer, GoalResponse, CancelResponse
+from vla_msgs.action import NavigateToPose
+
+class NavigationIntegrationServer:
+    def __init__(self, node):
+        self.node = node
+        self.action_server = ActionServer(
+            node,
+            NavigateToPose,
+            &#x27;navigate_to_pose&#x27;,
+            self.execute_callback,
+            goal_callback=self.goal_callback,
+            cancel_callback=self.cancel_callback
+        )
+
+    def goal_callback(self, goal_request):
+        &quot;&quot;&quot;Accept or reject navigation goals&quot;&quot;&quot;
+        # Validate goal before accepting
+        if self.is_valid_goal(goal_request.pose):
+            return GoalResponse.ACCEPT
+        else:
+            return GoalResponse.REJECT
+
+    async def execute_callback(self, goal_handle):
+        &quot;&quot;&quot;Execute navigation goal with feedback&quot;&quot;&quot;
+        feedback_msg = NavigateToPose.Feedback()
+
+        # Execute navigation with continuous feedback
+        for step in range(100):  # Simplified navigation loop
+            if goal_handle.is_cancel_requested:
+                goal_handle.canceled()
+                return NavigateToPose.Result()
+
+            # Update feedback
+            feedback_msg.current_pose = self.get_current_pose()
+            feedback_msg.distance_remaining = self.calculate_distance_remaining()
+            goal_handle.publish_feedback(feedback_msg)
+
+            # Sleep to allow other callbacks to run
+            await asyncio.sleep(0.1)
+
+        goal_handle.succeed()
+        result = NavigateToPose.Result()
+        result.success = True
+        return result
+</code></pre>
+<h2 id="component-integration-strategies">Component Integration Strategies</h2>
+<h3 id="modular-integration-pattern">Modular Integration Pattern</h3>
+<p>Build integration using modular, reusable components:</p>
+<pre><code class="language-python">class ComponentManager:
+    def __init__(self):
+        self.components = {}
+        self.connections = []
+
+    def register_component(self, name, component):
+        &quot;&quot;&quot;Register a component for integration&quot;&quot;&quot;
+        self.components[name] = component
+
+    def connect_components(self, source, target, connection_type=&#x27;data&#x27;):
+        &quot;&quot;&quot;Establish connection between components&quot;&quot;&quot;
+        connection = {
+            &#x27;source&#x27;: source,
+            &#x27;target&#x27;: target,
+            &#x27;type&#x27;: connection_type,
+            &#x27;active&#x27;: False
+        }
+        self.connections.append(connection)
+
+    def initialize_connections(self):
+        &quot;&quot;&quot;Initialize all registered connections&quot;&quot;&quot;
+        for conn in self.connections:
+            if conn[&#x27;source&#x27;] in self.components and conn[&#x27;target&#x27;] in self.components:
+                self.establish_connection(conn)
+                conn[&#x27;active&#x27;] = True
+
+    def establish_connection(self, connection):
+        &quot;&quot;&quot;Establish specific connection between components&quot;&quot;&quot;
+        source_comp = self.components[connection[&#x27;source&#x27;]]
+        target_comp = self.components[connection[&#x27;target&#x27;]]
+
+        # Example: Connect publisher to subscriber
+        if connection[&#x27;type&#x27;] == &#x27;data&#x27;:
+            # Implementation depends on component types
+            pass
+</code></pre>
+<h3 id="configuration-driven-integration">Configuration-Driven Integration</h3>
+<p>Use configuration files to manage integration parameters:</p>
+<pre><code class="language-yaml"># integration_config.yaml
+integration:
+  components:
+    perception:
+      enabled: true
+      frequency: 30.0
+      timeout: 5.0
+    planning:
+      enabled: true
+      frequency: 10.0
+      timeout: 10.0
+    control:
+      enabled: true
+      frequency: 100.0
+      timeout: 1.0
+
+  connections:
+    - source: &quot;camera/image_raw&quot;
+      target: &quot;vision_processor/image_in&quot;
+      type: &quot;sensor_msgs/Image&quot;
+    - source: &quot;vision_processor/detections&quot;
+      target: &quot;planning/object_detections&quot;
+      type: &quot;vision_msgs/Detection2DArray&quot;
+
+  safety_limits:
+    max_velocity: 1.0
+    max_acceleration: 2.0
+    collision_threshold: 0.5
+</code></pre>
+<h2 id="real-time-integration-considerations">Real-Time Integration Considerations</h2>
+<h3 id="timing-and-synchronization">Timing and Synchronization</h3>
+<pre><code class="language-python">import threading
+import time
+from collections import deque
+
+class RealTimeIntegrator:
+    def __init__(self):
+        self.sensors = {}
+        self.processors = {}
+        self.sync_window = 0.05  # 50ms sync window
+        self.main_loop_rate = 50.0  # 50Hz main loop
+
+    def add_sensor(self, name, topic, callback):
+        &quot;&quot;&quot;Add sensor with synchronization requirements&quot;&quot;&quot;
+        self.sensors[name] = {
+            &#x27;topic&#x27;: topic,
+            &#x27;callback&#x27;: callback,
+            &#x27;buffer&#x27;: deque(maxlen=10),
+            &#x27;last_update&#x27;: 0
+        }
+
+    def add_processor(self, name, inputs, output_callback):
+        &quot;&quot;&quot;Add processor that requires synchronized inputs&quot;&quot;&quot;
+        self.processors[name] = {
+            &#x27;inputs&#x27;: inputs,  # List of required input names
+            &#x27;output_callback&#x27;: output_callback,
+            &#x27;last_execution&#x27;: 0
+        }
+
+    def sensor_callback(self, sensor_name, data):
+        &quot;&quot;&quot;Handle incoming sensor data&quot;&quot;&quot;
+        sensor = self.sensors[sensor_name]
+        sensor[&#x27;buffer&#x27;].append((time.time(), data))
+        sensor[&#x27;last_update&#x27;] = time.time()
+
+        # Check if we can execute any processors
+        self.check_processor_execution()
+
+    def check_processor_execution(self):
+        &quot;&quot;&quot;Check if any processors have all required inputs&quot;&quot;&quot;
+        current_time = time.time()
+
+        for proc_name, processor in self.processors.items():
+            # Check if all required inputs are available within sync window
+            all_inputs_available = True
+            synced_data = {}
+
+            for input_name in processor[&#x27;inputs&#x27;]:
+                if input_name not in self.sensors:
+                    all_inputs_available = False
+                    break
+
+                sensor = self.sensors[input_name]
+                latest_data = None
+
+                # Find most recent data within sync window
+                for timestamp, data in reversed(sensor[&#x27;buffer&#x27;]):
+                    if current_time - timestamp &lt;= self.sync_window:
+                        latest_data = data
+                        break
+
+                if latest_data is None:
+                    all_inputs_available = False
+                    break
+
+                synced_data[input_name] = latest_data
+
+            # Execute processor if all inputs are available
+            if all_inputs_available and \
+               current_time - processor[&#x27;last_execution&#x27;] &gt;= 1.0/self.main_loop_rate:
+                try:
+                    result = processor[&#x27;output_callback&#x27;](synced_data)
+                    processor[&#x27;last_execution&#x27;] = current_time
+                except Exception as e:
+                    print(f&quot;Processor {proc_name} execution failed: {e}&quot;)
+</code></pre>
+<h3 id="resource-management">Resource Management</h3>
+<pre><code class="language-python">class ResourceManager:
+    def __init__(self):
+        self.resources = {
+            &#x27;cpu&#x27;: {&#x27;total&#x27;: 100, &#x27;used&#x27;: 0, &#x27;reserved&#x27;: {}},
+            &#x27;gpu&#x27;: {&#x27;total&#x27;: 100, &#x27;used&#x27;: 0, &#x27;reserved&#x27;: {}},
+            &#x27;memory&#x27;: {&#x27;total&#x27;: 8192, &#x27;used&#x27;: 0, &#x27;reserved&#x27;: {}},  # MB
+            &#x27;bandwidth&#x27;: {&#x27;total&#x27;: 1000, &#x27;used&#x27;: 0, &#x27;reserved&#x27;: {}}  # Mbps
+        }
+
+    def reserve_resources(self, component_id, requirements):
+        &quot;&quot;&quot;Reserve resources for a component&quot;&quot;&quot;
+        for resource_type, amount in requirements.items():
+            if resource_type in self.resources:
+                available = (self.resources[resource_type][&#x27;total&#x27;] -
+                           self.resources[resource_type][&#x27;used&#x27;])
+
+                if available &gt;= amount:
+                    self.resources[resource_type][&#x27;reserved&#x27;][component_id] = amount
+                    self.resources[resource_type][&#x27;used&#x27;] += amount
+                else:
+                    raise ResourceNotAvailableError(
+                        f&quot;Not enough {resource_type} available&quot;)
+
+    def release_resources(self, component_id):
+        &quot;&quot;&quot;Release resources when component is done&quot;&quot;&quot;
+        for resource_type in self.resources:
+            if component_id in self.resources[resource_type][&#x27;reserved&#x27;]:
+                amount = self.resources[resource_type][&#x27;reserved&#x27;][component_id]
+                self.resources[resource_type][&#x27;used&#x27;] -= amount
+                del self.resources[resource_type][&#x27;reserved&#x27;][component_id]
+
+class ResourceNotAvailableError(Exception):
+    pass
+</code></pre>
+<h2 id="error-handling-and-fault-tolerance">Error Handling and Fault Tolerance</h2>
+<h3 id="graceful-degradation">Graceful Degradation</h3>
+<pre><code class="language-python">class FaultTolerantIntegrator:
+    def __init__(self):
+        self.components = {}
+        self.fallback_strategies = {}
+        self.health_monitor = HealthMonitor()
+
+    def register_component(self, name, component, fallback_strategy=None):
+        &quot;&quot;&quot;Register component with optional fallback&quot;&quot;&quot;
+        self.components[name] = {
+            &#x27;instance&#x27;: component,
+            &#x27;healthy&#x27;: True,
+            &#x27;fallback&#x27;: fallback_strategy
+        }
+
+        if fallback_strategy:
+            self.fallback_strategies[name] = fallback_strategy
+
+    def execute_with_fallback(self, component_name, method_name, *args, **kwargs):
+        &quot;&quot;&quot;Execute component method with fallback handling&quot;&quot;&quot;
+        component_info = self.components[component_name]
+
+        if not component_info[&#x27;healthy&#x27;]:
+            # Use fallback strategy
+            fallback = self.fallback_strategies.get(component_name)
+            if fallback:
+                return fallback(*args, **kwargs)
+            else:
+                raise ComponentUnhealthyError(f&quot;Component {component_name} is unhealthy and no fallback available&quot;)
+
+        try:
+            component = component_info[&#x27;instance&#x27;]
+            method = getattr(component, method_name)
+            result = method(*args, **kwargs)
+
+            # Update health status
+            self.health_monitor.update_component_health(component_name, True)
+            return result
+
+        except Exception as e:
+            # Mark component as unhealthy
+            component_info[&#x27;healthy&#x27;] = False
+            self.health_monitor.update_component_health(component_name, False)
+
+            # Try fallback
+            fallback = self.fallback_strategies.get(component_name)
+            if fallback:
+                return fallback(*args, **kwargs)
+            else:
+                raise e
+
+class HealthMonitor:
+    def __init__(self):
+        self.component_health = {}
+        self.health_history = {}
+
+    def update_component_health(self, component_name, healthy):
+        &quot;&quot;&quot;Update health status of a component&quot;&quot;&quot;
+        self.component_health[component_name] = {
+            &#x27;healthy&#x27;: healthy,
+            &#x27;timestamp&#x27;: time.time(),
+            &#x27;consecutive_failures&#x27;: 0
+        }
+
+        if component_name not in self.health_history:
+            self.health_history[component_name] = []
+
+        self.health_history[component_name].append({
+            &#x27;timestamp&#x27;: time.time(),
+            &#x27;healthy&#x27;: healthy
+        })
+
+        # Keep only recent history
+        if len(self.health_history[component_name]) &gt; 100:
+            self.health_history[component_name] = \
+                self.health_history[component_name][-100:]
+
+class ComponentUnhealthyError(Exception):
+    pass
+</code></pre>
+<h2 id="data-integration-patterns">Data Integration Patterns</h2>
+<h3 id="sensor-fusion-integration">Sensor Fusion Integration</h3>
+<pre><code class="language-python">import numpy as np
+from scipy.spatial.transform import Rotation as R
+
+class SensorFusionIntegrator:
+    def __init__(self):
+        self.sensors = {}
+        self.fusion_engine = KalmanFusionEngine()
+        self.calibration_data = {}
+
+    def add_sensor(self, name, sensor_type, topic, transform):
+        &quot;&quot;&quot;Add sensor to fusion system&quot;&quot;&quot;
+        self.sensors[name] = {
+            &#x27;type&#x27;: sensor_type,
+            &#x27;topic&#x27;: topic,
+            &#x27;transform&#x27;: transform,  # TF transform from sensor to base frame
+            &#x27;reliability&#x27;: 0.9,  # Initial reliability estimate
+            &#x27;bias&#x27;: np.zeros(3),  # Sensor bias correction
+            &#x27;last_update&#x27;: 0
+        }
+
+    def integrate_sensor_data(self, sensor_name, raw_data, timestamp):
+        &quot;&quot;&quot;Integrate sensor data into fused estimate&quot;&quot;&quot;
+        if sensor_name not in self.sensors:
+            return None
+
+        sensor_info = self.sensors[sensor_name]
+
+        # Apply calibration and bias correction
+        calibrated_data = self.calibrate_sensor_data(
+            raw_data, sensor_info[&#x27;bias&#x27;], sensor_info[&#x27;transform&#x27;])
+
+        # Update fusion engine
+        fused_estimate = self.fusion_engine.update(
+            sensor_name, calibrated_data, timestamp)
+
+        return fused_estimate
+
+    def calibrate_sensor_data(self, raw_data, bias, transform):
+        &quot;&quot;&quot;Apply calibration to raw sensor data&quot;&quot;&quot;
+        # Apply bias correction
+        corrected_data = raw_data - bias
+
+        # Apply coordinate frame transformation
+        if transform is not None:
+            corrected_data = self.apply_transform(corrected_data, transform)
+
+        return corrected_data
+
+    def apply_transform(self, data, transform):
+        &quot;&quot;&quot;Apply coordinate frame transformation&quot;&quot;&quot;
+        # Implementation depends on data type
+        # For position data: apply translation and rotation
+        # For orientation data: apply rotation only
+        return data  # Placeholder
+
+class KalmanFusionEngine:
+    def __init__(self):
+        # Initialize Kalman filter parameters
+        self.state_vector = np.zeros(13)  # [position, orientation, velocity, angular_velocity]
+        self.covariance_matrix = np.eye(13) * 1000  # High initial uncertainty
+
+    def update(self, sensor_name, sensor_data, timestamp):
+        &quot;&quot;&quot;Update state estimate with new sensor measurement&quot;&quot;&quot;
+        # Prediction step (if time has passed)
+        # Update step with sensor measurement
+        # Return updated state estimate
+        pass
+</code></pre>
+<h3 id="multi-modal-data-integration">Multi-Modal Data Integration</h3>
+<pre><code class="language-python">class MultiModalIntegrator:
+    def __init__(self):
+        self.modalities = {
+            &#x27;vision&#x27;: VisionModalityProcessor(),
+            &#x27;audio&#x27;: AudioModalityProcessor(),
+            &#x27;tactile&#x27;: TactileModalityProcessor(),
+            &#x27;proprioceptive&#x27;: ProprioceptiveModalityProcessor()
+        }
+        self.cross_modal_fusion = CrossModalFusionEngine()
+
+    def process_multimodal_input(self, inputs):
+        &quot;&quot;&quot;Process inputs from multiple modalities&quot;&quot;&quot;
+        processed_outputs = {}
+
+        # Process each modality independently
+        for modality_name, data in inputs.items():
+            if modality_name in self.modalities:
+                processed_outputs[modality_name] = \
+                    self.modalities[modality_name].process(data)
+
+        # Perform cross-modal fusion
+        fused_output = self.cross_modal_fusion.fuse(processed_outputs)
+
+        return fused_output
+
+class CrossModalFusionEngine:
+    def __init__(self):
+        self.attention_mechanisms = {}
+        self.confidence_estimators = {}
+
+    def fuse(self, modality_outputs):
+        &quot;&quot;&quot;Fuse outputs from multiple modalities&quot;&quot;&quot;
+        # Estimate confidence for each modality
+        confidences = {}
+        for modality, output in modality_outputs.items():
+            confidences[modality] = self.estimate_confidence(modality, output)
+
+        # Apply attention-weighted fusion
+        fused_result = self.attention_fusion(modality_outputs, confidences)
+
+        return fused_result
+
+    def estimate_confidence(self, modality, output):
+        &quot;&quot;&quot;Estimate confidence in modality output&quot;&quot;&quot;
+        # Implementation depends on modality type
+        # Consider factors like signal quality, noise level, consistency
+        return 0.8  # Placeholder
+
+    def attention_fusion(self, outputs, confidences):
+        &quot;&quot;&quot;Apply attention-weighted fusion&quot;&quot;&quot;
+        # Weight each modality by its confidence
+        weighted_sum = {}
+        total_weight = sum(confidences.values())
+
+        for modality, output in outputs.items():
+            weight = confidences[modality] / total_weight
+            # Apply weighting to output (implementation depends on data type)
+            pass
+
+        return {}  # Placeholder
+</code></pre>
+<h2 id="testing-integration">Testing Integration</h2>
+<h3 id="integration-testing-framework">Integration Testing Framework</h3>
+<pre><code class="language-python">import unittest
+from unittest.mock import Mock, patch
+
+class IntegrationTestSuite(unittest.TestCase):
+    def setUp(self):
+        &quot;&quot;&quot;Set up integration test environment&quot;&quot;&quot;
+        self.integration_manager = ComponentManager()
+        self.test_data = self.generate_test_data()
+
+    def test_sensor_to_planner_integration(self):
+        &quot;&quot;&quot;Test integration between perception and planning&quot;&quot;&quot;
+        # Mock sensor data
+        mock_vision_data = self.create_mock_vision_data()
+
+        # Simulate data flow through system
+        processed_objects = self.process_vision_data(mock_vision_data)
+        planning_request = self.create_planning_request(processed_objects)
+        plan = self.generate_plan(planning_request)
+
+        # Verify integration worked correctly
+        self.assertIsNotNone(plan)
+        self.assertGreater(len(plan), 0)
+        self.assertTrue(self.validate_plan(plan))
+
+    def test_multi_component_integration(self):
+        &quot;&quot;&quot;Test integration of multiple components&quot;&quot;&quot;
+        # Set up component connections
+        self.integration_manager.connect_components(&#x27;vision&#x27;, &#x27;planning&#x27;, &#x27;data&#x27;)
+        self.integration_manager.connect_components(&#x27;planning&#x27;, &#x27;control&#x27;, &#x27;commands&#x27;)
+        self.integration_manager.initialize_connections()
+
+        # Simulate end-to-end flow
+        input_data = self.test_data[&#x27;sample_input&#x27;]
+        output = self.execute_end_to_end(input_data)
+
+        # Verify complete integration
+        self.assertIsNotNone(output)
+        self.assertTrue(self.validate_output(output))
+
+    def generate_test_data(self):
+        &quot;&quot;&quot;Generate test data for integration tests&quot;&quot;&quot;
+        return {
+            &#x27;sample_input&#x27;: {
+                &#x27;objects&#x27;: [{&#x27;type&#x27;: &#x27;cup&#x27;, &#x27;position&#x27;: [1.0, 2.0, 0.5]}],
+                &#x27;goal&#x27;: {&#x27;position&#x27;: [3.0, 4.0, 0.0]}
+            },
+            &#x27;expected_output&#x27;: {
+                &#x27;actions&#x27;: [&#x27;navigate&#x27;, &#x27;grasp&#x27;, &#x27;place&#x27;]
+            }
+        }
+
+def run_integration_tests():
+    &quot;&quot;&quot;Run the complete integration test suite&quot;&quot;&quot;
+    loader = unittest.TestLoader()
+    suite = loader.loadTestsFromTestCase(IntegrationTestSuite)
+
+    runner = unittest.TextTestRunner(verbosity=2)
+    result = runner.run(suite)
+
+    return result
+</code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="integration-performance-monitoring">Integration Performance Monitoring</h3>
+<pre><code class="language-python">import time
+import psutil
+from collections import defaultdict, deque
+
+class IntegrationPerformanceMonitor:
+    def __init__(self):
+        self.metrics = {
+            &#x27;latency&#x27;: defaultdict(deque),
+            &#x27;throughput&#x27;: defaultdict(deque),
+            &#x27;cpu_usage&#x27;: deque(maxlen=100),
+            &#x27;memory_usage&#x27;: deque(maxlen=100),
+            &#x27;bandwidth_usage&#x27;: defaultdict(deque)
+        }
+        self.start_times = {}
+
+    def start_operation(self, operation_name):
+        &quot;&quot;&quot;Start timing an operation&quot;&quot;&quot;
+        self.start_times[operation_name] = time.time()
+
+    def end_operation(self, operation_name):
+        &quot;&quot;&quot;End timing an operation and record metrics&quot;&quot;&quot;
+        if operation_name in self.start_times:
+            duration = time.time() - self.start_times[operation_name]
+            self.metrics[&#x27;latency&#x27;][operation_name].append(duration)
+            del self.start_times[operation_name]
+
+    def record_throughput(self, component_name, count):
+        &quot;&quot;&quot;Record throughput for a component&quot;&quot;&quot;
+        self.metrics[&#x27;throughput&#x27;][component_name].append(count)
+
+    def update_system_metrics(self):
+        &quot;&quot;&quot;Update system-level metrics&quot;&quot;&quot;
+        self.metrics[&#x27;cpu_usage&#x27;].append(psutil.cpu_percent())
+        self.metrics[&#x27;memory_usage&#x27;].append(psutil.virtual_memory().percent)
+
+    def get_performance_report(self):
+        &quot;&quot;&quot;Generate performance report&quot;&quot;&quot;
+        report = {}
+
+        for component, latencies in self.metrics[&#x27;latency&#x27;].items():
+            if latencies:
+                avg_latency = sum(latencies) / len(latencies)
+                report[f&#x27;{component}_avg_latency&#x27;] = avg_latency
+                report[f&#x27;{component}_max_latency&#x27;] = max(latencies)
+
+        for component, throughput in self.metrics[&#x27;throughput&#x27;].items():
+            if throughput:
+                avg_throughput = sum(throughput) / len(throughput)
+                report[f&#x27;{component}_avg_throughput&#x27;] = avg_throughput
+
+        if self.metrics[&#x27;cpu_usage&#x27;]:
+            report[&#x27;avg_cpu_usage&#x27;] = sum(self.metrics[&#x27;cpu_usage&#x27;]) / len(self.metrics[&#x27;cpu_usage&#x27;])
+
+        if self.metrics[&#x27;memory_usage&#x27;]:
+            report[&#x27;avg_memory_usage&#x27;] = sum(self.metrics[&#x27;memory_usage&#x27;]) / len(self.metrics[&#x27;memory_usage&#x27;])
+
+        return report
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="integration-best-practices">Integration Best Practices</h3>
+<ol>
+<li><strong>Start Simple</strong>: Begin with basic component connections before adding complexity</li>
+<li><strong>Test Incrementally</strong>: Validate each integration step before proceeding</li>
+<li><strong>Use Standard Interfaces</strong>: Maintain consistent message types and APIs</li>
+<li><strong>Implement Fallbacks</strong>: Always have backup strategies for component failures</li>
+<li><strong>Monitor Performance</strong>: Continuously track integration performance metrics</li>
+<li><strong>Document Dependencies</strong>: Clearly document component interdependencies</li>
+<li><strong>Plan for Scalability</strong>: Design integration to handle increased complexity</li>
+</ol>
+<h3 id="troubleshooting-integration-issues">Troubleshooting Integration Issues</h3>
+<p><strong>Common Integration Problems</strong>:</p>
+<ul>
+<li>Timing mismatches between components</li>
+<li>Data format incompatibilities</li>
+<li>Resource contention</li>
+<li>Communication failures</li>
+<li>State synchronization issues</li>
+</ul>
+<p><strong>Diagnostic Approaches</strong>:</p>
+<ul>
+<li>Use ROS 2 tools (rqt_graph, ros2 topic echo, etc.)</li>
+<li>Implement comprehensive logging</li>
+<li>Create integration test suites</li>
+<li>Monitor system performance metrics</li>
+<li>Use debugging tools and profilers</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/capstone/testing-guide">Testing Guide</a> to learn about comprehensive testing strategies for your integrated humanoid robot system.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/integration-guide.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/capstone/intro"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Capstone Project: Complete Humanoid Robot Implementation</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/capstone/testing-guide"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Testing Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#integration-architecture" class="table-of-contents__link toc-highlight">Integration Architecture</a><ul><li><a href="#layered-integration-approach" class="table-of-contents__link toc-highlight">Layered Integration Approach</a></li><li><a href="#communication-patterns" class="table-of-contents__link toc-highlight">Communication Patterns</a></li></ul></li><li><a href="#component-integration-strategies" class="table-of-contents__link toc-highlight">Component Integration Strategies</a><ul><li><a href="#modular-integration-pattern" class="table-of-contents__link toc-highlight">Modular Integration Pattern</a></li><li><a href="#configuration-driven-integration" class="table-of-contents__link toc-highlight">Configuration-Driven Integration</a></li></ul></li><li><a href="#real-time-integration-considerations" class="table-of-contents__link toc-highlight">Real-Time Integration Considerations</a><ul><li><a href="#timing-and-synchronization" class="table-of-contents__link toc-highlight">Timing and Synchronization</a></li><li><a href="#resource-management" class="table-of-contents__link toc-highlight">Resource Management</a></li></ul></li><li><a href="#error-handling-and-fault-tolerance" class="table-of-contents__link toc-highlight">Error Handling and Fault Tolerance</a><ul><li><a href="#graceful-degradation" class="table-of-contents__link toc-highlight">Graceful Degradation</a></li></ul></li><li><a href="#data-integration-patterns" class="table-of-contents__link toc-highlight">Data Integration Patterns</a><ul><li><a href="#sensor-fusion-integration" class="table-of-contents__link toc-highlight">Sensor Fusion Integration</a></li><li><a href="#multi-modal-data-integration" class="table-of-contents__link toc-highlight">Multi-Modal Data Integration</a></li></ul></li><li><a href="#testing-integration" class="table-of-contents__link toc-highlight">Testing Integration</a><ul><li><a href="#integration-testing-framework" class="table-of-contents__link toc-highlight">Integration Testing Framework</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#integration-performance-monitoring" class="table-of-contents__link toc-highlight">Integration Performance Monitoring</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#integration-best-practices" class="table-of-contents__link toc-highlight">Integration Best Practices</a></li><li><a href="#troubleshooting-integration-issues" class="table-of-contents__link toc-highlight">Troubleshooting Integration Issues</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

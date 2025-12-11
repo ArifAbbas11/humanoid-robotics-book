@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-navigation/navigation-planning" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Navigation Planning | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/navigation-planning"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Navigation Planning | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/navigation-planning"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/navigation-planning" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/navigation-planning" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-setup">Isaac Setup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-sim">Isaac Sim</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-ros">Isaac ROS Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/vslam">Visual SLAM (vSLAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/ai-navigation/navigation-planning">Navigation Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/mini-project">Mini-Project: Implementing Navigation for a Humanoid Robot</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/troubleshooting">Troubleshooting AI Navigation for Humanoid Robots</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 3: The AI-Robot Brain (NVIDIA Isaac)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Navigation Planning</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="navigation-planning">Navigation Planning</h1>
+<h2 id="overview">Overview</h2>
+<p>Navigation planning is the process of computing safe and efficient paths for humanoid robots to move from their current location to a desired goal. This involves considering the robot&#x27;s unique kinematic constraints, balance requirements, and environmental obstacles to generate feasible trajectories.</p>
+<h2 id="types-of-navigation-planning">Types of Navigation Planning</h2>
+<h3 id="global-path-planning">Global Path Planning</h3>
+<p>Global planners compute high-level routes from start to goal:</p>
+<ul>
+<li><em><em>A</em> Algorithm</em>*: Weighted graph search that balances path optimality and computation time</li>
+<li><strong>Dijkstra&#x27;s Algorithm</strong>: Guarantees optimal paths but can be computationally expensive</li>
+<li><strong>RRT (Rapidly-exploring Random Trees)</strong>: Effective for high-dimensional spaces</li>
+<li><strong>PRM (Probabilistic Roadmaps)</strong>: Pre-computed roadmap for multiple queries</li>
+</ul>
+<h3 id="local-path-planning">Local Path Planning</h3>
+<p>Local planners adjust paths in real-time to avoid dynamic obstacles:</p>
+<ul>
+<li><strong>Dynamic Window Approach (DWA)</strong>: Considers robot dynamics and constraints</li>
+<li><strong>Trajectory Rollout</strong>: Evaluates multiple potential trajectories</li>
+<li><strong>Potential Fields</strong>: Uses attractive and repulsive forces</li>
+<li><strong>Model Predictive Control (MPC)</strong>: Optimizes over a finite horizon</li>
+</ul>
+<h3 id="humanoid-specific-planning">Humanoid-Specific Planning</h3>
+<p>Unique to bipedal robots, footstep planning determines where to place feet:</p>
+<ul>
+<li><strong>Footstep Graphs</strong>: Precomputed sets of feasible foot placements</li>
+<li><strong>Ankle-Height Functions</strong>: Maintaining stable center of pressure</li>
+<li><strong>Stability Criteria</strong>: Ensuring each step maintains balance</li>
+</ul>
+<h2 id="humanoid-navigation-challenges">Humanoid Navigation Challenges</h2>
+<h3 id="balance-and-stability">Balance and Stability</h3>
+<p>Humanoid robots must maintain balance during navigation:</p>
+<ul>
+<li><strong>Zero Moment Point (ZMP)</strong>: Ensuring forces act within support polygon</li>
+<li><strong>Capture Point</strong>: Predicting where to place feet to stop safely</li>
+<li><strong>Centroidal Dynamics</strong>: Managing center of mass motion</li>
+<li><strong>Stability Margins</strong>: Maintaining sufficient stability during movement</li>
+</ul>
+<h3 id="kinematic-constraints">Kinematic Constraints</h3>
+<p>Complex kinematic chains affect path planning:</p>
+<ul>
+<li><strong>Joint Limits</strong>: Ensuring planned paths respect actuator constraints</li>
+<li><strong>Workspace Boundaries</strong>: Avoiding configurations outside reachable space</li>
+<li><strong>Self-Collision Avoidance</strong>: Preventing limbs from colliding during movement</li>
+<li><strong>Singularity Avoidance</strong>: Preventing configurations with reduced mobility</li>
+</ul>
+<h3 id="gait-patterns">Gait Patterns</h3>
+<p>Different walking patterns for various scenarios:</p>
+<ul>
+<li><strong>Static Walking</strong>: Stable at each step (slow but stable)</li>
+<li><strong>Dynamic Walking</strong>: Continuous motion (faster but requires balance control)</li>
+<li><strong>Omnidirectional Walking</strong>: Moving in any direction while maintaining balance</li>
+<li><strong>Terrain Adaptation</strong>: Modifying gait for different surfaces</li>
+</ul>
+<h2 id="path-planning-algorithms">Path Planning Algorithms</h2>
+<h3 id="sampling-based-methods">Sampling-Based Methods</h3>
+<p>Effective for high-dimensional spaces:</p>
+<pre><code class="language-python">import numpy as np
+from scipy.spatial.distance import euclidean
+
+class HumanoidRRT:
+    def __init__(self, start, goal, map_resolution=0.1):
+        self.start = start
+        self.goal = goal
+        self.map_resolution = map_resolution
+        self.nodes = [start]
+        self.parent = {start: None}
+        self.step_size = 0.2  # Adjust for humanoid step constraints
+
+    def plan_path(self, max_iterations=1000):
+        &quot;&quot;&quot;Plan path using RRT algorithm with humanoid constraints&quot;&quot;&quot;
+        for i in range(max_iterations):
+            # Sample random configuration
+            random_config = self.sample_free_space()
+
+            # Find nearest node
+            nearest_node = self.nearest_node(random_config)
+
+            # Extend towards random configuration
+            new_node = self.extend_towards(nearest_node, random_config)
+
+            if new_node is not None:
+                # Check if goal is reached
+                if self.is_near_goal(new_node):
+                    return self.extract_path(new_node)
+
+                # Add to tree
+                self.nodes.append(new_node)
+                self.parent[new_node] = nearest_node
+
+        return None  # No path found
+
+    def sample_free_space(self):
+        &quot;&quot;&quot;Sample configuration space considering humanoid constraints&quot;&quot;&quot;
+        while True:
+            # Sample random position
+            sample = np.random.random(2) * 10  # Simplified 2D case
+            if self.is_valid_configuration(sample):
+                return sample
+
+    def is_valid_configuration(self, config):
+        &quot;&quot;&quot;Check for collisions and kinematic constraints&quot;&quot;&quot;
+        return (not self.in_collision(config) and
+                self.kinematically_feasible(config))
+
+    def extend_towards(self, from_node, to_config):
+        &quot;&quot;&quot;Extend tree towards target configuration with humanoid constraints&quot;&quot;&quot;
+        direction = to_config - from_node
+        distance = np.linalg.norm(direction)
+
+        if distance &lt;= self.step_size:
+            new_config = to_config
+        else:
+            # Normalize direction and scale by step size
+            direction = direction / distance
+            new_config = from_node + direction * self.step_size
+
+        # Check if path between nodes is valid
+        if self.is_valid_path(from_node, new_config):
+            return new_config
+
+        return None
+
+    def is_valid_path(self, start, end):
+        &quot;&quot;&quot;Check if path between two configurations is valid&quot;&quot;&quot;
+        # Check for collisions along the path
+        steps = int(np.linalg.norm(end - start) / (self.map_resolution / 2))
+        for i in range(1, steps + 1):
+            intermediate = start + (end - start) * i / steps
+            if not self.is_valid_configuration(intermediate):
+                return False
+        return True
+
+    def nearest_node(self, config):
+        &quot;&quot;&quot;Find nearest node in tree&quot;&quot;&quot;
+        distances = [euclidean(config, node) for node in self.nodes]
+        return self.nodes[np.argmin(distances)]
+
+    def is_near_goal(self, config):
+        &quot;&quot;&quot;Check if configuration is near goal&quot;&quot;&quot;
+        return euclidean(config, self.goal) &lt; self.step_size
+
+    def extract_path(self, goal_node):
+        &quot;&quot;&quot;Extract path from goal back to start&quot;&quot;&quot;
+        path = []
+        current = goal_node
+        while current is not None:
+            path.append(current)
+            current = self.parent[current]
+        return path[::-1]  # Reverse to get start-to-goal path
+</code></pre>
+<h3 id="optimization-based-methods">Optimization-Based Methods</h3>
+<p>Formulate path planning as an optimization problem:</p>
+<pre><code class="language-python">import numpy as np
+from scipy.optimize import minimize
+
+class OptimizationBasedPlanner:
+    def __init__(self, start, goal, obstacles):
+        self.start = start
+        self.goal = goal
+        self.obstacles = obstacles
+
+    def plan_path(self, num_waypoints=10):
+        &quot;&quot;&quot;Plan path using optimization&quot;&quot;&quot;
+        # Initialize waypoints along straight line
+        waypoints = np.linspace(self.start, self.goal, num_waypoints)
+        waypoints = waypoints.reshape(-1)
+
+        # Optimize path
+        result = minimize(
+            self.objective_function,
+            waypoints,
+            method=&#x27;SLSQP&#x27;,
+            constraints=self.get_constraints(),
+            options={&#x27;disp&#x27;: True}
+        )
+
+        if result.success:
+            optimized_path = result.x.reshape(-1, 2)
+            return optimized_path
+        return None
+
+    def objective_function(self, waypoints):
+        &quot;&quot;&quot;Minimize path length and deviation from straight line&quot;&quot;&quot;
+        waypoints = waypoints.reshape(-1, 2)
+
+        # Path length cost
+        length_cost = 0
+        for i in range(1, len(waypoints)):
+            length_cost += np.linalg.norm(waypoints[i] - waypoints[i-1])
+
+        # Deviation from straight line cost
+        straight_line_cost = 0
+        for i, waypoint in enumerate(waypoints):
+            expected_pos = self.start + (self.goal - self.start) * i / (len(waypoints) - 1)
+            straight_line_cost += np.linalg.norm(waypoint - expected_pos)
+
+        return length_cost + 0.1 * straight_line_cost
+
+    def get_constraints(self):
+        &quot;&quot;&quot;Define constraints for optimization&quot;&quot;&quot;
+        constraints = []
+
+        # Start constraint
+        def start_constraint(waypoints):
+            waypoints = waypoints.reshape(-1, 2)
+            return np.linalg.norm(waypoints[0] - self.start)
+
+        # Goal constraint
+        def goal_constraint(waypoints):
+            waypoints = waypoints.reshape(-1, 2)
+            return np.linalg.norm(waypoints[-1] - self.goal)
+
+        constraints.append({&#x27;type&#x27;: &#x27;eq&#x27;, &#x27;fun&#x27;: start_constraint})
+        constraints.append({&#x27;type&#x27;: &#x27;eq&#x27;, &#x27;fun&#x27;: goal_constraint})
+
+        # Obstacle avoidance constraints
+        for obs in self.obstacles:
+            def obstacle_constraint(waypoints, obs=obs):
+                waypoints = waypoints.reshape(-1, 2)
+                for waypoint in waypoints:
+                    if np.linalg.norm(waypoint - obs[:2]) &lt; obs[2]:  # obs[2] is radius
+                        return -1  # Violation
+                return 1  # Satisfied
+
+            constraints.append({&#x27;type&#x27;: &#x27;ineq&#x27;, &#x27;fun&#x27;: obstacle_constraint})
+
+        return constraints
+</code></pre>
+<h2 id="footstep-planning">Footstep Planning</h2>
+<h3 id="basic-footstep-planning">Basic Footstep Planning</h3>
+<pre><code class="language-python">class FootstepPlanner:
+    def __init__(self, robot_params):
+        self.step_length = robot_params[&#x27;step_length&#x27;]
+        self.step_width = robot_params[&#x27;step_width&#x27;]
+        self.max_step_height = robot_params[&#x27;max_step_height&#x27;]
+        self.support_polygon = robot_params[&#x27;support_polygon&#x27;]
+
+    def plan_footsteps(self, path, start_pose):
+        &quot;&quot;&quot;Plan footstep sequence for given path&quot;&quot;&quot;
+        footsteps = []
+        current_pose = start_pose.copy()
+
+        for i in range(len(path) - 1):
+            # Calculate required step
+            next_pose = path[i + 1]
+            step_vector = next_pose - current_pose[:2]
+
+            # Plan footstep based on direction and distance
+            if np.linalg.norm(step_vector) &gt; 0.1:  # Minimum step threshold
+                footstep = self.calculate_footstep(
+                    current_pose, step_vector, len(footsteps)
+                )
+                footsteps.append(footstep)
+                current_pose[:2] = next_pose
+
+        return footsteps
+
+    def calculate_footstep(self, current_pose, step_vector, step_count):
+        &quot;&quot;&quot;Calculate next footstep based on current pose and step vector&quot;&quot;&quot;
+        # Determine foot placement based on walking pattern
+        step_direction = step_vector / np.linalg.norm(step_vector)
+
+        # Alternate between left and right foot
+        if step_count % 2 == 0:
+            # Left foot step
+            foot_offset = np.array([-self.step_width/2, 0])
+        else:
+            # Right foot step
+            foot_offset = np.array([self.step_width/2, 0])
+
+        # Rotate offset based on step direction
+        rotation_matrix = np.array([
+            [step_direction[0], -step_direction[1]],
+            [step_direction[1], step_direction[0]]
+        ])
+        foot_offset = rotation_matrix @ foot_offset
+
+        # Calculate foot position
+        foot_position = current_pose[:2] + step_direction * self.step_length + foot_offset
+
+        # Add timing and other parameters
+        footstep = {
+            &#x27;position&#x27;: foot_position,
+            &#x27;orientation&#x27;: np.arctan2(step_vector[1], step_vector[0]),
+            &#x27;step_count&#x27;: step_count,
+            &#x27;timing&#x27;: 0.8  # seconds
+        }
+
+        return footstep
+
+    def validate_footstep(self, footstep, terrain_map):
+        &quot;&quot;&quot;Validate footstep for stability and terrain&quot;&quot;&quot;
+        # Check if footstep is on stable terrain
+        if not self.is_stable_terrain(footstep[&#x27;position&#x27;], terrain_map):
+            return False
+
+        # Check if footstep maintains balance
+        if not self.maintains_balance(footstep):
+            return False
+
+        return True
+
+    def is_stable_terrain(self, position, terrain_map):
+        &quot;&quot;&quot;Check if terrain at position is stable for stepping&quot;&quot;&quot;
+        # Implementation would check terrain properties
+        return True
+
+    def maintains_balance(self, footstep):
+        &quot;&quot;&quot;Check if footstep maintains robot balance&quot;&quot;&quot;
+        # Implementation would check support polygon
+        return True
+</code></pre>
+<h2 id="ai-based-navigation-planning">AI-Based Navigation Planning</h2>
+<h3 id="deep-reinforcement-learning-for-navigation">Deep Reinforcement Learning for Navigation</h3>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import numpy as np
+
+class NavigationPolicyNetwork(nn.Module):
+    def __init__(self, state_size, action_size):
+        super(NavigationPolicyNetwork, self).__init__()
+
+        # Input: sensor data, goal direction, robot state
+        self.fc1 = nn.Linear(state_size, 256)
+        self.fc2 = nn.Linear(256, 256)
+        self.fc3 = nn.Linear(256, 128)
+
+        # Output: navigation action (velocity, angular velocity)
+        self.action_head = nn.Linear(128, action_size)
+        self.value_head = nn.Linear(128, 1)
+
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(0.2)
+
+    def forward(self, state):
+        x = self.relu(self.fc1(state))
+        x = self.dropout(x)
+        x = self.relu(self.fc2(x))
+        x = self.dropout(x)
+        x = self.relu(self.fc3(x))
+
+        action = torch.tanh(self.action_head(x))  # Actions in [-1, 1]
+        value = self.value_head(x)
+
+        return action, value
+
+class DRLNavigationPlanner:
+    def __init__(self, state_size, action_size):
+        self.device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+        self.policy_net = NavigationPolicyNetwork(state_size, action_size).to(self.device)
+        self.optimizer = torch.optim.Adam(self.policy_net.parameters(), lr=0.001)
+
+    def get_action(self, state):
+        &quot;&quot;&quot;Get navigation action from policy network&quot;&quot;&quot;
+        state_tensor = torch.FloatTensor(state).unsqueeze(0).to(self.device)
+        action, _ = self.policy_net(state_tensor)
+        return action.cpu().data.numpy()[0]
+
+    def train_step(self, states, actions, rewards, next_states, dones):
+        &quot;&quot;&quot;Perform one training step&quot;&quot;&quot;
+        states = torch.FloatTensor(states).to(self.device)
+        actions = torch.FloatTensor(actions).to(self.device)
+        rewards = torch.FloatTensor(rewards).unsqueeze(1).to(self.device)
+        next_states = torch.FloatTensor(next_states).to(self.device)
+        dones = torch.FloatTensor(dones).unsqueeze(1).to(self.device)
+
+        current_actions, current_values = self.policy_net(states)
+        next_actions, next_values = self.policy_net(next_states)
+
+        # Calculate loss (simplified for example)
+        action_loss = nn.MSELoss()(current_actions, actions)
+        value_loss = nn.MSELoss()(current_values, rewards)
+
+        total_loss = action_loss + value_loss
+
+        self.optimizer.zero_grad()
+        total_loss.backward()
+        self.optimizer.step()
+
+        return total_loss.item()
+</code></pre>
+<h3 id="navigation-with-neural-networks">Navigation with Neural Networks</h3>
+<pre><code class="language-python">class NeuralPathPlanner:
+    def __init__(self):
+        self.collision_predictor = self.build_collision_predictor()
+        self.path_generator = self.build_path_generator()
+
+    def build_collision_predictor(self):
+        &quot;&quot;&quot;Build neural network to predict collision probability&quot;&quot;&quot;
+        # This would be a CNN or other appropriate architecture
+        # Input: sensor data, proposed path
+        # Output: collision probability
+        pass
+
+    def build_path_generator(self):
+        &quot;&quot;&quot;Build neural network to generate navigation paths&quot;&quot;&quot;
+        # Input: start, goal, environment representation
+        # Output: sequence of waypoints
+        pass
+
+    def predict_collision(self, path, environment):
+        &quot;&quot;&quot;Predict collision probability for a given path&quot;&quot;&quot;
+        # Use neural network to predict collision likelihood
+        pass
+
+    def generate_path(self, start, goal, environment):
+        &quot;&quot;&quot;Generate path using neural network&quot;&quot;&quot;
+        # Use neural network to generate initial path
+        # Then refine with traditional methods if needed
+        pass
+</code></pre>
+<h2 id="integration-with-ros-2-navigation">Integration with ROS 2 Navigation</h2>
+<h3 id="custom-navigation-plugin">Custom Navigation Plugin</h3>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from nav2_core.global_planner import GlobalPlanner
+from nav2_core.local_planner import LocalPlanner
+from geometry_msgs.msg import PoseStamped, Point
+from nav_msgs.msg import Path
+from builtin_interfaces.msg import Duration
+import numpy as np
+
+class HumanoidNavigationPlanner(GlobalPlanner):
+    def __init__(self):
+        super().__init__()
+        self.logger = None
+        self.costmap_ros = None
+        self.global_frame = None
+        self.robot_base_frame = None
+
+    def configure(self, tf_buffer, costmap_ros, global_frame, robot_base_frame, plugin_name):
+        &quot;&quot;&quot;Configure the planner with ROS 2 components&quot;&quot;&quot;
+        self.logger = rclpy.logging.get_logger(plugin_name)
+        self.costmap_ros = costmap_ros
+        self.global_frame = global_frame
+        self.robot_base_frame = robot_base_frame
+        self.plugin_name = plugin_name
+
+        self.logger.info(f&#x27;{self.plugin_name} plugin configured&#x27;)
+
+    def cleanup(self):
+        &quot;&quot;&quot;Clean up the planner&quot;&quot;&quot;
+        self.logger.info(f&#x27;{self.plugin_name} plugin cleaned up&#x27;)
+
+    def set_costmap_topic(self, topic_name):
+        &quot;&quot;&quot;Set the costmap topic&quot;&quot;&quot;
+        pass
+
+    def create_plan(self, start, goal):
+        &quot;&quot;&quot;Create a navigation plan from start to goal&quot;&quot;&quot;
+        self.logger.info(f&#x27;Creating plan from ({start.pose.position.x}, {start.pose.position.y}) to ({goal.pose.position.x}, {goal.pose.position.y})&#x27;)
+
+        # Convert ROS poses to numpy arrays
+        start_pos = np.array([start.pose.position.x, start.pose.position.y])
+        goal_pos = np.array([goal.pose.position.x, goal.pose.position.y])
+
+        # Plan path considering humanoid constraints
+        path = self.plan_humanoid_path(start_pos, goal_pos)
+
+        if path is not None:
+            # Convert path to ROS Path message
+            ros_path = Path()
+            ros_path.header.frame_id = self.global_frame
+            ros_path.header.stamp = rclpy.time.Time().to_msg()
+
+            for point in path:
+                pose = PoseStamped()
+                pose.header.frame_id = self.global_frame
+                pose.header.stamp = rclpy.time.Time().to_msg()
+                pose.pose.position.x = point[0]
+                pose.pose.position.y = point[1]
+                pose.pose.position.z = 0.0
+                pose.pose.orientation.w = 1.0  # No rotation
+                ros_path.poses.append(pose)
+
+            return ros_path
+
+        # Return empty path if planning failed
+        empty_path = Path()
+        empty_path.header.frame_id = self.global_frame
+        empty_path.header.stamp = rclpy.time.Time().to_msg()
+        return empty_path
+
+    def plan_humanoid_path(self, start, goal):
+        &quot;&quot;&quot;Plan path considering humanoid-specific constraints&quot;&quot;&quot;
+        # Use RRT or other appropriate algorithm
+        planner = HumanoidRRT(start, goal)
+        path = planner.plan_path()
+
+        if path is not None:
+            # Plan footstep sequence for the path
+            robot_params = {
+                &#x27;step_length&#x27;: 0.3,
+                &#x27;step_width&#x27;: 0.2,
+                &#x27;max_step_height&#x27;: 0.1,
+                &#x27;support_polygon&#x27;: &#x27;rectangle&#x27;
+            }
+
+            footstep_planner = FootstepPlanner(robot_params)
+            footsteps = footstep_planner.plan_footsteps(path, np.concatenate([start, [0, 0]]))
+
+            # Validate footsteps
+            for footstep in footsteps:
+                if not footstep_planner.validate_footstep(footstep, None):
+                    self.logger.warn(&#x27;Invalid footstep in path&#x27;)
+                    return None
+
+        return path
+</code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="multi-resolution-planning">Multi-Resolution Planning</h3>
+<pre><code class="language-python">class MultiResolutionPlanner:
+    def __init__(self):
+        self.global_planner = None  # Coarse resolution
+        self.local_planner = None   # Fine resolution
+        self.footstep_planner = None  # Very fine resolution
+
+    def plan_navigation(self, start, goal):
+        &quot;&quot;&quot;Plan navigation using multi-resolution approach&quot;&quot;&quot;
+        # 1. Global planning (coarse map)
+        global_path = self.global_planner.plan_path(start, goal)
+
+        if global_path is None:
+            return None
+
+        # 2. Local refinement (fine map) around global path
+        refined_path = self.refine_path_locally(global_path)
+
+        # 3. Footstep planning (very fine resolution)
+        footstep_sequence = self.plan_footsteps(refined_path)
+
+        return {
+            &#x27;global_path&#x27;: global_path,
+            &#x27;refined_path&#x27;: refined_path,
+            &#x27;footsteps&#x27;: footstep_sequence
+        }
+
+    def refine_path_locally(self, global_path):
+        &quot;&quot;&quot;Refine global path using local information&quot;&quot;&quot;
+        refined_path = []
+
+        for i in range(len(global_path) - 1):
+            segment_start = global_path[i]
+            segment_end = global_path[i + 1]
+
+            # Plan fine-grained path between waypoints
+            local_path = self.local_planner.plan_path(segment_start, segment_end)
+            refined_path.extend(local_path[:-1])  # Exclude last point to avoid duplication
+
+        # Add final point
+        refined_path.append(global_path[-1])
+
+        return refined_path
+</code></pre>
+<h2 id="safety-and-reliability">Safety and Reliability</h2>
+<h3 id="emergency-planning">Emergency Planning</h3>
+<pre><code class="language-python">class SafeNavigationPlanner:
+    def __init__(self):
+        self.emergency_stop_positions = []
+        self.safe_zones = []
+        self.backup_plans = {}
+
+    def plan_with_safety(self, start, goal, environment):
+        &quot;&quot;&quot;Plan navigation with safety considerations&quot;&quot;&quot;
+        # Identify safe zones and emergency stops
+        safe_zones = self.identify_safe_zones(environment)
+        emergency_stops = self.identify_emergency_stops(environment)
+
+        # Plan primary path
+        primary_path = self.plan_path(start, goal)
+
+        # Generate backup plans to safe zones
+        backup_paths = {}
+        for safe_zone in safe_zones:
+            backup_path = self.plan_path(start, safe_zone)
+            if backup_path:
+                backup_paths[safe_zone] = backup_path
+
+        return {
+            &#x27;primary_path&#x27;: primary_path,
+            &#x27;backup_paths&#x27;: backup_paths,
+            &#x27;safe_zones&#x27;: safe_zones,
+            &#x27;emergency_stops&#x27;: emergency_stops
+        }
+
+    def identify_safe_zones(self, environment):
+        &quot;&quot;&quot;Identify safe zones in the environment&quot;&quot;&quot;
+        # Safe zones are areas with low obstacle density and good visibility
+        safe_zones = []
+        # Implementation would analyze environment map
+        return safe_zones
+
+    def identify_emergency_stops(self, environment):
+        &quot;&quot;&quot;Identify potential emergency stop positions&quot;&quot;&quot;
+        # Emergency stops are locations where robot can safely stop
+        emergency_stops = []
+        # Implementation would find open areas
+        return emergency_stops
+</code></pre>
+<h2 id="quality-assessment">Quality Assessment</h2>
+<h3 id="planning-metrics">Planning Metrics</h3>
+<p>Evaluate navigation planning performance:</p>
+<ul>
+<li><strong>Path Optimality</strong>: How close to optimal the path is</li>
+<li><strong>Computation Time</strong>: Time required to generate the plan</li>
+<li><strong>Success Rate</strong>: Percentage of successful planning attempts</li>
+<li><strong>Safety Margin</strong>: How well the path maintains safety distances</li>
+<li><strong>Smoothness</strong>: Continuity and smoothness of the planned path</li>
+</ul>
+<h3 id="validation-techniques">Validation Techniques</h3>
+<ul>
+<li><strong>Simulation Testing</strong>: Extensive testing in simulated environments</li>
+<li><strong>Real-world Validation</strong>: Testing in controlled real environments</li>
+<li><strong>Benchmarking</strong>: Comparison with standard datasets and algorithms</li>
+<li><strong>Stress Testing</strong>: Testing in challenging scenarios</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="algorithm-selection">Algorithm Selection</h3>
+<ul>
+<li><strong>Environment Type</strong>: Choose algorithms based on environment characteristics</li>
+<li><strong>Real-time Requirements</strong>: Balance optimality with computation time</li>
+<li><strong>Robot Constraints</strong>: Consider specific humanoid kinematic constraints</li>
+<li><strong>Sensor Availability</strong>: Use appropriate algorithms for available sensors</li>
+</ul>
+<h3 id="implementation-guidelines">Implementation Guidelines</h3>
+<ul>
+<li><strong>Modular Design</strong>: Keep planning components modular and testable</li>
+<li><strong>Parameter Tuning</strong>: Provide adjustable parameters for different scenarios</li>
+<li><strong>Error Handling</strong>: Implement robust error handling and recovery</li>
+<li><strong>Performance Monitoring</strong>: Include metrics and monitoring capabilities</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/ai-navigation/mini-project">Mini-Project</a> to apply navigation planning concepts in a practical humanoid robot navigation project.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/navigation-planning.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/ai-navigation/vslam"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Visual SLAM (vSLAM)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/ai-navigation/mini-project"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Mini-Project: Implementing Navigation for a Humanoid Robot</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#types-of-navigation-planning" class="table-of-contents__link toc-highlight">Types of Navigation Planning</a><ul><li><a href="#global-path-planning" class="table-of-contents__link toc-highlight">Global Path Planning</a></li><li><a href="#local-path-planning" class="table-of-contents__link toc-highlight">Local Path Planning</a></li><li><a href="#humanoid-specific-planning" class="table-of-contents__link toc-highlight">Humanoid-Specific Planning</a></li></ul></li><li><a href="#humanoid-navigation-challenges" class="table-of-contents__link toc-highlight">Humanoid Navigation Challenges</a><ul><li><a href="#balance-and-stability" class="table-of-contents__link toc-highlight">Balance and Stability</a></li><li><a href="#kinematic-constraints" class="table-of-contents__link toc-highlight">Kinematic Constraints</a></li><li><a href="#gait-patterns" class="table-of-contents__link toc-highlight">Gait Patterns</a></li></ul></li><li><a href="#path-planning-algorithms" class="table-of-contents__link toc-highlight">Path Planning Algorithms</a><ul><li><a href="#sampling-based-methods" class="table-of-contents__link toc-highlight">Sampling-Based Methods</a></li><li><a href="#optimization-based-methods" class="table-of-contents__link toc-highlight">Optimization-Based Methods</a></li></ul></li><li><a href="#footstep-planning" class="table-of-contents__link toc-highlight">Footstep Planning</a><ul><li><a href="#basic-footstep-planning" class="table-of-contents__link toc-highlight">Basic Footstep Planning</a></li></ul></li><li><a href="#ai-based-navigation-planning" class="table-of-contents__link toc-highlight">AI-Based Navigation Planning</a><ul><li><a href="#deep-reinforcement-learning-for-navigation" class="table-of-contents__link toc-highlight">Deep Reinforcement Learning for Navigation</a></li><li><a href="#navigation-with-neural-networks" class="table-of-contents__link toc-highlight">Navigation with Neural Networks</a></li></ul></li><li><a href="#integration-with-ros-2-navigation" class="table-of-contents__link toc-highlight">Integration with ROS 2 Navigation</a><ul><li><a href="#custom-navigation-plugin" class="table-of-contents__link toc-highlight">Custom Navigation Plugin</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#multi-resolution-planning" class="table-of-contents__link toc-highlight">Multi-Resolution Planning</a></li></ul></li><li><a href="#safety-and-reliability" class="table-of-contents__link toc-highlight">Safety and Reliability</a><ul><li><a href="#emergency-planning" class="table-of-contents__link toc-highlight">Emergency Planning</a></li></ul></li><li><a href="#quality-assessment" class="table-of-contents__link toc-highlight">Quality Assessment</a><ul><li><a href="#planning-metrics" class="table-of-contents__link toc-highlight">Planning Metrics</a></li><li><a href="#validation-techniques" class="table-of-contents__link toc-highlight">Validation Techniques</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#algorithm-selection" class="table-of-contents__link toc-highlight">Algorithm Selection</a></li><li><a href="#implementation-guidelines" class="table-of-contents__link toc-highlight">Implementation Guidelines</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

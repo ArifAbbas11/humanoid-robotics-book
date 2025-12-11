@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-vla-integration/cognitive-planning" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Cognitive Planning | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/cognitive-planning"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Cognitive Planning | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/cognitive-planning"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/cognitive-planning" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/cognitive-planning" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-recognition">Voice Recognition</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/llm-integration">LLM Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/vla-integration/cognitive-planning">Cognitive Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/multi-modal">Multi-Modal Processing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-to-action">Voice-to-Action Mapping</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/capstone-project">VLA Capstone Project: Intelligent Humanoid Assistant</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/troubleshooting">Troubleshooting VLA Integration</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 4: Vision-Language-Action (VLA)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Cognitive Planning</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="cognitive-planning">Cognitive Planning</h1>
+<h2 id="overview">Overview</h2>
+<p>Cognitive planning is the high-level reasoning component of Vision-Language-Action (VLA) systems that bridges natural language understanding with executable robot actions. It involves breaking down complex tasks into manageable subtasks, reasoning about the environment, and generating executable plans that achieve user goals while respecting robot capabilities and safety constraints.</p>
+<h2 id="cognitive-planning-fundamentals">Cognitive Planning Fundamentals</h2>
+<h3 id="what-is-cognitive-planning">What is Cognitive Planning?</h3>
+<p>Cognitive planning in robotics involves:</p>
+<ul>
+<li><strong>Task Decomposition</strong>: Breaking complex goals into simpler, executable subtasks</li>
+<li><strong>Reasoning</strong>: Using knowledge about the world and robot capabilities to make decisions</li>
+<li><strong>Planning</strong>: Generating sequences of actions to achieve goals</li>
+<li><strong>Adaptation</strong>: Adjusting plans based on environmental changes and feedback</li>
+</ul>
+<h3 id="key-components">Key Components</h3>
+<ul>
+<li><strong>Knowledge Representation</strong>: How the robot represents its world knowledge</li>
+<li><strong>Task Planning</strong>: High-level planning of task sequences</li>
+<li><strong>Action Selection</strong>: Choosing appropriate actions based on context</li>
+<li><strong>Plan Execution</strong>: Monitoring and executing the planned sequence</li>
+<li><strong>Replanning</strong>: Adjusting plans when unexpected situations arise</li>
+</ul>
+<h2 id="planning-architecture">Planning Architecture</h2>
+<h3 id="hierarchical-task-network-htn-planning">Hierarchical Task Network (HTN) Planning</h3>
+<p>HTN planning decomposes high-level tasks into primitive actions:</p>
+<pre><code class="language-python">class HTNPlanner:
+    def __init__(self):
+        self.task_networks = {}
+        self.primitive_actions = {}
+        self.knowledge_base = {}
+
+    def plan_task(self, task, state):
+        &quot;&quot;&quot;Plan a task using hierarchical decomposition&quot;&quot;&quot;
+        if self.is_primitive(task):
+            return [task]  # Base case: primitive action
+
+        # Decompose complex task into subtasks
+        subtasks = self.decompose_task(task, state)
+
+        plan = []
+        for subtask in subtasks:
+            subplan = self.plan_task(subtask, state)
+            plan.extend(subplan)
+            # Update state after each subtask
+            state = self.update_state(state, subplan[-1] if subplan else None)
+
+        return plan
+
+    def decompose_task(self, task, state):
+        &quot;&quot;&quot;Decompose a task into subtasks&quot;&quot;&quot;
+        if task.name == &quot;fetch_object&quot;:
+            return [
+                Task(&quot;navigate_to&quot;, target=task.params[&quot;location&quot;]),
+                Task(&quot;detect_object&quot;, target=task.params[&quot;object&quot;]),
+                Task(&quot;grasp_object&quot;, target=task.params[&quot;object&quot;]),
+                Task(&quot;navigate_to&quot;, target=task.params[&quot;delivery_location&quot;]),
+                Task(&quot;place_object&quot;, target=task.params[&quot;object&quot;])
+            ]
+        # Add more task decompositions as needed
+        return []
+
+    def is_primitive(self, task):
+        &quot;&quot;&quot;Check if task is primitive (cannot be decomposed further)&quot;&quot;&quot;
+        return task.name in self.primitive_actions
+</code></pre>
+<h3 id="knowledge-representation">Knowledge Representation</h3>
+<p>Representing knowledge about the world and robot capabilities:</p>
+<pre><code class="language-python">class KnowledgeBase:
+    def __init__(self):
+        self.objects = {}  # Object properties and locations
+        self.locations = {}  # Spatial relationships
+        self.capabilities = {}  # Robot capabilities
+        self.affordances = {}  # Object affordances
+        self.procedures = {}  # Known procedures
+
+    def update_object_location(self, obj_name, location):
+        &quot;&quot;&quot;Update object location in knowledge base&quot;&quot;&quot;
+        if obj_name not in self.objects:
+            self.objects[obj_name] = {}
+        self.objects[obj_name][&#x27;location&#x27;] = location
+        self.objects[obj_name][&#x27;last_seen&#x27;] = time.time()
+
+    def get_reachable_objects(self, robot_location):
+        &quot;&quot;&quot;Get objects reachable from robot location&quot;&quot;&quot;
+        reachable = []
+        for obj_name, obj_info in self.objects.items():
+            if self.is_reachable(robot_location, obj_info.get(&#x27;location&#x27;)):
+                reachable.append(obj_name)
+        return reachable
+
+    def is_reachable(self, location1, location2):
+        &quot;&quot;&quot;Check if location2 is reachable from location1&quot;&quot;&quot;
+        # Implementation would use navigation map
+        return True  # Simplified
+</code></pre>
+<h2 id="cognitive-planning-with-llms">Cognitive Planning with LLMs</h2>
+<h3 id="llm-enhanced-planning">LLM-Enhanced Planning</h3>
+<p>Using large language models for cognitive reasoning:</p>
+<pre><code class="language-python">class LLMCognitivePlanner:
+    def __init__(self, llm_client):
+        self.llm_client = llm_client
+        self.knowledge_base = KnowledgeBase()
+        self.action_library = self.initialize_action_library()
+
+    def plan_with_llm(self, goal, context):
+        &quot;&quot;&quot;Generate plan using LLM reasoning&quot;&quot;&quot;
+        # Create structured prompt for planning
+        prompt = self.create_planning_prompt(goal, context)
+
+        response = self.llm_client.generate(prompt)
+
+        # Parse LLM response into structured plan
+        plan = self.parse_llm_plan(response)
+
+        return plan
+
+    def create_planning_prompt(self, goal, context):
+        &quot;&quot;&quot;Create prompt for LLM-based planning&quot;&quot;&quot;
+        prompt = f&quot;&quot;&quot;
+        You are a cognitive planner for a humanoid robot. Given the following information:
+
+        Robot Capabilities: {self.action_library}
+        Current Context: {context}
+        Goal: {goal}
+
+        Break down this goal into a sequence of executable actions. Each action should be:
+        1. Specific and actionable
+        2. Within the robot&#x27;s capabilities
+        3. Logically ordered
+        4. Include necessary parameters
+
+        Respond with a JSON list of actions in the format:
+        [
+            {{&quot;action&quot;: &quot;action_name&quot;, &quot;parameters&quot;: {{&quot;param1&quot;: &quot;value1&quot;, ...}}}},
+            ...
+        ]
+        &quot;&quot;&quot;
+        return prompt
+
+    def parse_llm_plan(self, llm_response):
+        &quot;&quot;&quot;Parse LLM response into executable plan&quot;&quot;&quot;
+        try:
+            # Try to parse as JSON
+            plan = json.loads(llm_response)
+            return plan
+        except json.JSONDecodeError:
+            # If not JSON, try to extract using other methods
+            return self.extract_plan_regex(llm_response)
+
+    def validate_plan(self, plan):
+        &quot;&quot;&quot;Validate plan against robot capabilities&quot;&quot;&quot;
+        for action in plan:
+            action_name = action.get(&#x27;action&#x27;)
+            if action_name not in self.action_library:
+                raise ValueError(f&quot;Unknown action: {action_name}&quot;)
+
+            # Check parameters
+            required_params = self.action_library[action_name].get(&#x27;required_params&#x27;, [])
+            provided_params = action.get(&#x27;parameters&#x27;, {})
+
+            for param in required_params:
+                if param not in provided_params:
+                    raise ValueError(f&quot;Missing required parameter {param} for action {action_name}&quot;)
+
+        return plan
+</code></pre>
+<h2 id="task-and-motion-planning-integration">Task and Motion Planning Integration</h2>
+<h3 id="combining-high-level-and-low-level-planning">Combining High-Level and Low-Level Planning</h3>
+<pre><code class="language-python">class IntegratedPlanner:
+    def __init__(self):
+        self.cognitive_planner = LLMCognitivePlanner()
+        self.motion_planner = MotionPlanner()  # Navigation and manipulation planner
+        self.executor = ActionExecutor()
+
+    def execute_goal(self, goal, context):
+        &quot;&quot;&quot;Execute goal with integrated cognitive and motion planning&quot;&quot;&quot;
+        # 1. Generate high-level plan
+        high_level_plan = self.cognitive_planner.plan_with_llm(goal, context)
+
+        # 2. Validate and refine plan
+        validated_plan = self.cognitive_planner.validate_plan(high_level_plan)
+
+        # 3. Execute plan with motion planning integration
+        execution_result = self.execute_plan(validated_plan)
+
+        return execution_result
+
+    def execute_plan(self, plan):
+        &quot;&quot;&quot;Execute plan with real-time adaptation&quot;&quot;&quot;
+        for i, action in enumerate(plan):
+            try:
+                # Get current state
+                current_state = self.get_current_state()
+
+                # Execute action
+                result = self.executor.execute_action(action, current_state)
+
+                if not result.success:
+                    # Handle failure - replan or skip
+                    if self.can_recover(action, result.error):
+                        recovery_plan = self.generate_recovery_plan(action, result.error)
+                        self.execute_plan(recovery_plan)
+                    else:
+                        # Skip to next action or abort
+                        continue
+
+            except Exception as e:
+                self.get_logger().error(f&quot;Error executing action {i}: {e}&quot;)
+                # Implement error handling strategy
+                return False
+
+        return True
+
+    def generate_recovery_plan(self, failed_action, error):
+        &quot;&quot;&quot;Generate recovery plan for failed action&quot;&quot;&quot;
+        # Based on error type, generate appropriate recovery
+        if &quot;navigation&quot; in str(error).lower():
+            return self.generate_navigation_recovery(failed_action)
+        elif &quot;manipulation&quot; in str(error).lower():
+            return self.generate_manipulation_recovery(failed_action)
+        else:
+            return self.generate_general_recovery(failed_action)
+</code></pre>
+<h2 id="context-aware-planning">Context-Aware Planning</h2>
+<h3 id="environmental-context-integration">Environmental Context Integration</h3>
+<pre><code class="language-python">class ContextAwarePlanner:
+    def __init__(self):
+        self.spatial_reasoner = SpatialReasoner()
+        self.temporal_reasoner = TemporalReasoner()
+        self.social_reasoner = SocialReasoner()
+
+    def plan_with_context(self, goal, environment_context):
+        &quot;&quot;&quot;Plan considering multiple contextual factors&quot;&quot;&quot;
+        # Analyze spatial context
+        spatial_constraints = self.analyze_spatial_context(
+            environment_context[&#x27;spatial&#x27;]
+        )
+
+        # Analyze temporal context
+        temporal_constraints = self.analyze_temporal_context(
+            environment_context[&#x27;temporal&#x27;]
+        )
+
+        # Analyze social context (if humans present)
+        social_constraints = self.analyze_social_context(
+            environment_context.get(&#x27;social&#x27;, {})
+        )
+
+        # Generate plan considering all constraints
+        plan = self.generate_contextual_plan(
+            goal,
+            spatial_constraints,
+            temporal_constraints,
+            social_constraints
+        )
+
+        return plan
+
+    def analyze_spatial_context(self, spatial_data):
+        &quot;&quot;&quot;Analyze spatial context for planning&quot;&quot;&quot;
+        constraints = {
+            &#x27;obstacles&#x27;: spatial_data.get(&#x27;obstacles&#x27;, []),
+            &#x27;navigable_areas&#x27;: spatial_data.get(&#x27;navigable_areas&#x27;, []),
+            &#x27;object_locations&#x27;: spatial_data.get(&#x27;objects&#x27;, {}),
+            &#x27;safety_zones&#x27;: spatial_data.get(&#x27;safety_zones&#x27;, [])
+        }
+        return constraints
+
+    def analyze_temporal_context(self, temporal_data):
+        &quot;&quot;&quot;Analyze temporal context for planning&quot;&quot;&quot;
+        constraints = {
+            &#x27;time_limits&#x27;: temporal_data.get(&#x27;time_limits&#x27;, {}),
+            &#x27;recurring_events&#x27;: temporal_data.get(&#x27;recurring_events&#x27;, []),
+            &#x27;urgency_level&#x27;: temporal_data.get(&#x27;urgency&#x27;, &#x27;normal&#x27;)
+        }
+        return constraints
+
+    def analyze_social_context(self, social_data):
+        &quot;&quot;&quot;Analyze social context for planning&quot;&quot;&quot;
+        constraints = {
+            &#x27;human_locations&#x27;: social_data.get(&#x27;humans&#x27;, []),
+            &#x27;social_norms&#x27;: social_data.get(&#x27;norms&#x27;, []),
+            &#x27;interaction_preferences&#x27;: social_data.get(&#x27;preferences&#x27;, {})
+        }
+        return constraints
+</code></pre>
+<h2 id="planning-for-humanoid-specific-capabilities">Planning for Humanoid-Specific Capabilities</h2>
+<h3 id="bipedal-navigation-planning">Bipedal Navigation Planning</h3>
+<pre><code class="language-python">class HumanoidPlanner:
+    def __init__(self):
+        self.footstep_planner = FootstepPlanner()
+        self.balance_controller = BalanceController()
+        self.gait_generator = GaitGenerator()
+
+    def plan_bipedal_navigation(self, start, goal, environment_map):
+        &quot;&quot;&quot;Plan navigation considering bipedal constraints&quot;&quot;&quot;
+        # 1. Plan high-level path
+        global_path = self.plan_global_path(start, goal, environment_map)
+
+        # 2. Generate footstep plan
+        footsteps = self.footstep_planner.plan_footsteps(
+            global_path,
+            start_pose=start
+        )
+
+        # 3. Validate balance throughout path
+        if not self.validate_balance_path(footsteps):
+            # Regenerate with balance constraints
+            footsteps = self.generate_balance_aware_footsteps(
+                global_path,
+                start_pose=start
+            )
+
+        # 4. Generate gait pattern
+        gait_pattern = self.gait_generator.generate_gait(footsteps)
+
+        return {
+            &#x27;path&#x27;: global_path,
+            &#x27;footsteps&#x27;: footsteps,
+            &#x27;gait&#x27;: gait_pattern,
+            &#x27;balance_checks&#x27;: self.generate_balance_checks(footsteps)
+        }
+
+    def validate_balance_path(self, footsteps):
+        &quot;&quot;&quot;Validate that path maintains balance&quot;&quot;&quot;
+        for i, footstep in enumerate(footsteps):
+            # Check if footstep maintains balance
+            if not self.balance_controller.is_stable_footstep(footstep):
+                return False
+        return True
+
+    def generate_balance_aware_footsteps(self, path, start_pose):
+        &quot;&quot;&quot;Generate footsteps that maintain balance&quot;&quot;&quot;
+        footsteps = []
+        current_pose = start_pose.copy()
+
+        for waypoint in path:
+            # Calculate stable footstep to reach waypoint
+            footstep = self.calculate_stable_footstep(current_pose, waypoint)
+            footsteps.append(footstep)
+            current_pose = self.update_pose_with_footstep(current_pose, footstep)
+
+        return footsteps
+</code></pre>
+<h2 id="multi-modal-planning">Multi-Modal Planning</h2>
+<h3 id="integrating-vision-and-language-for-planning">Integrating Vision and Language for Planning</h3>
+<pre><code class="language-python">class MultiModalPlanner:
+    def __init__(self):
+        self.vision_system = VisionSystem()
+        self.language_system = LanguageSystem()
+        self.planning_system = HTNPlanner()
+
+    def plan_from_multimodal_input(self, language_input, visual_input):
+        &quot;&quot;&quot;Plan using both language and visual inputs&quot;&quot;&quot;
+        # 1. Process language input to extract goal
+        language_context = self.language_system.process_input(language_input)
+        goal = language_context.get(&#x27;goal&#x27;)
+        constraints = language_context.get(&#x27;constraints&#x27;, {})
+
+        # 2. Process visual input to understand environment
+        visual_context = self.vision_system.process_input(visual_input)
+        environment_state = visual_context.get(&#x27;environment_state&#x27;)
+        detected_objects = visual_context.get(&#x27;objects&#x27;, [])
+
+        # 3. Integrate multimodal information
+        integrated_context = self.integrate_contexts(
+            language_context,
+            visual_context
+        )
+
+        # 4. Generate plan considering both modalities
+        plan = self.planning_system.plan_task(
+            goal,
+            integrated_context
+        )
+
+        return plan
+
+    def integrate_contexts(self, language_context, visual_context):
+        &quot;&quot;&quot;Integrate language and visual contexts&quot;&quot;&quot;
+        integrated = {
+            &#x27;spatial_info&#x27;: visual_context.get(&#x27;spatial_info&#x27;, {}),
+            &#x27;object_info&#x27;: visual_context.get(&#x27;objects&#x27;, {}),
+            &#x27;task_info&#x27;: language_context.get(&#x27;task_info&#x27;, {}),
+            &#x27;constraint_info&#x27;: language_context.get(&#x27;constraints&#x27;, {}),
+            &#x27;temporal_info&#x27;: language_context.get(&#x27;temporal_info&#x27;, {})
+        }
+
+        # Resolve conflicts between modalities
+        integrated = self.resolve_conflicts(integrated)
+
+        return integrated
+
+    def resolve_conflicts(self, integrated_context):
+        &quot;&quot;&quot;Resolve conflicts between different modalities&quot;&quot;&quot;
+        # Example: If language says &quot;red cup&quot; but vision sees multiple cups
+        # Use additional reasoning to identify the correct object
+        return integrated_context
+</code></pre>
+<h2 id="reactive-planning-and-execution">Reactive Planning and Execution</h2>
+<h3 id="real-time-plan-adaptation">Real-Time Plan Adaptation</h3>
+<pre><code class="language-python">class ReactivePlanner:
+    def __init__(self):
+        self.high_level_planner = HTNPlanner()
+        self.monitoring_system = PlanMonitor()
+        self.recovery_system = RecoverySystem()
+
+    def execute_with_monitoring(self, plan, environment_callback):
+        &quot;&quot;&quot;Execute plan with real-time monitoring and adaptation&quot;&quot;&quot;
+        execution_context = {
+            &#x27;plan&#x27;: plan,
+            &#x27;current_step&#x27;: 0,
+            &#x27;execution_history&#x27;: [],
+            &#x27;environment_state&#x27;: {}
+        }
+
+        while execution_context[&#x27;current_step&#x27;] &lt; len(plan):
+            current_action = plan[execution_context[&#x27;current_step&#x27;]]
+
+            # Monitor environment
+            execution_context[&#x27;environment_state&#x27;] = environment_callback()
+
+            # Check if plan is still valid
+            if not self.is_plan_valid(current_action, execution_context):
+                # Replan or recover
+                new_plan = self.adapt_plan(plan, execution_context)
+                plan = new_plan
+
+            # Execute action
+            result = self.execute_action(current_action, execution_context)
+
+            # Update execution context
+            execution_context[&#x27;execution_history&#x27;].append({
+                &#x27;action&#x27;: current_action,
+                &#x27;result&#x27;: result,
+                &#x27;timestamp&#x27;: time.time()
+            })
+
+            if result.success:
+                execution_context[&#x27;current_step&#x27;] += 1
+            else:
+                # Handle failure
+                recovery_result = self.handle_failure(
+                    current_action,
+                    result,
+                    execution_context
+                )
+
+                if recovery_result.success:
+                    execution_context[&#x27;current_step&#x27;] += 1
+                else:
+                    # Plan failed completely
+                    return False
+
+        return True
+
+    def is_plan_valid(self, current_action, context):
+        &quot;&quot;&quot;Check if current plan is still valid&quot;&quot;&quot;
+        # Check if environment has changed significantly
+        # Check if robot state is as expected
+        # Check if goal is still achievable
+        return True
+
+    def adapt_plan(self, original_plan, context):
+        &quot;&quot;&quot;Adapt plan based on new information&quot;&quot;&quot;
+        # Strategies: skip action, replan from current step, global replan
+        return original_plan  # Simplified
+</code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="planning-efficiency-techniques">Planning Efficiency Techniques</h3>
+<pre><code class="language-python">class EfficientPlanner:
+    def __init__(self):
+        self.plan_cache = {}
+        self.heuristic_functions = {}
+        self.parallel_planners = []
+
+    def plan_with_optimization(self, goal, context):
+        &quot;&quot;&quot;Plan with performance optimizations&quot;&quot;&quot;
+        # 1. Check plan cache
+        cache_key = self.generate_cache_key(goal, context)
+        if cache_key in self.plan_cache:
+            cached_plan, timestamp = self.plan_cache[cache_key]
+            if time.time() - timestamp &lt; 300:  # 5 minutes
+                return cached_plan
+
+        # 2. Use hierarchical planning for complex tasks
+        if self.is_complex_task(goal):
+            plan = self.hierarchical_plan(goal, context)
+        else:
+            plan = self.direct_plan(goal, context)
+
+        # 3. Cache the result
+        self.cache_plan(cache_key, plan)
+
+        return plan
+
+    def hierarchical_plan(self, goal, context):
+        &quot;&quot;&quot;Use hierarchical planning for complex tasks&quot;&quot;&quot;
+        # Decompose into subgoals
+        subgoals = self.decompose_goal(goal)
+
+        plan = []
+        for subgoal in subgoals:
+            subplan = self.direct_plan(subgoal, context)
+            plan.extend(subplan)
+
+        return plan
+
+    def generate_cache_key(self, goal, context):
+        &quot;&quot;&quot;Generate cache key for plan caching&quot;&quot;&quot;
+        return f&quot;{hash(goal)}_{hash(str(context))}&quot;
+</code></pre>
+<h2 id="safety-and-validation">Safety and Validation</h2>
+<h3 id="plan-safety-checking">Plan Safety Checking</h3>
+<pre><code class="language-python">class SafePlanner:
+    def __init__(self):
+        self.safety_rules = self.load_safety_rules()
+        self.collision_checker = CollisionChecker()
+        self.balance_checker = BalanceChecker()
+
+    def generate_safe_plan(self, goal, context):
+        &quot;&quot;&quot;Generate plan with safety validation&quot;&quot;&quot;
+        # Generate initial plan
+        plan = self.planning_system.plan_task(goal, context)
+
+        # Validate safety for each action
+        safe_plan = self.validate_plan_safety(plan)
+
+        return safe_plan
+
+    def validate_plan_safety(self, plan):
+        &quot;&quot;&quot;Validate that plan is safe to execute&quot;&quot;&quot;
+        safe_plan = []
+
+        for action in plan:
+            if self.is_action_safe(action):
+                safe_plan.append(action)
+            else:
+                # Try to modify action to make it safe
+                safe_action = self.make_action_safe(action)
+                if safe_action:
+                    safe_plan.append(safe_action)
+                else:
+                    raise ValueError(f&quot;Cannot make action safe: {action}&quot;)
+
+        return safe_plan
+
+    def is_action_safe(self, action):
+        &quot;&quot;&quot;Check if action is safe to execute&quot;&quot;&quot;
+        # Check collision safety
+        if not self.check_collision_safety(action):
+            return False
+
+        # Check balance safety
+        if not self.check_balance_safety(action):
+            return False
+
+        # Check other safety constraints
+        if not self.check_general_safety(action):
+            return False
+
+        return True
+
+    def check_collision_safety(self, action):
+        &quot;&quot;&quot;Check if action is collision-safe&quot;&quot;&quot;
+        # Implementation would check planned trajectory
+        return True
+
+    def check_balance_safety(self, action):
+        &quot;&quot;&quot;Check if action maintains robot balance&quot;&quot;&quot;
+        # Implementation would check balance during action
+        return True
+</code></pre>
+<h2 id="integration-with-ros-2">Integration with ROS 2</h2>
+<h3 id="planning-service-implementation">Planning Service Implementation</h3>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from vla_msgs.srv import PlanTask
+from vla_msgs.msg import Plan, PlanStep
+from geometry_msgs.msg import Pose
+from std_msgs.msg import String
+
+class CognitivePlanningNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;cognitive_planning_node&#x27;)
+
+        # Service for planning requests
+        self.planning_service = self.create_service(
+            PlanTask,
+            &#x27;plan_task&#x27;,
+            self.handle_plan_request
+        )
+
+        # Publisher for plan visualization
+        self.plan_pub = self.create_publisher(Plan, &#x27;generated_plan&#x27;, 10)
+
+        # Initialize planners
+        self.cognitive_planner = LLMCognitivePlanner()
+        self.motion_planner = MotionPlanner()
+        self.knowledge_base = KnowledgeBase()
+
+        self.get_logger().info(&#x27;Cognitive Planning Node initialized&#x27;)
+
+    def handle_plan_request(self, request, response):
+        &quot;&quot;&quot;Handle planning service request&quot;&quot;&quot;
+        try:
+            # Extract goal and context from request
+            goal = request.goal
+            context = self.extract_context_from_request(request)
+
+            # Generate plan
+            plan = self.cognitive_planner.plan_with_llm(goal, context)
+
+            # Validate plan
+            validated_plan = self.cognitive_planner.validate_plan(plan)
+
+            # Convert to ROS message
+            ros_plan = self.convert_to_ros_plan(validated_plan)
+
+            # Publish plan for visualization
+            self.plan_pub.publish(ros_plan)
+
+            # Set response
+            response.success = True
+            response.plan = ros_plan
+            response.message = &quot;Plan generated successfully&quot;
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Planning failed: {e}&#x27;)
+            response.success = False
+            response.message = f&quot;Planning failed: {e}&quot;
+
+        return response
+
+    def extract_context_from_request(self, request):
+        &quot;&quot;&quot;Extract context from service request&quot;&quot;&quot;
+        context = {
+            &#x27;robot_state&#x27;: request.robot_state,
+            &#x27;environment_map&#x27;: request.environment_map,
+            &#x27;object_locations&#x27;: request.object_locations,
+            &#x27;constraints&#x27;: request.constraints
+        }
+        return context
+
+    def convert_to_ros_plan(self, plan):
+        &quot;&quot;&quot;Convert internal plan representation to ROS message&quot;&quot;&quot;
+        ros_plan = Plan()
+        ros_plan.header.stamp = self.get_clock().now().to_msg()
+        ros_plan.header.frame_id = &quot;map&quot;
+
+        for action in plan:
+            step = PlanStep()
+            step.action_name = action.get(&#x27;action&#x27;, &#x27;&#x27;)
+            step.parameters = json.dumps(action.get(&#x27;parameters&#x27;, {}))
+            step.expected_duration = 0.0  # Would be calculated
+            ros_plan.steps.append(step)
+
+        return ros_plan
+</code></pre>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="planning-failures">Planning Failures</h3>
+<p><strong>Issue</strong>: Plans fail to achieve goals consistently.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Improve state estimation accuracy</li>
+<li>Add more detailed environment modeling</li>
+<li>Implement better failure detection and recovery</li>
+<li>Use more robust action primitives</li>
+</ol>
+<p><strong>Issue</strong>: Planning takes too long for real-time applications.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Use hierarchical planning to break down complex tasks</li>
+<li>Implement plan caching for common scenarios</li>
+<li>Use approximate planning methods when exact solutions are too slow</li>
+<li>Optimize planning algorithms and data structures</li>
+</ol>
+<h3 id="integration-challenges">Integration Challenges</h3>
+<p><strong>Issue</strong>: Cognitive plans don&#x27;t align with low-level execution capabilities.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Maintain consistent action representations across planning levels</li>
+<li>Implement proper plan refinement between levels</li>
+<li>Use shared knowledge representations</li>
+<li>Test plans in simulation before real-world execution</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="system-design">System Design</h3>
+<ul>
+<li><strong>Modular Architecture</strong>: Keep planning components separate for maintainability</li>
+<li><strong>Fallback Mechanisms</strong>: Implement graceful degradation when planning fails</li>
+<li><strong>Performance Monitoring</strong>: Track planning time, success rates, and quality</li>
+<li><strong>Validation</strong>: Always validate plans before execution</li>
+</ul>
+<h3 id="knowledge-management">Knowledge Management</h3>
+<ul>
+<li><strong>Consistent Representations</strong>: Use consistent data formats across components</li>
+<li><strong>Regular Updates</strong>: Keep knowledge base updated with current information</li>
+<li><strong>Uncertainty Handling</strong>: Account for uncertainty in planning processes</li>
+<li><strong>Learning</strong>: Incorporate learning from execution outcomes</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/vla-integration/multi-modal">Multi-Modal Processing</a> to learn about integrating multiple sensory inputs for comprehensive scene understanding in VLA systems.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/cognitive-planning.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/vla-integration/llm-integration"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">LLM Integration</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/vla-integration/multi-modal"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Multi-Modal Processing</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#cognitive-planning-fundamentals" class="table-of-contents__link toc-highlight">Cognitive Planning Fundamentals</a><ul><li><a href="#what-is-cognitive-planning" class="table-of-contents__link toc-highlight">What is Cognitive Planning?</a></li><li><a href="#key-components" class="table-of-contents__link toc-highlight">Key Components</a></li></ul></li><li><a href="#planning-architecture" class="table-of-contents__link toc-highlight">Planning Architecture</a><ul><li><a href="#hierarchical-task-network-htn-planning" class="table-of-contents__link toc-highlight">Hierarchical Task Network (HTN) Planning</a></li><li><a href="#knowledge-representation" class="table-of-contents__link toc-highlight">Knowledge Representation</a></li></ul></li><li><a href="#cognitive-planning-with-llms" class="table-of-contents__link toc-highlight">Cognitive Planning with LLMs</a><ul><li><a href="#llm-enhanced-planning" class="table-of-contents__link toc-highlight">LLM-Enhanced Planning</a></li></ul></li><li><a href="#task-and-motion-planning-integration" class="table-of-contents__link toc-highlight">Task and Motion Planning Integration</a><ul><li><a href="#combining-high-level-and-low-level-planning" class="table-of-contents__link toc-highlight">Combining High-Level and Low-Level Planning</a></li></ul></li><li><a href="#context-aware-planning" class="table-of-contents__link toc-highlight">Context-Aware Planning</a><ul><li><a href="#environmental-context-integration" class="table-of-contents__link toc-highlight">Environmental Context Integration</a></li></ul></li><li><a href="#planning-for-humanoid-specific-capabilities" class="table-of-contents__link toc-highlight">Planning for Humanoid-Specific Capabilities</a><ul><li><a href="#bipedal-navigation-planning" class="table-of-contents__link toc-highlight">Bipedal Navigation Planning</a></li></ul></li><li><a href="#multi-modal-planning" class="table-of-contents__link toc-highlight">Multi-Modal Planning</a><ul><li><a href="#integrating-vision-and-language-for-planning" class="table-of-contents__link toc-highlight">Integrating Vision and Language for Planning</a></li></ul></li><li><a href="#reactive-planning-and-execution" class="table-of-contents__link toc-highlight">Reactive Planning and Execution</a><ul><li><a href="#real-time-plan-adaptation" class="table-of-contents__link toc-highlight">Real-Time Plan Adaptation</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#planning-efficiency-techniques" class="table-of-contents__link toc-highlight">Planning Efficiency Techniques</a></li></ul></li><li><a href="#safety-and-validation" class="table-of-contents__link toc-highlight">Safety and Validation</a><ul><li><a href="#plan-safety-checking" class="table-of-contents__link toc-highlight">Plan Safety Checking</a></li></ul></li><li><a href="#integration-with-ros-2" class="table-of-contents__link toc-highlight">Integration with ROS 2</a><ul><li><a href="#planning-service-implementation" class="table-of-contents__link toc-highlight">Planning Service Implementation</a></li></ul></li><li><a href="#troubleshooting-common-issues" class="table-of-contents__link toc-highlight">Troubleshooting Common Issues</a><ul><li><a href="#planning-failures" class="table-of-contents__link toc-highlight">Planning Failures</a></li><li><a href="#integration-challenges" class="table-of-contents__link toc-highlight">Integration Challenges</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#system-design" class="table-of-contents__link toc-highlight">System Design</a></li><li><a href="#knowledge-management" class="table-of-contents__link toc-highlight">Knowledge Management</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

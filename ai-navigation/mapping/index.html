@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-navigation/mapping" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Mapping for Humanoid Robot Navigation | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/mapping"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Mapping for Humanoid Robot Navigation | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/mapping"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/mapping" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/mapping" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a class="navbar__item navbar__link" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="mapping-for-humanoid-robot-navigation">Mapping for Humanoid Robot Navigation</h1>
+<h2 id="overview">Overview</h2>
+<p>Mapping is the process of creating a representation of the environment that can be used for navigation. For humanoid robots, mapping must account for the robot&#x27;s unique characteristics such as height, balance requirements, and the need to navigate complex 3D environments with stairs, ramps, and other obstacles that wheeled robots don&#x27;t encounter.</p>
+<h2 id="types-of-maps">Types of Maps</h2>
+<h3 id="2d-occupancy-grid-maps">2D Occupancy Grid Maps</h3>
+<p>Occupancy grid maps divide the environment into discrete cells:</p>
+<ul>
+<li><strong>Binary Representation</strong>: Each cell is either occupied or free</li>
+<li><strong>Probabilistic</strong>: Each cell has a probability of occupancy</li>
+<li><strong>Resolution</strong>: Grid cell size affects map detail and computational requirements</li>
+</ul>
+<h3 id="3d-volumetric-maps">3D Volumetric Maps</h3>
+<p>For humanoid robots, 3D maps are often necessary:</p>
+<ul>
+<li><strong>Voxel Grids</strong>: 3D grid-based representation</li>
+<li><strong>Point Clouds</strong>: Dense 3D point representation</li>
+<li><strong>Mesh Maps</strong>: Surface-based 3D representation</li>
+</ul>
+<h3 id="semantic-maps">Semantic Maps</h3>
+<p>Adding semantic information to geometric maps:</p>
+<ul>
+<li><strong>Object Labels</strong>: Identifying doors, furniture, stairs</li>
+<li><strong>Functional Areas</strong>: Rooms, corridors, obstacles</li>
+<li><strong>Traversability</strong>: Distinguishing walkable from non-walkable areas</li>
+</ul>
+<h2 id="humanoid-specific-mapping-considerations">Humanoid-Specific Mapping Considerations</h2>
+<h3 id="multi-level-mapping">Multi-Level Mapping</h3>
+<p>Humanoid robots need maps that account for vertical navigation:</p>
+<ul>
+<li><strong>Stair Detection</strong>: Identifying and mapping stairs for navigation</li>
+<li><strong>Ramp Mapping</strong>: Recognizing gradual elevation changes</li>
+<li><strong>Multi-story Maps</strong>: Connecting maps across different floors</li>
+</ul>
+<h3 id="height-aware-mapping">Height-Aware Mapping</h3>
+<p>Accounting for the robot&#x27;s height and reach:</p>
+<ul>
+<li><strong>Clearance Mapping</strong>: Ensuring sufficient headroom</li>
+<li><strong>Step Height Detection</strong>: Identifying obstacles that affect walking</li>
+<li><strong>Reachable Areas</strong>: Mapping areas accessible to the robot</li>
+</ul>
+<h3 id="traversability-analysis">Traversability Analysis</h3>
+<p>Determining which areas are safe for humanoid navigation:</p>
+<ul>
+<li><strong>Surface Stability</strong>: Identifying uneven or slippery surfaces</li>
+<li><strong>Obstacle Height</strong>: Distinguishing obstacles that can be stepped over</li>
+<li><strong>Narrow Passages</strong>: Ensuring sufficient width for bipedal locomotion</li>
+</ul>
+<h2 id="mapping-algorithms">Mapping Algorithms</h2>
+<h3 id="occupancy-grid-mapping">Occupancy Grid Mapping</h3>
+<p>Basic algorithm for creating 2D occupancy maps:</p>
+<pre><code class="language-python">import numpy as np
+from scipy.ndimage import binary_dilation
+
+class OccupancyGridMap:
+    def __init__(self, width, height, resolution):
+        self.resolution = resolution
+        self.width = width
+        self.height = height
+        self.grid = np.zeros((height, width))  # -1: unknown, 0: free, 1: occupied
+        self.log_odds = np.zeros((height, width))  # Log odds representation
+        self.log_odds_free = np.log(0.3 / 0.7)  # Log odds for free space
+        self.log_odds_occupied = np.log(0.9 / 0.1)  # Log odds for occupied space
+
+    def update_cell(self, x, y, occupied):
+        &quot;&quot;&quot;Update a single cell based on sensor reading&quot;&quot;&quot;
+        if 0 &lt;= x &lt; self.width and 0 &lt;= y &lt; self.height:
+            if occupied:
+                self.log_odds[y, x] += self.log_odds_occupied
+            else:
+                self.log_odds[y, x] += self.log_odds_free
+
+            # Convert back to probability
+            prob = 1 - 1 / (1 + np.exp(self.log_odds[y, x]))
+            if prob &gt; 0.7:
+                self.grid[y, x] = 1  # occupied
+            elif prob &lt; 0.3:
+                self.grid[y, x] = 0  # free
+            else:
+                self.grid[y, x] = -1  # unknown
+
+    def ray_trace(self, start, end, occupied_end):
+        &quot;&quot;&quot;Perform ray tracing from sensor reading&quot;&quot;&quot;
+        # Bresenham&#x27;s line algorithm for ray tracing
+        x0, y0 = int(start[0] / self.resolution), int(start[1] / self.resolution)
+        x1, y1 = int(end[0] / self.resolution), int(end[1] / self.resolution)
+
+        dx = abs(x1 - x0)
+        dy = abs(y1 - y0)
+        sx = 1 if x0 &lt; x1 else -1
+        sy = 1 if y0 &lt; y1 else -1
+        err = dx - dy
+
+        # Mark endpoint as occupied or free
+        if occupied_end:
+            self.update_cell(x1, y1, True)
+        else:
+            self.update_cell(x1, y1, False)
+
+        # Mark free space along the ray
+        x, y = x0, y0
+        while x != x1 or y != y1:
+            if 0 &lt;= x &lt; self.width and 0 &lt;= y &lt; self.height:
+                self.update_cell(x, y, False)
+            e2 = 2 * err
+            if e2 &gt; -dy:
+                err -= dy
+                x += sx
+            if e2 &lt; dx:
+                err += dx
+                y += sy
+</code></pre>
+<h3 id="3d-mapping">3D Mapping</h3>
+<p>Extending mapping to three dimensions:</p>
+<ul>
+<li><strong>OctoMap</strong>: Hierarchical 3D occupancy mapping</li>
+<li><strong>TSDF (Truncated Signed Distance Function)</strong>: Surface reconstruction</li>
+<li><strong>Point Cloud Integration</strong>: Combining multiple point cloud observations</li>
+</ul>
+<h3 id="slam-simultaneous-localization-and-mapping">SLAM (Simultaneous Localization and Mapping)</h3>
+<p>SLAM algorithms perform mapping and localization simultaneously:</p>
+<ul>
+<li><strong>Graph-Based SLAM</strong>: Optimization-based approach</li>
+<li><strong>Filter-Based SLAM</strong>: Recursive Bayesian estimation</li>
+<li><strong>Keyframe-Based SLAM</strong>: Using key poses for efficiency</li>
+</ul>
+<h2 id="sensor-integration-for-mapping">Sensor Integration for Mapping</h2>
+<h3 id="lidar-mapping">LIDAR Mapping</h3>
+<p>LIDAR provides accurate range measurements:</p>
+<ul>
+<li><strong>Scan Registration</strong>: Aligning scans using odometry or IMU</li>
+<li><strong>Loop Closure</strong>: Detecting revisited locations</li>
+<li><strong>Multi-Beam LIDAR</strong>: Handling 3D LIDAR data</li>
+</ul>
+<h3 id="visual-mapping">Visual Mapping</h3>
+<p>Camera-based mapping techniques:</p>
+<ul>
+<li><strong>Visual SLAM</strong>: Feature-based mapping using cameras</li>
+<li><strong>Direct Methods</strong>: Using pixel intensities instead of features</li>
+<li><strong>Structure from Motion</strong>: Reconstructing 3D structure from multiple views</li>
+</ul>
+<h3 id="multi-sensor-mapping">Multi-Sensor Mapping</h3>
+<p>Combining multiple sensor types:</p>
+<ul>
+<li><strong>Sensor Fusion</strong>: Integrating data from different sensors</li>
+<li><strong>Complementary Sensors</strong>: Using different sensors for different aspects</li>
+<li><strong>Redundancy</strong>: Multiple sensors for robust mapping</li>
+</ul>
+<h2 id="ros-2-mapping-tools">ROS 2 Mapping Tools</h2>
+<h3 id="navigation2-map-server">Navigation2 Map Server</h3>
+<p>The Navigation2 stack includes mapping capabilities:</p>
+<pre><code class="language-yaml"># Example map server configuration
+map_saver:
+  ros__parameters:
+    save_map_timeout: 5.0
+    free_thresh_default: 0.25
+    occupied_thresh_default: 0.65
+    map_subscribe_transient_local: True
+</code></pre>
+<h3 id="cartographer">Cartographer</h3>
+<p>Google&#x27;s SLAM library integrated with ROS 2:</p>
+<pre><code class="language-lua">-- Example Cartographer configuration for humanoid robot
+options = {
+  tracking_frame = &quot;base_link&quot;,
+  published_frame = &quot;odom&quot;,
+  map_frame = &quot;map&quot;,
+  odom_frame = &quot;odom&quot;,
+  provide_odom_frame = true,
+  use_odometry = true,
+  use_nav_sat = false,
+  use_landmarks = false,
+  num_laser_scans = 1,
+  num_multi_echo_laser_scans = 0,
+  num_subdivisions_per_laser_scan = 1,
+  num_point_clouds = 0,
+  lookup_transform_timeout_sec = 0.2,
+  submap_publish_period_sec = 0.3,
+  pose_publish_period_sec = 5e-03,
+  trajectory_publish_period_sec = 30e-03,
+  rangefinder_sampling_ratio = 1.,
+  odometry_sampling_ratio = 1.,
+  fixed_frame_pose_sampling_ratio = 1.,
+  imu_sampling_ratio = 1.,
+  landmarks_sampling_ratio = 1.,
+}
+</code></pre>
+<h3 id="custom-mapping-nodes">Custom Mapping Nodes</h3>
+<p>Develop custom nodes for humanoid-specific mapping:</p>
+<ul>
+<li><strong>Height-Aware Mapping</strong>: Creating maps that consider robot height</li>
+<li><strong>Traversability Mapping</strong>: Distinguishing walkable from non-walkable areas</li>
+<li><strong>Stair Mapping</strong>: Specialized algorithms for stair detection and mapping</li>
+</ul>
+<h2 id="mapping-challenges">Mapping Challenges</h2>
+<h3 id="dynamic-environments">Dynamic Environments</h3>
+<p>Handling moving objects in the environment:</p>
+<ul>
+<li><strong>Dynamic Object Filtering</strong>: Removing moving objects from static maps</li>
+<li><strong>Temporary Obstacles</strong>: Distinguishing between permanent and temporary obstacles</li>
+<li><strong>Moving Object Tracking</strong>: Tracking dynamic obstacles separately</li>
+</ul>
+<h3 id="large-scale-mapping">Large-Scale Mapping</h3>
+<p>Managing maps of large environments:</p>
+<ul>
+<li><strong>Map Tiling</strong>: Dividing large maps into smaller tiles</li>
+<li><strong>Memory Management</strong>: Efficient storage and retrieval of map data</li>
+<li><strong>Map Streaming</strong>: Loading only necessary map portions</li>
+</ul>
+<h3 id="computational-efficiency">Computational Efficiency</h3>
+<p>Balancing map quality and computational requirements:</p>
+<ul>
+<li><strong>Multi-Resolution Maps</strong>: Different detail levels for different needs</li>
+<li><strong>Incremental Updates</strong>: Updating only changed portions of the map</li>
+<li><strong>Parallel Processing</strong>: Using multiple cores for mapping operations</li>
+</ul>
+<h2 id="semantic-mapping">Semantic Mapping</h2>
+<h3 id="object-recognition-integration">Object Recognition Integration</h3>
+<p>Adding semantic information to geometric maps:</p>
+<ul>
+<li><strong>Deep Learning</strong>: Using CNNs for object recognition</li>
+<li><strong>Instance Segmentation</strong>: Distinguishing individual objects</li>
+<li><strong>Semantic Labels</strong>: Associating labels with map regions</li>
+</ul>
+<h3 id="functional-area-mapping">Functional Area Mapping</h3>
+<p>Identifying areas with specific functions:</p>
+<ul>
+<li><strong>Room Detection</strong>: Identifying and labeling rooms</li>
+<li><strong>Path Planning Areas</strong>: Marking corridors and open spaces</li>
+<li><strong>Safety Zones</strong>: Identifying safe areas for robot operation</li>
+</ul>
+<h2 id="quality-assessment">Quality Assessment</h2>
+<h3 id="map-accuracy">Map Accuracy</h3>
+<p>Evaluating map quality:</p>
+<ul>
+<li><strong>Geometric Accuracy</strong>: How well the map matches the real environment</li>
+<li><strong>Completeness</strong>: Coverage of the environment</li>
+<li><strong>Consistency</strong>: Internal consistency of the map</li>
+</ul>
+<h3 id="map-validation">Map Validation</h3>
+<p>Verifying map correctness:</p>
+<ul>
+<li><strong>Ground Truth Comparison</strong>: Comparing with known maps when available</li>
+<li><strong>Navigation Performance</strong>: Testing navigation using the map</li>
+<li><strong>Loop Closure Detection</strong>: Verifying that loops are properly closed</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="map-management">Map Management</h3>
+<p>Effective map handling strategies:</p>
+<ul>
+<li><strong>Map Updates</strong>: Regularly updating maps as the environment changes</li>
+<li><strong>Map Merging</strong>: Combining maps from different sessions</li>
+<li><strong>Map Compression</strong>: Efficiently storing large maps</li>
+</ul>
+<h3 id="sensor-configuration">Sensor Configuration</h3>
+<p>Optimal sensor setup for mapping:</p>
+<ul>
+<li><strong>Sensor Placement</strong>: Positioning sensors for optimal coverage</li>
+<li><strong>Sensor Fusion</strong>: Combining multiple sensors for robust mapping</li>
+<li><strong>Calibration</strong>: Properly calibrating all sensors</li>
+</ul>
+<h3 id="incremental-mapping">Incremental Mapping</h3>
+<p>Building maps incrementally:</p>
+<ul>
+<li><strong>Local Mapping</strong>: Creating local maps and combining them</li>
+<li><strong>Global Optimization</strong>: Periodically optimizing the entire map</li>
+<li><strong>Consistency Maintenance</strong>: Ensuring map consistency over time</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/ai-navigation/control-systems">Control Systems</a> to learn about controlling humanoid robot navigation.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/mapping.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#types-of-maps" class="table-of-contents__link toc-highlight">Types of Maps</a><ul><li><a href="#2d-occupancy-grid-maps" class="table-of-contents__link toc-highlight">2D Occupancy Grid Maps</a></li><li><a href="#3d-volumetric-maps" class="table-of-contents__link toc-highlight">3D Volumetric Maps</a></li><li><a href="#semantic-maps" class="table-of-contents__link toc-highlight">Semantic Maps</a></li></ul></li><li><a href="#humanoid-specific-mapping-considerations" class="table-of-contents__link toc-highlight">Humanoid-Specific Mapping Considerations</a><ul><li><a href="#multi-level-mapping" class="table-of-contents__link toc-highlight">Multi-Level Mapping</a></li><li><a href="#height-aware-mapping" class="table-of-contents__link toc-highlight">Height-Aware Mapping</a></li><li><a href="#traversability-analysis" class="table-of-contents__link toc-highlight">Traversability Analysis</a></li></ul></li><li><a href="#mapping-algorithms" class="table-of-contents__link toc-highlight">Mapping Algorithms</a><ul><li><a href="#occupancy-grid-mapping" class="table-of-contents__link toc-highlight">Occupancy Grid Mapping</a></li><li><a href="#3d-mapping" class="table-of-contents__link toc-highlight">3D Mapping</a></li><li><a href="#slam-simultaneous-localization-and-mapping" class="table-of-contents__link toc-highlight">SLAM (Simultaneous Localization and Mapping)</a></li></ul></li><li><a href="#sensor-integration-for-mapping" class="table-of-contents__link toc-highlight">Sensor Integration for Mapping</a><ul><li><a href="#lidar-mapping" class="table-of-contents__link toc-highlight">LIDAR Mapping</a></li><li><a href="#visual-mapping" class="table-of-contents__link toc-highlight">Visual Mapping</a></li><li><a href="#multi-sensor-mapping" class="table-of-contents__link toc-highlight">Multi-Sensor Mapping</a></li></ul></li><li><a href="#ros-2-mapping-tools" class="table-of-contents__link toc-highlight">ROS 2 Mapping Tools</a><ul><li><a href="#navigation2-map-server" class="table-of-contents__link toc-highlight">Navigation2 Map Server</a></li><li><a href="#cartographer" class="table-of-contents__link toc-highlight">Cartographer</a></li><li><a href="#custom-mapping-nodes" class="table-of-contents__link toc-highlight">Custom Mapping Nodes</a></li></ul></li><li><a href="#mapping-challenges" class="table-of-contents__link toc-highlight">Mapping Challenges</a><ul><li><a href="#dynamic-environments" class="table-of-contents__link toc-highlight">Dynamic Environments</a></li><li><a href="#large-scale-mapping" class="table-of-contents__link toc-highlight">Large-Scale Mapping</a></li><li><a href="#computational-efficiency" class="table-of-contents__link toc-highlight">Computational Efficiency</a></li></ul></li><li><a href="#semantic-mapping" class="table-of-contents__link toc-highlight">Semantic Mapping</a><ul><li><a href="#object-recognition-integration" class="table-of-contents__link toc-highlight">Object Recognition Integration</a></li><li><a href="#functional-area-mapping" class="table-of-contents__link toc-highlight">Functional Area Mapping</a></li></ul></li><li><a href="#quality-assessment" class="table-of-contents__link toc-highlight">Quality Assessment</a><ul><li><a href="#map-accuracy" class="table-of-contents__link toc-highlight">Map Accuracy</a></li><li><a href="#map-validation" class="table-of-contents__link toc-highlight">Map Validation</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#map-management" class="table-of-contents__link toc-highlight">Map Management</a></li><li><a href="#sensor-configuration" class="table-of-contents__link toc-highlight">Sensor Configuration</a></li><li><a href="#incremental-mapping" class="table-of-contents__link toc-highlight">Incremental Mapping</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

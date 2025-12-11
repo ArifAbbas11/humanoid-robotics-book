@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-navigation/troubleshooting" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Troubleshooting AI Navigation for Humanoid Robots | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/troubleshooting"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Troubleshooting AI Navigation for Humanoid Robots | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/troubleshooting"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/troubleshooting" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/troubleshooting" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-setup">Isaac Setup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-sim">Isaac Sim</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-ros">Isaac ROS Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/vslam">Visual SLAM (vSLAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/navigation-planning">Navigation Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/mini-project">Mini-Project: Implementing Navigation for a Humanoid Robot</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/ai-navigation/troubleshooting">Troubleshooting AI Navigation for Humanoid Robots</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 3: The AI-Robot Brain (NVIDIA Isaac)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Troubleshooting AI Navigation for Humanoid Robots</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="troubleshooting-ai-navigation-for-humanoid-robots">Troubleshooting AI Navigation for Humanoid Robots</h1>
+<h2 id="overview">Overview</h2>
+<p>This guide addresses common issues encountered when implementing AI navigation systems for humanoid robots. Due to the complexity of bipedal locomotion combined with navigation algorithms, troubleshooting humanoid navigation requires understanding both robotics and AI concepts.</p>
+<h2 id="common-navigation-issues">Common Navigation Issues</h2>
+<h3 id="path-planning-problems">Path Planning Problems</h3>
+<p><strong>Issue</strong>: Robot fails to find a valid path to the goal.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check map quality and completeness:<!-- -->
+<pre><code class="language-bash">ros2 run nav2_map_server map_saver_cli -f /tmp/current_map
+</code></pre>
+</li>
+<li>Verify costmap parameters in navigation configuration</li>
+<li>Ensure robot footprint is correctly defined</li>
+<li>Check that inflation radius is appropriate for humanoid size</li>
+</ol>
+<p><strong>Issue</strong>: Planned path is not feasible for humanoid locomotion.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Adjust footstep planner parameters for step height and length</li>
+<li>Verify that terrain is traversable for bipedal locomotion</li>
+<li>Check joint limits and kinematic constraints</li>
+<li>Ensure path smoothing respects balance requirements</li>
+</ol>
+<h3 id="localization-issues">Localization Issues</h3>
+<p><strong>Issue</strong>: Robot loses localization or reports incorrect position.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check sensor data quality:<!-- -->
+<pre><code class="language-bash">ros2 topic echo /scan --field ranges
+ros2 topic echo /imu/data
+</code></pre>
+</li>
+<li>Verify sensor calibration and mounting</li>
+<li>Adjust particle filter parameters for humanoid-specific motion</li>
+<li>Check that map matches environment</li>
+</ol>
+<p><strong>Issue</strong>: Localization drifts over time.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Improve loop closure detection</li>
+<li>Add more distinctive landmarks to the environment</li>
+<li>Increase sensor update rates</li>
+<li>Adjust sensor fusion parameters</li>
+</ol>
+<h3 id="control-system-problems">Control System Problems</h3>
+<p><strong>Issue</strong>: Robot falls or loses balance during navigation.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Tune balance controller parameters (KP, KI, KD)</li>
+<li>Check that ZMP remains within support polygon</li>
+<li>Verify that step timing is appropriate for speed</li>
+<li>Adjust gait parameters for stability</li>
+</ol>
+<p><strong>Issue</strong>: Robot oscillates or moves erratically.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Reduce navigation speed and acceleration limits</li>
+<li>Increase controller frequency</li>
+<li>Check for sensor noise affecting control</li>
+<li>Verify that control parameters are properly tuned</li>
+</ol>
+<h2 id="sensor-specific-issues">Sensor-Specific Issues</h2>
+<h3 id="lidar-problems">LIDAR Problems</h3>
+<p><strong>Issue</strong>: LIDAR data shows inconsistent or incorrect measurements.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check LIDAR mounting and orientation</li>
+<li>Verify that LIDAR TF transform is correct</li>
+<li>Check for interference from robot body parts</li>
+<li>Adjust scan processing parameters</li>
+</ol>
+<p><strong>Issue</strong>: LIDAR detects robot body parts as obstacles.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Add robot body to costmap as static obstacles</li>
+<li>Use ray tracing to ignore robot body</li>
+<li>Adjust sensor mounting position</li>
+<li>Filter out robot body in processing</li>
+</ol>
+<h3 id="camera-issues">Camera Issues</h3>
+<p><strong>Issue</strong>: Visual navigation fails due to motion blur.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Use cameras with faster shutter speeds</li>
+<li>Mount cameras on stabilized platforms</li>
+<li>Increase lighting in environment</li>
+<li>Use visual-inertial odometry for motion compensation</li>
+</ol>
+<p><strong>Issue</strong>: Feature tracking fails during walking motion.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Use more robust feature detectors</li>
+<li>Implement motion prediction models</li>
+<li>Increase camera frame rate</li>
+<li>Use multiple cameras for redundancy</li>
+</ol>
+<h3 id="imu-problems">IMU Problems</h3>
+<p><strong>Issue</strong>: IMU data shows drift or incorrect orientation.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Calibrate IMU regularly</li>
+<li>Check for magnetic interference</li>
+<li>Verify IMU mounting orientation</li>
+<li>Use sensor fusion to correct drift</li>
+</ol>
+<h2 id="ros-2-navigation-stack-issues">ROS 2 Navigation Stack Issues</h2>
+<h3 id="navigation2-configuration-problems">Navigation2 Configuration Problems</h3>
+<p><strong>Issue</strong>: Navigation2 nodes fail to start or crash.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check parameter file syntax:<!-- -->
+<pre><code class="language-bash"># Validate YAML syntax
+python3 -c &quot;import yaml; yaml.safe_load(open(&#x27;config/navigation.yaml&#x27;))&quot;
+</code></pre>
+</li>
+<li>Verify all required topics are available</li>
+<li>Check that robot state publisher is running</li>
+<li>Ensure proper TF tree structure</li>
+</ol>
+<p><strong>Issue</strong>: Navigation2 reports &quot;No valid command&quot; or &quot;FollowPath failed&quot;.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check that costmaps are updating properly</li>
+<li>Verify that global planner can create paths</li>
+<li>Ensure local planner is receiving sensor data</li>
+<li>Check that controller can follow trajectories</li>
+</ol>
+<h3 id="costmap-issues">Costmap Issues</h3>
+<p><strong>Issue</strong>: Costmaps show incorrect obstacle information.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Verify sensor topic names and types</li>
+<li>Check costmap update frequency</li>
+<li>Adjust obstacle inflation parameters</li>
+<li>Ensure proper coordinate frame relationships</li>
+</ol>
+<p><strong>Issue</strong>: Robot avoids areas that should be navigable.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Adjust robot footprint to be less conservative</li>
+<li>Reduce inflation radius</li>
+<li>Check that sensor data covers robot&#x27;s width</li>
+<li>Verify that obstacle clearing is working properly</li>
+</ol>
+<h2 id="humanoid-specific-troubleshooting">Humanoid-Specific Troubleshooting</h2>
+<h3 id="balance-control-issues">Balance Control Issues</h3>
+<p><strong>Issue</strong>: Robot falls when attempting to navigate.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Start with very slow navigation speeds</li>
+<li>Verify center of mass is within stable range</li>
+<li>Check that footstep planner generates stable steps</li>
+<li>Ensure balance controller runs at high frequency (&gt;100Hz)</li>
+</ol>
+<p><strong>Issue</strong>: Robot cannot handle stairs or slopes.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Implement specialized gait patterns for stairs</li>
+<li>Use terrain classification algorithms</li>
+<li>Add step detection capabilities</li>
+<li>Adjust navigation parameters for terrain type</li>
+</ol>
+<h3 id="gait-generation-problems">Gait Generation Problems</h3>
+<p><strong>Issue</strong>: Robot cannot execute planned footsteps.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Verify inverse kinematics solutions exist</li>
+<li>Check joint limit constraints</li>
+<li>Adjust step height and length parameters</li>
+<li>Ensure sufficient computation time for gait generation</li>
+</ol>
+<p><strong>Issue</strong>: Gait is unstable or causes falls.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Use more conservative gait parameters</li>
+<li>Implement feedback control during walking</li>
+<li>Add ankle adjustments for uneven terrain</li>
+<li>Verify that timing parameters are appropriate</li>
+</ol>
+<h2 id="debugging-strategies">Debugging Strategies</h2>
+<h3 id="visualization-tools">Visualization Tools</h3>
+<p>Use RViz2 to visualize navigation components:</p>
+<pre><code class="language-bash">ros2 run rviz2 rviz2 -d /path/to/navigation.rviz
+</code></pre>
+<p>Key visualizations to monitor:</p>
+<ul>
+<li>Global and local costmaps</li>
+<li>Planned and executed paths</li>
+<li>Robot pose and trajectory</li>
+<li>Sensor data and obstacles</li>
+</ul>
+<h3 id="logging-and-monitoring">Logging and Monitoring</h3>
+<p>Enable detailed logging:</p>
+<pre><code class="language-bash"># Set log level for navigation nodes
+ros2 param set bt_navigator ros__parameters.use_sim_time true
+</code></pre>
+<p>Monitor key topics:</p>
+<pre><code class="language-bash"># Check navigation status
+ros2 topic echo /behavior_tree_log
+
+# Monitor robot state
+ros2 topic echo /joint_states
+
+# Check TF tree
+ros2 run tf2_tools view_frames
+</code></pre>
+<h3 id="simulation-testing">Simulation Testing</h3>
+<p>Test navigation in simulation before real-world deployment:</p>
+<ol>
+<li>Start with simple, known environments</li>
+<li>Gradually increase complexity</li>
+<li>Test edge cases and failure scenarios</li>
+<li>Validate safety mechanisms</li>
+</ol>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="computational-issues">Computational Issues</h3>
+<p><strong>Issue</strong>: Navigation system runs too slowly.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Reduce map resolution where possible</li>
+<li>Use multi-resolution maps for different tasks</li>
+<li>Optimize algorithm implementations</li>
+<li>Use parallel processing where possible</li>
+</ol>
+<p><strong>Issue</strong>: High CPU or memory usage.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Profile code to identify bottlenecks</li>
+<li>Use efficient data structures</li>
+<li>Implement caching for expensive computations</li>
+<li>Optimize sensor processing pipelines</li>
+</ol>
+<h2 id="common-configuration-mistakes">Common Configuration Mistakes</h2>
+<h3 id="parameter-issues">Parameter Issues</h3>
+<p><strong>Issue</strong>: Navigation behaves unexpectedly.</p>
+<p><strong>Common mistakes and solutions</strong>:</p>
+<ol>
+<li>Robot radius too small → Increase robot_radius in costmap config</li>
+<li>Controller frequency too low → Increase controller_frequency</li>
+<li>Tolerance values too strict → Adjust goal tolerances</li>
+<li>Sensor ranges incorrect → Verify sensor configuration</li>
+</ol>
+<h3 id="tf-tree-problems">TF Tree Problems</h3>
+<p><strong>Issue</strong>: Navigation fails due to coordinate frame issues.</p>
+<p><strong>Common mistakes and solutions</strong>:</p>
+<ol>
+<li>Missing transforms → Ensure all required TF frames exist</li>
+<li>Incorrect frame relationships → Verify parent-child relationships</li>
+<li>Timing issues → Check transform timestamps</li>
+<li>Static vs dynamic frames → Use appropriate broadcaster</li>
+</ol>
+<h2 id="testing-procedures">Testing Procedures</h2>
+<h3 id="incremental-testing">Incremental Testing</h3>
+<ol>
+<li><strong>Basic Movement</strong>: Test simple forward/backward movement</li>
+<li><strong>Turning</strong>: Test in-place and turning movements</li>
+<li><strong>Obstacle Avoidance</strong>: Test with simple obstacles</li>
+<li><strong>Path Following</strong>: Test following predefined paths</li>
+<li><strong>Goal Navigation</strong>: Test navigating to specified goals</li>
+<li><strong>Complex Environments</strong>: Test in complex, realistic environments</li>
+</ol>
+<h3 id="safety-testing">Safety Testing</h3>
+<ol>
+<li><strong>Emergency Stop</strong>: Verify emergency stop functionality</li>
+<li><strong>Fall Recovery</strong>: Test recovery from balance loss</li>
+<li><strong>Communication Loss</strong>: Test responses to sensor failures</li>
+<li><strong>Goal Unreachable</strong>: Test behavior when goal is blocked</li>
+</ol>
+<h2 id="getting-help">Getting Help</h2>
+<p>When seeking help with navigation issues:</p>
+<ol>
+<li><strong>System Information</strong>: Provide ROS 2 version, navigation stack version, robot model</li>
+<li><strong>Error Messages</strong>: Include complete error messages and logs</li>
+<li><strong>Configuration Files</strong>: Share relevant parameter files</li>
+<li><strong>Steps to Reproduce</strong>: Clear sequence of actions leading to issue</li>
+<li><strong>Expected vs Actual</strong>: What you expected vs. what happened</li>
+</ol>
+<h2 id="prevention-strategies">Prevention Strategies</h2>
+<h3 id="best-practices">Best Practices</h3>
+<ol>
+<li><strong>Thorough Testing</strong>: Test each component separately before integration</li>
+<li><strong>Conservative Parameters</strong>: Start with safe, conservative settings</li>
+<li><strong>Regular Validation</strong>: Continuously validate system behavior</li>
+<li><strong>Documentation</strong>: Keep configuration and troubleshooting notes</li>
+<li><strong>Safety Protocols</strong>: Always have manual override capabilities</li>
+</ol>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/vla-integration/introduction">VLA Integration</a> to learn about Vision-Language-Action models for humanoid robots.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/ai-navigation/mini-project"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Mini-Project: Implementing Navigation for a Humanoid Robot</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/vla-integration/intro"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Module 4: Vision-Language-Action (VLA)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#common-navigation-issues" class="table-of-contents__link toc-highlight">Common Navigation Issues</a><ul><li><a href="#path-planning-problems" class="table-of-contents__link toc-highlight">Path Planning Problems</a></li><li><a href="#localization-issues" class="table-of-contents__link toc-highlight">Localization Issues</a></li><li><a href="#control-system-problems" class="table-of-contents__link toc-highlight">Control System Problems</a></li></ul></li><li><a href="#sensor-specific-issues" class="table-of-contents__link toc-highlight">Sensor-Specific Issues</a><ul><li><a href="#lidar-problems" class="table-of-contents__link toc-highlight">LIDAR Problems</a></li><li><a href="#camera-issues" class="table-of-contents__link toc-highlight">Camera Issues</a></li><li><a href="#imu-problems" class="table-of-contents__link toc-highlight">IMU Problems</a></li></ul></li><li><a href="#ros-2-navigation-stack-issues" class="table-of-contents__link toc-highlight">ROS 2 Navigation Stack Issues</a><ul><li><a href="#navigation2-configuration-problems" class="table-of-contents__link toc-highlight">Navigation2 Configuration Problems</a></li><li><a href="#costmap-issues" class="table-of-contents__link toc-highlight">Costmap Issues</a></li></ul></li><li><a href="#humanoid-specific-troubleshooting" class="table-of-contents__link toc-highlight">Humanoid-Specific Troubleshooting</a><ul><li><a href="#balance-control-issues" class="table-of-contents__link toc-highlight">Balance Control Issues</a></li><li><a href="#gait-generation-problems" class="table-of-contents__link toc-highlight">Gait Generation Problems</a></li></ul></li><li><a href="#debugging-strategies" class="table-of-contents__link toc-highlight">Debugging Strategies</a><ul><li><a href="#visualization-tools" class="table-of-contents__link toc-highlight">Visualization Tools</a></li><li><a href="#logging-and-monitoring" class="table-of-contents__link toc-highlight">Logging and Monitoring</a></li><li><a href="#simulation-testing" class="table-of-contents__link toc-highlight">Simulation Testing</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#computational-issues" class="table-of-contents__link toc-highlight">Computational Issues</a></li></ul></li><li><a href="#common-configuration-mistakes" class="table-of-contents__link toc-highlight">Common Configuration Mistakes</a><ul><li><a href="#parameter-issues" class="table-of-contents__link toc-highlight">Parameter Issues</a></li><li><a href="#tf-tree-problems" class="table-of-contents__link toc-highlight">TF Tree Problems</a></li></ul></li><li><a href="#testing-procedures" class="table-of-contents__link toc-highlight">Testing Procedures</a><ul><li><a href="#incremental-testing" class="table-of-contents__link toc-highlight">Incremental Testing</a></li><li><a href="#safety-testing" class="table-of-contents__link toc-highlight">Safety Testing</a></li></ul></li><li><a href="#getting-help" class="table-of-contents__link toc-highlight">Getting Help</a></li><li><a href="#prevention-strategies" class="table-of-contents__link toc-highlight">Prevention Strategies</a><ul><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

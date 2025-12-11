@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ai-navigation/isaac-ros" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Isaac ROS Integration | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/isaac-ros"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Isaac ROS Integration | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/isaac-ros"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/isaac-ros" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/ai-navigation/isaac-ros" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-setup">Isaac Setup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-sim">Isaac Sim</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/ai-navigation/isaac-ros">Isaac ROS Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/vslam">Visual SLAM (vSLAM)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/navigation-planning">Navigation Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/mini-project">Mini-Project: Implementing Navigation for a Humanoid Robot</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/ai-navigation/troubleshooting">Troubleshooting AI Navigation for Humanoid Robots</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 3: The AI-Robot Brain (NVIDIA Isaac)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Isaac ROS Integration</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="isaac-ros-integration">Isaac ROS Integration</h1>
+<h2 id="overview">Overview</h2>
+<p>Isaac ROS provides GPU-accelerated perception and navigation capabilities that integrate seamlessly with ROS 2. This integration enables humanoid robots to leverage NVIDIA&#x27;s hardware acceleration for computationally intensive tasks like visual SLAM, object detection, and sensor processing.</p>
+<h2 id="isaac-ros-architecture">Isaac ROS Architecture</h2>
+<h3 id="core-components">Core Components</h3>
+<p>Isaac ROS consists of several key components:</p>
+<ul>
+<li><strong>Hardware Acceleration</strong>: GPU-accelerated processing for perception tasks</li>
+<li><strong>ROS 2 Compatibility</strong>: Full compatibility with ROS 2 message types and tools</li>
+<li><strong>Modular Design</strong>: Standalone packages that can be used independently</li>
+<li><strong>Performance Optimized</strong>: Designed for real-time robotics applications</li>
+</ul>
+<h3 id="available-packages">Available Packages</h3>
+<p>Isaac ROS provides the following key packages:</p>
+<ul>
+<li><strong>Isaac ROS Visual SLAM</strong>: GPU-accelerated visual-inertial SLAM</li>
+<li><strong>Isaac ROS Apriltag</strong>: High-performance AprilTag detection</li>
+<li><strong>Isaac ROS Stereo Dense Reconstruction</strong>: 3D reconstruction from stereo cameras</li>
+<li><strong>Isaac ROS Point Cloud Utilities</strong>: GPU-accelerated point cloud processing</li>
+<li><strong>Isaac ROS Image Pipeline</strong>: Optimized image processing pipeline</li>
+</ul>
+<h2 id="installation-and-setup">Installation and Setup</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before installing Isaac ROS, ensure you have:</p>
+<ul>
+<li>NVIDIA GPU with CUDA support (Compute Capability 6.0+)</li>
+<li>CUDA 11.8 or later installed</li>
+<li>ROS 2 Humble Hawksbill</li>
+<li>Compatible Isaac Sim installation (optional)</li>
+</ul>
+<h3 id="installing-isaac-ros-packages">Installing Isaac ROS Packages</h3>
+<pre><code class="language-bash"># Update package list
+sudo apt update
+
+# Install core Isaac ROS packages
+sudo apt install ros-humble-isaac-ros-pointcloud-utils
+sudo apt install ros-humble-isaac-ros-visual-slam
+sudo apt install ros-humble-isaac-ros-apriltag
+sudo apt install ros-humble-isaac-ros-stereo-dense-reconstruction
+sudo apt install ros-humble-isaac-ros-image-pipeline
+
+# Install additional packages as needed
+sudo apt install ros-humble-isaac-ros-rosbridge
+sudo apt install ros-humble-isaac-ros-gxf
+</code></pre>
+<h2 id="isaac-ros-visual-slam">Isaac ROS Visual SLAM</h2>
+<h3 id="overview-1">Overview</h3>
+<p>Isaac ROS Visual SLAM provides GPU-accelerated visual-inertial SLAM capabilities for creating maps and localizing robots in 3D space.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Create a configuration file for Visual SLAM:</p>
+<pre><code class="language-yaml"># visual_slam_config.yaml
+visual_slam_node:
+  ros__parameters:
+    # Input topics
+    rectified_left_camera_topic: &quot;/camera/left/image_rect_color&quot;
+    rectified_right_camera_topic: &quot;/camera/right/image_rect_color&quot;
+    left_camera_info_topic: &quot;/camera/left/camera_info&quot;
+    right_camera_info_topic: &quot;/camera/right/camera_info&quot;
+    imu_topic: &quot;/imu/data&quot;
+
+    # Output topics
+    pose_topic: &quot;/visual_slam/pose&quot;
+    tracking_frame: &quot;base_link&quot;
+    odometry_frame: &quot;odom&quot;
+    map_frame: &quot;map&quot;
+
+    # Processing parameters
+    enable_debug_mode: false
+    enable_imu_fusion: true
+    use_sim_time: false
+
+    # Map parameters
+    min_num_points_map: 100
+    max_num_points_map: 1000
+    map_publish_period: 1.0
+</code></pre>
+<h3 id="launching-visual-slam">Launching Visual SLAM</h3>
+<p>Create a launch file for Visual SLAM:</p>
+<pre><code class="language-python"># visual_slam_launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+import os
+
+def generate_launch_description():
+    config = os.path.join(
+        get_package_share_directory(&#x27;my_robot_pkg&#x27;),
+        &#x27;config&#x27;,
+        &#x27;visual_slam_config.yaml&#x27;
+    )
+
+    visual_slam_node = Node(
+        package=&#x27;isaac_ros_visual_slam&#x27;,
+        executable=&#x27;visual_slam_node&#x27;,
+        parameters=[config],
+        remappings=[
+            (&#x27;/visual_slam/imu&#x27;, &#x27;/imu/data&#x27;),
+            (&#x27;/visual_slam/left/camera_info&#x27;, &#x27;/camera/left/camera_info&#x27;),
+            (&#x27;/visual_slam/right/camera_info&#x27;, &#x27;/camera/right/camera_info&#x27;),
+            (&#x27;/visual_slam/left/image_rect_color&#x27;, &#x27;/camera/left/image_rect_color&#x27;),
+            (&#x27;/visual_slam/right/image_rect_color&#x27;, &#x27;/camera/right/image_rect_color&#x27;),
+        ]
+    )
+
+    return LaunchDescription([visual_slam_node])
+</code></pre>
+<h2 id="isaac-ros-apriltag-detection">Isaac ROS Apriltag Detection</h2>
+<h3 id="overview-2">Overview</h3>
+<p>Apriltag detection provides robust fiducial marker detection for precise localization and calibration.</p>
+<h3 id="configuration-1">Configuration</h3>
+<pre><code class="language-yaml"># apriltag_config.yaml
+apriltag:
+  ros__parameters:
+    # Input settings
+    image_transport: raw
+    input_width: 640
+    input_height: 480
+
+    # Detection parameters
+    max_tags: 64
+    tag_family: &quot;tag36h11&quot;
+    tag_threads: 4
+    decimate: 1.0
+    blur: 0.0
+    refine_edges: 1
+    decode_sharpening: 0.25
+
+    # Output settings
+    publish_tf: true
+    camera_frame: &quot;camera_link&quot;
+    tag_size: 0.14  # Size in meters
+</code></pre>
+<h3 id="usage-example">Usage Example</h3>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import PoseStamped
+from isaac_ros_apriltag_interfaces.msg import AprilTagDetectionArray
+
+class ApriltagController(Node):
+    def __init__(self):
+        super().__init__(&#x27;apriltag_controller&#x27;)
+
+        # Subscribe to Apriltag detections
+        self.tag_sub = self.create_subscription(
+            AprilTagDetectionArray,
+            &#x27;/detections&#x27;,
+            self.tag_callback,
+            10
+        )
+
+        # Publisher for navigation goals
+        self.goal_pub = self.create_publisher(
+            PoseStamped,
+            &#x27;/goal_pose&#x27;,
+            10
+        )
+
+    def tag_callback(self, msg):
+        &quot;&quot;&quot;Process Apriltag detections&quot;&quot;&quot;
+        for detection in msg.detections:
+            if detection.id == 0:  # Specific tag ID for navigation target
+                # Convert tag pose to navigation goal
+                goal = PoseStamped()
+                goal.header.frame_id = detection.pose.header.frame_id
+                goal.header.stamp = self.get_clock().now().to_msg()
+                goal.pose = detection.pose.pose.pose
+                self.goal_pub.publish(goal)
+                self.get_logger().info(f&#x27;Navigating to Apriltag {detection.id}&#x27;)
+</code></pre>
+<h2 id="isaac-ros-point-cloud-processing">Isaac ROS Point Cloud Processing</h2>
+<h3 id="overview-3">Overview</h3>
+<p>Point cloud utilities provide GPU-accelerated processing for 3D sensor data, essential for humanoid robot navigation and manipulation.</p>
+<h3 id="point-cloud-fusion">Point Cloud Fusion</h3>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import PointCloud2
+from std_msgs.msg import Header
+
+class PointCloudFusionNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;pointcloud_fusion_node&#x27;)
+
+        # Subscribers for multiple point clouds
+        self.pc1_sub = self.create_subscription(
+            PointCloud2,
+            &#x27;/lidar1/points&#x27;,
+            self.pc1_callback,
+            10
+        )
+        self.pc2_sub = self.create_subscription(
+            PointCloud2,
+            &#x27;/lidar2/points&#x27;,
+            self.pc2_callback,
+            10
+        )
+
+        # Publisher for fused point cloud
+        self.fused_pub = self.create_publisher(
+            PointCloud2,
+            &#x27;/fused_points&#x27;,
+            10
+        )
+
+        # Storage for point clouds
+        self.pc1_data = None
+        self.pc2_data = None
+
+    def pc1_callback(self, msg):
+        &quot;&quot;&quot;Process first point cloud&quot;&quot;&quot;
+        self.pc1_data = msg
+        self.fuse_pointclouds()
+
+    def pc2_callback(self, msg):
+        &quot;&quot;&quot;Process second point cloud&quot;&quot;&quot;
+        self.pc2_data = msg
+        self.fuse_pointclouds()
+
+    def fuse_pointclouds(self):
+        &quot;&quot;&quot;Fuse multiple point clouds using Isaac ROS utilities&quot;&quot;&quot;
+        if self.pc1_data and self.pc2_data:
+            # Use Isaac ROS point cloud fusion utilities
+            # This is a simplified example - actual implementation would use Isaac ROS tools
+            fused_msg = self.create_fused_pointcloud(self.pc1_data, self.pc2_data)
+            self.fused_pub.publish(fused_msg)
+
+    def create_fused_pointcloud(self, pc1, pc2):
+        &quot;&quot;&quot;Create fused point cloud (simplified)&quot;&quot;&quot;
+        # In practice, use Isaac ROS pointcloud fusion tools
+        fused = PointCloud2()
+        fused.header = Header()
+        fused.header.stamp = self.get_clock().now().to_msg()
+        fused.header.frame_id = &quot;map&quot;
+        return fused
+</code></pre>
+<h2 id="isaac-ros-stereo-dense-reconstruction">Isaac ROS Stereo Dense Reconstruction</h2>
+<h3 id="overview-4">Overview</h3>
+<p>Stereo dense reconstruction creates detailed 3D models from stereo camera pairs, useful for environment mapping and obstacle detection.</p>
+<h3 id="configuration-2">Configuration</h3>
+<pre><code class="language-yaml"># stereo_reconstruction_config.yaml
+stereo_reconstruction:
+  ros__parameters:
+    # Input topics
+    left_topic: &quot;/camera/left/image_rect_color&quot;
+    right_topic: &quot;/camera/right/image_rect_color&quot;
+    left_camera_info_topic: &quot;/camera/left/camera_info&quot;
+    right_camera_info_topic: &quot;/camera/right/camera_info&quot;
+
+    # Processing parameters
+    enable_rectification: false
+    stereo_algorithm: &quot;SGBM&quot;  # Semi-Global Block Matching
+    min_disparity: 0
+    num_disparities: 128
+    block_size: 11
+    disp12_max_diff: 1
+    prefilter_cap: 31
+    uniqueness_ratio: 15
+    speckle_window_size: 100
+    speckle_range: 32
+
+    # Output settings
+    pointcloud_topic: &quot;/stereo/points&quot;
+    output_frame: &quot;camera_link&quot;
+</code></pre>
+<h2 id="isaac-ros-image-pipeline">Isaac ROS Image Pipeline</h2>
+<h3 id="overview-5">Overview</h3>
+<p>The image pipeline provides GPU-accelerated image processing for robotics applications.</p>
+<h3 id="image-rectification">Image Rectification</h3>
+<pre><code class="language-python"># Image rectification using Isaac ROS
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image, CameraInfo
+from image_transport import ImageTransport
+
+class ImageRectificationNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;image_rectification_node&#x27;)
+
+        # Subscribers
+        self.left_image_sub = self.create_subscription(
+            Image,
+            &#x27;/camera/left/image_raw&#x27;,
+            self.left_image_callback,
+            10
+        )
+        self.left_info_sub = self.create_subscription(
+            CameraInfo,
+            &#x27;/camera/left/camera_info&#x27;,
+            self.left_info_callback,
+            10
+        )
+
+        # Publishers
+        self.rect_pub = self.create_publisher(
+            Image,
+            &#x27;/camera/left/image_rect_color&#x27;,
+            10
+        )
+
+        # Camera info storage
+        self.left_camera_info = None
+
+    def left_image_callback(self, msg):
+        &quot;&quot;&quot;Process left camera image&quot;&quot;&quot;
+        if self.left_camera_info is not None:
+            # Use Isaac ROS image processing for rectification
+            # This would use actual Isaac ROS rectification tools
+            rectified_msg = self.rectify_image(msg, self.left_camera_info)
+            self.rect_pub.publish(rectified_msg)
+
+    def left_info_callback(self, msg):
+        &quot;&quot;&quot;Store left camera info&quot;&quot;&quot;
+        self.left_camera_info = msg
+</code></pre>
+<h2 id="integration-with-navigation-stack">Integration with Navigation Stack</h2>
+<h3 id="connecting-to-navigation2">Connecting to Navigation2</h3>
+<p>Isaac ROS can integrate with Navigation2 for complete navigation solutions:</p>
+<pre><code class="language-python"># Example: Using Isaac ROS SLAM with Navigation2
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
+import os
+
+def generate_launch_description():
+    # Launch Isaac ROS Visual SLAM
+    isaac_slam = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            get_package_share_directory(&#x27;isaac_ros_visual_slam&#x27;),
+            &#x27;/launch/visual_slam_node.launch.py&#x27;
+        ])
+    )
+
+    # Launch Navigation2
+    nav2_bringup = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            get_package_share_directory(&#x27;nav2_bringup&#x27;),
+            &#x27;/launch/navigation_launch.py&#x27;
+        ])
+    )
+
+    return LaunchDescription([
+        isaac_slam,
+        nav2_bringup
+    ])
+</code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="gpu-memory-management">GPU Memory Management</h3>
+<p>Monitor and optimize GPU memory usage:</p>
+<pre><code class="language-bash"># Monitor GPU usage
+nvidia-smi
+
+# Check Isaac ROS memory usage
+ros2 run isaac_ros_utilities gpu_monitor
+</code></pre>
+<h3 id="pipeline-optimization">Pipeline Optimization</h3>
+<p>Optimize processing pipelines:</p>
+<ul>
+<li><strong>Threading</strong>: Use multi-threading for parallel processing</li>
+<li><strong>Memory Management</strong>: Reuse message buffers where possible</li>
+<li><strong>Pipeline Stages</strong>: Optimize the order of processing stages</li>
+<li><strong>Batch Processing</strong>: Process data in batches when possible</li>
+</ul>
+<h2 id="troubleshooting-isaac-ros">Troubleshooting Isaac ROS</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><strong>Issue</strong>: Isaac ROS nodes fail to start or crash.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check GPU compatibility:<!-- -->
+<pre><code class="language-bash">nvidia-smi
+</code></pre>
+</li>
+<li>Verify CUDA installation:<!-- -->
+<pre><code class="language-bash">nvcc --version
+</code></pre>
+</li>
+<li>Check Isaac ROS package installation:<!-- -->
+<pre><code class="language-bash">ros2 pkg list | grep isaac
+</code></pre>
+</li>
+</ol>
+<p><strong>Issue</strong>: High GPU memory usage.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Reduce input resolution</li>
+<li>Use lower precision (FP16 instead of FP32)</li>
+<li>Implement memory pooling</li>
+<li>Monitor GPU memory usage</li>
+</ol>
+<p><strong>Issue</strong>: Nodes not publishing data.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Check input topic connections:<!-- -->
+<pre><code class="language-bash">ros2 topic list
+ros2 topic info /input_topic
+</code></pre>
+</li>
+<li>Verify camera calibration and synchronization</li>
+<li>Check parameter configurations</li>
+<li>Monitor node logs for errors</li>
+</ol>
+<h3 id="debugging-tools">Debugging Tools</h3>
+<p>Use Isaac ROS debugging utilities:</p>
+<pre><code class="language-bash"># Monitor Isaac ROS nodes
+ros2 run isaac_ros_utilities node_monitor
+
+# Check performance metrics
+ros2 run isaac_ros_utilities performance_monitor
+
+# Debug image pipelines
+ros2 run image_view image_view _image:=/debug_topic
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="configuration-management">Configuration Management</h3>
+<ul>
+<li><strong>Modular Configs</strong>: Separate configurations for different use cases</li>
+<li><strong>Parameter Validation</strong>: Validate parameters before launching nodes</li>
+<li><strong>Default Values</strong>: Provide sensible defaults for all parameters</li>
+</ul>
+<h3 id="error-handling">Error Handling</h3>
+<ul>
+<li><strong>Graceful Degradation</strong>: Fall back to CPU processing if GPU fails</li>
+<li><strong>Health Monitoring</strong>: Monitor node health and restart if needed</li>
+<li><strong>Resource Management</strong>: Handle resource exhaustion gracefully</li>
+</ul>
+<h3 id="performance-monitoring">Performance Monitoring</h3>
+<ul>
+<li><strong>Real-time Monitoring</strong>: Monitor performance metrics during operation</li>
+<li><strong>Benchmarking</strong>: Regularly benchmark performance with different inputs</li>
+<li><strong>Optimization</strong>: Continuously optimize based on usage patterns</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/ai-navigation/vslam">Visual SLAM</a> to learn about implementing camera-based localization and mapping for humanoid robots.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/isaac-ros.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/ai-navigation/isaac-sim"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Isaac Sim</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/ai-navigation/vslam"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Visual SLAM (vSLAM)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#isaac-ros-architecture" class="table-of-contents__link toc-highlight">Isaac ROS Architecture</a><ul><li><a href="#core-components" class="table-of-contents__link toc-highlight">Core Components</a></li><li><a href="#available-packages" class="table-of-contents__link toc-highlight">Available Packages</a></li></ul></li><li><a href="#installation-and-setup" class="table-of-contents__link toc-highlight">Installation and Setup</a><ul><li><a href="#prerequisites" class="table-of-contents__link toc-highlight">Prerequisites</a></li><li><a href="#installing-isaac-ros-packages" class="table-of-contents__link toc-highlight">Installing Isaac ROS Packages</a></li></ul></li><li><a href="#isaac-ros-visual-slam" class="table-of-contents__link toc-highlight">Isaac ROS Visual SLAM</a><ul><li><a href="#overview-1" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#configuration" class="table-of-contents__link toc-highlight">Configuration</a></li><li><a href="#launching-visual-slam" class="table-of-contents__link toc-highlight">Launching Visual SLAM</a></li></ul></li><li><a href="#isaac-ros-apriltag-detection" class="table-of-contents__link toc-highlight">Isaac ROS Apriltag Detection</a><ul><li><a href="#overview-2" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#configuration-1" class="table-of-contents__link toc-highlight">Configuration</a></li><li><a href="#usage-example" class="table-of-contents__link toc-highlight">Usage Example</a></li></ul></li><li><a href="#isaac-ros-point-cloud-processing" class="table-of-contents__link toc-highlight">Isaac ROS Point Cloud Processing</a><ul><li><a href="#overview-3" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#point-cloud-fusion" class="table-of-contents__link toc-highlight">Point Cloud Fusion</a></li></ul></li><li><a href="#isaac-ros-stereo-dense-reconstruction" class="table-of-contents__link toc-highlight">Isaac ROS Stereo Dense Reconstruction</a><ul><li><a href="#overview-4" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#configuration-2" class="table-of-contents__link toc-highlight">Configuration</a></li></ul></li><li><a href="#isaac-ros-image-pipeline" class="table-of-contents__link toc-highlight">Isaac ROS Image Pipeline</a><ul><li><a href="#overview-5" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#image-rectification" class="table-of-contents__link toc-highlight">Image Rectification</a></li></ul></li><li><a href="#integration-with-navigation-stack" class="table-of-contents__link toc-highlight">Integration with Navigation Stack</a><ul><li><a href="#connecting-to-navigation2" class="table-of-contents__link toc-highlight">Connecting to Navigation2</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#gpu-memory-management" class="table-of-contents__link toc-highlight">GPU Memory Management</a></li><li><a href="#pipeline-optimization" class="table-of-contents__link toc-highlight">Pipeline Optimization</a></li></ul></li><li><a href="#troubleshooting-isaac-ros" class="table-of-contents__link toc-highlight">Troubleshooting Isaac ROS</a><ul><li><a href="#common-issues" class="table-of-contents__link toc-highlight">Common Issues</a></li><li><a href="#debugging-tools" class="table-of-contents__link toc-highlight">Debugging Tools</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#configuration-management" class="table-of-contents__link toc-highlight">Configuration Management</a></li><li><a href="#error-handling" class="table-of-contents__link toc-highlight">Error Handling</a></li><li><a href="#performance-monitoring" class="table-of-contents__link toc-highlight">Performance Monitoring</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

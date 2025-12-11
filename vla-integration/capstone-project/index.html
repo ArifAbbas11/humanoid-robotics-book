@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-vla-integration/capstone-project" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">VLA Capstone Project: Intelligent Humanoid Assistant | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/capstone-project"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="VLA Capstone Project: Intelligent Humanoid Assistant | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/capstone-project"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/capstone-project" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/capstone-project" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-recognition">Voice Recognition</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/llm-integration">LLM Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/cognitive-planning">Cognitive Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/multi-modal">Multi-Modal Processing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-to-action">Voice-to-Action Mapping</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/vla-integration/capstone-project">VLA Capstone Project: Intelligent Humanoid Assistant</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/troubleshooting">Troubleshooting VLA Integration</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 4: Vision-Language-Action (VLA)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">VLA Capstone Project: Intelligent Humanoid Assistant</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="vla-capstone-project-intelligent-humanoid-assistant">VLA Capstone Project: Intelligent Humanoid Assistant</h1>
+<h2 id="overview">Overview</h2>
+<p>This capstone project integrates all Vision-Language-Action (VLA) concepts learned throughout the module to create an intelligent humanoid assistant capable of understanding natural language commands, perceiving its environment, and executing complex tasks. This comprehensive project demonstrates the complete VLA pipeline in a practical, real-world scenario.</p>
+<h2 id="project-objectives">Project Objectives</h2>
+<p>By completing this capstone project, you will:</p>
+<ul>
+<li>Integrate voice recognition, language understanding, and action execution</li>
+<li>Implement multi-modal perception combining vision and other sensors</li>
+<li>Create a cognitive planning system for task decomposition</li>
+<li>Build a complete VLA pipeline for humanoid robot control</li>
+<li>Test and validate the integrated system in simulation and/or real hardware</li>
+<li>Document and present your implementation and results</li>
+</ul>
+<h2 id="project-requirements">Project Requirements</h2>
+<h3 id="hardware-requirements">Hardware Requirements</h3>
+<ul>
+<li><strong>Humanoid Robot</strong>: Physical robot or simulation environment (Gazebo/Isaac Sim)</li>
+<li><strong>Sensors</strong>: RGB-D camera, IMU, joint encoders, force/torque sensors</li>
+<li><strong>Computing</strong>: NVIDIA GPU for deep learning models (recommended)</li>
+<li><strong>Audio</strong>: Microphone for voice input, speaker for feedback</li>
+</ul>
+<h3 id="software-requirements">Software Requirements</h3>
+<ul>
+<li><strong>ROS 2 Humble</strong>: Robot Operating System for communication</li>
+<li><strong>Isaac ROS</strong>: GPU-accelerated perception and navigation</li>
+<li><strong>Large Language Model</strong>: OpenAI GPT, Claude, or open-source alternative</li>
+<li><strong>Computer Vision</strong>: Object detection, pose estimation, SLAM</li>
+<li><strong>Development Environment</strong>: Python, CUDA, Docker</li>
+</ul>
+<h2 id="system-architecture">System Architecture</h2>
+<h3 id="high-level-architecture">High-Level Architecture</h3>
+<pre><code class="language-mermaid">graph TD
+    A[User Voice Command] --&gt; B[Voice Recognition]
+    B --&gt; C[Language Understanding]
+    C --&gt; D[Cognitive Planning]
+    D --&gt; E[Multi-Modal Fusion]
+    E --&gt; F[Action Execution]
+    F --&gt; G[Robot Hardware]
+    G --&gt; H[Sensor Feedback]
+    H --&gt; E
+    G --&gt; I[User Feedback]
+</code></pre>
+<h3 id="component-integration">Component Integration</h3>
+<p>The system consists of several integrated components:</p>
+<ol>
+<li><strong>Voice Processing Pipeline</strong>: Speech-to-text conversion</li>
+<li><strong>Language Understanding Module</strong>: Command interpretation</li>
+<li><strong>Vision System</strong>: Environmental perception and object detection</li>
+<li><strong>Cognitive Planner</strong>: Task decomposition and planning</li>
+<li><strong>Action Executor</strong>: Robot control and execution</li>
+<li><strong>Feedback System</strong>: User communication and status updates</li>
+</ol>
+<h2 id="implementation-phase-1-voice-recognition-and-language-understanding">Implementation Phase 1: Voice Recognition and Language Understanding</h2>
+<h3 id="voice-recognition-integration">Voice Recognition Integration</h3>
+<p>Create a comprehensive voice recognition system:</p>
+<pre><code class="language-python"># voice_recognition_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from audio_common_msgs.msg import AudioData
+import speech_recognition as sr
+import threading
+import queue
+import vosk
+import json
+
+class VoiceRecognitionNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;voice_recognition_node&#x27;)
+
+        # Publisher for recognized text
+        self.text_pub = self.create_publisher(String, &#x27;recognized_text&#x27;, 10)
+
+        # Subscriber for audio data
+        self.audio_sub = self.create_subscription(
+            AudioData,
+            &#x27;audio_input&#x27;,
+            self.audio_callback,
+            10
+        )
+
+        # Initialize Vosk model for offline recognition
+        try:
+            self.model = vosk.Model(lang=&quot;en-us&quot;)
+            self.rec = vosk.KaldiRecognizer(self.model, 16000)
+            self.get_logger().info(&#x27;Vosk model loaded successfully&#x27;)
+        except Exception as e:
+            self.get_logger().error(f&#x27;Failed to load Vosk model: {e}&#x27;)
+            raise
+
+        # Voice activity detection
+        self.is_listening = True
+        self.command_queue = queue.Queue()
+
+        self.get_logger().info(&#x27;Voice Recognition Node initialized&#x27;)
+
+    def audio_callback(self, msg):
+        &quot;&quot;&quot;Process incoming audio data&quot;&quot;&quot;
+        try:
+            # Process audio chunk with Vosk
+            if self.rec.AcceptWaveform(msg.data):
+                result = self.rec.Result()
+                result_dict = json.loads(result)
+
+                if &#x27;text&#x27; in result_dict and result_dict[&#x27;text&#x27;].strip():
+                    # Publish recognized text
+                    text_msg = String()
+                    text_msg.data = result_dict[&#x27;text&#x27;].strip()
+                    self.text_pub.publish(text_msg)
+                    self.get_logger().info(f&#x27;Recognized: {result_dict[&quot;text&quot;]}&#x27;)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error in voice recognition: {e}&#x27;)
+</code></pre>
+<h3 id="language-understanding-system">Language Understanding System</h3>
+<p>Implement natural language understanding:</p>
+<pre><code class="language-python"># language_understanding_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from vla_msgs.msg import ParsedCommand
+import spacy
+import openai
+import json
+
+class LanguageUnderstandingNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;language_understanding_node&#x27;)
+
+        # Initialize NLP model
+        try:
+            self.nlp = spacy.load(&quot;en_core_web_sm&quot;)
+        except OSError:
+            self.get_logger().warn(&quot;spaCy model not found. Install with: python -m spacy download en_core_web_sm&quot;)
+            self.nlp = None
+
+        # Subscriber for recognized text
+        self.text_sub = self.create_subscription(
+            String,
+            &#x27;recognized_text&#x27;,
+            self.text_callback,
+            10
+        )
+
+        # Publisher for parsed commands
+        self.command_pub = self.create_publisher(ParsedCommand, &#x27;parsed_command&#x27;, 10)
+
+        # Initialize LLM client
+        self.llm_client = None  # Initialize with your chosen LLM
+
+        self.get_logger().info(&#x27;Language Understanding Node initialized&#x27;)
+
+    def text_callback(self, msg):
+        &quot;&quot;&quot;Process recognized text into structured commands&quot;&quot;&quot;
+        try:
+            # Parse the command using NLP
+            parsed_result = self.parse_command(msg.data)
+
+            # Create and publish parsed command
+            command_msg = ParsedCommand()
+            command_msg.header.stamp = self.get_clock().now().to_msg()
+            command_msg.original_text = msg.data
+            command_msg.intent = parsed_result.get(&#x27;intent&#x27;, &#x27;unknown&#x27;)
+            command_msg.action_type = parsed_result.get(&#x27;action_type&#x27;, &#x27;unknown&#x27;)
+            command_msg.parameters = json.dumps(parsed_result.get(&#x27;parameters&#x27;, {}))
+            command_msg.confidence = parsed_result.get(&#x27;confidence&#x27;, 0.0)
+
+            self.command_pub.publish(command_msg)
+            self.get_logger().info(f&#x27;Parsed command: {parsed_result}&#x27;)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error parsing command: {e}&#x27;)
+
+    def parse_command(self, text):
+        &quot;&quot;&quot;Parse natural language command into structured format&quot;&quot;&quot;
+        if self.nlp:
+            # Use spaCy for NLP processing
+            doc = self.nlp(text)
+
+            # Extract entities and intent
+            entities = [(ent.text, ent.label_) for ent in doc.ents]
+            intent = self.classify_intent(doc)
+
+            # Determine action type
+            action_type = self.extract_action_type(doc)
+
+            return {
+                &#x27;intent&#x27;: intent,
+                &#x27;action_type&#x27;: action_type,
+                &#x27;entities&#x27;: entities,
+                &#x27;confidence&#x27;: 0.8,  # Simplified confidence
+                &#x27;parameters&#x27;: self.extract_parameters(doc, entities)
+            }
+
+        # Fallback simple parsing
+        return self.simple_parse(text)
+
+    def classify_intent(self, doc):
+        &quot;&quot;&quot;Classify the intent of the command&quot;&quot;&quot;
+        # Simple keyword-based classification
+        text = doc.text.lower()
+
+        if any(word in text for word in [&#x27;go&#x27;, &#x27;move&#x27;, &#x27;navigate&#x27;, &#x27;walk&#x27;]):
+            return &#x27;navigation&#x27;
+        elif any(word in text for word in [&#x27;pick&#x27;, &#x27;grasp&#x27;, &#x27;take&#x27;, &#x27;get&#x27;]):
+            return &#x27;manipulation&#x27;
+        elif any(word in text for word in [&#x27;greet&#x27;, &#x27;hello&#x27;, &#x27;wave&#x27;]):
+            return &#x27;interaction&#x27;
+        else:
+            return &#x27;unknown&#x27;
+
+    def extract_action_type(self, doc):
+        &quot;&quot;&quot;Extract specific action type&quot;&quot;&quot;
+        for token in doc:
+            if token.pos_ == &quot;VERB&quot;:
+                return token.lemma_
+        return &#x27;unknown&#x27;
+
+    def extract_parameters(self, doc, entities):
+        &quot;&quot;&quot;Extract parameters from command&quot;&quot;&quot;
+        params = {}
+
+        # Extract object from entities
+        for ent_text, ent_label in entities:
+            if ent_label in [&#x27;OBJECT&#x27;, &#x27;PRODUCT&#x27;, &#x27;PERSON&#x27;]:
+                params[&#x27;target&#x27;] = ent_text
+
+        # Extract location from entities
+        for ent_text, ent_label in entities:
+            if ent_label in [&#x27;GPE&#x27;, &#x27;LOC&#x27;, &#x27;FAC&#x27;]:
+                params[&#x27;location&#x27;] = ent_text
+
+        return params
+
+    def simple_parse(self, text):
+        &quot;&quot;&quot;Simple fallback parsing&quot;&quot;&quot;
+        text_lower = text.lower()
+        params = {}
+
+        # Simple parameter extraction
+        if &#x27;the&#x27; in text_lower:
+            parts = text_lower.split(&#x27;the&#x27;)
+            if len(parts) &gt; 1:
+                params[&#x27;target&#x27;] = parts[1].strip().split()[0]
+
+        return {
+            &#x27;intent&#x27;: self.classify_intent_simple(text_lower),
+            &#x27;action_type&#x27;: &#x27;unknown&#x27;,
+            &#x27;entities&#x27;: [],
+            &#x27;confidence&#x27;: 0.5,
+            &#x27;parameters&#x27;: params
+        }
+
+    def classify_intent_simple(self, text_lower):
+        &quot;&quot;&quot;Simple intent classification&quot;&quot;&quot;
+        if any(word in text_lower for word in [&#x27;go&#x27;, &#x27;move&#x27;, &#x27;walk&#x27;]):
+            return &#x27;navigation&#x27;
+        elif any(word in text_lower for word in [&#x27;pick&#x27;, &#x27;grasp&#x27;, &#x27;take&#x27;]):
+            return &#x27;manipulation&#x27;
+        else:
+            return &#x27;unknown&#x27;
+</code></pre>
+<h2 id="implementation-phase-2-vision-and-multi-modal-integration">Implementation Phase 2: Vision and Multi-Modal Integration</h2>
+<h3 id="vision-processing-system">Vision Processing System</h3>
+<p>Create a comprehensive vision system:</p>
+<pre><code class="language-python"># vision_processing_node.py
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image, CameraInfo
+from vision_msgs.msg import Detection2DArray, ObjectHypothesisWithPose
+from geometry_msgs.msg import Point
+from cv_bridge import CvBridge
+import cv2
+import numpy as np
+import torch
+from torchvision import transforms
+from ultralytics import YOLO
+
+class VisionProcessingNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;vision_processing_node&#x27;)
+
+        # Initialize CV bridge
+        self.bridge = CvBridge()
+
+        # Load object detection model
+        self.detector = YOLO(&#x27;yolov8n.pt&#x27;)  # or your preferred model
+
+        # Subscribers
+        self.image_sub = self.create_subscription(
+            Image,
+            &#x27;camera/image_raw&#x27;,
+            self.image_callback,
+            10
+        )
+
+        self.camera_info_sub = self.create_subscription(
+            CameraInfo,
+            &#x27;camera/camera_info&#x27;,
+            self.camera_info_callback,
+            10
+        )
+
+        # Publishers
+        self.detection_pub = self.create_publisher(
+            Detection2DArray,
+            &#x27;object_detections&#x27;,
+            10
+        )
+
+        self.visualization_pub = self.create_publisher(
+            Image,
+            &#x27;vision_visualization&#x27;,
+            10
+        )
+
+        # Internal state
+        self.camera_matrix = None
+        self.distortion_coeffs = None
+
+        self.get_logger().info(&#x27;Vision Processing Node initialized&#x27;)
+
+    def camera_info_callback(self, msg):
+        &quot;&quot;&quot;Process camera calibration information&quot;&quot;&quot;
+        self.camera_matrix = np.array(msg.k).reshape(3, 3)
+        self.distortion_coeffs = np.array(msg.d)
+
+    def image_callback(self, msg):
+        &quot;&quot;&quot;Process incoming camera image&quot;&quot;&quot;
+        try:
+            # Convert ROS image to OpenCV
+            cv_image = self.bridge.imgmsg_to_cv2(msg, &quot;bgr8&quot;)
+
+            # Perform object detection
+            results = self.detector(cv_image)
+
+            # Process detections
+            detections = self.process_detections(results, cv_image)
+
+            # Create and publish detection message
+            detection_msg = self.create_detection_message(detections, msg.header)
+            self.detection_pub.publish(detection_msg)
+
+            # Create visualization
+            vis_image = self.visualize_detections(cv_image, results)
+            vis_msg = self.bridge.cv2_to_imgmsg(vis_image, &quot;bgr8&quot;)
+            vis_msg.header = msg.header
+            self.visualization_pub.publish(vis_msg)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error processing image: {e}&#x27;)
+
+    def process_detections(self, results, image):
+        &quot;&quot;&quot;Process YOLO detection results&quot;&quot;&quot;
+        detections = []
+
+        for result in results:
+            for box in result.boxes:
+                # Get bounding box coordinates
+                x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
+                confidence = float(box.conf[0])
+                class_id = int(box.cls[0])
+
+                # Get class name
+                class_name = self.detector.names[class_id]
+
+                # Calculate center point
+                center_x = int((x1 + x2) / 2)
+                center_y = int((y1 + y2) / 2)
+
+                detection = {
+                    &#x27;class_name&#x27;: class_name,
+                    &#x27;confidence&#x27;: confidence,
+                    &#x27;bbox&#x27;: [int(x1), int(y1), int(x2-x1), int(y2-y1)],
+                    &#x27;center&#x27;: [center_x, center_y],
+                    &#x27;class_id&#x27;: class_id
+                }
+
+                detections.append(detection)
+
+        return detections
+
+    def create_detection_message(self, detections, header):
+        &quot;&quot;&quot;Create ROS detection message&quot;&quot;&quot;
+        detection_array = Detection2DArray()
+        detection_array.header = header
+
+        for detection in detections:
+            if detection[&#x27;confidence&#x27;] &gt; 0.5:  # Confidence threshold
+                detection_msg = Detection2D()
+                detection_msg.header = header
+
+                # Set bounding box
+                detection_msg.bbox.size_x = detection[&#x27;bbox&#x27;][2]
+                detection_msg.bbox.size_y = detection[&#x27;bbox&#x27;][3]
+
+                # Set center point
+                detection_msg.bbox.center.x = detection[&#x27;center&#x27;][0]
+                detection_msg.bbox.center.y = detection[&#x27;center&#x27;][1]
+
+                # Set hypothesis
+                hypothesis = ObjectHypothesisWithPose()
+                hypothesis.hypothesis.class_id = detection[&#x27;class_name&#x27;]
+                hypothesis.hypothesis.score = detection[&#x27;confidence&#x27;]
+                detection_msg.results.append(hypothesis)
+
+                detection_array.detections.append(detection_msg)
+
+        return detection_array
+
+    def visualize_detections(self, image, results):
+        &quot;&quot;&quot;Create visualization of detections&quot;&quot;&quot;
+        annotated_image = image.copy()
+
+        for result in results:
+            for box in result.boxes:
+                x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
+                confidence = float(box.conf[0])
+                class_id = int(box.cls[0])
+                class_name = self.detector.names[class_id]
+
+                # Draw bounding box
+                cv2.rectangle(
+                    annotated_image,
+                    (int(x1), int(y1)),
+                    (int(x2), int(y2)),
+                    (0, 255, 0),
+                    2
+                )
+
+                # Draw label
+                label = f&quot;{class_name}: {confidence:.2f}&quot;
+                cv2.putText(
+                    annotated_image,
+                    label,
+                    (int(x1), int(y1) - 10),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.5,
+                    (0, 255, 0),
+                    2
+                )
+
+        return annotated_image
+</code></pre>
+<h3 id="multi-modal-fusion-node">Multi-Modal Fusion Node</h3>
+<p>Integrate vision and language understanding:</p>
+<pre><code class="language-python"># multi_modal_fusion_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from vision_msgs.msg import Detection2DArray
+from vla_msgs.msg import ParsedCommand, FusedPerception
+from geometry_msgs.msg import Point
+import json
+
+class MultiModalFusionNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;multi_modal_fusion_node&#x27;)
+
+        # Subscribers
+        self.command_sub = self.create_subscription(
+            ParsedCommand,
+            &#x27;parsed_command&#x27;,
+            self.command_callback,
+            10
+        )
+
+        self.detection_sub = self.create_subscription(
+            Detection2DArray,
+            &#x27;object_detections&#x27;,
+            self.detection_callback,
+            10
+        )
+
+        # Publisher
+        self.fusion_pub = self.create_publisher(FusedPerception, &#x27;fused_perception&#x27;, 10)
+
+        # Internal state
+        self.latest_command = None
+        self.latest_detections = []
+        self.knowledge_base = {}  # Store object locations and properties
+
+        self.get_logger().info(&#x27;Multi-Modal Fusion Node initialized&#x27;)
+
+    def command_callback(self, msg):
+        &quot;&quot;&quot;Process parsed command&quot;&quot;&quot;
+        self.latest_command = msg
+        self.process_fusion()
+
+    def detection_callback(self, msg):
+        &quot;&quot;&quot;Process object detections&quot;&quot;&quot;
+        self.latest_detections = msg.detections
+        self.update_knowledge_base(msg.detections)
+        self.process_fusion()
+
+    def process_fusion(self):
+        &quot;&quot;&quot;Process fusion when both command and detections are available&quot;&quot;&quot;
+        if self.latest_command and self.latest_detections:
+            try:
+                # Fuse command and detections
+                fused_result = self.fuse_command_and_detections(
+                    self.latest_command,
+                    self.latest_detections
+                )
+
+                # Publish fused result
+                fusion_msg = self.create_fusion_message(fused_result)
+                self.fusion_pub.publish(fusion_msg)
+
+                # Clear processed data
+                self.latest_command = None
+
+            except Exception as e:
+                self.get_logger().error(f&#x27;Error in fusion processing: {e}&#x27;)
+
+    def fuse_command_and_detections(self, command, detections):
+        &quot;&quot;&quot;Fuse command understanding with object detections&quot;&quot;&quot;
+        fused_result = {
+            &#x27;command&#x27;: {
+                &#x27;intent&#x27;: command.intent,
+                &#x27;action_type&#x27;: command.action_type,
+                &#x27;parameters&#x27;: json.loads(command.parameters),
+                &#x27;original_text&#x27;: command.original_text
+            },
+            &#x27;environment&#x27;: {
+                &#x27;objects&#x27;: self.extract_object_info(detections),
+                &#x27;relevant_objects&#x27;: []
+            },
+            &#x27;grounded_command&#x27;: None
+        }
+
+        # Ground the command in the environment
+        if command.intent in [&#x27;manipulation&#x27;, &#x27;navigation&#x27;]:
+            relevant_objects = self.find_relevant_objects(
+                fused_result[&#x27;command&#x27;][&#x27;parameters&#x27;],
+                fused_result[&#x27;environment&#x27;][&#x27;objects&#x27;]
+            )
+            fused_result[&#x27;environment&#x27;][&#x27;relevant_objects&#x27;] = relevant_objects
+
+        # Create grounded command
+        fused_result[&#x27;grounded_command&#x27;] = self.ground_command(
+            fused_result[&#x27;command&#x27;],
+            fused_result[&#x27;environment&#x27;][&#x27;relevant_objects&#x27;]
+        )
+
+        return fused_result
+
+    def extract_object_info(self, detections):
+        &quot;&quot;&quot;Extract object information from detections&quot;&quot;&quot;
+        objects = []
+
+        for detection in detections:
+            obj_info = {
+                &#x27;class_name&#x27;: detection.results[0].hypothesis.class_id if detection.results else &#x27;unknown&#x27;,
+                &#x27;confidence&#x27;: detection.results[0].hypothesis.score if detection.results else 0.0,
+                &#x27;bbox_center_x&#x27;: detection.bbox.center.x,
+                &#x27;bbox_center_y&#x27;: detection.bbox.center.y,
+                &#x27;bbox_width&#x27;: detection.bbox.size_x,
+                &#x27;bbox_height&#x27;: detection.bbox.size_y
+            }
+            objects.append(obj_info)
+
+        return objects
+
+    def find_relevant_objects(self, command_params, objects):
+        &quot;&quot;&quot;Find objects relevant to the command&quot;&quot;&quot;
+        relevant_objects = []
+
+        target_object = command_params.get(&#x27;target&#x27;, &#x27;&#x27;).lower()
+
+        for obj in objects:
+            if target_object in obj[&#x27;class_name&#x27;].lower() or obj[&#x27;confidence&#x27;] &gt; 0.8:
+                relevant_objects.append(obj)
+
+        return relevant_objects
+
+    def ground_command(self, command, relevant_objects):
+        &quot;&quot;&quot;Ground the command in the environment&quot;&quot;&quot;
+        if not relevant_objects:
+            return command  # Return original command if no objects found
+
+        # Update command with grounded information
+        grounded_command = command.copy()
+        grounded_command[&#x27;grounded_objects&#x27;] = relevant_objects
+
+        # If command involves a specific object, ground it
+        if command[&#x27;parameters&#x27;].get(&#x27;target&#x27;):
+            for obj in relevant_objects:
+                if command[&#x27;parameters&#x27;][&#x27;target&#x27;].lower() in obj[&#x27;class_name&#x27;].lower():
+                    grounded_command[&#x27;target_object&#x27;] = obj
+                    break
+
+        return grounded_command
+
+    def update_knowledge_base(self, detections):
+        &quot;&quot;&quot;Update knowledge base with current object information&quot;&quot;&quot;
+        for detection in detections:
+            if detection.results:
+                class_name = detection.results[0].hypothesis.class_id
+                confidence = detection.results[0].hypothesis.score
+
+                if confidence &gt; 0.5:  # Confidence threshold
+                    self.knowledge_base[class_name] = {
+                        &#x27;last_seen&#x27;: self.get_clock().now().to_msg(),
+                        &#x27;location&#x27;: {
+                            &#x27;x&#x27;: detection.bbox.center.x,
+                            &#x27;y&#x27;: detection.bbox.center.y
+                        },
+                        &#x27;confidence&#x27;: confidence
+                    }
+
+    def create_fusion_message(self, fused_result):
+        &quot;&quot;&quot;Create ROS message from fused result&quot;&quot;&quot;
+        fusion_msg = FusedPerception()
+        fusion_msg.header.stamp = self.get_clock().now().to_msg()
+        fusion_msg.header.frame_id = &quot;map&quot;
+
+        # Set command information
+        fusion_msg.command_intent = fused_result[&#x27;command&#x27;][&#x27;intent&#x27;]
+        fusion_msg.command_action_type = fused_result[&#x27;command&#x27;][&#x27;action_type&#x27;]
+        fusion_msg.command_original_text = fused_result[&#x27;command&#x27;][&#x27;original_text&#x27;]
+
+        # Set environment information
+        for obj in fused_result[&#x27;environment&#x27;][&#x27;objects&#x27;]:
+            # Create object info message (simplified)
+            pass
+
+        # Set grounded command
+        if fused_result[&#x27;grounded_command&#x27;]:
+            fusion_msg.has_grounded_command = True
+
+        return fusion_msg
+</code></pre>
+<h2 id="implementation-phase-3-cognitive-planning-and-action-execution">Implementation Phase 3: Cognitive Planning and Action Execution</h2>
+<h3 id="cognitive-planning-node">Cognitive Planning Node</h3>
+<p>Implement high-level reasoning and task planning:</p>
+<pre><code class="language-python"># cognitive_planning_node.py
+import rclpy
+from rclpy.node import Node
+from vla_msgs.msg import FusedPerception, ActionPlan
+from vla_msgs.srv import PlanAction
+from geometry_msgs.msg import Pose
+import json
+
+class CognitivePlanningNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;cognitive_planning_node&#x27;)
+
+        # Subscriber for fused perception
+        self.fusion_sub = self.create_subscription(
+            FusedPerception,
+            &#x27;fused_perception&#x27;,
+            self.fusion_callback,
+            10
+        )
+
+        # Publisher for action plans
+        self.plan_pub = self.create_publisher(ActionPlan, &#x27;action_plan&#x27;, 10)
+
+        # Service for planning requests
+        self.plan_service = self.create_service(
+            PlanAction,
+            &#x27;plan_action&#x27;,
+            self.plan_action_callback
+        )
+
+        # Initialize planner components
+        self.knowledge_base = KnowledgeBase()
+        self.task_decomposer = TaskDecomposer()
+        self.action_validator = ActionValidator()
+
+        self.get_logger().info(&#x27;Cognitive Planning Node initialized&#x27;)
+
+    def fusion_callback(self, msg):
+        &quot;&quot;&quot;Process fused perception data to generate plans&quot;&quot;&quot;
+        try:
+            # Extract command and environment information
+            command_info = {
+                &#x27;intent&#x27;: msg.command_intent,
+                &#x27;action_type&#x27;: msg.command_action_type,
+                &#x27;original_text&#x27;: msg.command_original_text
+            }
+
+            # Generate plan based on command and environment
+            plan = self.generate_plan(command_info)
+
+            if plan:
+                # Publish the plan
+                plan_msg = self.create_plan_message(plan)
+                self.plan_pub.publish(plan_msg)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error in fusion processing: {e}&#x27;)
+
+    def generate_plan(self, command_info):
+        &quot;&quot;&quot;Generate action plan from command information&quot;&quot;&quot;
+        try:
+            # Decompose high-level command into subtasks
+            subtasks = self.task_decomposer.decompose_task(
+                command_info[&#x27;intent&#x27;],
+                command_info[&#x27;action_type&#x27;]
+            )
+
+            # Create detailed action plan
+            plan = {
+                &#x27;original_command&#x27;: command_info[&#x27;original_text&#x27;],
+                &#x27;intent&#x27;: command_info[&#x27;intent&#x27;],
+                &#x27;action_sequence&#x27;: [],
+                &#x27;estimated_duration&#x27;: 0.0,
+                &#x27;confidence&#x27;: 0.9
+            }
+
+            for i, subtask in enumerate(subtasks):
+                action = self.create_action_for_subtask(subtask, i)
+                if action:
+                    plan[&#x27;action_sequence&#x27;].append(action)
+
+            # Validate the plan
+            if self.action_validator.validate_plan(plan):
+                return plan
+            else:
+                self.get_logger().warn(&#x27;Generated plan failed validation&#x27;)
+                return None
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error generating plan: {e}&#x27;)
+            return None
+
+    def create_action_for_subtask(self, subtask, step_index):
+        &quot;&quot;&quot;Create specific action for a subtask&quot;&quot;&quot;
+        action = {
+            &#x27;step&#x27;: step_index,
+            &#x27;action_type&#x27;: subtask[&#x27;type&#x27;],
+            &#x27;action_name&#x27;: subtask[&#x27;name&#x27;],
+            &#x27;parameters&#x27;: subtask.get(&#x27;parameters&#x27;, {}),
+            &#x27;description&#x27;: subtask[&#x27;description&#x27;],
+            &#x27;required_resources&#x27;: subtask.get(&#x27;resources&#x27;, []),
+            &#x27;estimated_duration&#x27;: subtask.get(&#x27;duration&#x27;, 1.0)
+        }
+
+        return action
+
+    def plan_action_callback(self, request, response):
+        &quot;&quot;&quot;Service callback for explicit planning requests&quot;&quot;&quot;
+        try:
+            # Parse request
+            command_info = {
+                &#x27;intent&#x27;: request.intent,
+                &#x27;action_type&#x27;: request.action_type,
+                &#x27;original_text&#x27;: request.command_text
+            }
+
+            # Generate plan
+            plan = self.generate_plan(command_info)
+
+            if plan:
+                response.success = True
+                response.plan = self.create_plan_message(plan)
+                response.message = &quot;Plan generated successfully&quot;
+            else:
+                response.success = False
+                response.message = &quot;Failed to generate plan&quot;
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Plan service error: {e}&#x27;)
+            response.success = False
+            response.message = f&quot;Error: {e}&quot;
+
+        return response
+
+    def create_plan_message(self, plan):
+        &quot;&quot;&quot;Create ROS message from plan dictionary&quot;&quot;&quot;
+        plan_msg = ActionPlan()
+        plan_msg.header.stamp = self.get_clock().now().to_msg()
+        plan_msg.header.frame_id = &quot;map&quot;
+
+        plan_msg.original_command = plan[&#x27;original_command&#x27;]
+        plan_msg.intent = plan[&#x27;intent&#x27;]
+        plan_msg.confidence = plan[&#x27;confidence&#x27;]
+        plan_msg.estimated_duration = plan[&#x27;estimated_duration&#x27;]
+
+        for action in plan[&#x27;action_sequence&#x27;]:
+            # Convert action dictionary to ROS message
+            action_msg = self.create_action_message(action)
+            plan_msg.actions.append(action_msg)
+
+        return plan_msg
+
+    def create_action_message(self, action_dict):
+        &quot;&quot;&quot;Create action message from dictionary&quot;&quot;&quot;
+        from vla_msgs.msg import ActionStep
+        action_msg = ActionStep()
+        action_msg.step_number = action_dict[&#x27;step&#x27;]
+        action_msg.action_type = action_dict[&#x27;action_type&#x27;]
+        action_msg.action_name = action_dict[&#x27;action_name&#x27;]
+        action_msg.parameters = json.dumps(action_dict[&#x27;parameters&#x27;])
+        action_msg.description = action_dict[&#x27;description&#x27;]
+        action_msg.estimated_duration = action_dict[&#x27;estimated_duration&#x27;]
+        return action_msg
+
+class TaskDecomposer:
+    &quot;&quot;&quot;Decompose high-level tasks into executable subtasks&quot;&quot;&quot;
+    def __init__(self):
+        self.task_templates = {
+            &#x27;navigation&#x27;: [
+                {
+                    &#x27;type&#x27;: &#x27;navigation&#x27;,
+                    &#x27;name&#x27;: &#x27;navigate_to&#x27;,
+                    &#x27;description&#x27;: &#x27;Navigate to specified location&#x27;,
+                    &#x27;parameters&#x27;: [&#x27;destination&#x27;],
+                    &#x27;resources&#x27;: [&#x27;navigation_system&#x27;]
+                }
+            ],
+            &#x27;manipulation&#x27;: [
+                {
+                    &#x27;type&#x27;: &#x27;navigation&#x27;,
+                    &#x27;name&#x27;: &#x27;navigate_to_object&#x27;,
+                    &#x27;description&#x27;: &#x27;Navigate close to target object&#x27;,
+                    &#x27;parameters&#x27;: [&#x27;object_location&#x27;],
+                    &#x27;resources&#x27;: [&#x27;navigation_system&#x27;]
+                },
+                {
+                    &#x27;type&#x27;: &#x27;manipulation&#x27;,
+                    &#x27;name&#x27;: &#x27;grasp_object&#x27;,
+                    &#x27;description&#x27;: &#x27;Grasp the target object&#x27;,
+                    &#x27;parameters&#x27;: [&#x27;object_pose&#x27;],
+                    &#x27;resources&#x27;: [&#x27;manipulator_arm&#x27;, &#x27;gripper&#x27;]
+                }
+            ],
+            &#x27;transport&#x27;: [
+                {
+                    &#x27;type&#x27;: &#x27;navigation&#x27;,
+                    &#x27;name&#x27;: &#x27;navigate_to_object&#x27;,
+                    &#x27;description&#x27;: &#x27;Navigate to object location&#x27;,
+                    &#x27;parameters&#x27;: [&#x27;object_location&#x27;],
+                    &#x27;resources&#x27;: [&#x27;navigation_system&#x27;]
+                },
+                {
+                    &#x27;type&#x27;: &#x27;manipulation&#x27;,
+                    &#x27;name&#x27;: &#x27;grasp_object&#x27;,
+                    &#x27;description&#x27;: &#x27;Grasp the object&#x27;,
+                    &#x27;parameters&#x27;: [&#x27;object_pose&#x27;],
+                    &#x27;resources&#x27;: [&#x27;manipulator_arm&#x27;, &#x27;gripper&#x27;]
+                },
+                {
+                    &#x27;type&#x27;: &#x27;navigation&#x27;,
+                    &#x27;name&#x27;: &#x27;navigate_to_destination&#x27;,
+                    &#x27;description&#x27;: &#x27;Navigate to destination&#x27;,
+                    &#x27;parameters&#x27;: [&#x27;destination&#x27;],
+                    &#x27;resources&#x27;: [&#x27;navigation_system&#x27;]
+                },
+                {
+                    &#x27;type&#x27;: &#x27;manipulation&#x27;,
+                    &#x27;name&#x27;: &#x27;place_object&#x27;,
+                    &#x27;description&#x27;: &#x27;Place object at destination&#x27;,
+                    &#x27;parameters&#x27;: [&#x27;destination_pose&#x27;],
+                    &#x27;resources&#x27;: [&#x27;manipulator_arm&#x27;, &#x27;gripper&#x27;]
+                }
+            ]
+        }
+
+    def decompose_task(self, intent, action_type):
+        &quot;&quot;&quot;Decompose task based on intent and action type&quot;&quot;&quot;
+        if intent in self.task_templates:
+            return self.task_templates[intent]
+        elif action_type in self.task_templates:
+            return self.task_templates[action_type]
+        else:
+            # Default to simple navigation
+            return self.task_templates.get(&#x27;navigation&#x27;, [])
+
+class KnowledgeBase:
+    &quot;&quot;&quot;Maintain knowledge about the world and robot capabilities&quot;&quot;&quot;
+    def __init__(self):
+        self.locations = {}
+        self.objects = {}
+        self.robot_capabilities = {
+            &#x27;navigation&#x27;: True,
+            &#x27;manipulation&#x27;: True,
+            &#x27;interaction&#x27;: True,
+            &#x27;perception&#x27;: True
+        }
+
+class ActionValidator:
+    &quot;&quot;&quot;Validate action plans for feasibility and safety&quot;&quot;&quot;
+    def __init__(self):
+        pass
+
+    def validate_plan(self, plan):
+        &quot;&quot;&quot;Validate that a plan is feasible and safe&quot;&quot;&quot;
+        # Check if all required resources are available
+        for action in plan[&#x27;action_sequence&#x27;]:
+            if not self.resources_available(action):
+                return False
+
+        # Check for safety constraints
+        if not self.check_safety_constraints(plan):
+            return False
+
+        # Check for logical consistency
+        if not self.check_logical_consistency(plan):
+            return False
+
+        return True
+
+    def resources_available(self, action):
+        &quot;&quot;&quot;Check if required resources are available&quot;&quot;&quot;
+        # Implementation would check robot state and resource availability
+        return True
+
+    def check_safety_constraints(self, plan):
+        &quot;&quot;&quot;Check if plan violates safety constraints&quot;&quot;&quot;
+        # Implementation would check for collision risks, etc.
+        return True
+
+    def check_logical_consistency(self, plan):
+        &quot;&quot;&quot;Check if plan steps are logically consistent&quot;&quot;&quot;
+        # Implementation would check action dependencies, etc.
+        return True
+</code></pre>
+<h3 id="action-execution-node">Action Execution Node</h3>
+<p>Execute the planned actions on the robot:</p>
+<pre><code class="language-python"># action_execution_node.py
+import rclpy
+from rclpy.node import Node
+from vla_msgs.msg import ActionPlan, ActionResult
+from geometry_msgs.msg import Pose
+from std_msgs.msg import String
+import time
+
+class ActionExecutionNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;action_execution_node&#x27;)
+
+        # Subscriber for action plans
+        self.plan_sub = self.create_subscription(
+            ActionPlan,
+            &#x27;action_plan&#x27;,
+            self.plan_callback,
+            10
+        )
+
+        # Publisher for action results
+        self.result_pub = self.create_publisher(ActionResult, &#x27;action_result&#x27;, 10)
+
+        # Publisher for user feedback
+        self.feedback_pub = self.create_publisher(String, &#x27;user_feedback&#x27;, 10)
+
+        # Initialize action executors
+        self.navigation_executor = NavigationExecutor(self)
+        self.manipulation_executor = ManipulationExecutor(self)
+        self.interaction_executor = InteractionExecutor(self)
+
+        self.is_executing = False
+        self.current_plan = None
+
+        self.get_logger().info(&#x27;Action Execution Node initialized&#x27;)
+
+    def plan_callback(self, msg):
+        &quot;&quot;&quot;Execute incoming action plan&quot;&quot;&quot;
+        if self.is_executing:
+            self.get_logger().warn(&#x27;Currently executing plan, rejecting new plan&#x27;)
+            return
+
+        self.get_logger().info(f&#x27;Executing plan with {len(msg.actions)} actions&#x27;)
+        self.is_executing = True
+        self.current_plan = msg
+
+        try:
+            # Execute each action in sequence
+            results = []
+            for i, action in enumerate(msg.actions):
+                self.get_logger().info(f&#x27;Executing action {i+1}/{len(msg.actions)}: {action.action_name}&#x27;)
+
+                # Execute the action
+                result = self.execute_action(action)
+
+                # Publish result
+                result_msg = self.create_result_message(result, i)
+                self.result_pub.publish(result_msg)
+
+                results.append(result)
+
+                # Check if execution should continue
+                if not result.success:
+                    self.get_logger().error(f&#x27;Action {i+1} failed: {result.message}&#x27;)
+                    break
+
+            # Publish execution summary
+            summary = self.create_execution_summary(results)
+            summary_msg = String()
+            summary_msg.data = summary
+            self.feedback_pub.publish(summary_msg)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error executing plan: {e}&#x27;)
+            error_msg = String()
+            error_msg.data = f&#x27;Execution error: {e}&#x27;
+            self.feedback_pub.publish(error_msg)
+
+        finally:
+            self.is_executing = False
+            self.current_plan = None
+
+    def execute_action(self, action):
+        &quot;&quot;&quot;Execute a single action based on its type&quot;&quot;&quot;
+        try:
+            if action.action_type == &#x27;navigation&#x27;:
+                return self.navigation_executor.execute(action)
+            elif action.action_type == &#x27;manipulation&#x27;:
+                return self.manipulation_executor.execute(action)
+            elif action.action_type == &#x27;interaction&#x27;:
+                return self.interaction_executor.execute(action)
+            else:
+                return {
+                    &#x27;success&#x27;: False,
+                    &#x27;message&#x27;: f&#x27;Unknown action type: {action.action_type}&#x27;,
+                    &#x27;action_name&#x27;: action.action_name
+                }
+
+        except Exception as e:
+            return {
+                &#x27;success&#x27;: False,
+                &#x27;message&#x27;: f&#x27;Execution error: {e}&#x27;,
+                &#x27;action_name&#x27;: action.action_name
+            }
+
+    def create_result_message(self, result, action_index):
+        &quot;&quot;&quot;Create ROS result message from result dictionary&quot;&quot;&quot;
+        result_msg = ActionResult()
+        result_msg.header.stamp = self.get_clock().now().to_msg()
+        result_msg.action_index = action_index
+        result_msg.success = result[&#x27;success&#x27;]
+        result_msg.message = result[&#x27;message&#x27;]
+        result_msg.action_name = result[&#x27;action_name&#x27;]
+        return result_msg
+
+    def create_execution_summary(self, results):
+        &quot;&quot;&quot;Create summary of execution results&quot;&quot;&quot;
+        successful = sum(1 for r in results if r[&#x27;success&#x27;])
+        total = len(results)
+
+        status = &quot;completed successfully&quot; if successful == total else &quot;partially completed&quot;
+
+        return f&quot;Plan {status}: {successful}/{total} actions successful&quot;
+
+class NavigationExecutor:
+    &quot;&quot;&quot;Execute navigation-related actions&quot;&quot;&quot;
+    def __init__(self, node):
+        self.node = node
+        # Initialize navigation interface (Navigation2, etc.)
+
+    def execute(self, action):
+        &quot;&quot;&quot;Execute navigation action&quot;&quot;&quot;
+        try:
+            # Extract destination from parameters
+            import json
+            params = json.loads(action.parameters)
+            destination = params.get(&#x27;destination&#x27;, params.get(&#x27;destination_location&#x27;))
+
+            if not destination:
+                return {
+                    &#x27;success&#x27;: False,
+                    &#x27;message&#x27;: &#x27;No destination specified&#x27;,
+                    &#x27;action_name&#x27;: action.action_name
+                }
+
+            # Execute navigation (this would interface with Navigation2)
+            self.node.get_logger().info(f&#x27;Navigating to: {destination}&#x27;)
+
+            # Simulate navigation execution
+            time.sleep(2)  # Simulate navigation time
+
+            return {
+                &#x27;success&#x27;: True,
+                &#x27;message&#x27;: f&#x27;Navigated to {destination}&#x27;,
+                &#x27;action_name&#x27;: action.action_name
+            }
+
+        except Exception as e:
+            return {
+                &#x27;success&#x27;: False,
+                &#x27;message&#x27;: f&#x27;Navigation error: {e}&#x27;,
+                &#x27;action_name&#x27;: action.action_name
+            }
+
+class ManipulationExecutor:
+    &quot;&quot;&quot;Execute manipulation-related actions&quot;&quot;&quot;
+    def __init__(self, node):
+        self.node = node
+        # Initialize manipulation interface
+
+    def execute(self, action):
+        &quot;&quot;&quot;Execute manipulation action&quot;&quot;&quot;
+        try:
+            import json
+            params = json.loads(action.parameters)
+
+            if action.action_name == &#x27;grasp_object&#x27;:
+                object_info = params.get(&#x27;object_pose&#x27;) or params.get(&#x27;object&#x27;)
+                self.node.get_logger().info(f&#x27;Grasping object: {object_info}&#x27;)
+
+                # Simulate grasping
+                time.sleep(1.5)
+
+                return {
+                    &#x27;success&#x27;: True,
+                    &#x27;message&#x27;: f&#x27;Grasped object&#x27;,
+                    &#x27;action_name&#x27;: action.action_name
+                }
+
+            elif action.action_name == &#x27;place_object&#x27;:
+                location = params.get(&#x27;destination_pose&#x27;) or params.get(&#x27;location&#x27;)
+                self.node.get_logger().info(f&#x27;Placing object at: {location}&#x27;)
+
+                # Simulate placing
+                time.sleep(1.5)
+
+                return {
+                    &#x27;success&#x27;: True,
+                    &#x27;message&#x27;: f&#x27;Placed object&#x27;,
+                    &#x27;action_name&#x27;: action.action_name
+                }
+            else:
+                return {
+                    &#x27;success&#x27;: False,
+                    &#x27;message&#x27;: f&#x27;Unknown manipulation action: {action.action_name}&#x27;,
+                    &#x27;action_name&#x27;: action.action_name
+                }
+
+        except Exception as e:
+            return {
+                &#x27;success&#x27;: False,
+                &#x27;message&#x27;: f&#x27;Manipulation error: {e}&#x27;,
+                &#x27;action_name&#x27;: action.action_name
+            }
+
+class InteractionExecutor:
+    &quot;&quot;&quot;Execute interaction-related actions&quot;&quot;&quot;
+    def __init__(self, node):
+        self.node = node
+        # Initialize interaction interface
+
+    def execute(self, action):
+        &quot;&quot;&quot;Execute interaction action&quot;&quot;&quot;
+        try:
+            self.node.get_logger().info(f&#x27;Performing interaction: {action.action_name}&#x27;)
+
+            # Simulate interaction
+            time.sleep(1)
+
+            return {
+                &#x27;success&#x27;: True,
+                &#x27;message&#x27;: f&#x27;Performed interaction: {action.action_name}&#x27;,
+                &#x27;action_name&#x27;: action.action_name
+            }
+
+        except Exception as e:
+            return {
+                &#x27;success&#x27;: False,
+                &#x27;message&#x27;: f&#x27;Interaction error: {e}&#x27;,
+                &#x27;action_name&#x27;: action.action_name
+            }
+</code></pre>
+<h2 id="implementation-phase-4-system-integration-and-testing">Implementation Phase 4: System Integration and Testing</h2>
+<h3 id="main-launch-file">Main Launch File</h3>
+<p>Create a launch file to bring up the complete system:</p>
+<pre><code class="language-python"># launch/vla_capstone.launch.py
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+def generate_launch_description():
+    ld = LaunchDescription()
+
+    # Launch arguments
+    use_sim_time = LaunchConfiguration(&#x27;use_sim_time&#x27;, default=&#x27;true&#x27;)
+    robot_namespace = LaunchConfiguration(&#x27;robot_namespace&#x27;, default=&#x27;humanoid_robot&#x27;)
+
+    # Declare launch arguments
+    ld.add_action(DeclareLaunchArgument(
+        &#x27;use_sim_time&#x27;,
+        default_value=&#x27;true&#x27;,
+        description=&#x27;Use simulation (Gazebo) clock if true&#x27;
+    ))
+
+    ld.add_action(DeclareLaunchArgument(
+        &#x27;robot_namespace&#x27;,
+        default_value=&#x27;humanoid_robot&#x27;,
+        description=&#x27;Robot namespace for multi-robot systems&#x27;
+    ))
+
+    # Launch Gazebo simulation (if needed)
+    # This would include your humanoid robot model
+
+    # Voice recognition node
+    voice_recognition_node = Node(
+        package=&#x27;vla_capstone&#x27;,
+        executable=&#x27;voice_recognition_node&#x27;,
+        name=&#x27;voice_recognition_node&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(voice_recognition_node)
+
+    # Language understanding node
+    language_understanding_node = Node(
+        package=&#x27;vla_capstone&#x27;,
+        executable=&#x27;language_understanding_node&#x27;,
+        name=&#x27;language_understanding_node&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(language_understanding_node)
+
+    # Vision processing node
+    vision_processing_node = Node(
+        package=&#x27;vla_capstone&#x27;,
+        executable=&#x27;vision_processing_node&#x27;,
+        name=&#x27;vision_processing_node&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(vision_processing_node)
+
+    # Multi-modal fusion node
+    multi_modal_fusion_node = Node(
+        package=&#x27;vla_capstone&#x27;,
+        executable=&#x27;multi_modal_fusion_node&#x27;,
+        name=&#x27;multi_modal_fusion_node&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(multi_modal_fusion_node)
+
+    # Cognitive planning node
+    cognitive_planning_node = Node(
+        package=&#x27;vla_capstone&#x27;,
+        executable=&#x27;cognitive_planning_node&#x27;,
+        name=&#x27;cognitive_planning_node&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(cognitive_planning_node)
+
+    # Action execution node
+    action_execution_node = Node(
+        package=&#x27;vla_capstone&#x27;,
+        executable=&#x27;action_execution_node&#x27;,
+        name=&#x27;action_execution_node&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(action_execution_node)
+
+    # User feedback node
+    user_feedback_node = Node(
+        package=&#x27;vla_capstone&#x27;,
+        executable=&#x27;user_feedback_node&#x27;,
+        name=&#x27;user_feedback_node&#x27;,
+        parameters=[{&#x27;use_sim_time&#x27;: use_sim_time}],
+        output=&#x27;screen&#x27;
+    )
+    ld.add_action(user_feedback_node)
+
+    return ld
+</code></pre>
+<h2 id="testing-and-validation">Testing and Validation</h2>
+<h3 id="unit-testing">Unit Testing</h3>
+<p>Create comprehensive tests for each component:</p>
+<pre><code class="language-python"># test_vla_capstone.py
+import unittest
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from sensor_msgs.msg import Image
+import numpy as np
+import cv2
+
+class TestVoiceRecognition(unittest.TestCase):
+    def setUp(self):
+        rclpy.init()
+        self.node = Node(&#x27;test_voice_recognition&#x27;)
+
+    def tearDown(self):
+        rclpy.shutdown()
+
+    def test_command_parsing(self):
+        &quot;&quot;&quot;Test that commands are parsed correctly&quot;&quot;&quot;
+        from language_understanding_node import LanguageUnderstandingNode
+        parser = LanguageUnderstandingNode()
+
+        # Test navigation command
+        result = parser.simple_parse(&quot;go to the kitchen&quot;)
+        self.assertEqual(result[&#x27;intent&#x27;], &#x27;navigation&#x27;)
+
+        # Test manipulation command
+        result = parser.simple_parse(&quot;pick up the red cup&quot;)
+        self.assertEqual(result[&#x27;intent&#x27;], &#x27;manipulation&#x27;)
+
+class TestVisionProcessing(unittest.TestCase):
+    def setUp(self):
+        rclpy.init()
+
+    def tearDown(self):
+        rclpy.shutdown()
+
+    def test_object_detection(self):
+        &quot;&quot;&quot;Test that objects are detected correctly&quot;&quot;&quot;
+        from vision_processing_node import VisionProcessingNode
+        vision_node = VisionProcessingNode()
+
+        # Create a test image with a known object
+        test_image = np.zeros((480, 640, 3), dtype=np.uint8)
+        # Add a colored rectangle to simulate an object
+        cv2.rectangle(test_image, (100, 100), (200, 200), (0, 255, 0), -1)
+
+        # Convert to ROS Image message and process
+        # (Implementation would go here)
+
+if __name__ == &#x27;__main__&#x27;:
+    unittest.main()
+</code></pre>
+<h3 id="integration-testing">Integration Testing</h3>
+<p>Test the complete system integration:</p>
+<pre><code class="language-python"># integration_test.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from vla_msgs.msg import ActionPlan, ActionResult
+import time
+
+class VLASystemTester(Node):
+    def __init__(self):
+        super().__init__(&#x27;vla_system_tester&#x27;)
+
+        # Publishers for test commands
+        self.voice_pub = self.create_publisher(String, &#x27;recognized_text&#x27;, 10)
+
+        # Subscribers for results
+        self.plan_sub = self.create_subscription(
+            ActionPlan, &#x27;action_plan&#x27;, self.plan_callback, 10)
+        self.result_sub = self.create_subscription(
+            ActionResult, &#x27;action_result&#x27;, self.result_callback, 10)
+
+        self.received_plans = []
+        self.received_results = []
+
+    def plan_callback(self, msg):
+        self.received_plans.append(msg)
+        self.get_logger().info(f&#x27;Received plan with {len(msg.actions)} actions&#x27;)
+
+    def result_callback(self, msg):
+        self.received_results.append(msg)
+        self.get_logger().info(f&#x27;Received result: {msg.message}&#x27;)
+
+    def test_navigation_command(self):
+        &quot;&quot;&quot;Test a simple navigation command&quot;&quot;&quot;
+        test_command = String()
+        test_command.data = &quot;go to the kitchen&quot;
+
+        self.voice_pub.publish(test_command)
+        self.get_logger().info(&#x27;Published navigation command&#x27;)
+
+        # Wait for response
+        time.sleep(5)
+
+        # Check if plan was received
+        if self.received_plans:
+            plan = self.received_plans[0]
+            self.get_logger().info(f&#x27;Plan received with {len(plan.actions)} actions&#x27;)
+            return True
+        else:
+            self.get_logger().error(&#x27;No plan received&#x27;)
+            return False
+
+def main():
+    rclpy.init()
+    tester = VLASystemTester()
+
+    # Run tests
+    success = tester.test_navigation_command()
+
+    if success:
+        print(&quot;Integration test passed!&quot;)
+    else:
+        print(&quot;Integration test failed!&quot;)
+
+    rclpy.shutdown()
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</code></pre>
+<h2 id="performance-evaluation">Performance Evaluation</h2>
+<h3 id="metrics-and-evaluation">Metrics and Evaluation</h3>
+<pre><code class="language-python"># evaluation_metrics.py
+import time
+import numpy as np
+
+class VLASystemEvaluator:
+    def __init__(self):
+        self.metrics = {
+            &#x27;response_time&#x27;: [],
+            &#x27;accuracy&#x27;: [],
+            &#x27;success_rate&#x27;: [],
+            &#x27;user_satisfaction&#x27;: []
+        }
+
+    def measure_response_time(self, command_time, response_time):
+        &quot;&quot;&quot;Measure system response time&quot;&quot;&quot;
+        response_duration = response_time - command_time
+        self.metrics[&#x27;response_time&#x27;].append(response_duration)
+        return response_duration
+
+    def evaluate_accuracy(self, expected_action, executed_action):
+        &quot;&quot;&quot;Evaluate action execution accuracy&quot;&quot;&quot;
+        # Compare expected vs executed actions
+        accuracy = 1.0 if expected_action == executed_action else 0.0
+        self.metrics[&#x27;accuracy&#x27;].append(accuracy)
+        return accuracy
+
+    def evaluate_success_rate(self, total_commands, successful_commands):
+        &quot;&quot;&quot;Calculate success rate&quot;&quot;&quot;
+        success_rate = successful_commands / total_commands if total_commands &gt; 0 else 0
+        self.metrics[&#x27;success_rate&#x27;].append(success_rate)
+        return success_rate
+
+    def calculate_average_metrics(self):
+        &quot;&quot;&quot;Calculate average performance metrics&quot;&quot;&quot;
+        averages = {}
+        for metric, values in self.metrics.items():
+            if values:
+                averages[metric] = sum(values) / len(values)
+            else:
+                averages[metric] = 0.0
+        return averages
+
+    def generate_report(self):
+        &quot;&quot;&quot;Generate performance evaluation report&quot;&quot;&quot;
+        averages = self.calculate_average_metrics()
+
+        report = f&quot;&quot;&quot;
+        VLA System Performance Report
+        =============================
+        Average Response Time: {averages[&#x27;response_time&#x27;]:.2f}s
+        Average Accuracy: {averages[&#x27;accuracy&#x27;]:.2f}
+        Average Success Rate: {averages[&#x27;success_rate&#x27;]:.2f}
+        &quot;&quot;&quot;
+
+        return report
+</code></pre>
+<h2 id="troubleshooting-and-optimization">Troubleshooting and Optimization</h2>
+<h3 id="common-issues-and-solutions">Common Issues and Solutions</h3>
+<p><strong>Issue</strong>: High latency in voice-to-action pipeline.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Optimize model inference with GPU acceleration</li>
+<li>Implement caching for common commands</li>
+<li>Use lightweight models for real-time processing</li>
+<li>Optimize ROS 2 communication settings</li>
+</ol>
+<p><strong>Issue</strong>: Misunderstood commands leading to incorrect actions.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Implement confidence thresholds for command acceptance</li>
+<li>Add clarification requests for ambiguous commands</li>
+<li>Improve language understanding with context</li>
+<li>Use multiple verification steps before action execution</li>
+</ol>
+<p><strong>Issue</strong>: Vision system fails in different lighting conditions.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Implement adaptive image preprocessing</li>
+<li>Use multiple detection models for robustness</li>
+<li>Add temporal consistency checks</li>
+<li>Integrate with other sensors (LIDAR, depth cameras)</li>
+</ol>
+<h2 id="deployment-and-documentation">Deployment and Documentation</h2>
+<h3 id="system-documentation">System Documentation</h3>
+<p>Create comprehensive documentation for your VLA system:</p>
+<ol>
+<li><strong>Architecture Documentation</strong>: System design and component interactions</li>
+<li><strong>API Documentation</strong>: Message types, services, and interfaces</li>
+<li><strong>User Manual</strong>: How to operate and interact with the system</li>
+<li><strong>Troubleshooting Guide</strong>: Common issues and solutions</li>
+<li><strong>Performance Benchmarks</strong>: System capabilities and limitations</li>
+</ol>
+<h3 id="presentation-and-demonstration">Presentation and Demonstration</h3>
+<p>Prepare a demonstration of your complete VLA system:</p>
+<ol>
+<li><strong>Live Demo</strong>: Show the system responding to voice commands</li>
+<li><strong>Technical Presentation</strong>: Explain the architecture and implementation</li>
+<li><strong>Performance Analysis</strong>: Present evaluation results</li>
+<li><strong>Future Improvements</strong>: Discuss potential enhancements</li>
+</ol>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/vla-integration/troubleshooting">Troubleshooting</a> to learn about common VLA system issues and their solutions, completing the VLA Integration module.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/capstone-project.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/vla-integration/voice-to-action"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Voice-to-Action Mapping</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/vla-integration/troubleshooting"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Troubleshooting VLA Integration</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#project-objectives" class="table-of-contents__link toc-highlight">Project Objectives</a></li><li><a href="#project-requirements" class="table-of-contents__link toc-highlight">Project Requirements</a><ul><li><a href="#hardware-requirements" class="table-of-contents__link toc-highlight">Hardware Requirements</a></li><li><a href="#software-requirements" class="table-of-contents__link toc-highlight">Software Requirements</a></li></ul></li><li><a href="#system-architecture" class="table-of-contents__link toc-highlight">System Architecture</a><ul><li><a href="#high-level-architecture" class="table-of-contents__link toc-highlight">High-Level Architecture</a></li><li><a href="#component-integration" class="table-of-contents__link toc-highlight">Component Integration</a></li></ul></li><li><a href="#implementation-phase-1-voice-recognition-and-language-understanding" class="table-of-contents__link toc-highlight">Implementation Phase 1: Voice Recognition and Language Understanding</a><ul><li><a href="#voice-recognition-integration" class="table-of-contents__link toc-highlight">Voice Recognition Integration</a></li><li><a href="#language-understanding-system" class="table-of-contents__link toc-highlight">Language Understanding System</a></li></ul></li><li><a href="#implementation-phase-2-vision-and-multi-modal-integration" class="table-of-contents__link toc-highlight">Implementation Phase 2: Vision and Multi-Modal Integration</a><ul><li><a href="#vision-processing-system" class="table-of-contents__link toc-highlight">Vision Processing System</a></li><li><a href="#multi-modal-fusion-node" class="table-of-contents__link toc-highlight">Multi-Modal Fusion Node</a></li></ul></li><li><a href="#implementation-phase-3-cognitive-planning-and-action-execution" class="table-of-contents__link toc-highlight">Implementation Phase 3: Cognitive Planning and Action Execution</a><ul><li><a href="#cognitive-planning-node" class="table-of-contents__link toc-highlight">Cognitive Planning Node</a></li><li><a href="#action-execution-node" class="table-of-contents__link toc-highlight">Action Execution Node</a></li></ul></li><li><a href="#implementation-phase-4-system-integration-and-testing" class="table-of-contents__link toc-highlight">Implementation Phase 4: System Integration and Testing</a><ul><li><a href="#main-launch-file" class="table-of-contents__link toc-highlight">Main Launch File</a></li></ul></li><li><a href="#testing-and-validation" class="table-of-contents__link toc-highlight">Testing and Validation</a><ul><li><a href="#unit-testing" class="table-of-contents__link toc-highlight">Unit Testing</a></li><li><a href="#integration-testing" class="table-of-contents__link toc-highlight">Integration Testing</a></li></ul></li><li><a href="#performance-evaluation" class="table-of-contents__link toc-highlight">Performance Evaluation</a><ul><li><a href="#metrics-and-evaluation" class="table-of-contents__link toc-highlight">Metrics and Evaluation</a></li></ul></li><li><a href="#troubleshooting-and-optimization" class="table-of-contents__link toc-highlight">Troubleshooting and Optimization</a><ul><li><a href="#common-issues-and-solutions" class="table-of-contents__link toc-highlight">Common Issues and Solutions</a></li></ul></li><li><a href="#deployment-and-documentation" class="table-of-contents__link toc-highlight">Deployment and Documentation</a><ul><li><a href="#system-documentation" class="table-of-contents__link toc-highlight">System Documentation</a></li><li><a href="#presentation-and-demonstration" class="table-of-contents__link toc-highlight">Presentation and Demonstration</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-vla-integration/voice-to-action" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Voice-to-Action Mapping | Physical AI &amp; Humanoid Robotics Book</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://arifabbas11.github.io/humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/voice-to-action"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Voice-to-Action Mapping | Physical AI &amp; Humanoid Robotics Book"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/voice-to-action"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/voice-to-action" hreflang="en"><link data-rh="true" rel="alternate" href="https://arifabbas11.github.io/humanoid-robotics-book/vla-integration/voice-to-action" hreflang="x-default"><link rel="stylesheet" href="/humanoid-robotics-book/assets/css/styles.4badbe07.css">
+<script src="/humanoid-robotics-book/assets/js/runtime~main.b761023c.js" defer="defer"></script>
+<script src="/humanoid-robotics-book/assets/js/main.a101da1e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/humanoid-robotics-book/"><div class="navbar__logo"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/humanoid-robotics-book/img/logo.svg" alt="Physical AI &amp; Humanoid Robotics Book" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Humanoid Robotics Book</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/humanoid-robotics-book/intro">Book</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/humanoid-robotics-book/intro">Physical AI &amp; Humanoid Robotics: From Simulation to Embodied Intelligence</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ros-fundamentals/intro">Module 1: The Robotic Nervous System (ROS 2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/simulation/intro">Module 2: The Digital Twin (Gazebo &amp; Unity)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/ai-navigation/intro">Module 3: The AI-Robot Brain (NVIDIA Isaac)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/intro">Module 4: Vision-Language-Action (VLA)</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-recognition">Voice Recognition</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/llm-integration">LLM Integration</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/cognitive-planning">Cognitive Planning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/multi-modal">Multi-Modal Processing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/humanoid-robotics-book/vla-integration/voice-to-action">Voice-to-Action Mapping</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/capstone-project">VLA Capstone Project: Intelligent Humanoid Assistant</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/humanoid-robotics-book/vla-integration/troubleshooting">Troubleshooting VLA Integration</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/humanoid-robotics-book/capstone/intro">Capstone Project</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 4: Vision-Language-Action (VLA)</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Voice-to-Action Mapping</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1 id="voice-to-action-mapping">Voice-to-Action Mapping</h1>
+<h2 id="overview">Overview</h2>
+<p>Voice-to-Action mapping is the process of converting natural language voice commands into executable robot actions. This critical component of Vision-Language-Action (VLA) systems bridges human communication with robot behavior, enabling intuitive human-robot interaction through speech.</p>
+<h2 id="voice-to-action-architecture">Voice-to-Action Architecture</h2>
+<h3 id="the-mapping-pipeline">The Mapping Pipeline</h3>
+<p>The voice-to-action pipeline typically follows this sequence:</p>
+<ol>
+<li><strong>Voice Input</strong>: User speaks a command to the robot</li>
+<li><strong>Speech Recognition</strong>: Converts speech to text</li>
+<li><strong>Natural Language Understanding</strong>: Interprets the meaning of the command</li>
+<li><strong>Action Mapping</strong>: Maps the understood command to specific robot actions</li>
+<li><strong>Action Validation</strong>: Ensures actions are safe and feasible</li>
+<li><strong>Action Execution</strong>: Executes the mapped actions on the robot</li>
+<li><strong>Feedback</strong>: Provides feedback to the user about the execution</li>
+</ol>
+<h3 id="system-components">System Components</h3>
+<ul>
+<li><strong>Voice Recognition Module</strong>: Converts speech to text</li>
+<li><strong>Language Understanding Module</strong>: Parses and interprets commands</li>
+<li><strong>Action Mapping Engine</strong>: Maps commands to robot actions</li>
+<li><strong>Action Executor</strong>: Executes the actions on the robot</li>
+<li><strong>Feedback System</strong>: Communicates execution status to the user</li>
+</ul>
+<h2 id="natural-language-understanding-for-action-mapping">Natural Language Understanding for Action Mapping</h2>
+<h3 id="command-parsing">Command Parsing</h3>
+<pre><code class="language-python">import re
+from typing import Dict, List, Tuple
+
+class CommandParser:
+    def __init__(self):
+        # Define action patterns
+        self.action_patterns = {
+            &#x27;navigation&#x27;: [
+                r&#x27;go to (.+)&#x27;,
+                r&#x27;move to (.+)&#x27;,
+                r&#x27;walk to (.+)&#x27;,
+                r&#x27;navigate to (.+)&#x27;,
+                r&#x27;go (.+)&#x27;
+            ],
+            &#x27;manipulation&#x27;: [
+                r&#x27;pick up (.+)&#x27;,
+                r&#x27;grasp (.+)&#x27;,
+                r&#x27;take (.+)&#x27;,
+                r&#x27;get (.+)&#x27;,
+                r&#x27;put (.+) (?:on|in) (.+)&#x27;,
+                r&#x27;place (.+) (?:on|in) (.+)&#x27;
+            ],
+            &#x27;interaction&#x27;: [
+                r&#x27;greet (.+)&#x27;,
+                r&#x27;say hello to (.+)&#x27;,
+                r&#x27;wave to (.+)&#x27;,
+                r&#x27;nod to (.+)&#x27;
+            ],
+            &#x27;information&#x27;: [
+                r&#x27;what is (.+)&#x27;,
+                r&#x27;where is (.+)&#x27;,
+                r&#x27;find (.+)&#x27;,
+                r&#x27;show me (.+)&#x27;
+            ]
+        }
+
+    def parse_command(self, text: str) -&gt; Dict:
+        &quot;&quot;&quot;Parse natural language command into structured format&quot;&quot;&quot;
+        text_lower = text.lower().strip()
+
+        for action_type, patterns in self.action_patterns.items():
+            for pattern in patterns:
+                match = re.search(pattern, text_lower)
+                if match:
+                    params = match.groups()
+                    return {
+                        &#x27;action_type&#x27;: action_type,
+                        &#x27;action_pattern&#x27;: pattern,
+                        &#x27;parameters&#x27;: params,
+                        &#x27;original_text&#x27;: text,
+                        &#x27;confidence&#x27;: 0.9  # High confidence for regex match
+                    }
+
+        # If no pattern matches, return unknown
+        return {
+            &#x27;action_type&#x27;: &#x27;unknown&#x27;,
+            &#x27;action_pattern&#x27;: None,
+            &#x27;parameters&#x27;: [],
+            &#x27;original_text&#x27;: text,
+            &#x27;confidence&#x27;: 0.0
+        }
+
+    def extract_entities(self, text: str) -&gt; Dict[str, List[str]]:
+        &quot;&quot;&quot;Extract entities like objects, locations, people from text&quot;&quot;&quot;
+        entities = {
+            &#x27;objects&#x27;: [],
+            &#x27;locations&#x27;: [],
+            &#x27;people&#x27;: [],
+            &#x27;actions&#x27;: []
+        }
+
+        # Simple keyword-based entity extraction
+        object_keywords = [&#x27;cup&#x27;, &#x27;book&#x27;, &#x27;ball&#x27;, &#x27;bottle&#x27;, &#x27;box&#x27;, &#x27;chair&#x27;, &#x27;table&#x27;]
+        location_keywords = [&#x27;kitchen&#x27;, &#x27;living room&#x27;, &#x27;bedroom&#x27;, &#x27;office&#x27;, &#x27;hall&#x27;, &#x27;door&#x27;]
+        people_keywords = [&#x27;person&#x27;, &#x27;man&#x27;, &#x27;woman&#x27;, &#x27;child&#x27;, &#x27;me&#x27;, &#x27;you&#x27;]
+
+        text_lower = text.lower()
+        words = text_lower.split()
+
+        for keyword in object_keywords:
+            if keyword in text_lower:
+                entities[&#x27;objects&#x27;].append(keyword)
+
+        for keyword in location_keywords:
+            if keyword in text_lower:
+                entities[&#x27;locations&#x27;].append(keyword)
+
+        for keyword in people_keywords:
+            if keyword in text_lower:
+                entities[&#x27;people&#x27;].append(keyword)
+
+        return entities
+</code></pre>
+<h3 id="intent-classification">Intent Classification</h3>
+<pre><code class="language-python">class IntentClassifier:
+    def __init__(self):
+        self.intent_keywords = {
+            &#x27;navigation&#x27;: [&#x27;go&#x27;, &#x27;move&#x27;, &#x27;walk&#x27;, &#x27;navigate&#x27;, &#x27;to&#x27;, &#x27;toward&#x27;, &#x27;towards&#x27;],
+            &#x27;manipulation&#x27;: [&#x27;pick&#x27;, &#x27;grasp&#x27;, &#x27;take&#x27;, &#x27;get&#x27;, &#x27;put&#x27;, &#x27;place&#x27;, &#x27;hold&#x27;, &#x27;drop&#x27;],
+            &#x27;interaction&#x27;: [&#x27;greet&#x27;, &#x27;hello&#x27;, &#x27;wave&#x27;, &#x27;talk&#x27;, &#x27;speak&#x27;, &#x27;chat&#x27;],
+            &#x27;information&#x27;: [&#x27;what&#x27;, &#x27;where&#x27;, &#x27;find&#x27;, &#x27;show&#x27;, &#x27;tell&#x27;, &#x27;describe&#x27;]
+        }
+
+    def classify_intent(self, text: str) -&gt; str:
+        &quot;&quot;&quot;Classify the intent of a voice command&quot;&quot;&quot;
+        text_lower = text.lower()
+        scores = {}
+
+        for intent, keywords in self.intent_keywords.items():
+            score = sum(1 for keyword in keywords if keyword in text_lower)
+            scores[intent] = score
+
+        # Return intent with highest score
+        if scores:
+            return max(scores, key=scores.get)
+        return &#x27;unknown&#x27;
+</code></pre>
+<h2 id="action-mapping-strategies">Action Mapping Strategies</h2>
+<h3 id="rule-based-mapping">Rule-Based Mapping</h3>
+<p>Simple rule-based approach for mapping commands to actions:</p>
+<pre><code class="language-python">class RuleBasedActionMapper:
+    def __init__(self):
+        self.action_mapping_rules = {
+            # Navigation commands
+            (&#x27;navigation&#x27;, &#x27;go to&#x27;): self.map_navigation,
+            (&#x27;navigation&#x27;, &#x27;move to&#x27;): self.map_navigation,
+            (&#x27;navigation&#x27;, &#x27;walk to&#x27;): self.map_navigation,
+
+            # Manipulation commands
+            (&#x27;manipulation&#x27;, &#x27;pick up&#x27;): self.map_manipulation_pick,
+            (&#x27;manipulation&#x27;, &#x27;grasp&#x27;): self.map_manipulation_grasp,
+            (&#x27;manipulation&#x27;, &#x27;put&#x27;): self.map_manipulation_place,
+
+            # Interaction commands
+            (&#x27;interaction&#x27;, &#x27;greet&#x27;): self.map_interaction_greet,
+            (&#x27;interaction&#x27;, &#x27;wave&#x27;): self.map_interaction_wave,
+        }
+
+    def map_action(self, parsed_command: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Map parsed command to robot actions&quot;&quot;&quot;
+        action_type = parsed_command[&#x27;action_type&#x27;]
+        pattern = parsed_command[&#x27;action_pattern&#x27;]
+
+        key = (action_type, self.extract_action_from_pattern(pattern))
+
+        if key in self.action_mapping_rules:
+            return self.action_mapping_rules[key](parsed_command)
+        else:
+            return self.default_mapping(parsed_command)
+
+    def extract_action_from_pattern(self, pattern: str) -&gt; str:
+        &quot;&quot;&quot;Extract action from regex pattern&quot;&quot;&quot;
+        # Simple extraction - in practice, this would be more sophisticated
+        parts = pattern.split()
+        if parts:
+            return parts[0]
+        return pattern
+
+    def map_navigation(self, parsed_command: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Map navigation commands to robot actions&quot;&quot;&quot;
+        destination = parsed_command[&#x27;parameters&#x27;][0] if parsed_command[&#x27;parameters&#x27;] else None
+
+        actions = [{
+            &#x27;action_type&#x27;: &#x27;navigation&#x27;,
+            &#x27;action_name&#x27;: &#x27;navigate_to&#x27;,
+            &#x27;parameters&#x27;: {
+                &#x27;destination&#x27;: destination,
+                &#x27;speed&#x27;: &#x27;normal&#x27;
+            },
+            &#x27;description&#x27;: f&#x27;Navigating to {destination}&#x27;
+        }]
+
+        return actions
+
+    def map_manipulation_pick(self, parsed_command: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Map pick-up commands to robot actions&quot;&quot;&quot;
+        object_to_pick = parsed_command[&#x27;parameters&#x27;][0] if parsed_command[&#x27;parameters&#x27;] else None
+
+        actions = [
+            {
+                &#x27;action_type&#x27;: &#x27;navigation&#x27;,
+                &#x27;action_name&#x27;: &#x27;navigate_to_object&#x27;,
+                &#x27;parameters&#x27;: {
+                    &#x27;object&#x27;: object_to_pick,
+                    &#x27;approach_distance&#x27;: 0.5
+                },
+                &#x27;description&#x27;: f&#x27;Navigating to {object_to_pick}&#x27;
+            },
+            {
+                &#x27;action_type&#x27;: &#x27;manipulation&#x27;,
+                &#x27;action_name&#x27;: &#x27;grasp_object&#x27;,
+                &#x27;parameters&#x27;: {
+                    &#x27;object&#x27;: object_to_pick
+                },
+                &#x27;description&#x27;: f&#x27;Grasping {object_to_pick}&#x27;
+            }
+        ]
+
+        return actions
+
+    def default_mapping(self, parsed_command: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Default mapping for unknown commands&quot;&quot;&quot;
+        return [{
+            &#x27;action_type&#x27;: &#x27;unknown&#x27;,
+            &#x27;action_name&#x27;: &#x27;unknown_command&#x27;,
+            &#x27;parameters&#x27;: {},
+            &#x27;description&#x27;: f&quot;Unknown command: {parsed_command[&#x27;original_text&#x27;]}&quot;
+        }]
+</code></pre>
+<h3 id="machine-learning-based-mapping">Machine Learning-Based Mapping</h3>
+<p>Using neural networks for more sophisticated mapping:</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+from transformers import AutoTokenizer, AutoModel
+
+class MLActionMapper(nn.Module):
+    def __init__(self, vocab_size, embedding_dim, hidden_dim, num_actions):
+        super().__init__()
+
+        # Text encoding
+        self.tokenizer = AutoTokenizer.from_pretrained(&#x27;bert-base-uncased&#x27;)
+        self.text_encoder = AutoModel.from_pretrained(&#x27;bert-base-uncased&#x27;)
+
+        # Action prediction head
+        self.action_classifier = nn.Sequential(
+            nn.Linear(768, hidden_dim),  # BERT hidden size is 768
+            nn.ReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden_dim, num_actions)
+        )
+
+        # Action parameter prediction
+        self.param_predictor = nn.Sequential(
+            nn.Linear(768, hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden_dim, 128)  # Predict 128 parameters (flexible)
+        )
+
+    def forward(self, text_inputs):
+        &quot;&quot;&quot;Forward pass through the action mapping network&quot;&quot;&quot;
+        # Encode text
+        encoded = self.text_encoder(**text_inputs)
+        pooled_output = encoded.pooler_output  # [batch_size, 768]
+
+        # Predict action
+        action_logits = self.action_classifier(pooled_output)
+        action_probs = torch.softmax(action_logits, dim=-1)
+
+        # Predict parameters
+        param_logits = self.param_predictor(pooled_output)
+
+        return action_probs, param_logits
+
+    def map_command(self, text: str):
+        &quot;&quot;&quot;Map text command to action using the neural network&quot;&quot;&quot;
+        # Tokenize input
+        inputs = self.tokenizer(
+            text,
+            return_tensors=&#x27;pt&#x27;,
+            padding=True,
+            truncation=True,
+            max_length=128
+        )
+
+        # Get predictions
+        action_probs, param_logits = self.forward(inputs)
+
+        # Decode predictions to action
+        predicted_action = torch.argmax(action_probs, dim=-1).item()
+        predicted_params = param_logits.detach().cpu().numpy()
+
+        return {
+            &#x27;action_id&#x27;: predicted_action,
+            &#x27;action_params&#x27;: predicted_params,
+            &#x27;confidence&#x27;: action_probs.max().item()
+        }
+</code></pre>
+<h2 id="context-aware-action-mapping">Context-Aware Action Mapping</h2>
+<h3 id="environment-context-integration">Environment Context Integration</h3>
+<pre><code class="language-python">class ContextAwareActionMapper:
+    def __init__(self):
+        self.knowledge_base = KnowledgeBase()
+        self.vision_processor = VisionProcessor()
+        self.action_validator = ActionValidator()
+
+    def map_with_context(self, command: str, environment_context: Dict):
+        &quot;&quot;&quot;Map command considering environmental context&quot;&quot;&quot;
+        # Parse the command
+        parsed_command = self.parse_command(command)
+
+        # Get current environment state
+        current_state = self.get_environment_state(environment_context)
+
+        # Map command with context awareness
+        raw_actions = self.map_command_to_actions(parsed_command)
+
+        # Validate actions against current state
+        validated_actions = self.validate_actions(raw_actions, current_state)
+
+        # Adapt actions based on context
+        adapted_actions = self.adapt_actions_to_context(
+            validated_actions,
+            current_state,
+            parsed_command
+        )
+
+        return adapted_actions
+
+    def get_environment_state(self, context: Dict) -&gt; Dict:
+        &quot;&quot;&quot;Extract current environment state from context&quot;&quot;&quot;
+        state = {
+            &#x27;robot_location&#x27;: context.get(&#x27;robot_location&#x27;),
+            &#x27;detected_objects&#x27;: context.get(&#x27;detected_objects&#x27;, []),
+            &#x27;reachable_objects&#x27;: context.get(&#x27;reachable_objects&#x27;, []),
+            &#x27;navigable_areas&#x27;: context.get(&#x27;navigable_areas&#x27;, []),
+            &#x27;human_positions&#x27;: context.get(&#x27;humans&#x27;, []),
+            &#x27;robot_state&#x27;: context.get(&#x27;robot_state&#x27;, {})
+        }
+        return state
+
+    def validate_actions(self, actions: List[Dict], state: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Validate actions against current environment state&quot;&quot;&quot;
+        valid_actions = []
+
+        for action in actions:
+            if self.action_validator.is_valid(action, state):
+                valid_actions.append(action)
+            else:
+                # Try to adapt the action
+                adapted = self.adapt_invalid_action(action, state)
+                if adapted:
+                    valid_actions.append(adapted)
+
+        return valid_actions
+
+    def adapt_actions_to_context(self, actions: List[Dict], state: Dict, command: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Adapt actions based on environmental context&quot;&quot;&quot;
+        adapted_actions = []
+
+        for action in actions:
+            if action[&#x27;action_type&#x27;] == &#x27;navigation&#x27;:
+                # Check if destination is navigable
+                destination = action[&#x27;parameters&#x27;].get(&#x27;destination&#x27;)
+                if destination:
+                    # Resolve destination to specific location
+                    resolved_location = self.resolve_location(destination, state)
+                    action[&#x27;parameters&#x27;][&#x27;destination&#x27;] = resolved_location
+
+            elif action[&#x27;action_type&#x27;] == &#x27;manipulation&#x27;:
+                # Check if object is reachable
+                target_object = action[&#x27;parameters&#x27;].get(&#x27;object&#x27;)
+                if target_object:
+                    # Find the specific object instance
+                    object_instance = self.find_object_instance(target_object, state)
+                    if object_instance:
+                        action[&#x27;parameters&#x27;][&#x27;object_pose&#x27;] = object_instance[&#x27;pose&#x27;]
+
+            adapted_actions.append(action)
+
+        return adapted_actions
+
+    def resolve_location(self, location_desc: str, state: Dict) -&gt; str:
+        &quot;&quot;&quot;Resolve location description to specific coordinates&quot;&quot;&quot;
+        # Look up in knowledge base
+        known_locations = self.knowledge_base.get_locations()
+
+        for loc_name, loc_info in known_locations.items():
+            if location_desc.lower() in loc_name.lower():
+                return loc_info[&#x27;coordinates&#x27;]
+
+        # If not found, try to find in current context
+        for nav_area in state[&#x27;navigable_areas&#x27;]:
+            if location_desc.lower() in nav_area.get(&#x27;name&#x27;, &#x27;&#x27;).lower():
+                return nav_area[&#x27;coordinates&#x27;]
+
+        # Default to current location if can&#x27;t resolve
+        return state[&#x27;robot_location&#x27;]
+</code></pre>
+<h2 id="action-execution-planning">Action Execution Planning</h2>
+<h3 id="sequential-action-planning">Sequential Action Planning</h3>
+<pre><code class="language-python">class ActionExecutionPlanner:
+    def __init__(self):
+        self.action_library = self.load_action_library()
+        self.precondition_checker = PreconditionChecker()
+        self.effect_predictor = EffectPredictor()
+
+    def plan_execution_sequence(self, actions: List[Dict]) -&gt; List[Dict]:
+        &quot;&quot;&quot;Plan sequence of actions for execution&quot;&quot;&quot;
+        execution_plan = []
+
+        for action in actions:
+            # Check preconditions
+            if not self.precondition_checker.check(action):
+                # Try to satisfy preconditions
+                precondition_actions = self.satisfy_preconditions(action)
+                execution_plan.extend(precondition_actions)
+
+            # Add the main action
+            execution_plan.append(action)
+
+            # Update expected state effects
+            self.effect_predictor.update_state(action)
+
+        return execution_plan
+
+    def satisfy_preconditions(self, action: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Generate actions to satisfy preconditions for a given action&quot;&quot;&quot;
+        preconditions = self.action_library[action[&#x27;action_name&#x27;]].get(&#x27;preconditions&#x27;, [])
+        precondition_actions = []
+
+        for precondition in preconditions:
+            if not self.precondition_checker.is_satisfied(precondition):
+                # Generate action to satisfy precondition
+                satisfying_action = self.generate_satisfying_action(precondition)
+                if satisfying_action:
+                    precondition_actions.append(satisfying_action)
+
+        return precondition_actions
+
+    def generate_satisfying_action(self, precondition: Dict) -&gt; Dict:
+        &quot;&quot;&quot;Generate action to satisfy a specific precondition&quot;&quot;&quot;
+        # Example: if precondition is &quot;robot_at_location&quot;, generate navigation action
+        if precondition.get(&#x27;type&#x27;) == &#x27;robot_at_location&#x27;:
+            return {
+                &#x27;action_type&#x27;: &#x27;navigation&#x27;,
+                &#x27;action_name&#x27;: &#x27;navigate_to&#x27;,
+                &#x27;parameters&#x27;: {
+                    &#x27;destination&#x27;: precondition[&#x27;location&#x27;]
+                },
+                &#x27;description&#x27;: f&#x27;Navigating to satisfy precondition: at {precondition[&quot;location&quot;]}&#x27;
+            }
+
+        # Add more precondition types as needed
+        return None
+</code></pre>
+<h2 id="ros-2-integration">ROS 2 Integration</h2>
+<h3 id="voice-to-action-node">Voice-to-Action Node</h3>
+<pre><code class="language-python">import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from geometry_msgs.msg import Pose
+from vla_msgs.msg import ActionCommand, ActionResult
+from vla_msgs.srv import ExecuteAction
+
+class VoiceToActionNode(Node):
+    def __init__(self):
+        super().__init__(&#x27;voice_to_action_node&#x27;)
+
+        # Subscribers
+        self.voice_sub = self.create_subscription(
+            String,
+            &#x27;recognized_text&#x27;,
+            self.voice_callback,
+            10
+        )
+
+        # Publishers
+        self.action_pub = self.create_publisher(
+            ActionCommand,
+            &#x27;robot_action_commands&#x27;,
+            10
+        )
+
+        self.feedback_pub = self.create_publisher(
+            String,
+            &#x27;action_feedback&#x27;,
+            10
+        )
+
+        # Services
+        self.execute_service = self.create_service(
+            ExecuteAction,
+            &#x27;execute_mapped_action&#x27;,
+            self.execute_action_callback
+        )
+
+        # Initialize action mapping components
+        self.command_parser = CommandParser()
+        self.intent_classifier = IntentClassifier()
+        self.action_mapper = RuleBasedActionMapper()
+        self.context_aware_mapper = ContextAwareActionMapper()
+
+        self.get_logger().info(&#x27;Voice-to-Action Node initialized&#x27;)
+
+    def voice_callback(self, msg: String):
+        &quot;&quot;&quot;Process voice command from speech recognition&quot;&quot;&quot;
+        command_text = msg.data
+        self.get_logger().info(f&#x27;Received voice command: {command_text}&#x27;)
+
+        try:
+            # Parse the command
+            parsed_command = self.command_parser.parse_command(command_text)
+
+            if parsed_command[&#x27;confidence&#x27;] &gt; 0.5:  # Threshold
+                # Map to actions
+                actions = self.action_mapper.map_action(parsed_command)
+
+                # Publish actions for execution
+                for action in actions:
+                    action_msg = self.create_action_message(action)
+                    self.action_pub.publish(action_msg)
+
+                # Provide feedback
+                feedback_msg = String()
+                feedback_msg.data = f&quot;Understood command: {command_text}, executing {len(actions)} actions&quot;
+                self.feedback_pub.publish(feedback_msg)
+
+            else:
+                # Low confidence - ask for clarification
+                feedback_msg = String()
+                feedback_msg.data = f&quot;Sorry, I didn&#x27;t understand: {command_text}. Could you repeat?&quot;
+                self.feedback_pub.publish(feedback_msg)
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Error processing voice command: {e}&#x27;)
+            feedback_msg = String()
+            feedback_msg.data = f&quot;Error processing command: {e}&quot;
+            self.feedback_pub.publish(feedback_msg)
+
+    def execute_action_callback(self, request, response):
+        &quot;&quot;&quot;Service callback for executing mapped actions&quot;&quot;&quot;
+        try:
+            # Get current context (would typically come from other nodes)
+            context = self.get_current_context()
+
+            # Map the command with context
+            actions = self.context_aware_mapper.map_with_context(
+                request.command,
+                context
+            )
+
+            # Execute actions
+            execution_results = []
+            for action in actions:
+                result = self.execute_single_action(action)
+                execution_results.append(result)
+
+            # Set response
+            response.success = all(result[&#x27;success&#x27;] for result in execution_results)
+            response.results = execution_results
+            response.message = &quot;Actions executed successfully&quot; if response.success else &quot;Some actions failed&quot;
+
+        except Exception as e:
+            self.get_logger().error(f&#x27;Action execution failed: {e}&#x27;)
+            response.success = False
+            response.message = f&quot;Execution failed: {e}&quot;
+
+        return response
+
+    def get_current_context(self) -&gt; Dict:
+        &quot;&quot;&quot;Get current environment context&quot;&quot;&quot;
+        # This would typically subscribe to various sensor topics
+        # and aggregate the information
+        return {
+            &#x27;robot_location&#x27;: &#x27;kitchen&#x27;,
+            &#x27;detected_objects&#x27;: [&#x27;red cup&#x27;, &#x27;blue book&#x27;],
+            &#x27;reachable_objects&#x27;: [&#x27;red cup&#x27;],
+            &#x27;navigable_areas&#x27;: [&#x27;kitchen&#x27;, &#x27;living room&#x27;],
+            &#x27;robot_state&#x27;: {&#x27;battery&#x27;: 85, &#x27;gripper&#x27;: &#x27;open&#x27;}
+        }
+
+    def execute_single_action(self, action: Dict) -&gt; Dict:
+        &quot;&quot;&quot;Execute a single action&quot;&quot;&quot;
+        # This would typically call other ROS services/nodes
+        # to execute the specific action
+        return {
+            &#x27;action_name&#x27;: action[&#x27;action_name&#x27;],
+            &#x27;success&#x27;: True,
+            &#x27;message&#x27;: f&quot;Executed {action[&#x27;action_name&#x27;]}&quot;,
+            &#x27;execution_time&#x27;: 0.0
+        }
+
+    def create_action_message(self, action: Dict) -&gt; ActionCommand:
+        &quot;&quot;&quot;Create ROS message from action dictionary&quot;&quot;&quot;
+        action_msg = ActionCommand()
+        action_msg.action_type = action[&#x27;action_type&#x27;]
+        action_msg.action_name = action[&#x27;action_name&#x27;]
+        action_msg.parameters = str(action[&#x27;parameters&#x27;])  # Convert to string for simplicity
+        action_msg.description = action[&#x27;description&#x27;]
+        action_msg.header.stamp = self.get_clock().now().to_msg()
+        return action_msg
+</code></pre>
+<h2 id="advanced-mapping-techniques">Advanced Mapping Techniques</h2>
+<h3 id="semantic-action-mapping">Semantic Action Mapping</h3>
+<pre><code class="language-python">class SemanticActionMapper:
+    def __init__(self):
+        self.semantic_parser = SemanticParser()
+        self.action_space = ActionSpace()
+        self.reasoning_engine = ReasoningEngine()
+
+    def map_with_semantics(self, command: str) -&gt; List[Dict]:
+        &quot;&quot;&quot;Map command using semantic understanding&quot;&quot;&quot;
+        # Parse command semantically
+        semantic_structure = self.semantic_parser.parse(command)
+
+        # Ground semantics in robot capabilities
+        grounded_actions = self.ground_semantics(semantic_structure)
+
+        # Reason about the best action sequence
+        reasoned_actions = self.reasoning_engine.reason(
+            grounded_actions,
+            semantic_structure
+        )
+
+        return reasoned_actions
+
+    def ground_semantics(self, semantic_structure: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Ground semantic structure in robot action space&quot;&quot;&quot;
+        actions = []
+
+        # Example semantic structure processing
+        if semantic_structure.get(&#x27;action&#x27;) == &#x27;transport&#x27;:
+            source = semantic_structure.get(&#x27;source&#x27;)
+            target = semantic_structure.get(&#x27;target&#x27;)
+            object = semantic_structure.get(&#x27;object&#x27;)
+
+            actions = [
+                {
+                    &#x27;action_type&#x27;: &#x27;navigation&#x27;,
+                    &#x27;action_name&#x27;: &#x27;navigate_to&#x27;,
+                    &#x27;parameters&#x27;: {&#x27;destination&#x27;: source}
+                },
+                {
+                    &#x27;action_type&#x27;: &#x27;manipulation&#x27;,
+                    &#x27;action_name&#x27;: &#x27;grasp&#x27;,
+                    &#x27;parameters&#x27;: {&#x27;object&#x27;: object}
+                },
+                {
+                    &#x27;action_type&#x27;: &#x27;navigation&#x27;,
+                    &#x27;action_name&#x27;: &#x27;navigate_to&#x27;,
+                    &#x27;parameters&#x27;: {&#x27;destination&#x27;: target}
+                },
+                {
+                    &#x27;action_type&#x27;: &#x27;manipulation&#x27;,
+                    &#x27;action_name&#x27;: &#x27;place&#x27;,
+                    &#x27;parameters&#x27;: {&#x27;object&#x27;: object}
+                }
+            ]
+
+        return actions
+</code></pre>
+<h2 id="error-handling-and-recovery">Error Handling and Recovery</h2>
+<h3 id="robust-action-mapping">Robust Action Mapping</h3>
+<pre><code class="language-python">class RobustActionMapper:
+    def __init__(self):
+        self.fallback_strategies = [
+            self.fallback_to_simple_navigation,
+            self.fallback_to_manual_control_request,
+            self.fallback_to_context_query
+        ]
+
+    def map_with_fallback(self, command: str, context: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Map command with fallback strategies&quot;&quot;&quot;
+        try:
+            # Primary mapping
+            actions = self.primary_mapping(command, context)
+
+            # Validate actions
+            if self.validate_actions(actions, context):
+                return actions
+        except Exception as e:
+            self.get_logger().warning(f&#x27;Primary mapping failed: {e}&#x27;)
+
+        # Try fallback strategies
+        for fallback_strategy in self.fallback_strategies:
+            try:
+                fallback_actions = fallback_strategy(command, context)
+                if fallback_actions and self.validate_actions(fallback_actions, context):
+                    return fallback_actions
+            except Exception as e:
+                self.get_logger().warning(f&#x27;Fallback strategy failed: {e}&#x27;)
+                continue
+
+        # If all strategies fail, return error action
+        return [{
+            &#x27;action_type&#x27;: &#x27;error&#x27;,
+            &#x27;action_name&#x27;: &#x27;unknown_command&#x27;,
+            &#x27;parameters&#x27;: {&#x27;original_command&#x27;: command},
+            &#x27;description&#x27;: f&#x27;Unable to map command: {command}&#x27;
+        }]
+
+    def validate_actions(self, actions: List[Dict], context: Dict) -&gt; bool:
+        &quot;&quot;&quot;Validate that actions are feasible in current context&quot;&quot;&quot;
+        for action in actions:
+            if not self.is_action_feasible(action, context):
+                return False
+        return True
+
+    def is_action_feasible(self, action: Dict, context: Dict) -&gt; bool:
+        &quot;&quot;&quot;Check if action is feasible in current context&quot;&quot;&quot;
+        # Check robot capabilities
+        if not self.has_capability(action[&#x27;action_name&#x27;]):
+            return False
+
+        # Check safety constraints
+        if not self.is_safe(action, context):
+            return False
+
+        # Check resource constraints
+        if not self.has_resources(action, context):
+            return False
+
+        return True
+
+    def fallback_to_simple_navigation(self, command: str, context: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Fallback to simple navigation if command is unclear&quot;&quot;&quot;
+        # Extract potential location from command
+        location = self.extract_location(command)
+        if location:
+            return [{
+                &#x27;action_type&#x27;: &#x27;navigation&#x27;,
+                &#x27;action_name&#x27;: &#x27;navigate_to&#x27;,
+                &#x27;parameters&#x27;: {&#x27;destination&#x27;: location},
+                &#x27;description&#x27;: f&#x27;Navigating to {location} (fallback)&#x27;
+            }]
+        return []
+
+    def extract_location(self, command: str) -&gt; str:
+        &quot;&quot;&quot;Extract location from command&quot;&quot;&quot;
+        # Simple keyword-based extraction
+        locations = [&#x27;kitchen&#x27;, &#x27;living room&#x27;, &#x27;bedroom&#x27;, &#x27;office&#x27;, &#x27;hall&#x27;]
+        command_lower = command.lower()
+
+        for location in locations:
+            if location in command_lower:
+                return location
+
+        return None
+</code></pre>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="efficient-command-processing">Efficient Command Processing</h3>
+<pre><code class="language-python">class EfficientCommandProcessor:
+    def __init__(self):
+        self.command_cache = {}
+        self.pattern_matcher = OptimizedPatternMatcher()
+        self.command_templates = self.load_command_templates()
+
+    def process_command_efficiently(self, command: str) -&gt; List[Dict]:
+        &quot;&quot;&quot;Process command efficiently with caching and optimization&quot;&quot;&quot;
+        # Check cache first
+        if command in self.command_cache:
+            cached_result, timestamp = self.command_cache[command]
+            if time.time() - timestamp &lt; 300:  # 5 minute cache
+                return cached_result
+
+        # Use optimized pattern matching
+        matched_template = self.pattern_matcher.match(command)
+
+        if matched_template:
+            actions = self.generate_actions_from_template(matched_template)
+        else:
+            # Fall back to full processing
+            actions = self.full_command_processing(command)
+
+        # Cache result
+        self.cache_command_result(command, actions)
+
+        return actions
+
+    def generate_actions_from_template(self, template: Dict) -&gt; List[Dict]:
+        &quot;&quot;&quot;Generate actions from matched template&quot;&quot;&quot;
+        # Template-based action generation is faster than parsing
+        return template[&#x27;actions&#x27;]
+
+    def cache_command_result(self, command: str, result: List[Dict]):
+        &quot;&quot;&quot;Cache command processing result&quot;&quot;&quot;
+        if len(self.command_cache) &gt; 100:  # Limit cache size
+            # Remove oldest entries
+            oldest_key = next(iter(self.command_cache))
+            del self.command_cache[oldest_key]
+
+        self.command_cache[command] = (result, time.time())
+</code></pre>
+<h2 id="quality-assessment">Quality Assessment</h2>
+<h3 id="action-mapping-quality-metrics">Action Mapping Quality Metrics</h3>
+<pre><code class="language-python">class ActionMappingQualityAssessment:
+    def __init__(self):
+        self.metrics = {
+            &#x27;accuracy&#x27;: 0,
+            &#x27;completeness&#x27;: 0,
+            &#x27;safety&#x27;: 0,
+            &#x27;efficiency&#x27;: 0
+        }
+
+    def assess_mapping_quality(self, command: str, mapped_actions: List[Dict], expected_actions: List[Dict] = None) -&gt; Dict:
+        &quot;&quot;&quot;Assess quality of action mapping&quot;&quot;&quot;
+        quality_metrics = {}
+
+        # Accuracy: How well do mapped actions match expected actions?
+        if expected_actions:
+            quality_metrics[&#x27;accuracy&#x27;] = self.compute_accuracy(
+                mapped_actions, expected_actions
+            )
+
+        # Completeness: Do mapped actions cover the full intent?
+        quality_metrics[&#x27;completeness&#x27;] = self.compute_completeness(
+            command, mapped_actions
+        )
+
+        # Safety: Are mapped actions safe to execute?
+        quality_metrics[&#x27;safety&#x27;] = self.compute_safety_score(mapped_actions)
+
+        # Efficiency: How many actions are needed?
+        quality_metrics[&#x27;efficiency&#x27;] = self.compute_efficiency(mapped_actions)
+
+        return quality_metrics
+
+    def compute_accuracy(self, mapped: List[Dict], expected: List[Dict]) -&gt; float:
+        &quot;&quot;&quot;Compute accuracy of action mapping&quot;&quot;&quot;
+        if not expected:
+            return 0.0
+
+        correct_actions = 0
+        for exp_action in expected:
+            for map_action in mapped:
+                if (exp_action[&#x27;action_name&#x27;] == map_action[&#x27;action_name&#x27;] and
+                    self.parameters_match(exp_action[&#x27;parameters&#x27;], map_action[&#x27;parameters&#x27;])):
+                    correct_actions += 1
+                    break
+
+        return correct_actions / len(expected)
+
+    def compute_completeness(self, command: str, actions: List[Dict]) -&gt; float:
+        &quot;&quot;&quot;Compute how completely the command intent is addressed&quot;&quot;&quot;
+        # This would involve analyzing whether the actions address all aspects of the command
+        return 1.0 if actions else 0.0
+
+    def compute_safety_score(self, actions: List[Dict]) -&gt; float:
+        &quot;&quot;&quot;Compute safety score for the action sequence&quot;&quot;&quot;
+        # Check each action for safety
+        safe_actions = sum(1 for action in actions if self.is_action_safe(action))
+        return safe_actions / len(actions) if actions else 0.0
+
+    def parameters_match(self, params1: Dict, params2: Dict, threshold: float = 0.8) -&gt; bool:
+        &quot;&quot;&quot;Check if parameters approximately match&quot;&quot;&quot;
+        # Implementation would compare parameter values
+        return True
+</code></pre>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="command-understanding-problems">Command Understanding Problems</h3>
+<p><strong>Issue</strong>: Commands are not being understood correctly.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Expand command pattern database</li>
+<li>Improve natural language preprocessing</li>
+<li>Add context-aware disambiguation</li>
+<li>Implement user feedback learning</li>
+</ol>
+<p><strong>Issue</strong>: Ambiguous commands lead to incorrect actions.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Implement clarification requests</li>
+<li>Use confidence thresholds</li>
+<li>Add disambiguation strategies</li>
+<li>Maintain command history for context</li>
+</ol>
+<h3 id="action-execution-problems">Action Execution Problems</h3>
+<p><strong>Issue</strong>: Mapped actions fail during execution.</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Improve action validation before execution</li>
+<li>Add simulation-based verification</li>
+<li>Implement robust error handling</li>
+<li>Use gradual action refinement</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="system-design">System Design</h3>
+<ul>
+<li><strong>Modular Architecture</strong>: Keep command parsing, mapping, and execution separate</li>
+<li><strong>Fallback Mechanisms</strong>: Always have fallback strategies for failed mappings</li>
+<li><strong>User Feedback</strong>: Provide clear feedback about command understanding</li>
+<li><strong>Safety First</strong>: Validate all actions before execution</li>
+</ul>
+<h3 id="performance-considerations">Performance Considerations</h3>
+<ul>
+<li><strong>Caching</strong>: Cache frequently used command mappings</li>
+<li><strong>Optimization</strong>: Use efficient pattern matching algorithms</li>
+<li><strong>Parallel Processing</strong>: Process multiple aspects of commands in parallel</li>
+<li><strong>Real-time Constraints</strong>: Ensure mapping completes within real-time requirements</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/humanoid-robotics-book/vla-integration/capstone-project">Capstone Project</a> to apply all VLA integration concepts in a comprehensive humanoid robotics project.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/voice-to-action.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/humanoid-robotics-book/vla-integration/multi-modal"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Multi-Modal Processing</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/humanoid-robotics-book/vla-integration/capstone-project"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">VLA Capstone Project: Intelligent Humanoid Assistant</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#voice-to-action-architecture" class="table-of-contents__link toc-highlight">Voice-to-Action Architecture</a><ul><li><a href="#the-mapping-pipeline" class="table-of-contents__link toc-highlight">The Mapping Pipeline</a></li><li><a href="#system-components" class="table-of-contents__link toc-highlight">System Components</a></li></ul></li><li><a href="#natural-language-understanding-for-action-mapping" class="table-of-contents__link toc-highlight">Natural Language Understanding for Action Mapping</a><ul><li><a href="#command-parsing" class="table-of-contents__link toc-highlight">Command Parsing</a></li><li><a href="#intent-classification" class="table-of-contents__link toc-highlight">Intent Classification</a></li></ul></li><li><a href="#action-mapping-strategies" class="table-of-contents__link toc-highlight">Action Mapping Strategies</a><ul><li><a href="#rule-based-mapping" class="table-of-contents__link toc-highlight">Rule-Based Mapping</a></li><li><a href="#machine-learning-based-mapping" class="table-of-contents__link toc-highlight">Machine Learning-Based Mapping</a></li></ul></li><li><a href="#context-aware-action-mapping" class="table-of-contents__link toc-highlight">Context-Aware Action Mapping</a><ul><li><a href="#environment-context-integration" class="table-of-contents__link toc-highlight">Environment Context Integration</a></li></ul></li><li><a href="#action-execution-planning" class="table-of-contents__link toc-highlight">Action Execution Planning</a><ul><li><a href="#sequential-action-planning" class="table-of-contents__link toc-highlight">Sequential Action Planning</a></li></ul></li><li><a href="#ros-2-integration" class="table-of-contents__link toc-highlight">ROS 2 Integration</a><ul><li><a href="#voice-to-action-node" class="table-of-contents__link toc-highlight">Voice-to-Action Node</a></li></ul></li><li><a href="#advanced-mapping-techniques" class="table-of-contents__link toc-highlight">Advanced Mapping Techniques</a><ul><li><a href="#semantic-action-mapping" class="table-of-contents__link toc-highlight">Semantic Action Mapping</a></li></ul></li><li><a href="#error-handling-and-recovery" class="table-of-contents__link toc-highlight">Error Handling and Recovery</a><ul><li><a href="#robust-action-mapping" class="table-of-contents__link toc-highlight">Robust Action Mapping</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#efficient-command-processing" class="table-of-contents__link toc-highlight">Efficient Command Processing</a></li></ul></li><li><a href="#quality-assessment" class="table-of-contents__link toc-highlight">Quality Assessment</a><ul><li><a href="#action-mapping-quality-metrics" class="table-of-contents__link toc-highlight">Action Mapping Quality Metrics</a></li></ul></li><li><a href="#troubleshooting-common-issues" class="table-of-contents__link toc-highlight">Troubleshooting Common Issues</a><ul><li><a href="#command-understanding-problems" class="table-of-contents__link toc-highlight">Command Understanding Problems</a></li><li><a href="#action-execution-problems" class="table-of-contents__link toc-highlight">Action Execution Problems</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#system-design" class="table-of-contents__link toc-highlight">System Design</a></li><li><a href="#performance-considerations" class="table-of-contents__link toc-highlight">Performance Considerations</a></li></ul></li><li><a href="#next-steps" class="table-of-contents__link toc-highlight">Next Steps</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ros-fundamentals/intro">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/simulation/intro">Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/ai-navigation/intro">AI Navigation</a></li><li class="footer__item"><a class="footer__link-item" href="/humanoid-robotics-book/vla-integration/intro">VLA Integration</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ArifAbbas11/humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
