@@ -18,7 +18,7 @@ Success criteria:
 - Verified sources and references for AI, robotics, and simulation best practices
 
 Constraints:
-- Word count: 15,000–25,000 words (or equivalent Markdown files)
+- Word count: 12,000–18,000 words (or equivalent Markdown files)
 - Format: Markdown suitable for Docusaurus deployment
 - Sources: Peer-reviewed papers, robotics/AI documentation, and authoritative resources
 - Timeline: Complete within hackathon schedule (12–14 weeks)
@@ -140,7 +140,7 @@ A hobbyist or student wants to integrate large language models (LLMs) with robot
 - **FR-008**: The book MUST culminate in a capstone project demonstrating an end-to-end perception-planning-action workflow.
 - **FR-009**: The book MUST clearly explain lab setup, edge devices, and simulation environments, including hardware and software specifications for Sim Rig, Edge AI kit, and robots.
 - **FR-010**: The book MUST include verified sources and references for AI, robotics, and simulation best practices.
-- **FR-011**: The book MUST ensure all technical instructions and code snippets are reproducible.
+- **FR-011**: The book MUST ensure all technical instructions and code snippets are reproducible. This includes providing complete, copy-paste ready code samples, verified setup instructions, and cross-platform compatibility (Windows, Linux, macOS).
 - **FR-012**: The book MUST present diagrams, figures, and tables with proper attribution and alt text.
 
 ### Key Entities
@@ -156,11 +156,11 @@ A hobbyist or student wants to integrate large language models (LLMs) with robot
 
 ### Measurable Outcomes
 
-- **SC-001**: Each module's content enables the reader to successfully complete its associated mini-project, with a verified success rate of 90% in a controlled test environment.
-- **SC-002**: All code examples and technical instructions presented in the book are independently reproducible by readers on specified hardware/software setups (Ubuntu 22.04 + Jetson Orin equivalent) with a 100% success rate.
-- **SC-003**: A reader following the book's guidance can design, simulate, and successfully deploy a humanoid robot for a simple task (e.g., pick-and-place) in a simulated environment by the end of the book.
-- **SC-004**: The capstone project demonstrates an end-to-end perception → planning → action workflow, verified by successful autonomous task completion in simulation.
-- **SC-005**: Explanations for lab setup, edge devices, and simulation environments are clear and comprehensive, allowing 95% of target audience readers to configure their environments without external assistance.
-- **SC-006**: All factual claims and technical guidance are supported by verified sources, with at least 80% of claims linked to authoritative documentation or peer-reviewed papers (post-2018).
-- **SC-007**: The entire book, once deployed via Docusaurus on GitHub Pages, builds and renders without errors and is publicly accessible, meeting all formatting requirements.
-- **SC-008**: The book's word count adheres to the 15,000–25,000 range (or equivalent Markdown file size).
+- **SC-001**: Each module's content enables the reader to successfully complete its associated mini-project, with a verified success rate of 90% in a controlled test environment. Success measured by: (a) 90% of test readers complete the mini-project within 2x estimated time, (b) all core functionality demonstrated as specified, (c) no major bugs requiring code changes to complete.
+- **SC-002**: All code examples and technical instructions presented in the book are independently reproducible by readers on specified hardware/software setups (Ubuntu 22.04 + Jetson Orin equivalent) with a 100% success rate. Success measured by: (a) all code examples execute without errors on clean installations, (b) step-by-step instructions produce expected outputs, (c) all examples tested on Windows, Linux, and macOS environments.
+- **SC-003**: A reader following the book's guidance can design, simulate, and successfully deploy a humanoid robot for a simple task (e.g., pick-and-place) in a simulated environment by the end of the book. Success measured by: (a) robot successfully completes pick-and-place task in simulation, (b) task completed by 95% of readers following instructions, (c) total completion time within 4 hours of focused work.
+- **SC-004**: The capstone project demonstrates an end-to-end perception → planning → action workflow, verified by successful autonomous task completion in simulation. Success measured by: (a) robot receives voice command and executes correct sequence of actions, (b) navigation to target location with 95% success rate, (c) object manipulation with 90% success rate.
+- **SC-005**: Explanations for lab setup, edge devices, and simulation environments are clear and comprehensive, allowing 95% of target audience readers to configure their environments without external assistance. Success measured by: (a) 95% of readers complete environment setup without external help, (b) average setup time under 2 hours, (c) <5% of readers report setup-related issues.
+- **SC-006**: All factual claims and technical guidance are supported by verified sources, with at least 80% of claims linked to authoritative documentation or peer-reviewed papers (post-2018). Success measured by: (a) 80% of technical claims have verifiable sources, (b) all code examples match official documentation, (c) no outdated or deprecated APIs referenced without warning.
+- **SC-007**: The entire book, once deployed via Docusaurus on GitHub Pages, builds and renders without errors and is publicly accessible, meeting all formatting requirements. Success measured by: (a) Docusaurus build completes without errors, (b) all pages load within 3 seconds, (c) mobile-responsive design passes accessibility tests, (d) all links and navigation functional.
+- **SC-008**: The book's word count adheres to the 12,000–18,000 range (or equivalent Markdown file size).

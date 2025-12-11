@@ -1,98 +1,94 @@
-# Implementation Plan: [FEATURE]
+# Implementation Plan: Physical AI & Humanoid Robotics Book
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
-
-**Note**: This template is filled in by the `/sp.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
+**Branch**: `001-humanoid-robotics-book` | **Date**: 2025-12-10 | **Spec**: [link]
+**Input**: Feature specification from `/specs/001-humanoid-robotics-book/spec.md`
 
 ## Summary
 
-[Extract from feature spec: primary requirement + technical approach from research]
+Create a comprehensive Docusaurus-based documentation site for a book on Physical AI & Humanoid Robotics. The book will cover ROS 2, Gazebo/Unity simulation, NVIDIA Isaac, and Vision-Language-Action integration. The implementation will follow a modular approach with 4 main modules plus a capstone project, each independently testable and deployable.
 
 ## Technical Context
 
-<!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
--->
+**Language/Version**: Markdown for documentation, Python 3.10+ for code examples, Node.js 18+ for Docusaurus
+**Primary Dependencies**: Docusaurus 2.x, React, Node.js, GitHub Pages, ROS 2 (Humble Hawksbill), Gazebo, NVIDIA Isaac Sim
+**Storage**: Git repository, static assets (images, diagrams)
+**Testing**: Manual verification of all code examples, build validation, cross-platform compatibility testing
+**Target Platform**: GitHub Pages (static site), cross-platform compatibility for development
+**Project Type**: Static documentation website with embedded code examples
+**Performance Goals**: Page load time <3s, build time <5 minutes, mobile-responsive, accessible to beginner-to-intermediate developers
+**Constraints**: Must be reproducible on Windows, Linux, and macOS environments; all examples must be copy-paste ready; word count 12,000-18,000 words as per constitution
+**Scale/Scope**: 12,000-18,000 words across 4 modules plus capstone project with 8-12 chapters equivalent
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+## Constitution Alignment Check
 
-## Constitution Check
+This implementation plan aligns with the project constitution as follows:
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+- **AI-native authoring workflow**: Plan leverages Spec-Kit Plus and Claude Code for all content creation
+- **Technical accuracy**: All technical content will be verified against official documentation for ROS 2, Gazebo, Isaac, and Docusaurus
+- **Clarity for beginner-to-intermediate developers**: Documentation structure designed with clear learning objectives and step-by-step instructions
+- **Reproducibility**: All commands and code examples will be tested in actual environments before inclusion
+- **Consistent, specification-driven content creation**: Content creation follows the SDD approach with spec → plan → tasks progression
 
-[Gates determined based on constitution file]
+### Gating Requirements:
+- [ ] All technical content verified against official documentation
+- [ ] All code examples tested and functional
+- [ ] All instructions validated on Windows, Linux, and macOS
+- [ ] All content written for beginner-to-intermediate audience
+- [ ] All workflows reproduce successfully in clean environments
 
 ## Project Structure
 
 ### Documentation (this feature)
 
 ```text
-specs/[###-feature]/
+specs/001-humanoid-robotics-book/
 ├── plan.md              # This file (/sp.plan command output)
-├── research.md          # Phase 0 output (/sp.plan command)
-├── data-model.md        # Phase 1 output (/sp.plan command)
-├── quickstart.md        # Phase 1 output (/sp.plan command)
-├── contracts/           # Phase 1 output (/sp.plan command)
-└── tasks.md             # Phase 2 output (/sp.tasks command - NOT created by /sp.plan)
+├── spec.md              # Feature specification
+├── tasks.md             # Implementation tasks
+└── checklists/          # Requirements checklist
+    └── requirements.md
 ```
 
 ### Source Code (repository root)
-<!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
--->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
-tests/
-├── contract/
-├── integration/
-└── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+.
+├── docs/                 # Docusaurus documentation content
+│   ├── ros-fundamentals/ # Module 1: ROS 2 fundamentals
+│   ├── simulation/       # Module 2: Gazebo/Unity simulation
+│   ├── ai-navigation/    # Module 3: NVIDIA Isaac AI
+│   ├── vla-integration/  # Module 4: Vision-Language-Action
+│   ├── capstone/         # Capstone project
+│   ├── assets/           # Images, diagrams, figures
+│   └── references.md     # All book references
+├── examples/             # Code examples organized by module
+│   ├── ros-basics/
+│   ├── simulation/
+│   ├── ai-navigation/
+│   ├── vla-integration/
+│   └── capstone/
+├── docusaurus.config.js  # Docusaurus configuration
+├── package.json          # Node.js dependencies
+├── README.md             # Project overview
+└── CLAUDE.md             # Claude Code rules
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+## Requirement-to-Task Mapping
+
+| Requirement ID | Requirement Description | Tasks Addressing | Verification Method |
+|----------------|------------------------|------------------|-------------------|
+| FR-001 | ROS 2 installation instructions | T013 | Manual verification on clean Ubuntu 22.04 |
+| FR-002 | Complete ROS 2 code examples | T018-T020 | Execute examples and verify functionality |
+| FR-003 | URDF model creation guidance | T017, T030 | Create and import model into simulation |
+| FR-004 | Sensor integration instructions | T028-T029, T032 | Verify sensor data published to ROS 2 topics |
+| FR-005 | Isaac setup and configuration | T038-T040 | Complete Isaac installation and basic test |
+| FR-006 | Mini-project implementation | T021, T034, T046, T058 | Complete each mini-project successfully |
+| FR-007 | VLA integration instructions | T049-T057 | Demonstrate voice command to action pipeline |
+| FR-008 | Capstone project | T061-T067 | End-to-end perception-planning-action workflow |
+| FR-009 | Lab setup and hardware specs | T070 | Document all required hardware/software |
+| FR-010 | Verified sources and references | T069 | Include peer-reviewed papers and documentation |
+| FR-011 | Reproducible instructions | All tasks | Each instruction verified independently |
+| FR-012 | Proper attribution and alt text | T068 | All diagrams include attribution and alt text |
 
 ## Complexity Tracking
 
@@ -100,5 +96,4 @@ directories captured above]
 
 | Violation | Why Needed | Simpler Alternative Rejected Because |
 |-----------|------------|-------------------------------------|
-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+| None | | |

@@ -7,7 +7,8 @@
       "Bash(.specify/scripts/bash/create-new-feature.sh:*)",
       "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
       "Bash(.specify/scripts/bash/setup-plan.sh:*)",
-      "SlashCommand(/sp.tasks)"
+      "SlashCommand(/sp.tasks)",
+      "SlashCommand(/sp.analyze)"
     ],
     "deny": [],
     "ask": []

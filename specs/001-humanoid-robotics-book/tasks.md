@@ -6,6 +6,7 @@ description: "Task list for Physical AI & Humanoid Robotics Book implementation"
 
 **Input**: Design documents from `/specs/001-humanoid-robotics-book/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
+**Constitution Alignment**: All tasks must comply with project constitution principles for AI-native authoring, technical accuracy, clarity, reproducibility, and specification-driven content creation
 
 **Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
@@ -227,6 +228,38 @@ description: "Task list for Physical AI & Humanoid Robotics Book implementation"
 - Models within a story marked [P] can run in parallel
 - Different user stories can be worked on in parallel by different team members
 
+## Requirements Traceability
+
+### Functional Requirements Mapping
+
+| FR ID | Requirement | Tasks Addressing | Success Criteria Met |
+|-------|-------------|------------------|---------------------|
+| FR-001 | ROS 2 installation instructions | T013 | SC-002 |
+| FR-002 | Complete, verifiable code examples | T018-T020, others | SC-002 |
+| FR-003 | URDF model creation guidance | T017, T030 | SC-003 |
+| FR-004 | Sensor integration instructions | T028-T029, T032 | SC-003 |
+| FR-005 | Isaac setup and configuration | T038-T040 | SC-004 |
+| FR-006 | Mini-projects for each module | T021, T034, T046, T058 | SC-001 |
+| FR-007 | VLA integration instructions | T049-T057 | SC-004 |
+| FR-008 | Capstone project | T061-T067 | SC-004 |
+| FR-009 | Lab setup and hardware specs | T070 | SC-005 |
+| FR-010 | Verified sources and references | T069 | SC-006 |
+| FR-011 | Reproducible instructions | All tasks | SC-002 |
+| FR-012 | Proper attribution and alt text | T068 | SC-007 |
+
+### Success Criteria Verification
+
+Each success criterion will be verified through specific tasks:
+
+- **SC-001**: Verified through mini-project completion tasks (T021, T034, T046, T058)
+- **SC-002**: Verified through code example tasks and testing (T018-T020, T023, T077)
+- **SC-003**: Verified through simulation implementation (T024-T036)
+- **SC-004**: Verified through capstone project (T061-T067)
+- **SC-005**: Verified through hardware specs and setup guides (T070, T071)
+- **SC-006**: Verified through reference creation (T069)
+- **SC-007**: Verified through deployment tasks (T079)
+- **SC-008**: Verified through content creation tracking
+
 ---
 
 ## Parallel Example: User Story 1
@@ -287,4 +320,4 @@ With multiple developers:
 - Stop at any checkpoint to validate story independently
 - Verify all technical instructions and code snippets are reproducible
 - Ensure all diagrams have proper attribution and alt text
-- Maintain word count within 15,000–25,000 range
+- Maintain word count within 12,000–18,000 range as per constitution
