@@ -10,7 +10,7 @@ Create a comprehensive Docusaurus-based documentation site for a book on Physica
 ## Technical Context
 
 **Language/Version**: Markdown for documentation, Python 3.10+ for code examples, Node.js 18+ for Docusaurus
-**Primary Dependencies**: Docusaurus 2.x, React, Node.js, GitHub Pages, ROS 2 (Humble Hawksbill), Gazebo, NVIDIA Isaac Sim
+**Primary Dependencies**: Docusaurus 3.x, React, Node.js, GitHub Pages, ROS 2 (Humble Hawksbill), Gazebo, NVIDIA Isaac Sim
 **Storage**: Git repository, static assets (images, diagrams)
 **Testing**: Manual verification of all code examples, build validation, cross-platform compatibility testing
 **Target Platform**: GitHub Pages (static site), cross-platform compatibility for development
@@ -30,11 +30,12 @@ This implementation plan aligns with the project constitution as follows:
 - **Consistent, specification-driven content creation**: Content creation follows the SDD approach with spec → plan → tasks progression
 
 ### Gating Requirements:
-- [ ] All technical content verified against official documentation
+- [ ] All technical content verified against official documentation (Docusaurus 3.x, ROS 2, Gazebo, Isaac Sim)
 - [ ] All code examples tested and functional
 - [ ] All instructions validated on Windows, Linux, and macOS
 - [ ] All content written for beginner-to-intermediate audience
 - [ ] All workflows reproduce successfully in clean environments
+- [ ] Docusaurus site builds and deploys successfully according to official documentation
 
 ## Project Structure
 
@@ -77,18 +78,18 @@ specs/001-humanoid-robotics-book/
 
 | Requirement ID | Requirement Description | Tasks Addressing | Verification Method |
 |----------------|------------------------|------------------|-------------------|
-| FR-001 | ROS 2 installation instructions | T013 | Manual verification on clean Ubuntu 22.04 |
-| FR-002 | Complete ROS 2 code examples | T018-T020 | Execute examples and verify functionality |
-| FR-003 | URDF model creation guidance | T017, T030 | Create and import model into simulation |
-| FR-004 | Sensor integration instructions | T028-T029, T032 | Verify sensor data published to ROS 2 topics |
-| FR-005 | Isaac setup and configuration | T038-T040 | Complete Isaac installation and basic test |
-| FR-006 | Mini-project implementation | T021, T034, T046, T058 | Complete each mini-project successfully |
-| FR-007 | VLA integration instructions | T049-T057 | Demonstrate voice command to action pipeline |
-| FR-008 | Capstone project | T061-T067 | End-to-end perception-planning-action workflow |
-| FR-009 | Lab setup and hardware specs | T070 | Document all required hardware/software |
-| FR-010 | Verified sources and references | T069 | Include peer-reviewed papers and documentation |
-| FR-011 | Reproducible instructions | All tasks | Each instruction verified independently |
-| FR-012 | Proper attribution and alt text | T068 | All diagrams include attribution and alt text |
+| FR-001 | ROS 2 installation instructions | T013 | Manual verification on clean Ubuntu 22.04, Docusaurus build validation |
+| FR-002 | Complete ROS 2 code examples | T018-T020 | Execute examples and verify functionality, Docusaurus site validation |
+| FR-003 | URDF model creation guidance | T017, T030 | Create and import model into simulation, Docusaurus documentation validation |
+| FR-004 | Sensor integration instructions | T028-T029, T032 | Verify sensor data published to ROS 2 topics, Docusaurus build test |
+| FR-005 | Isaac setup and configuration | T038-T040 | Complete Isaac installation and basic test, Docusaurus documentation validation |
+| FR-006 | Mini-project implementation | T021, T034, T046, T058 | Complete each mini-project successfully, Docusaurus site validation |
+| FR-007 | VLA integration instructions | T049-T057 | Demonstrate voice command to action pipeline, Docusaurus documentation validation |
+| FR-008 | Capstone project | T061-T067 | End-to-end perception-planning-action workflow, Docusaurus build validation |
+| FR-009 | Lab setup and hardware specs | T070 | Document all required hardware/software, Docusaurus site validation |
+| FR-010 | Verified sources and references | T069 | Include peer-reviewed papers and documentation, Docusaurus build test |
+| FR-011 | Reproducible instructions | All tasks | Each instruction verified independently, Docusaurus site validation |
+| FR-012 | Proper attribution and alt text | T068 | All diagrams include attribution and alt text, Docusaurus documentation validation |
 
 ## Complexity Tracking
 

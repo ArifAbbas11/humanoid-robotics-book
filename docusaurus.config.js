@@ -1,5 +1,6 @@
 // @ts-check
-import {themes as prismThemes} from 'prism-react-renderer';
+import lightTheme from 'prism-react-renderer/themes/github';
+import darkTheme from 'prism-react-renderer/themes/dracula';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -110,8 +111,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Book. Built with Docusaurus.`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: lightTheme,
+        darkTheme: darkTheme,
       },
     }),
 };

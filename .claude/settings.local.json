@@ -16,7 +16,20 @@
       "Bash(npm install --save-dev @docusaurus/core@latest @docusaurus/preset-classic@latest @mdx-js/react@^3.0.0 clsx@^2.0.0 prism-react-renderer@^2.3.0 react@^18.0.0 react-dom@^18.0.0)",
       "Bash(npx create-docusaurus@latest website classic)",
       "Bash(npx create-docusaurus@latest website classic --typescript=false)",
-      "Bash(npx create-docusaurus@latest website classic -- --typescript false)"
+      "Bash(npx create-docusaurus@latest website classic -- --typescript false)",
+      "Bash(npx create-docusaurus@3.0.0 classic)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(npm start)",
+      "Bash(npx docusaurus start)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/humanoid-robotics-book/)",
+      "Bash(curl -s http://localhost:3000/humanoid-robotics-book/)",
+      "Bash(pkill -f \"docusaurus start\")",
+      "Bash(pkill -f \"node.*docusaurus\")",
+      "Bash(lsof -i :3000)",
+      "Bash(killall node)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/humanoid-robotics-book/docs/intro)",
+      "Bash(kill -9 12638)"
     ],
     "deny": [],
     "ask": []
