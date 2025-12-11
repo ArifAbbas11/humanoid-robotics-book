@@ -8,7 +8,15 @@
       "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
       "Bash(.specify/scripts/bash/setup-plan.sh:*)",
       "SlashCommand(/sp.tasks)",
-      "SlashCommand(/sp.analyze)"
+      "SlashCommand(/sp.analyze)",
+      "Bash(dos2unix .specify/scripts/bash/check-prerequisites.sh .specify/scripts/bash/common.sh)",
+      "Bash(git checkout -b 001-humanoid-robotics-book)",
+      "Bash(git rev-parse --git-dir)",
+      "Bash(npm init -y)",
+      "Bash(npm install --save-dev @docusaurus/core@latest @docusaurus/preset-classic@latest @mdx-js/react@^3.0.0 clsx@^2.0.0 prism-react-renderer@^2.3.0 react@^18.0.0 react-dom@^18.0.0)",
+      "Bash(npx create-docusaurus@latest website classic)",
+      "Bash(npx create-docusaurus@latest website classic --typescript=false)",
+      "Bash(npx create-docusaurus@latest website classic -- --typescript false)"
     ],
     "deny": [],
     "ask": []
