@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/multi-modal",
+  "title": "Multi-Modal Processing",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/multi-modal.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/multi-modal",
+  "permalink": "/humanoid-robotics-book/vla-integration/multi-modal",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/multi-modal.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Cognitive Planning",
+    "permalink": "/humanoid-robotics-book/vla-integration/cognitive-planning"
+  },
+  "next": {
+    "title": "Voice-to-Action Mapping",
+    "permalink": "/humanoid-robotics-book/vla-integration/voice-to-action"
+  }
+}

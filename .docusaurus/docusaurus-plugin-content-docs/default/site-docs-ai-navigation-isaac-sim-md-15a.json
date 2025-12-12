@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/isaac-sim",
+  "title": "Isaac Sim",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/isaac-sim.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/isaac-sim",
+  "permalink": "/humanoid-robotics-book/ai-navigation/isaac-sim",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/isaac-sim.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Isaac Setup",
+    "permalink": "/humanoid-robotics-book/ai-navigation/isaac-setup"
+  },
+  "next": {
+    "title": "Isaac ROS Integration",
+    "permalink": "/humanoid-robotics-book/ai-navigation/isaac-ros"
+  }
+}

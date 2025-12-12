@@ -1,0 +1,24 @@
+{
+  "id": "simulation/sensor-configuration",
+  "title": "Sensor Configuration",
+  "description": "Overview",
+  "source": "@site/docs/simulation/sensor-configuration.md",
+  "sourceDirName": "simulation",
+  "slug": "/simulation/sensor-configuration",
+  "permalink": "/humanoid-robotics-book/simulation/sensor-configuration",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/sensor-configuration.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Sensors in Robotics Simulation",
+    "permalink": "/humanoid-robotics-book/simulation/sensors"
+  },
+  "next": {
+    "title": "Mini-Project: Configuring Sensors for a Humanoid Robot",
+    "permalink": "/humanoid-robotics-book/simulation/mini-project"
+  }
+}

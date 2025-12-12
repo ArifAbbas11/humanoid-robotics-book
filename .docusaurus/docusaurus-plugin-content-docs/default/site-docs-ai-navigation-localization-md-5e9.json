@@ -1,0 +1,15 @@
+{
+  "id": "ai-navigation/localization",
+  "title": "Localization for Humanoid Robots",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/localization.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/localization",
+  "permalink": "/humanoid-robotics-book/ai-navigation/localization",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/localization.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

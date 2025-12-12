@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/navigation-planning",
+  "title": "Navigation Planning",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/navigation-planning.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/navigation-planning",
+  "permalink": "/humanoid-robotics-book/ai-navigation/navigation-planning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/navigation-planning.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Visual SLAM (vSLAM)",
+    "permalink": "/humanoid-robotics-book/ai-navigation/vslam"
+  },
+  "next": {
+    "title": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+    "permalink": "/humanoid-robotics-book/ai-navigation/mini-project"
+  }
+}

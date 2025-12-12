@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/intro",
+  "title": "Module 4: Vision-Language-Action (VLA)",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/intro.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/intro",
+  "permalink": "/humanoid-robotics-book/vla-integration/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Troubleshooting AI Navigation for Humanoid Robots",
+    "permalink": "/humanoid-robotics-book/ai-navigation/troubleshooting"
+  },
+  "next": {
+    "title": "Voice Recognition",
+    "permalink": "/humanoid-robotics-book/vla-integration/voice-recognition"
+  }
+}

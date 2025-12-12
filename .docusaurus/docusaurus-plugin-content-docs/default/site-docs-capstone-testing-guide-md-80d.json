@@ -1,0 +1,24 @@
+{
+  "id": "capstone/testing-guide",
+  "title": "Testing Guide",
+  "description": "Overview",
+  "source": "@site/docs/capstone/testing-guide.md",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/testing-guide",
+  "permalink": "/humanoid-robotics-book/capstone/testing-guide",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/testing-guide.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Integration Guide",
+    "permalink": "/humanoid-robotics-book/capstone/integration-guide"
+  },
+  "next": {
+    "title": "Troubleshooting",
+    "permalink": "/humanoid-robotics-book/capstone/troubleshooting"
+  }
+}

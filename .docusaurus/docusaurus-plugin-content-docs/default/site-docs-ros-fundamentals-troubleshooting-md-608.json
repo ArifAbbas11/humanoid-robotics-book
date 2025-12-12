@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/troubleshooting",
+  "title": "Troubleshooting ROS 2 Issues",
+  "description": "Overview",
+  "source": "@site/docs/ros-fundamentals/troubleshooting.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/troubleshooting",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/troubleshooting.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Mini-Project: Creating a ROS 2 Package",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/mini-project"
+  },
+  "next": {
+    "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+    "permalink": "/humanoid-robotics-book/simulation/intro"
+  }
+}

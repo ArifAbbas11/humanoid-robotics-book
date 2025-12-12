@@ -1,0 +1,24 @@
+{
+  "id": "simulation/troubleshooting",
+  "title": "Troubleshooting Simulation Issues",
+  "description": "Overview",
+  "source": "@site/docs/simulation/troubleshooting.md",
+  "sourceDirName": "simulation",
+  "slug": "/simulation/troubleshooting",
+  "permalink": "/humanoid-robotics-book/simulation/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/troubleshooting.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Mini-Project: Configuring Sensors for a Humanoid Robot",
+    "permalink": "/humanoid-robotics-book/simulation/mini-project"
+  },
+  "next": {
+    "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+    "permalink": "/humanoid-robotics-book/ai-navigation/intro"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "simulation/unity-setup",
+  "title": "Unity Setup",
+  "description": "Overview",
+  "source": "@site/docs/simulation/unity-setup.md",
+  "sourceDirName": "simulation",
+  "slug": "/simulation/unity-setup",
+  "permalink": "/humanoid-robotics-book/simulation/unity-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/unity-setup.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Gazebo Setup",
+    "permalink": "/humanoid-robotics-book/simulation/gazebo-setup"
+  },
+  "next": {
+    "title": "Physics Concepts in Robotics Simulation",
+    "permalink": "/humanoid-robotics-book/simulation/physics-concepts"
+  }
+}

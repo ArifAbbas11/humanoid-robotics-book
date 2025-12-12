@@ -1,0 +1,15 @@
+{
+  "id": "ai-navigation/path-planning",
+  "title": "Path Planning for Humanoid Robots",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/path-planning.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/path-planning",
+  "permalink": "/humanoid-robotics-book/ai-navigation/path-planning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/path-planning.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

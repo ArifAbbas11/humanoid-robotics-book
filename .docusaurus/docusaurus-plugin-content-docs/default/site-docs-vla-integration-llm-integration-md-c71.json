@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/llm-integration",
+  "title": "LLM Integration",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/llm-integration.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/llm-integration",
+  "permalink": "/humanoid-robotics-book/vla-integration/llm-integration",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/llm-integration.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Voice Recognition",
+    "permalink": "/humanoid-robotics-book/vla-integration/voice-recognition"
+  },
+  "next": {
+    "title": "Cognitive Planning",
+    "permalink": "/humanoid-robotics-book/vla-integration/cognitive-planning"
+  }
+}

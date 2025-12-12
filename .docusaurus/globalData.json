@@ -1,0 +1,273 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/humanoid-robotics-book/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/humanoid-robotics-book/",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "ai-navigation/control-systems",
+              "path": "/humanoid-robotics-book/ai-navigation/control-systems"
+            },
+            {
+              "id": "ai-navigation/intro",
+              "path": "/humanoid-robotics-book/ai-navigation/intro",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ai-navigation/introduction",
+              "path": "/humanoid-robotics-book/ai-navigation/introduction"
+            },
+            {
+              "id": "ai-navigation/isaac-ros",
+              "path": "/humanoid-robotics-book/ai-navigation/isaac-ros",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ai-navigation/isaac-setup",
+              "path": "/humanoid-robotics-book/ai-navigation/isaac-setup",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ai-navigation/isaac-sim",
+              "path": "/humanoid-robotics-book/ai-navigation/isaac-sim",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ai-navigation/localization",
+              "path": "/humanoid-robotics-book/ai-navigation/localization"
+            },
+            {
+              "id": "ai-navigation/mapping",
+              "path": "/humanoid-robotics-book/ai-navigation/mapping"
+            },
+            {
+              "id": "ai-navigation/mini-project",
+              "path": "/humanoid-robotics-book/ai-navigation/mini-project",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ai-navigation/navigation-planning",
+              "path": "/humanoid-robotics-book/ai-navigation/navigation-planning",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ai-navigation/path-planning",
+              "path": "/humanoid-robotics-book/ai-navigation/path-planning"
+            },
+            {
+              "id": "ai-navigation/troubleshooting",
+              "path": "/humanoid-robotics-book/ai-navigation/troubleshooting",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ai-navigation/vslam",
+              "path": "/humanoid-robotics-book/ai-navigation/vslam",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "assets/ATTRIBUTION",
+              "path": "/humanoid-robotics-book/assets/ATTRIBUTION"
+            },
+            {
+              "id": "capstone/integration-guide",
+              "path": "/humanoid-robotics-book/capstone/integration-guide",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "capstone/intro",
+              "path": "/humanoid-robotics-book/capstone/intro",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "capstone/testing-guide",
+              "path": "/humanoid-robotics-book/capstone/testing-guide",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "capstone/troubleshooting",
+              "path": "/humanoid-robotics-book/capstone/troubleshooting",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/humanoid-robotics-book/intro",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/architecture",
+              "path": "/humanoid-robotics-book/ros-fundamentals/architecture",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/installation",
+              "path": "/humanoid-robotics-book/ros-fundamentals/installation",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/intro",
+              "path": "/humanoid-robotics-book/ros-fundamentals/intro",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/mini-project",
+              "path": "/humanoid-robotics-book/ros-fundamentals/mini-project",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/nodes-topics-services",
+              "path": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/python-integration",
+              "path": "/humanoid-robotics-book/ros-fundamentals/python-integration",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/troubleshooting",
+              "path": "/humanoid-robotics-book/ros-fundamentals/troubleshooting",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "ros-fundamentals/urdf-basics",
+              "path": "/humanoid-robotics-book/ros-fundamentals/urdf-basics",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/gazebo-setup",
+              "path": "/humanoid-robotics-book/simulation/gazebo-setup",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/intro",
+              "path": "/humanoid-robotics-book/simulation/intro",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/mini-project",
+              "path": "/humanoid-robotics-book/simulation/mini-project",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/physics-concepts",
+              "path": "/humanoid-robotics-book/simulation/physics-concepts",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/sensor-configuration",
+              "path": "/humanoid-robotics-book/simulation/sensor-configuration",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/sensors",
+              "path": "/humanoid-robotics-book/simulation/sensors",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/troubleshooting",
+              "path": "/humanoid-robotics-book/simulation/troubleshooting",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "simulation/unity-setup",
+              "path": "/humanoid-robotics-book/simulation/unity-setup",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "STYLE_GUIDE",
+              "path": "/humanoid-robotics-book/STYLE_GUIDE"
+            },
+            {
+              "id": "templates/code-example-template",
+              "path": "/humanoid-robotics-book/templates/code-example-template"
+            },
+            {
+              "id": "templates/lab-instruction-template",
+              "path": "/humanoid-robotics-book/templates/lab-instruction-template"
+            },
+            {
+              "id": "vla-integration/action-planning",
+              "path": "/humanoid-robotics-book/vla-integration/action-planning"
+            },
+            {
+              "id": "vla-integration/capstone-project",
+              "path": "/humanoid-robotics-book/vla-integration/capstone-project",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "vla-integration/cognitive-planning",
+              "path": "/humanoid-robotics-book/vla-integration/cognitive-planning",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "vla-integration/integration-challenges",
+              "path": "/humanoid-robotics-book/vla-integration/integration-challenges"
+            },
+            {
+              "id": "vla-integration/intro",
+              "path": "/humanoid-robotics-book/vla-integration/intro",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "vla-integration/introduction",
+              "path": "/humanoid-robotics-book/vla-integration/introduction"
+            },
+            {
+              "id": "vla-integration/language-understanding",
+              "path": "/humanoid-robotics-book/vla-integration/language-understanding"
+            },
+            {
+              "id": "vla-integration/llm-integration",
+              "path": "/humanoid-robotics-book/vla-integration/llm-integration",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "vla-integration/mini-project",
+              "path": "/humanoid-robotics-book/vla-integration/mini-project"
+            },
+            {
+              "id": "vla-integration/multi-modal",
+              "path": "/humanoid-robotics-book/vla-integration/multi-modal",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "vla-integration/troubleshooting",
+              "path": "/humanoid-robotics-book/vla-integration/troubleshooting",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "vla-integration/vision-systems",
+              "path": "/humanoid-robotics-book/vla-integration/vision-systems"
+            },
+            {
+              "id": "vla-integration/voice-recognition",
+              "path": "/humanoid-robotics-book/vla-integration/voice-recognition",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "vla-integration/voice-to-action",
+              "path": "/humanoid-robotics-book/vla-integration/voice-to-action",
+              "sidebar": "bookSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "bookSidebar": {
+              "link": {
+                "path": "/humanoid-robotics-book/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

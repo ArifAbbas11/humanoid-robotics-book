@@ -1,0 +1,20 @@
+{
+  "id": "intro",
+  "title": "Physical AI & Humanoid Robotics: From Simulation to Embodied Intelligence",
+  "description": "Welcome to the comprehensive guide on Physical AI & Humanoid Robotics. This book will take you from the fundamentals of ROS 2 through advanced topics in simulation, AI navigation, and Vision-Language-Action integration.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/humanoid-robotics-book/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "next": {
+    "title": "Module 1: The Robotic Nervous System (ROS 2)",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/intro"
+  }
+}

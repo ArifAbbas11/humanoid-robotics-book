@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/troubleshooting",
+  "title": "Troubleshooting AI Navigation for Humanoid Robots",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/troubleshooting.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/troubleshooting",
+  "permalink": "/humanoid-robotics-book/ai-navigation/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/troubleshooting.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+    "permalink": "/humanoid-robotics-book/ai-navigation/mini-project"
+  },
+  "next": {
+    "title": "Module 4: Vision-Language-Action (VLA)",
+    "permalink": "/humanoid-robotics-book/vla-integration/intro"
+  }
+}

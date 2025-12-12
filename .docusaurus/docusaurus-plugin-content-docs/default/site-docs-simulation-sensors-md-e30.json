@@ -1,0 +1,24 @@
+{
+  "id": "simulation/sensors",
+  "title": "Sensors in Robotics Simulation",
+  "description": "Overview",
+  "source": "@site/docs/simulation/sensors.md",
+  "sourceDirName": "simulation",
+  "slug": "/simulation/sensors",
+  "permalink": "/humanoid-robotics-book/simulation/sensors",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/sensors.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Physics Concepts in Robotics Simulation",
+    "permalink": "/humanoid-robotics-book/simulation/physics-concepts"
+  },
+  "next": {
+    "title": "Sensor Configuration",
+    "permalink": "/humanoid-robotics-book/simulation/sensor-configuration"
+  }
+}

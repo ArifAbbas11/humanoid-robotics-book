@@ -1,0 +1,15 @@
+{
+  "id": "assets/ATTRIBUTION",
+  "title": "Asset Attribution",
+  "description": "This document provides attribution for all diagrams, images, and other assets used in this book.",
+  "source": "@site/docs/assets/ATTRIBUTION.md",
+  "sourceDirName": "assets",
+  "slug": "/assets/ATTRIBUTION",
+  "permalink": "/humanoid-robotics-book/assets/ATTRIBUTION",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/assets/ATTRIBUTION.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

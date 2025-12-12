@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/mini-project",
+  "title": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/mini-project.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/mini-project",
+  "permalink": "/humanoid-robotics-book/ai-navigation/mini-project",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/mini-project.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Navigation Planning",
+    "permalink": "/humanoid-robotics-book/ai-navigation/navigation-planning"
+  },
+  "next": {
+    "title": "Troubleshooting AI Navigation for Humanoid Robots",
+    "permalink": "/humanoid-robotics-book/ai-navigation/troubleshooting"
+  }
+}

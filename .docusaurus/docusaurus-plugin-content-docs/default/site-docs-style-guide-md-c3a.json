@@ -1,0 +1,15 @@
+{
+  "id": "STYLE_GUIDE",
+  "title": "Documentation Style Guide",
+  "description": "This style guide ensures consistency across all documentation in the Physical AI & Humanoid Robotics Book.",
+  "source": "@site/docs/STYLE_GUIDE.md",
+  "sourceDirName": ".",
+  "slug": "/STYLE_GUIDE",
+  "permalink": "/humanoid-robotics-book/STYLE_GUIDE",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/STYLE_GUIDE.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

@@ -1,0 +1,24 @@
+{
+  "id": "simulation/intro",
+  "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+  "description": "Overview",
+  "source": "@site/docs/simulation/intro.md",
+  "sourceDirName": "simulation",
+  "slug": "/simulation/intro",
+  "permalink": "/humanoid-robotics-book/simulation/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Troubleshooting ROS 2 Issues",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/troubleshooting"
+  },
+  "next": {
+    "title": "Gazebo Setup",
+    "permalink": "/humanoid-robotics-book/simulation/gazebo-setup"
+  }
+}

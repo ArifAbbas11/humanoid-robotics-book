@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/installation",
+  "title": "ROS 2 Installation Guide",
+  "description": "This guide will walk you through installing ROS 2 Humble Hawksbill on your system.",
+  "source": "@site/docs/ros-fundamentals/installation.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/installation",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/installation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/installation.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Module 1: The Robotic Nervous System (ROS 2)",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/intro"
+  },
+  "next": {
+    "title": "ROS 2 Architecture Concepts",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/architecture"
+  }
+}

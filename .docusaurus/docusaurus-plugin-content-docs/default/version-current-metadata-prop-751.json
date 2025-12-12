@@ -1,0 +1,612 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "noIndex": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "bookSidebar": [
+      {
+        "type": "link",
+        "label": "Physical AI & Humanoid Robotics: From Simulation to Embodied Intelligence",
+        "href": "/humanoid-robotics-book/intro",
+        "docId": "intro",
+        "unlisted": false
+      },
+      {
+        "type": "category",
+        "label": "Module 1: The Robotic Nervous System (ROS 2)",
+        "items": [
+          {
+            "type": "link",
+            "label": "Module 1: The Robotic Nervous System (ROS 2)",
+            "href": "/humanoid-robotics-book/ros-fundamentals/intro",
+            "docId": "ros-fundamentals/intro",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "ROS 2 Installation Guide",
+            "href": "/humanoid-robotics-book/ros-fundamentals/installation",
+            "docId": "ros-fundamentals/installation",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "ROS 2 Architecture Concepts",
+            "href": "/humanoid-robotics-book/ros-fundamentals/architecture",
+            "docId": "ros-fundamentals/architecture",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Nodes, Topics, Services",
+            "href": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services",
+            "docId": "ros-fundamentals/nodes-topics-services",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Python Integration with rclpy",
+            "href": "/humanoid-robotics-book/ros-fundamentals/python-integration",
+            "docId": "ros-fundamentals/python-integration",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "URDF Basics",
+            "href": "/humanoid-robotics-book/ros-fundamentals/urdf-basics",
+            "docId": "ros-fundamentals/urdf-basics",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Mini-Project: Creating a ROS 2 Package",
+            "href": "/humanoid-robotics-book/ros-fundamentals/mini-project",
+            "docId": "ros-fundamentals/mini-project",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting ROS 2 Issues",
+            "href": "/humanoid-robotics-book/ros-fundamentals/troubleshooting",
+            "docId": "ros-fundamentals/troubleshooting",
+            "unlisted": false
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Module 2: The Digital Twin (Gazebo & Unity)",
+        "items": [
+          {
+            "type": "link",
+            "label": "Module 2: The Digital Twin (Gazebo & Unity)",
+            "href": "/humanoid-robotics-book/simulation/intro",
+            "docId": "simulation/intro",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Gazebo Setup",
+            "href": "/humanoid-robotics-book/simulation/gazebo-setup",
+            "docId": "simulation/gazebo-setup",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Unity Setup",
+            "href": "/humanoid-robotics-book/simulation/unity-setup",
+            "docId": "simulation/unity-setup",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Physics Concepts in Robotics Simulation",
+            "href": "/humanoid-robotics-book/simulation/physics-concepts",
+            "docId": "simulation/physics-concepts",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Sensors in Robotics Simulation",
+            "href": "/humanoid-robotics-book/simulation/sensors",
+            "docId": "simulation/sensors",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Sensor Configuration",
+            "href": "/humanoid-robotics-book/simulation/sensor-configuration",
+            "docId": "simulation/sensor-configuration",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Mini-Project: Configuring Sensors for a Humanoid Robot",
+            "href": "/humanoid-robotics-book/simulation/mini-project",
+            "docId": "simulation/mini-project",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting Simulation Issues",
+            "href": "/humanoid-robotics-book/simulation/troubleshooting",
+            "docId": "simulation/troubleshooting",
+            "unlisted": false
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+        "items": [
+          {
+            "type": "link",
+            "label": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+            "href": "/humanoid-robotics-book/ai-navigation/intro",
+            "docId": "ai-navigation/intro",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Isaac Setup",
+            "href": "/humanoid-robotics-book/ai-navigation/isaac-setup",
+            "docId": "ai-navigation/isaac-setup",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Isaac Sim",
+            "href": "/humanoid-robotics-book/ai-navigation/isaac-sim",
+            "docId": "ai-navigation/isaac-sim",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Isaac ROS Integration",
+            "href": "/humanoid-robotics-book/ai-navigation/isaac-ros",
+            "docId": "ai-navigation/isaac-ros",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Visual SLAM (vSLAM)",
+            "href": "/humanoid-robotics-book/ai-navigation/vslam",
+            "docId": "ai-navigation/vslam",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Navigation Planning",
+            "href": "/humanoid-robotics-book/ai-navigation/navigation-planning",
+            "docId": "ai-navigation/navigation-planning",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+            "href": "/humanoid-robotics-book/ai-navigation/mini-project",
+            "docId": "ai-navigation/mini-project",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting AI Navigation for Humanoid Robots",
+            "href": "/humanoid-robotics-book/ai-navigation/troubleshooting",
+            "docId": "ai-navigation/troubleshooting",
+            "unlisted": false
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Module 4: Vision-Language-Action (VLA)",
+        "items": [
+          {
+            "type": "link",
+            "label": "Module 4: Vision-Language-Action (VLA)",
+            "href": "/humanoid-robotics-book/vla-integration/intro",
+            "docId": "vla-integration/intro",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Voice Recognition",
+            "href": "/humanoid-robotics-book/vla-integration/voice-recognition",
+            "docId": "vla-integration/voice-recognition",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "LLM Integration",
+            "href": "/humanoid-robotics-book/vla-integration/llm-integration",
+            "docId": "vla-integration/llm-integration",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Cognitive Planning",
+            "href": "/humanoid-robotics-book/vla-integration/cognitive-planning",
+            "docId": "vla-integration/cognitive-planning",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Multi-Modal Processing",
+            "href": "/humanoid-robotics-book/vla-integration/multi-modal",
+            "docId": "vla-integration/multi-modal",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Voice-to-Action Mapping",
+            "href": "/humanoid-robotics-book/vla-integration/voice-to-action",
+            "docId": "vla-integration/voice-to-action",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "VLA Capstone Project: Intelligent Humanoid Assistant",
+            "href": "/humanoid-robotics-book/vla-integration/capstone-project",
+            "docId": "vla-integration/capstone-project",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting VLA Integration",
+            "href": "/humanoid-robotics-book/vla-integration/troubleshooting",
+            "docId": "vla-integration/troubleshooting",
+            "unlisted": false
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Capstone Project",
+        "items": [
+          {
+            "type": "link",
+            "label": "Capstone Project: Complete Humanoid Robot Implementation",
+            "href": "/humanoid-robotics-book/capstone/intro",
+            "docId": "capstone/intro",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Integration Guide",
+            "href": "/humanoid-robotics-book/capstone/integration-guide",
+            "docId": "capstone/integration-guide",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Testing Guide",
+            "href": "/humanoid-robotics-book/capstone/testing-guide",
+            "docId": "capstone/testing-guide",
+            "unlisted": false
+          },
+          {
+            "type": "link",
+            "label": "Troubleshooting",
+            "href": "/humanoid-robotics-book/capstone/troubleshooting",
+            "docId": "capstone/troubleshooting",
+            "unlisted": false
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      }
+    ]
+  },
+  "docs": {
+    "ai-navigation/control-systems": {
+      "id": "ai-navigation/control-systems",
+      "title": "Control Systems for Humanoid Navigation",
+      "description": "Overview"
+    },
+    "ai-navigation/intro": {
+      "id": "ai-navigation/intro",
+      "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ai-navigation/introduction": {
+      "id": "ai-navigation/introduction",
+      "title": "Introduction to AI Navigation for Humanoid Robots",
+      "description": "Overview"
+    },
+    "ai-navigation/isaac-ros": {
+      "id": "ai-navigation/isaac-ros",
+      "title": "Isaac ROS Integration",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ai-navigation/isaac-setup": {
+      "id": "ai-navigation/isaac-setup",
+      "title": "Isaac Setup",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ai-navigation/isaac-sim": {
+      "id": "ai-navigation/isaac-sim",
+      "title": "Isaac Sim",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ai-navigation/localization": {
+      "id": "ai-navigation/localization",
+      "title": "Localization for Humanoid Robots",
+      "description": "Overview"
+    },
+    "ai-navigation/mapping": {
+      "id": "ai-navigation/mapping",
+      "title": "Mapping for Humanoid Robot Navigation",
+      "description": "Overview"
+    },
+    "ai-navigation/mini-project": {
+      "id": "ai-navigation/mini-project",
+      "title": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ai-navigation/navigation-planning": {
+      "id": "ai-navigation/navigation-planning",
+      "title": "Navigation Planning",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ai-navigation/path-planning": {
+      "id": "ai-navigation/path-planning",
+      "title": "Path Planning for Humanoid Robots",
+      "description": "Overview"
+    },
+    "ai-navigation/troubleshooting": {
+      "id": "ai-navigation/troubleshooting",
+      "title": "Troubleshooting AI Navigation for Humanoid Robots",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ai-navigation/vslam": {
+      "id": "ai-navigation/vslam",
+      "title": "Visual SLAM (vSLAM)",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "assets/ATTRIBUTION": {
+      "id": "assets/ATTRIBUTION",
+      "title": "Asset Attribution",
+      "description": "This document provides attribution for all diagrams, images, and other assets used in this book."
+    },
+    "capstone/integration-guide": {
+      "id": "capstone/integration-guide",
+      "title": "Integration Guide",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "capstone/intro": {
+      "id": "capstone/intro",
+      "title": "Capstone Project: Complete Humanoid Robot Implementation",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "capstone/testing-guide": {
+      "id": "capstone/testing-guide",
+      "title": "Testing Guide",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "capstone/troubleshooting": {
+      "id": "capstone/troubleshooting",
+      "title": "Troubleshooting",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "intro": {
+      "id": "intro",
+      "title": "Physical AI & Humanoid Robotics: From Simulation to Embodied Intelligence",
+      "description": "Welcome to the comprehensive guide on Physical AI & Humanoid Robotics. This book will take you from the fundamentals of ROS 2 through advanced topics in simulation, AI navigation, and Vision-Language-Action integration.",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/architecture": {
+      "id": "ros-fundamentals/architecture",
+      "title": "ROS 2 Architecture Concepts",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/installation": {
+      "id": "ros-fundamentals/installation",
+      "title": "ROS 2 Installation Guide",
+      "description": "This guide will walk you through installing ROS 2 Humble Hawksbill on your system.",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/intro": {
+      "id": "ros-fundamentals/intro",
+      "title": "Module 1: The Robotic Nervous System (ROS 2)",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/mini-project": {
+      "id": "ros-fundamentals/mini-project",
+      "title": "Mini-Project: Creating a ROS 2 Package",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/nodes-topics-services": {
+      "id": "ros-fundamentals/nodes-topics-services",
+      "title": "Nodes, Topics, Services",
+      "description": "Nodes",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/python-integration": {
+      "id": "ros-fundamentals/python-integration",
+      "title": "Python Integration with rclpy",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/troubleshooting": {
+      "id": "ros-fundamentals/troubleshooting",
+      "title": "Troubleshooting ROS 2 Issues",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "ros-fundamentals/urdf-basics": {
+      "id": "ros-fundamentals/urdf-basics",
+      "title": "URDF Basics",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/gazebo-setup": {
+      "id": "simulation/gazebo-setup",
+      "title": "Gazebo Setup",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/intro": {
+      "id": "simulation/intro",
+      "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/mini-project": {
+      "id": "simulation/mini-project",
+      "title": "Mini-Project: Configuring Sensors for a Humanoid Robot",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/physics-concepts": {
+      "id": "simulation/physics-concepts",
+      "title": "Physics Concepts in Robotics Simulation",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/sensor-configuration": {
+      "id": "simulation/sensor-configuration",
+      "title": "Sensor Configuration",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/sensors": {
+      "id": "simulation/sensors",
+      "title": "Sensors in Robotics Simulation",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/troubleshooting": {
+      "id": "simulation/troubleshooting",
+      "title": "Troubleshooting Simulation Issues",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "simulation/unity-setup": {
+      "id": "simulation/unity-setup",
+      "title": "Unity Setup",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "STYLE_GUIDE": {
+      "id": "STYLE_GUIDE",
+      "title": "Documentation Style Guide",
+      "description": "This style guide ensures consistency across all documentation in the Physical AI & Humanoid Robotics Book."
+    },
+    "templates/code-example-template": {
+      "id": "templates/code-example-template",
+      "title": "Code Example Template",
+      "description": "This template provides a standard format for code examples throughout the book."
+    },
+    "templates/lab-instruction-template": {
+      "id": "templates/lab-instruction-template",
+      "title": "Lab Instruction Template",
+      "description": "This template provides a standard format for lab instructions and practical exercises throughout the book."
+    },
+    "vla-integration/action-planning": {
+      "id": "vla-integration/action-planning",
+      "title": "Action Planning in VLA Integration",
+      "description": "Overview"
+    },
+    "vla-integration/capstone-project": {
+      "id": "vla-integration/capstone-project",
+      "title": "VLA Capstone Project: Intelligent Humanoid Assistant",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "vla-integration/cognitive-planning": {
+      "id": "vla-integration/cognitive-planning",
+      "title": "Cognitive Planning",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "vla-integration/integration-challenges": {
+      "id": "vla-integration/integration-challenges",
+      "title": "Integration Challenges in VLA Systems",
+      "description": "Overview"
+    },
+    "vla-integration/intro": {
+      "id": "vla-integration/intro",
+      "title": "Module 4: Vision-Language-Action (VLA)",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "vla-integration/introduction": {
+      "id": "vla-integration/introduction",
+      "title": "Introduction to Vision-Language-Action (VLA) Integration",
+      "description": "Overview"
+    },
+    "vla-integration/language-understanding": {
+      "id": "vla-integration/language-understanding",
+      "title": "Language Understanding in VLA Integration",
+      "description": "Overview"
+    },
+    "vla-integration/llm-integration": {
+      "id": "vla-integration/llm-integration",
+      "title": "LLM Integration",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "vla-integration/mini-project": {
+      "id": "vla-integration/mini-project",
+      "title": "Mini-Project: Implementing a VLA System for a Humanoid Robot",
+      "description": "Overview"
+    },
+    "vla-integration/multi-modal": {
+      "id": "vla-integration/multi-modal",
+      "title": "Multi-Modal Processing",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "vla-integration/troubleshooting": {
+      "id": "vla-integration/troubleshooting",
+      "title": "Troubleshooting VLA Integration",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "vla-integration/vision-systems": {
+      "id": "vla-integration/vision-systems",
+      "title": "Vision Systems in VLA Integration",
+      "description": "Overview"
+    },
+    "vla-integration/voice-recognition": {
+      "id": "vla-integration/voice-recognition",
+      "title": "Voice Recognition",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    },
+    "vla-integration/voice-to-action": {
+      "id": "vla-integration/voice-to-action",
+      "title": "Voice-to-Action Mapping",
+      "description": "Overview",
+      "sidebar": "bookSidebar"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/isaac-setup",
+  "title": "Isaac Setup",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/isaac-setup.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/isaac-setup",
+  "permalink": "/humanoid-robotics-book/ai-navigation/isaac-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/isaac-setup.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+    "permalink": "/humanoid-robotics-book/ai-navigation/intro"
+  },
+  "next": {
+    "title": "Isaac Sim",
+    "permalink": "/humanoid-robotics-book/ai-navigation/isaac-sim"
+  }
+}

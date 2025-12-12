@@ -1,0 +1,15 @@
+{
+  "id": "vla-integration/mini-project",
+  "title": "Mini-Project: Implementing a VLA System for a Humanoid Robot",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/mini-project.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/mini-project",
+  "permalink": "/humanoid-robotics-book/vla-integration/mini-project",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/mini-project.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

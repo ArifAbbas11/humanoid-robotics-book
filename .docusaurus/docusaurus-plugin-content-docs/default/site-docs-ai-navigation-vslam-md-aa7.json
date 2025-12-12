@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/vslam",
+  "title": "Visual SLAM (vSLAM)",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/vslam.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/vslam",
+  "permalink": "/humanoid-robotics-book/ai-navigation/vslam",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/vslam.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Isaac ROS Integration",
+    "permalink": "/humanoid-robotics-book/ai-navigation/isaac-ros"
+  },
+  "next": {
+    "title": "Navigation Planning",
+    "permalink": "/humanoid-robotics-book/ai-navigation/navigation-planning"
+  }
+}

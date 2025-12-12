@@ -1,0 +1,15 @@
+{
+  "id": "vla-integration/language-understanding",
+  "title": "Language Understanding in VLA Integration",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/language-understanding.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/language-understanding",
+  "permalink": "/humanoid-robotics-book/vla-integration/language-understanding",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/language-understanding.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

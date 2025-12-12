@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/cognitive-planning",
+  "title": "Cognitive Planning",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/cognitive-planning.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/cognitive-planning",
+  "permalink": "/humanoid-robotics-book/vla-integration/cognitive-planning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/cognitive-planning.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "LLM Integration",
+    "permalink": "/humanoid-robotics-book/vla-integration/llm-integration"
+  },
+  "next": {
+    "title": "Multi-Modal Processing",
+    "permalink": "/humanoid-robotics-book/vla-integration/multi-modal"
+  }
+}

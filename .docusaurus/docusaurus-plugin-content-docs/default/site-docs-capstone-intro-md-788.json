@@ -1,0 +1,24 @@
+{
+  "id": "capstone/intro",
+  "title": "Capstone Project: Complete Humanoid Robot Implementation",
+  "description": "Overview",
+  "source": "@site/docs/capstone/intro.md",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/intro",
+  "permalink": "/humanoid-robotics-book/capstone/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Troubleshooting VLA Integration",
+    "permalink": "/humanoid-robotics-book/vla-integration/troubleshooting"
+  },
+  "next": {
+    "title": "Integration Guide",
+    "permalink": "/humanoid-robotics-book/capstone/integration-guide"
+  }
+}

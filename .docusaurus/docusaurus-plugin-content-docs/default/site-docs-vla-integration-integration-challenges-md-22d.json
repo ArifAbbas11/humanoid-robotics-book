@@ -1,0 +1,15 @@
+{
+  "id": "vla-integration/integration-challenges",
+  "title": "Integration Challenges in VLA Systems",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/integration-challenges.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/integration-challenges",
+  "permalink": "/humanoid-robotics-book/vla-integration/integration-challenges",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/integration-challenges.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

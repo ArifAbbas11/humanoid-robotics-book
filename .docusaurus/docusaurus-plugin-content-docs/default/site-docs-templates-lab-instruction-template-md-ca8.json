@@ -1,0 +1,15 @@
+{
+  "id": "templates/lab-instruction-template",
+  "title": "Lab Instruction Template",
+  "description": "This template provides a standard format for lab instructions and practical exercises throughout the book.",
+  "source": "@site/docs/templates/lab-instruction-template.md",
+  "sourceDirName": "templates",
+  "slug": "/templates/lab-instruction-template",
+  "permalink": "/humanoid-robotics-book/templates/lab-instruction-template",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/templates/lab-instruction-template.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

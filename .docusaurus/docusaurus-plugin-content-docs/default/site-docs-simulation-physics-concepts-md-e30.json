@@ -1,0 +1,24 @@
+{
+  "id": "simulation/physics-concepts",
+  "title": "Physics Concepts in Robotics Simulation",
+  "description": "Overview",
+  "source": "@site/docs/simulation/physics-concepts.md",
+  "sourceDirName": "simulation",
+  "slug": "/simulation/physics-concepts",
+  "permalink": "/humanoid-robotics-book/simulation/physics-concepts",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/physics-concepts.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Unity Setup",
+    "permalink": "/humanoid-robotics-book/simulation/unity-setup"
+  },
+  "next": {
+    "title": "Sensors in Robotics Simulation",
+    "permalink": "/humanoid-robotics-book/simulation/sensors"
+  }
+}

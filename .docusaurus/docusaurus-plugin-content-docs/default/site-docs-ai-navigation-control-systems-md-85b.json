@@ -1,0 +1,15 @@
+{
+  "id": "ai-navigation/control-systems",
+  "title": "Control Systems for Humanoid Navigation",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/control-systems.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/control-systems",
+  "permalink": "/humanoid-robotics-book/ai-navigation/control-systems",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/control-systems.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

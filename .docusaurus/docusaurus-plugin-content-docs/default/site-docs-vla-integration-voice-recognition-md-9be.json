@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/voice-recognition",
+  "title": "Voice Recognition",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/voice-recognition.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/voice-recognition",
+  "permalink": "/humanoid-robotics-book/vla-integration/voice-recognition",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/voice-recognition.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Module 4: Vision-Language-Action (VLA)",
+    "permalink": "/humanoid-robotics-book/vla-integration/intro"
+  },
+  "next": {
+    "title": "LLM Integration",
+    "permalink": "/humanoid-robotics-book/vla-integration/llm-integration"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/troubleshooting",
+  "title": "Troubleshooting VLA Integration",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/troubleshooting.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/troubleshooting",
+  "permalink": "/humanoid-robotics-book/vla-integration/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/troubleshooting.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "VLA Capstone Project: Intelligent Humanoid Assistant",
+    "permalink": "/humanoid-robotics-book/vla-integration/capstone-project"
+  },
+  "next": {
+    "title": "Capstone Project: Complete Humanoid Robot Implementation",
+    "permalink": "/humanoid-robotics-book/capstone/intro"
+  }
+}

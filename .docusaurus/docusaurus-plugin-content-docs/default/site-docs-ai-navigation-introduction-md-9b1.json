@@ -1,0 +1,15 @@
+{
+  "id": "ai-navigation/introduction",
+  "title": "Introduction to AI Navigation for Humanoid Robots",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/introduction.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/introduction",
+  "permalink": "/humanoid-robotics-book/ai-navigation/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/introduction.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

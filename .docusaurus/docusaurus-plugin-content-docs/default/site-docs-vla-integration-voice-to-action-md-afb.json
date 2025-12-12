@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/voice-to-action",
+  "title": "Voice-to-Action Mapping",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/voice-to-action.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/voice-to-action",
+  "permalink": "/humanoid-robotics-book/vla-integration/voice-to-action",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/voice-to-action.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Multi-Modal Processing",
+    "permalink": "/humanoid-robotics-book/vla-integration/multi-modal"
+  },
+  "next": {
+    "title": "VLA Capstone Project: Intelligent Humanoid Assistant",
+    "permalink": "/humanoid-robotics-book/vla-integration/capstone-project"
+  }
+}

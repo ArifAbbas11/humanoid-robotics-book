@@ -1,0 +1,15 @@
+{
+  "id": "vla-integration/introduction",
+  "title": "Introduction to Vision-Language-Action (VLA) Integration",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/introduction.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/introduction",
+  "permalink": "/humanoid-robotics-book/vla-integration/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/introduction.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

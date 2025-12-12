@@ -1,0 +1,15 @@
+{
+  "id": "vla-integration/action-planning",
+  "title": "Action Planning in VLA Integration",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/action-planning.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/action-planning",
+  "permalink": "/humanoid-robotics-book/vla-integration/action-planning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/action-planning.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

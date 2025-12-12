@@ -1,0 +1,15 @@
+{
+  "id": "vla-integration/vision-systems",
+  "title": "Vision Systems in VLA Integration",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/vision-systems.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/vision-systems",
+  "permalink": "/humanoid-robotics-book/vla-integration/vision-systems",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/vision-systems.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

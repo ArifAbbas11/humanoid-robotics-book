@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/mini-project",
+  "title": "Mini-Project: Creating a ROS 2 Package",
+  "description": "Overview",
+  "source": "@site/docs/ros-fundamentals/mini-project.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/mini-project",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/mini-project",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/mini-project.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "URDF Basics",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/urdf-basics"
+  },
+  "next": {
+    "title": "Troubleshooting ROS 2 Issues",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/troubleshooting"
+  }
+}

@@ -1,0 +1,1338 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "label": "Next",
+          "banner": null,
+          "badge": false,
+          "noIndex": false,
+          "className": "docs-version-current",
+          "path": "/humanoid-robotics-book/",
+          "tagsPath": "/humanoid-robotics-book/tags",
+          "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs",
+          "editUrlLocalized": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/i18n/en/docusaurus-plugin-content-docs/current",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/mnt/c/Users/Admin/Documents/humanoid-robotics-book/sidebars.js",
+          "contentPath": "/mnt/c/Users/Admin/Documents/humanoid-robotics-book/docs",
+          "contentPathLocalized": "/mnt/c/Users/Admin/Documents/humanoid-robotics-book/i18n/en/docusaurus-plugin-content-docs/current",
+          "docs": [
+            {
+              "id": "ai-navigation/control-systems",
+              "title": "Control Systems for Humanoid Navigation",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/control-systems.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/control-systems",
+              "permalink": "/humanoid-robotics-book/ai-navigation/control-systems",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/control-systems.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "ai-navigation/intro",
+              "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/intro.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/intro",
+              "permalink": "/humanoid-robotics-book/ai-navigation/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Troubleshooting Simulation Issues",
+                "permalink": "/humanoid-robotics-book/simulation/troubleshooting"
+              },
+              "next": {
+                "title": "Isaac Setup",
+                "permalink": "/humanoid-robotics-book/ai-navigation/isaac-setup"
+              }
+            },
+            {
+              "id": "ai-navigation/introduction",
+              "title": "Introduction to AI Navigation for Humanoid Robots",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/introduction.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/introduction",
+              "permalink": "/humanoid-robotics-book/ai-navigation/introduction",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/introduction.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "ai-navigation/isaac-ros",
+              "title": "Isaac ROS Integration",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/isaac-ros.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/isaac-ros",
+              "permalink": "/humanoid-robotics-book/ai-navigation/isaac-ros",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/isaac-ros.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Isaac Sim",
+                "permalink": "/humanoid-robotics-book/ai-navigation/isaac-sim"
+              },
+              "next": {
+                "title": "Visual SLAM (vSLAM)",
+                "permalink": "/humanoid-robotics-book/ai-navigation/vslam"
+              }
+            },
+            {
+              "id": "ai-navigation/isaac-setup",
+              "title": "Isaac Setup",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/isaac-setup.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/isaac-setup",
+              "permalink": "/humanoid-robotics-book/ai-navigation/isaac-setup",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/isaac-setup.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+                "permalink": "/humanoid-robotics-book/ai-navigation/intro"
+              },
+              "next": {
+                "title": "Isaac Sim",
+                "permalink": "/humanoid-robotics-book/ai-navigation/isaac-sim"
+              }
+            },
+            {
+              "id": "ai-navigation/isaac-sim",
+              "title": "Isaac Sim",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/isaac-sim.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/isaac-sim",
+              "permalink": "/humanoid-robotics-book/ai-navigation/isaac-sim",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/isaac-sim.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Isaac Setup",
+                "permalink": "/humanoid-robotics-book/ai-navigation/isaac-setup"
+              },
+              "next": {
+                "title": "Isaac ROS Integration",
+                "permalink": "/humanoid-robotics-book/ai-navigation/isaac-ros"
+              }
+            },
+            {
+              "id": "ai-navigation/localization",
+              "title": "Localization for Humanoid Robots",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/localization.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/localization",
+              "permalink": "/humanoid-robotics-book/ai-navigation/localization",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/localization.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "ai-navigation/mapping",
+              "title": "Mapping for Humanoid Robot Navigation",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/mapping.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/mapping",
+              "permalink": "/humanoid-robotics-book/ai-navigation/mapping",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/mapping.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "ai-navigation/mini-project",
+              "title": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/mini-project.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/mini-project",
+              "permalink": "/humanoid-robotics-book/ai-navigation/mini-project",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/mini-project.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Navigation Planning",
+                "permalink": "/humanoid-robotics-book/ai-navigation/navigation-planning"
+              },
+              "next": {
+                "title": "Troubleshooting AI Navigation for Humanoid Robots",
+                "permalink": "/humanoid-robotics-book/ai-navigation/troubleshooting"
+              }
+            },
+            {
+              "id": "ai-navigation/navigation-planning",
+              "title": "Navigation Planning",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/navigation-planning.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/navigation-planning",
+              "permalink": "/humanoid-robotics-book/ai-navigation/navigation-planning",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/navigation-planning.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Visual SLAM (vSLAM)",
+                "permalink": "/humanoid-robotics-book/ai-navigation/vslam"
+              },
+              "next": {
+                "title": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+                "permalink": "/humanoid-robotics-book/ai-navigation/mini-project"
+              }
+            },
+            {
+              "id": "ai-navigation/path-planning",
+              "title": "Path Planning for Humanoid Robots",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/path-planning.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/path-planning",
+              "permalink": "/humanoid-robotics-book/ai-navigation/path-planning",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/path-planning.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "ai-navigation/troubleshooting",
+              "title": "Troubleshooting AI Navigation for Humanoid Robots",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/troubleshooting.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/troubleshooting",
+              "permalink": "/humanoid-robotics-book/ai-navigation/troubleshooting",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/troubleshooting.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Mini-Project: Implementing Navigation for a Humanoid Robot",
+                "permalink": "/humanoid-robotics-book/ai-navigation/mini-project"
+              },
+              "next": {
+                "title": "Module 4: Vision-Language-Action (VLA)",
+                "permalink": "/humanoid-robotics-book/vla-integration/intro"
+              }
+            },
+            {
+              "id": "ai-navigation/vslam",
+              "title": "Visual SLAM (vSLAM)",
+              "description": "Overview",
+              "source": "@site/docs/ai-navigation/vslam.md",
+              "sourceDirName": "ai-navigation",
+              "slug": "/ai-navigation/vslam",
+              "permalink": "/humanoid-robotics-book/ai-navigation/vslam",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/vslam.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Isaac ROS Integration",
+                "permalink": "/humanoid-robotics-book/ai-navigation/isaac-ros"
+              },
+              "next": {
+                "title": "Navigation Planning",
+                "permalink": "/humanoid-robotics-book/ai-navigation/navigation-planning"
+              }
+            },
+            {
+              "id": "assets/ATTRIBUTION",
+              "title": "Asset Attribution",
+              "description": "This document provides attribution for all diagrams, images, and other assets used in this book.",
+              "source": "@site/docs/assets/ATTRIBUTION.md",
+              "sourceDirName": "assets",
+              "slug": "/assets/ATTRIBUTION",
+              "permalink": "/humanoid-robotics-book/assets/ATTRIBUTION",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/assets/ATTRIBUTION.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "capstone/integration-guide",
+              "title": "Integration Guide",
+              "description": "Overview",
+              "source": "@site/docs/capstone/integration-guide.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/integration-guide",
+              "permalink": "/humanoid-robotics-book/capstone/integration-guide",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/integration-guide.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Capstone Project: Complete Humanoid Robot Implementation",
+                "permalink": "/humanoid-robotics-book/capstone/intro"
+              },
+              "next": {
+                "title": "Testing Guide",
+                "permalink": "/humanoid-robotics-book/capstone/testing-guide"
+              }
+            },
+            {
+              "id": "capstone/intro",
+              "title": "Capstone Project: Complete Humanoid Robot Implementation",
+              "description": "Overview",
+              "source": "@site/docs/capstone/intro.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/intro",
+              "permalink": "/humanoid-robotics-book/capstone/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Troubleshooting VLA Integration",
+                "permalink": "/humanoid-robotics-book/vla-integration/troubleshooting"
+              },
+              "next": {
+                "title": "Integration Guide",
+                "permalink": "/humanoid-robotics-book/capstone/integration-guide"
+              }
+            },
+            {
+              "id": "capstone/testing-guide",
+              "title": "Testing Guide",
+              "description": "Overview",
+              "source": "@site/docs/capstone/testing-guide.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/testing-guide",
+              "permalink": "/humanoid-robotics-book/capstone/testing-guide",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/testing-guide.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Integration Guide",
+                "permalink": "/humanoid-robotics-book/capstone/integration-guide"
+              },
+              "next": {
+                "title": "Troubleshooting",
+                "permalink": "/humanoid-robotics-book/capstone/troubleshooting"
+              }
+            },
+            {
+              "id": "capstone/troubleshooting",
+              "title": "Troubleshooting",
+              "description": "Overview",
+              "source": "@site/docs/capstone/troubleshooting.md",
+              "sourceDirName": "capstone",
+              "slug": "/capstone/troubleshooting",
+              "permalink": "/humanoid-robotics-book/capstone/troubleshooting",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/troubleshooting.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Testing Guide",
+                "permalink": "/humanoid-robotics-book/capstone/testing-guide"
+              }
+            },
+            {
+              "id": "intro",
+              "title": "Physical AI & Humanoid Robotics: From Simulation to Embodied Intelligence",
+              "description": "Welcome to the comprehensive guide on Physical AI & Humanoid Robotics. This book will take you from the fundamentals of ROS 2 through advanced topics in simulation, AI navigation, and Vision-Language-Action integration.",
+              "source": "@site/docs/intro.md",
+              "sourceDirName": ".",
+              "slug": "/intro",
+              "permalink": "/humanoid-robotics-book/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "next": {
+                "title": "Module 1: The Robotic Nervous System (ROS 2)",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/intro"
+              }
+            },
+            {
+              "id": "ros-fundamentals/architecture",
+              "title": "ROS 2 Architecture Concepts",
+              "description": "Overview",
+              "source": "@site/docs/ros-fundamentals/architecture.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/architecture",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/architecture",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/architecture.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "ROS 2 Installation Guide",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/installation"
+              },
+              "next": {
+                "title": "Nodes, Topics, Services",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services"
+              }
+            },
+            {
+              "id": "ros-fundamentals/installation",
+              "title": "ROS 2 Installation Guide",
+              "description": "This guide will walk you through installing ROS 2 Humble Hawksbill on your system.",
+              "source": "@site/docs/ros-fundamentals/installation.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/installation",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/installation",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/installation.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Module 1: The Robotic Nervous System (ROS 2)",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/intro"
+              },
+              "next": {
+                "title": "ROS 2 Architecture Concepts",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/architecture"
+              }
+            },
+            {
+              "id": "ros-fundamentals/intro",
+              "title": "Module 1: The Robotic Nervous System (ROS 2)",
+              "description": "Overview",
+              "source": "@site/docs/ros-fundamentals/intro.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/intro",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Physical AI & Humanoid Robotics: From Simulation to Embodied Intelligence",
+                "permalink": "/humanoid-robotics-book/intro"
+              },
+              "next": {
+                "title": "ROS 2 Installation Guide",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/installation"
+              }
+            },
+            {
+              "id": "ros-fundamentals/mini-project",
+              "title": "Mini-Project: Creating a ROS 2 Package",
+              "description": "Overview",
+              "source": "@site/docs/ros-fundamentals/mini-project.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/mini-project",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/mini-project",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/mini-project.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "URDF Basics",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/urdf-basics"
+              },
+              "next": {
+                "title": "Troubleshooting ROS 2 Issues",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/troubleshooting"
+              }
+            },
+            {
+              "id": "ros-fundamentals/nodes-topics-services",
+              "title": "Nodes, Topics, Services",
+              "description": "Nodes",
+              "source": "@site/docs/ros-fundamentals/nodes-topics-services.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/nodes-topics-services",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/nodes-topics-services.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "ROS 2 Architecture Concepts",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/architecture"
+              },
+              "next": {
+                "title": "Python Integration with rclpy",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/python-integration"
+              }
+            },
+            {
+              "id": "ros-fundamentals/python-integration",
+              "title": "Python Integration with rclpy",
+              "description": "Overview",
+              "source": "@site/docs/ros-fundamentals/python-integration.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/python-integration",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/python-integration",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/python-integration.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Nodes, Topics, Services",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services"
+              },
+              "next": {
+                "title": "URDF Basics",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/urdf-basics"
+              }
+            },
+            {
+              "id": "ros-fundamentals/troubleshooting",
+              "title": "Troubleshooting ROS 2 Issues",
+              "description": "Overview",
+              "source": "@site/docs/ros-fundamentals/troubleshooting.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/troubleshooting",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/troubleshooting",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/troubleshooting.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Mini-Project: Creating a ROS 2 Package",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/mini-project"
+              },
+              "next": {
+                "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+                "permalink": "/humanoid-robotics-book/simulation/intro"
+              }
+            },
+            {
+              "id": "ros-fundamentals/urdf-basics",
+              "title": "URDF Basics",
+              "description": "Overview",
+              "source": "@site/docs/ros-fundamentals/urdf-basics.md",
+              "sourceDirName": "ros-fundamentals",
+              "slug": "/ros-fundamentals/urdf-basics",
+              "permalink": "/humanoid-robotics-book/ros-fundamentals/urdf-basics",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/urdf-basics.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Python Integration with rclpy",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/python-integration"
+              },
+              "next": {
+                "title": "Mini-Project: Creating a ROS 2 Package",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/mini-project"
+              }
+            },
+            {
+              "id": "simulation/gazebo-setup",
+              "title": "Gazebo Setup",
+              "description": "Overview",
+              "source": "@site/docs/simulation/gazebo-setup.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/gazebo-setup",
+              "permalink": "/humanoid-robotics-book/simulation/gazebo-setup",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/gazebo-setup.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+                "permalink": "/humanoid-robotics-book/simulation/intro"
+              },
+              "next": {
+                "title": "Unity Setup",
+                "permalink": "/humanoid-robotics-book/simulation/unity-setup"
+              }
+            },
+            {
+              "id": "simulation/intro",
+              "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+              "description": "Overview",
+              "source": "@site/docs/simulation/intro.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/intro",
+              "permalink": "/humanoid-robotics-book/simulation/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Troubleshooting ROS 2 Issues",
+                "permalink": "/humanoid-robotics-book/ros-fundamentals/troubleshooting"
+              },
+              "next": {
+                "title": "Gazebo Setup",
+                "permalink": "/humanoid-robotics-book/simulation/gazebo-setup"
+              }
+            },
+            {
+              "id": "simulation/mini-project",
+              "title": "Mini-Project: Configuring Sensors for a Humanoid Robot",
+              "description": "Overview",
+              "source": "@site/docs/simulation/mini-project.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/mini-project",
+              "permalink": "/humanoid-robotics-book/simulation/mini-project",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/mini-project.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Sensor Configuration",
+                "permalink": "/humanoid-robotics-book/simulation/sensor-configuration"
+              },
+              "next": {
+                "title": "Troubleshooting Simulation Issues",
+                "permalink": "/humanoid-robotics-book/simulation/troubleshooting"
+              }
+            },
+            {
+              "id": "simulation/physics-concepts",
+              "title": "Physics Concepts in Robotics Simulation",
+              "description": "Overview",
+              "source": "@site/docs/simulation/physics-concepts.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/physics-concepts",
+              "permalink": "/humanoid-robotics-book/simulation/physics-concepts",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/physics-concepts.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Unity Setup",
+                "permalink": "/humanoid-robotics-book/simulation/unity-setup"
+              },
+              "next": {
+                "title": "Sensors in Robotics Simulation",
+                "permalink": "/humanoid-robotics-book/simulation/sensors"
+              }
+            },
+            {
+              "id": "simulation/sensor-configuration",
+              "title": "Sensor Configuration",
+              "description": "Overview",
+              "source": "@site/docs/simulation/sensor-configuration.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/sensor-configuration",
+              "permalink": "/humanoid-robotics-book/simulation/sensor-configuration",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/sensor-configuration.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Sensors in Robotics Simulation",
+                "permalink": "/humanoid-robotics-book/simulation/sensors"
+              },
+              "next": {
+                "title": "Mini-Project: Configuring Sensors for a Humanoid Robot",
+                "permalink": "/humanoid-robotics-book/simulation/mini-project"
+              }
+            },
+            {
+              "id": "simulation/sensors",
+              "title": "Sensors in Robotics Simulation",
+              "description": "Overview",
+              "source": "@site/docs/simulation/sensors.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/sensors",
+              "permalink": "/humanoid-robotics-book/simulation/sensors",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/sensors.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Physics Concepts in Robotics Simulation",
+                "permalink": "/humanoid-robotics-book/simulation/physics-concepts"
+              },
+              "next": {
+                "title": "Sensor Configuration",
+                "permalink": "/humanoid-robotics-book/simulation/sensor-configuration"
+              }
+            },
+            {
+              "id": "simulation/troubleshooting",
+              "title": "Troubleshooting Simulation Issues",
+              "description": "Overview",
+              "source": "@site/docs/simulation/troubleshooting.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/troubleshooting",
+              "permalink": "/humanoid-robotics-book/simulation/troubleshooting",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/troubleshooting.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Mini-Project: Configuring Sensors for a Humanoid Robot",
+                "permalink": "/humanoid-robotics-book/simulation/mini-project"
+              },
+              "next": {
+                "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+                "permalink": "/humanoid-robotics-book/ai-navigation/intro"
+              }
+            },
+            {
+              "id": "simulation/unity-setup",
+              "title": "Unity Setup",
+              "description": "Overview",
+              "source": "@site/docs/simulation/unity-setup.md",
+              "sourceDirName": "simulation",
+              "slug": "/simulation/unity-setup",
+              "permalink": "/humanoid-robotics-book/simulation/unity-setup",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/unity-setup.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Gazebo Setup",
+                "permalink": "/humanoid-robotics-book/simulation/gazebo-setup"
+              },
+              "next": {
+                "title": "Physics Concepts in Robotics Simulation",
+                "permalink": "/humanoid-robotics-book/simulation/physics-concepts"
+              }
+            },
+            {
+              "id": "STYLE_GUIDE",
+              "title": "Documentation Style Guide",
+              "description": "This style guide ensures consistency across all documentation in the Physical AI & Humanoid Robotics Book.",
+              "source": "@site/docs/STYLE_GUIDE.md",
+              "sourceDirName": ".",
+              "slug": "/STYLE_GUIDE",
+              "permalink": "/humanoid-robotics-book/STYLE_GUIDE",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/STYLE_GUIDE.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "templates/code-example-template",
+              "title": "Code Example Template",
+              "description": "This template provides a standard format for code examples throughout the book.",
+              "source": "@site/docs/templates/code-example-template.md",
+              "sourceDirName": "templates",
+              "slug": "/templates/code-example-template",
+              "permalink": "/humanoid-robotics-book/templates/code-example-template",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/templates/code-example-template.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "templates/lab-instruction-template",
+              "title": "Lab Instruction Template",
+              "description": "This template provides a standard format for lab instructions and practical exercises throughout the book.",
+              "source": "@site/docs/templates/lab-instruction-template.md",
+              "sourceDirName": "templates",
+              "slug": "/templates/lab-instruction-template",
+              "permalink": "/humanoid-robotics-book/templates/lab-instruction-template",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/templates/lab-instruction-template.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "vla-integration/action-planning",
+              "title": "Action Planning in VLA Integration",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/action-planning.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/action-planning",
+              "permalink": "/humanoid-robotics-book/vla-integration/action-planning",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/action-planning.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "vla-integration/capstone-project",
+              "title": "VLA Capstone Project: Intelligent Humanoid Assistant",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/capstone-project.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/capstone-project",
+              "permalink": "/humanoid-robotics-book/vla-integration/capstone-project",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/capstone-project.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Voice-to-Action Mapping",
+                "permalink": "/humanoid-robotics-book/vla-integration/voice-to-action"
+              },
+              "next": {
+                "title": "Troubleshooting VLA Integration",
+                "permalink": "/humanoid-robotics-book/vla-integration/troubleshooting"
+              }
+            },
+            {
+              "id": "vla-integration/cognitive-planning",
+              "title": "Cognitive Planning",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/cognitive-planning.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/cognitive-planning",
+              "permalink": "/humanoid-robotics-book/vla-integration/cognitive-planning",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/cognitive-planning.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "LLM Integration",
+                "permalink": "/humanoid-robotics-book/vla-integration/llm-integration"
+              },
+              "next": {
+                "title": "Multi-Modal Processing",
+                "permalink": "/humanoid-robotics-book/vla-integration/multi-modal"
+              }
+            },
+            {
+              "id": "vla-integration/integration-challenges",
+              "title": "Integration Challenges in VLA Systems",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/integration-challenges.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/integration-challenges",
+              "permalink": "/humanoid-robotics-book/vla-integration/integration-challenges",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/integration-challenges.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "vla-integration/intro",
+              "title": "Module 4: Vision-Language-Action (VLA)",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/intro.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/intro",
+              "permalink": "/humanoid-robotics-book/vla-integration/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/intro.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Troubleshooting AI Navigation for Humanoid Robots",
+                "permalink": "/humanoid-robotics-book/ai-navigation/troubleshooting"
+              },
+              "next": {
+                "title": "Voice Recognition",
+                "permalink": "/humanoid-robotics-book/vla-integration/voice-recognition"
+              }
+            },
+            {
+              "id": "vla-integration/introduction",
+              "title": "Introduction to Vision-Language-Action (VLA) Integration",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/introduction.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/introduction",
+              "permalink": "/humanoid-robotics-book/vla-integration/introduction",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/introduction.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "vla-integration/language-understanding",
+              "title": "Language Understanding in VLA Integration",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/language-understanding.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/language-understanding",
+              "permalink": "/humanoid-robotics-book/vla-integration/language-understanding",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/language-understanding.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "vla-integration/llm-integration",
+              "title": "LLM Integration",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/llm-integration.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/llm-integration",
+              "permalink": "/humanoid-robotics-book/vla-integration/llm-integration",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/llm-integration.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Voice Recognition",
+                "permalink": "/humanoid-robotics-book/vla-integration/voice-recognition"
+              },
+              "next": {
+                "title": "Cognitive Planning",
+                "permalink": "/humanoid-robotics-book/vla-integration/cognitive-planning"
+              }
+            },
+            {
+              "id": "vla-integration/mini-project",
+              "title": "Mini-Project: Implementing a VLA System for a Humanoid Robot",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/mini-project.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/mini-project",
+              "permalink": "/humanoid-robotics-book/vla-integration/mini-project",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/mini-project.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "vla-integration/multi-modal",
+              "title": "Multi-Modal Processing",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/multi-modal.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/multi-modal",
+              "permalink": "/humanoid-robotics-book/vla-integration/multi-modal",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/multi-modal.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Cognitive Planning",
+                "permalink": "/humanoid-robotics-book/vla-integration/cognitive-planning"
+              },
+              "next": {
+                "title": "Voice-to-Action Mapping",
+                "permalink": "/humanoid-robotics-book/vla-integration/voice-to-action"
+              }
+            },
+            {
+              "id": "vla-integration/troubleshooting",
+              "title": "Troubleshooting VLA Integration",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/troubleshooting.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/troubleshooting",
+              "permalink": "/humanoid-robotics-book/vla-integration/troubleshooting",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/troubleshooting.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "VLA Capstone Project: Intelligent Humanoid Assistant",
+                "permalink": "/humanoid-robotics-book/vla-integration/capstone-project"
+              },
+              "next": {
+                "title": "Capstone Project: Complete Humanoid Robot Implementation",
+                "permalink": "/humanoid-robotics-book/capstone/intro"
+              }
+            },
+            {
+              "id": "vla-integration/vision-systems",
+              "title": "Vision Systems in VLA Integration",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/vision-systems.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/vision-systems",
+              "permalink": "/humanoid-robotics-book/vla-integration/vision-systems",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/vision-systems.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {}
+            },
+            {
+              "id": "vla-integration/voice-recognition",
+              "title": "Voice Recognition",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/voice-recognition.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/voice-recognition",
+              "permalink": "/humanoid-robotics-book/vla-integration/voice-recognition",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/voice-recognition.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Module 4: Vision-Language-Action (VLA)",
+                "permalink": "/humanoid-robotics-book/vla-integration/intro"
+              },
+              "next": {
+                "title": "LLM Integration",
+                "permalink": "/humanoid-robotics-book/vla-integration/llm-integration"
+              }
+            },
+            {
+              "id": "vla-integration/voice-to-action",
+              "title": "Voice-to-Action Mapping",
+              "description": "Overview",
+              "source": "@site/docs/vla-integration/voice-to-action.md",
+              "sourceDirName": "vla-integration",
+              "slug": "/vla-integration/voice-to-action",
+              "permalink": "/humanoid-robotics-book/vla-integration/voice-to-action",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/voice-to-action.md",
+              "tags": [],
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "bookSidebar",
+              "previous": {
+                "title": "Multi-Modal Processing",
+                "permalink": "/humanoid-robotics-book/vla-integration/multi-modal"
+              },
+              "next": {
+                "title": "VLA Capstone Project: Intelligent Humanoid Assistant",
+                "permalink": "/humanoid-robotics-book/vla-integration/capstone-project"
+              }
+            }
+          ],
+          "drafts": [],
+          "sidebars": {
+            "bookSidebar": [
+              {
+                "type": "doc",
+                "id": "intro"
+              },
+              {
+                "type": "category",
+                "label": "Module 1: The Robotic Nervous System (ROS 2)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/intro"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/installation"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/architecture"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/nodes-topics-services"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/python-integration"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/urdf-basics"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/mini-project"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ros-fundamentals/troubleshooting"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Module 2: The Digital Twin (Gazebo & Unity)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "simulation/intro"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "simulation/gazebo-setup"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "simulation/unity-setup"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "simulation/physics-concepts"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "simulation/sensors"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "simulation/sensor-configuration"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "simulation/mini-project"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "simulation/troubleshooting"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/intro"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/isaac-setup"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/isaac-sim"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/isaac-ros"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/vslam"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/navigation-planning"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/mini-project"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "ai-navigation/troubleshooting"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Module 4: Vision-Language-Action (VLA)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/intro"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/voice-recognition"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/llm-integration"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/cognitive-planning"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/multi-modal"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/voice-to-action"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/capstone-project"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "vla-integration/troubleshooting"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Capstone Project",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "capstone/intro"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "capstone/integration-guide"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "capstone/testing-guide"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "capstone/troubleshooting"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/humanoid-robotics-book/",
+        "source": "@site/src/pages/index.js"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {},
+  "docusaurus-theme-classic": {},
+  "docusaurus-bootstrap-plugin": {},
+  "docusaurus-mdx-fallback-plugin": {}
+}

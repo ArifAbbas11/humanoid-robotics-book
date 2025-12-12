@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/nodes-topics-services",
+  "title": "Nodes, Topics, Services",
+  "description": "Nodes",
+  "source": "@site/docs/ros-fundamentals/nodes-topics-services.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/nodes-topics-services",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/nodes-topics-services.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "ROS 2 Architecture Concepts",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/architecture"
+  },
+  "next": {
+    "title": "Python Integration with rclpy",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/python-integration"
+  }
+}

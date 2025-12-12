@@ -1,0 +1,15 @@
+{
+  "id": "ai-navigation/mapping",
+  "title": "Mapping for Humanoid Robot Navigation",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/mapping.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/mapping",
+  "permalink": "/humanoid-robotics-book/ai-navigation/mapping",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/mapping.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

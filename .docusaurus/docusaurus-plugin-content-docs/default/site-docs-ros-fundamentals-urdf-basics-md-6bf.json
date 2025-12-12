@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/urdf-basics",
+  "title": "URDF Basics",
+  "description": "Overview",
+  "source": "@site/docs/ros-fundamentals/urdf-basics.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/urdf-basics",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/urdf-basics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/urdf-basics.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Python Integration with rclpy",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/python-integration"
+  },
+  "next": {
+    "title": "Mini-Project: Creating a ROS 2 Package",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/mini-project"
+  }
+}

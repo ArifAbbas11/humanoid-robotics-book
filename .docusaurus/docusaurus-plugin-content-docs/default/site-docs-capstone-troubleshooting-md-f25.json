@@ -1,0 +1,20 @@
+{
+  "id": "capstone/troubleshooting",
+  "title": "Troubleshooting",
+  "description": "Overview",
+  "source": "@site/docs/capstone/troubleshooting.md",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/troubleshooting",
+  "permalink": "/humanoid-robotics-book/capstone/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/troubleshooting.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Testing Guide",
+    "permalink": "/humanoid-robotics-book/capstone/testing-guide"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "templates/code-example-template",
+  "title": "Code Example Template",
+  "description": "This template provides a standard format for code examples throughout the book.",
+  "source": "@site/docs/templates/code-example-template.md",
+  "sourceDirName": "templates",
+  "slug": "/templates/code-example-template",
+  "permalink": "/humanoid-robotics-book/templates/code-example-template",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/templates/code-example-template.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

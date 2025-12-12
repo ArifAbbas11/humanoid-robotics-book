@@ -1,0 +1,24 @@
+{
+  "id": "vla-integration/capstone-project",
+  "title": "VLA Capstone Project: Intelligent Humanoid Assistant",
+  "description": "Overview",
+  "source": "@site/docs/vla-integration/capstone-project.md",
+  "sourceDirName": "vla-integration",
+  "slug": "/vla-integration/capstone-project",
+  "permalink": "/humanoid-robotics-book/vla-integration/capstone-project",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/vla-integration/capstone-project.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Voice-to-Action Mapping",
+    "permalink": "/humanoid-robotics-book/vla-integration/voice-to-action"
+  },
+  "next": {
+    "title": "Troubleshooting VLA Integration",
+    "permalink": "/humanoid-robotics-book/vla-integration/troubleshooting"
+  }
+}

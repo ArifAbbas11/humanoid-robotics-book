@@ -1,0 +1,24 @@
+{
+  "id": "simulation/gazebo-setup",
+  "title": "Gazebo Setup",
+  "description": "Overview",
+  "source": "@site/docs/simulation/gazebo-setup.md",
+  "sourceDirName": "simulation",
+  "slug": "/simulation/gazebo-setup",
+  "permalink": "/humanoid-robotics-book/simulation/gazebo-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/simulation/gazebo-setup.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Module 2: The Digital Twin (Gazebo & Unity)",
+    "permalink": "/humanoid-robotics-book/simulation/intro"
+  },
+  "next": {
+    "title": "Unity Setup",
+    "permalink": "/humanoid-robotics-book/simulation/unity-setup"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "capstone/integration-guide",
+  "title": "Integration Guide",
+  "description": "Overview",
+  "source": "@site/docs/capstone/integration-guide.md",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/integration-guide",
+  "permalink": "/humanoid-robotics-book/capstone/integration-guide",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/capstone/integration-guide.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Capstone Project: Complete Humanoid Robot Implementation",
+    "permalink": "/humanoid-robotics-book/capstone/intro"
+  },
+  "next": {
+    "title": "Testing Guide",
+    "permalink": "/humanoid-robotics-book/capstone/testing-guide"
+  }
+}

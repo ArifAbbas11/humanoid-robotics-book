@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/intro",
+  "title": "Module 1: The Robotic Nervous System (ROS 2)",
+  "description": "Overview",
+  "source": "@site/docs/ros-fundamentals/intro.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/intro",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Physical AI & Humanoid Robotics: From Simulation to Embodied Intelligence",
+    "permalink": "/humanoid-robotics-book/intro"
+  },
+  "next": {
+    "title": "ROS 2 Installation Guide",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/installation"
+  }
+}

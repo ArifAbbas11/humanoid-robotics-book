@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/intro",
+  "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/intro.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/intro",
+  "permalink": "/humanoid-robotics-book/ai-navigation/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Troubleshooting Simulation Issues",
+    "permalink": "/humanoid-robotics-book/simulation/troubleshooting"
+  },
+  "next": {
+    "title": "Isaac Setup",
+    "permalink": "/humanoid-robotics-book/ai-navigation/isaac-setup"
+  }
+}

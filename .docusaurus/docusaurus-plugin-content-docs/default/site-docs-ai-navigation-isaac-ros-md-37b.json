@@ -1,0 +1,24 @@
+{
+  "id": "ai-navigation/isaac-ros",
+  "title": "Isaac ROS Integration",
+  "description": "Overview",
+  "source": "@site/docs/ai-navigation/isaac-ros.md",
+  "sourceDirName": "ai-navigation",
+  "slug": "/ai-navigation/isaac-ros",
+  "permalink": "/humanoid-robotics-book/ai-navigation/isaac-ros",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ai-navigation/isaac-ros.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Isaac Sim",
+    "permalink": "/humanoid-robotics-book/ai-navigation/isaac-sim"
+  },
+  "next": {
+    "title": "Visual SLAM (vSLAM)",
+    "permalink": "/humanoid-robotics-book/ai-navigation/vslam"
+  }
+}

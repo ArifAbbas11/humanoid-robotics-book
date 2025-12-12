@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/python-integration",
+  "title": "Python Integration with rclpy",
+  "description": "Overview",
+  "source": "@site/docs/ros-fundamentals/python-integration.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/python-integration",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/python-integration",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/python-integration.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Nodes, Topics, Services",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services"
+  },
+  "next": {
+    "title": "URDF Basics",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/urdf-basics"
+  }
+}

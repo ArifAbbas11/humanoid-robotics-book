@@ -1,0 +1,24 @@
+{
+  "id": "ros-fundamentals/architecture",
+  "title": "ROS 2 Architecture Concepts",
+  "description": "Overview",
+  "source": "@site/docs/ros-fundamentals/architecture.md",
+  "sourceDirName": "ros-fundamentals",
+  "slug": "/ros-fundamentals/architecture",
+  "permalink": "/humanoid-robotics-book/ros-fundamentals/architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/ArifAbbas11/humanoid-robotics-book/tree/main/docs/ros-fundamentals/architecture.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "ROS 2 Installation Guide",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/installation"
+  },
+  "next": {
+    "title": "Nodes, Topics, Services",
+    "permalink": "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services"
+  }
+}
