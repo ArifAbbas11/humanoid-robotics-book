@@ -19,7 +19,7 @@ Success criteria:
 
 Constraints:
 - Word count: 12,000–18,000 words (or equivalent Markdown files)
-- Format: Markdown suitable for Docusaurus deployment
+- Format: Markdown suitable for Docusaurus 3.x deployment
 - Sources: Peer-reviewed papers, robotics/AI documentation, and authoritative resources
 - Timeline: Complete within hackathon schedule (12–14 weeks)
 - Hardware and software specs included for Sim Rig, Edge AI kit, and robots

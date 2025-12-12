@@ -3,6 +3,41 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/humanoid-robotics-book/__docusaurus/debug',
+    component: ComponentCreator('/humanoid-robotics-book/__docusaurus/debug', '86a'),
+    exact: true
+  },
+  {
+    path: '/humanoid-robotics-book/__docusaurus/debug/config',
+    component: ComponentCreator('/humanoid-robotics-book/__docusaurus/debug/config', '6a7'),
+    exact: true
+  },
+  {
+    path: '/humanoid-robotics-book/__docusaurus/debug/content',
+    component: ComponentCreator('/humanoid-robotics-book/__docusaurus/debug/content', 'c2e'),
+    exact: true
+  },
+  {
+    path: '/humanoid-robotics-book/__docusaurus/debug/globalData',
+    component: ComponentCreator('/humanoid-robotics-book/__docusaurus/debug/globalData', '73c'),
+    exact: true
+  },
+  {
+    path: '/humanoid-robotics-book/__docusaurus/debug/metadata',
+    component: ComponentCreator('/humanoid-robotics-book/__docusaurus/debug/metadata', '8ef'),
+    exact: true
+  },
+  {
+    path: '/humanoid-robotics-book/__docusaurus/debug/registry',
+    component: ComponentCreator('/humanoid-robotics-book/__docusaurus/debug/registry', '827'),
+    exact: true
+  },
+  {
+    path: '/humanoid-robotics-book/__docusaurus/debug/routes',
+    component: ComponentCreator('/humanoid-robotics-book/__docusaurus/debug/routes', 'd39'),
+    exact: true
+  },
+  {
     path: '/humanoid-robotics-book/',
     component: ComponentCreator('/humanoid-robotics-book/', 'cb0'),
     exact: true
