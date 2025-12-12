@@ -44,7 +44,16 @@
       "Bash(curl -s http://localhost:3001/humanoid-robotics-book/intro)",
       "Bash(npm run build)",
       "Bash(pkill -f \"npm run build\")",
-      "Bash(npx docusaurus build)"
+      "Bash(npx docusaurus build)",
+      "Bash(GIT_USER=ArifAbbas11 CURRENT_BRANCH=main npm run deploy)",
+      "Bash(git config --global user.email \"arif_ubuntu@users.noreply.github.com\")",
+      "Bash(git config --global user.name \"Claude Assistant\")",
+      "Bash(git init)",
+      "Bash(git remote add origin https://github.com/ArifAbbas11/humanoid-robotics-book.git)",
+      "Bash(git checkout -b gh-pages)",
+      "Bash(git add .)",
+      "Bash(git commit -m \"Deploy website\")",
+      "Bash(git push -f origin gh-pages)"
     ],
     "deny": [],
     "ask": []
