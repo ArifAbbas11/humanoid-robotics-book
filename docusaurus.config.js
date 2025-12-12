@@ -1,6 +1,7 @@
 // @ts-check
-import lightTheme from 'prism-react-renderer/themes/github';
-import darkTheme from 'prism-react-renderer/themes/dracula';
+import { themes as prismThemes } from 'prism-react-renderer';
+const lightTheme = prismThemes.github;
+const darkTheme = prismThemes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
