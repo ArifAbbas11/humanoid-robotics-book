@@ -54,7 +54,10 @@
       "Bash(git add .)",
       "Bash(git commit -m \"Deploy website\")",
       "Bash(git push -f origin gh-pages)",
-      "Bash(cat /tmp/claude/tasks/bdea579.output)"
+      "Bash(cat /tmp/claude/tasks/bdea579.output)",
+      "Bash(git add .github/workflows/deploy.yml)",
+      "Bash(git commit -m \"Update GitHub Actions workflow for Pages deployment\")",
+      "Bash(git push origin main)"
     ],
     "deny": [],
     "ask": []
