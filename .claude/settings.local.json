@@ -60,7 +60,8 @@
       "Bash(git push origin main)",
       "Bash(git add .gitignore)",
       "Bash(git commit -m \"Fix .gitignore merge conflict and resolve submodule issue\")",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(node --version)"
     ],
     "deny": [],
     "ask": []
