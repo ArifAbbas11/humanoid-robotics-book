@@ -57,7 +57,9 @@
       "Bash(cat /tmp/claude/tasks/bdea579.output)",
       "Bash(git add .github/workflows/deploy.yml)",
       "Bash(git commit -m \"Update GitHub Actions workflow for Pages deployment\")",
-      "Bash(git push origin main)"
+      "Bash(git push origin main)",
+      "Bash(git add .gitignore)",
+      "Bash(git commit -m \"Fix .gitignore merge conflict and resolve submodule issue\")"
     ],
     "deny": [],
     "ask": []
