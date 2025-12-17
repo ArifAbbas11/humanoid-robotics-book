@@ -208,3 +208,10 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Python 3.11+ (as specified in requirements) + requests, beautifulsoup4, cohere, qdrant-client, python-dotenv, uv (for dependency management) (001-book-rag-ingestion)
+- Qdrant Cloud vector database (as specified in requirements) (001-book-rag-ingestion)
+
+## Recent Changes
+- 001-book-rag-ingestion: Added Python 3.11+ (as specified in requirements) + requests, beautifulsoup4, cohere, qdrant-client, python-dotenv, uv (for dependency management)
