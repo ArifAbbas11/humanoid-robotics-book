@@ -1,230 +1,273 @@
 {
-  "/humanoid-robotics-book/-f8c": {
-    "__comp": "c4f5d8e4",
+  "/humanoid-robotics-book/__docusaurus/debug-fbb": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---humanoid-robotics-book-docusaurus-debugb-38-fea"
+    }
+  },
+  "/humanoid-robotics-book/__docusaurus/debug/config-58c": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---humanoid-robotics-book-docusaurus-debugb-38-fea"
+    }
+  },
+  "/humanoid-robotics-book/__docusaurus/debug/content-9ef": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---humanoid-robotics-book-docusaurus-debugb-38-fea"
     },
-    "config": "5e9f5e1a"
+    "__props": "__props---humanoid-robotics-book-docusaurus-debug-content-8-ac-f0a"
+  },
+  "/humanoid-robotics-book/__docusaurus/debug/globalData-5e0": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---humanoid-robotics-book-docusaurus-debugb-38-fea"
+    }
+  },
+  "/humanoid-robotics-book/__docusaurus/debug/metadata-a6b": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---humanoid-robotics-book-docusaurus-debugb-38-fea"
+    }
+  },
+  "/humanoid-robotics-book/__docusaurus/debug/registry-969": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---humanoid-robotics-book-docusaurus-debugb-38-fea"
+    }
+  },
+  "/humanoid-robotics-book/__docusaurus/debug/routes-919": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---humanoid-robotics-book-docusaurus-debugb-38-fea"
+    }
+  },
+  "/humanoid-robotics-book/-f8c": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---humanoid-robotics-book-a-74-63e"
+    },
+    "config": "config---humanoid-robotics-book-5-e-9-712"
   },
   "/humanoid-robotics-book/-f76": {
-    "__comp": "5e95c892",
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
-      "plugin": "aba21aa0"
+      "plugin": "plugin---humanoid-robotics-book-aba-058"
     }
   },
   "/humanoid-robotics-book/-66c": {
-    "__comp": "a7bd4aaa",
-    "__props": "5a3b2b37"
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---humanoid-robotics-book-5-a-3-635"
   },
   "/humanoid-robotics-book/-ead": {
-    "__comp": "a94703ab"
+    "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/humanoid-robotics-book/ai-navigation/control-systems-560": {
-    "__comp": "17896441",
-    "content": "85b557b5"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-control-systems-85-b-60d"
   },
   "/humanoid-robotics-book/ai-navigation/intro-46e": {
-    "__comp": "17896441",
-    "content": "113c851a"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-intro-113-0a7"
   },
   "/humanoid-robotics-book/ai-navigation/introduction-447": {
-    "__comp": "17896441",
-    "content": "9b159342"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-introduction-9-b-1-dd1"
   },
   "/humanoid-robotics-book/ai-navigation/isaac-ros-833": {
-    "__comp": "17896441",
-    "content": "37b1a016"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-isaac-ros-37-b-f15"
   },
   "/humanoid-robotics-book/ai-navigation/isaac-setup-26d": {
-    "__comp": "17896441",
-    "content": "b8d797dc"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-isaac-setupb-8-d-580"
   },
   "/humanoid-robotics-book/ai-navigation/isaac-sim-903": {
-    "__comp": "17896441",
-    "content": "15a39f13"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-isaac-sim-15-a-c38"
   },
   "/humanoid-robotics-book/ai-navigation/localization-92d": {
-    "__comp": "17896441",
-    "content": "5e9772fe"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-localization-5-e-9-a36"
   },
   "/humanoid-robotics-book/ai-navigation/mapping-8f9": {
-    "__comp": "17896441",
-    "content": "8349f8f8"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-mapping-834-d19"
   },
   "/humanoid-robotics-book/ai-navigation/mini-project-72e": {
-    "__comp": "17896441",
-    "content": "722c64a8"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-mini-project-722-b9b"
   },
   "/humanoid-robotics-book/ai-navigation/navigation-planning-a72": {
-    "__comp": "17896441",
-    "content": "91b65614"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-navigation-planning-91-b-715"
   },
   "/humanoid-robotics-book/ai-navigation/path-planning-32a": {
-    "__comp": "17896441",
-    "content": "83e6bf82"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-path-planning-83-e-b6d"
   },
   "/humanoid-robotics-book/ai-navigation/troubleshooting-f13": {
-    "__comp": "17896441",
-    "content": "ced6791c"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-troubleshootingced-a48"
   },
   "/humanoid-robotics-book/ai-navigation/vslam-80e": {
-    "__comp": "17896441",
-    "content": "aa7a41fb"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ai-navigation-vslamaa-7-f62"
   },
   "/humanoid-robotics-book/assets/ATTRIBUTION-ffb": {
-    "__comp": "17896441",
-    "content": "bc5ba22a"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-assets-attributio-nbc-5-1b4"
   },
   "/humanoid-robotics-book/capstone/integration-guide-71f": {
-    "__comp": "17896441",
-    "content": "3ce77b01"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-capstone-integration-guide-3-ce-fa8"
   },
   "/humanoid-robotics-book/capstone/intro-7f1": {
-    "__comp": "17896441",
-    "content": "788d8daa"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-capstone-intro-788-663"
   },
   "/humanoid-robotics-book/capstone/testing-guide-a36": {
-    "__comp": "17896441",
-    "content": "80d4be7d"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-capstone-testing-guide-80-d-551"
   },
   "/humanoid-robotics-book/capstone/troubleshooting-e9b": {
-    "__comp": "17896441",
-    "content": "f2504b64"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-capstone-troubleshootingf-25-c76"
   },
   "/humanoid-robotics-book/intro-df1": {
-    "__comp": "17896441",
-    "content": "0e384e19"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-intro-0-e-3-f8f"
   },
   "/humanoid-robotics-book/ros-fundamentals/architecture-30e": {
-    "__comp": "17896441",
-    "content": "2fdae3ea"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-architecture-2-fd-fbf"
   },
   "/humanoid-robotics-book/ros-fundamentals/installation-310": {
-    "__comp": "17896441",
-    "content": "8ba935b8"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-installation-8-ba-3f6"
   },
   "/humanoid-robotics-book/ros-fundamentals/intro-b48": {
-    "__comp": "17896441",
-    "content": "9d73e37d"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-intro-9-d-7-956"
   },
   "/humanoid-robotics-book/ros-fundamentals/mini-project-af4": {
-    "__comp": "17896441",
-    "content": "86c98820"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-mini-project-86-c-e5f"
   },
   "/humanoid-robotics-book/ros-fundamentals/nodes-topics-services-cb0": {
-    "__comp": "17896441",
-    "content": "a8384b70"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-nodes-topics-servicesa-83-cb6"
   },
   "/humanoid-robotics-book/ros-fundamentals/python-integration-b37": {
-    "__comp": "17896441",
-    "content": "a36480a3"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-python-integrationa-36-9c5"
   },
   "/humanoid-robotics-book/ros-fundamentals/troubleshooting-132": {
-    "__comp": "17896441",
-    "content": "6080b8d6"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-troubleshooting-608-ff4"
   },
   "/humanoid-robotics-book/ros-fundamentals/urdf-basics-228": {
-    "__comp": "17896441",
-    "content": "6bf3990f"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-ros-fundamentals-urdf-basics-6-bf-204"
   },
   "/humanoid-robotics-book/simulation/gazebo-setup-7b0": {
-    "__comp": "17896441",
-    "content": "6543942a"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-gazebo-setup-654-a65"
   },
   "/humanoid-robotics-book/simulation/intro-74b": {
-    "__comp": "17896441",
-    "content": "92811931"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-intro-928-cec"
   },
   "/humanoid-robotics-book/simulation/mini-project-30a": {
-    "__comp": "17896441",
-    "content": "eb0e749a"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-mini-projecteb-0-3e5"
   },
   "/humanoid-robotics-book/simulation/physics-concepts-3ce": {
-    "__comp": "17896441",
-    "content": "e30dfc37"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-physics-conceptse-30-e17"
   },
   "/humanoid-robotics-book/simulation/sensor-configuration-52d": {
-    "__comp": "17896441",
-    "content": "19980ba4"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-sensor-configuration-199-e3b"
   },
   "/humanoid-robotics-book/simulation/sensors-4f6": {
-    "__comp": "17896441",
-    "content": "e3080354"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-sensorse-30-0fd"
   },
   "/humanoid-robotics-book/simulation/troubleshooting-b37": {
-    "__comp": "17896441",
-    "content": "f679217c"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-troubleshootingf-67-277"
   },
   "/humanoid-robotics-book/simulation/unity-setup-f24": {
-    "__comp": "17896441",
-    "content": "e5abac2f"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-simulation-unity-setupe-5-a-1cb"
   },
   "/humanoid-robotics-book/STYLE_GUIDE-dff": {
-    "__comp": "17896441",
-    "content": "c3a4ad74"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-style-guid-ec-3-a-c43"
   },
   "/humanoid-robotics-book/templates/code-example-template-6f2": {
-    "__comp": "17896441",
-    "content": "7548a762"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-templates-code-example-template-754-36b"
   },
   "/humanoid-robotics-book/templates/lab-instruction-template-b96": {
-    "__comp": "17896441",
-    "content": "ca847025"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-templates-lab-instruction-templateca-8-efc"
   },
   "/humanoid-robotics-book/vla-integration/action-planning-46a": {
-    "__comp": "17896441",
-    "content": "a741a75b"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-action-planninga-74-2ba"
   },
   "/humanoid-robotics-book/vla-integration/capstone-project-8cc": {
-    "__comp": "17896441",
-    "content": "b71b5a2c"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-capstone-projectb-71-8ef"
   },
   "/humanoid-robotics-book/vla-integration/cognitive-planning-b83": {
-    "__comp": "17896441",
-    "content": "7217e3bd"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-cognitive-planning-721-c66"
   },
   "/humanoid-robotics-book/vla-integration/integration-challenges-708": {
-    "__comp": "17896441",
-    "content": "22d9cbb7"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-integration-challenges-22-d-02d"
   },
   "/humanoid-robotics-book/vla-integration/intro-f08": {
-    "__comp": "17896441",
-    "content": "43de2bcb"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-intro-43-d-123"
   },
   "/humanoid-robotics-book/vla-integration/introduction-2af": {
-    "__comp": "17896441",
-    "content": "b73169a1"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-introductionb-73-14a"
   },
   "/humanoid-robotics-book/vla-integration/language-understanding-63d": {
-    "__comp": "17896441",
-    "content": "e5b4e722"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-language-understandinge-5-b-347"
   },
   "/humanoid-robotics-book/vla-integration/llm-integration-be7": {
-    "__comp": "17896441",
-    "content": "c71cc352"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-llm-integrationc-71-6e4"
   },
   "/humanoid-robotics-book/vla-integration/mini-project-5c5": {
-    "__comp": "17896441",
-    "content": "670675d9"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-mini-project-670-af8"
   },
   "/humanoid-robotics-book/vla-integration/multi-modal-3e1": {
-    "__comp": "17896441",
-    "content": "df0d6eb3"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-multi-modaldf-0-d63"
   },
   "/humanoid-robotics-book/vla-integration/troubleshooting-91b": {
-    "__comp": "17896441",
-    "content": "f31f576b"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-troubleshootingf-31-557"
   },
   "/humanoid-robotics-book/vla-integration/vision-systems-b0b": {
-    "__comp": "17896441",
-    "content": "863b7909"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-vision-systems-863-3c2"
   },
   "/humanoid-robotics-book/vla-integration/voice-recognition-a70": {
-    "__comp": "17896441",
-    "content": "9be8584d"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-voice-recognition-9-be-364"
   },
   "/humanoid-robotics-book/vla-integration/voice-to-action-79d": {
-    "__comp": "17896441",
-    "content": "afbb4ddf"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---humanoid-robotics-book-vla-integration-voice-to-actionafb-a75"
   }
 }

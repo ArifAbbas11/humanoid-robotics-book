@@ -1,0 +1,83 @@
+# API Contract for Book RAG Ingestion Pipeline
+
+# Note: Since this is a backend pipeline with no exposed API endpoints,
+# this contract represents the internal function interfaces
+
+openapi: 3.0.0
+info:
+  title: Book RAG Ingestion Pipeline
+  version: 1.0.0
+  description: Internal function contracts for the book content ingestion pipeline
+
+paths: {}
+
+# Internal function contracts
+components:
+  schemas:
+    BookContentChunk:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the chunk
+        content:
+          type: string
+          description: The actual text content
+        source_url:
+          type: string
+          description: Original URL where content was found
+        section:
+          type: string
+          description: Section or page identifier
+        chunk_index:
+          type: integer
+          description: Sequential position of chunk
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when chunk was processed
+        metadata:
+          type: object
+          description: Additional metadata
+      required:
+        - id
+        - content
+        - source_url
+        - section
+        - chunk_index
+
+    EmbeddingResult:
+      type: object
+      properties:
+        chunk_id:
+          type: string
+          description: Reference to source content chunk
+        vector:
+          type: array
+          items:
+            type: number
+          description: Embedding vector values
+        vector_size:
+          type: integer
+          description: Dimension of the embedding vector
+        embedding_model:
+          type: string
+          description: Name/version of the model used
+      required:
+        - chunk_id
+        - vector
+        - vector_size
+        - embedding_model
+
+    ProcessingResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the operation was successful
+        message:
+          type: string
+          description: Human-readable status message
+        data:
+          type: object
+          description: Additional result data

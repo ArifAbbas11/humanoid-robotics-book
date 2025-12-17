@@ -1,0 +1,17 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Book RAG Content Ingestion Pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "cohere>=5.5.0",
+    "qdrant-client>=1.9.0",
+    "python-dotenv>=1.0.0",
+    "lxml>=4.9.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "openai>=1.0.0"
+]
