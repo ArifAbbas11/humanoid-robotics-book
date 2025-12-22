@@ -76,7 +76,7 @@ const RAGChatbot: React.FC = () => {
       };
 
       // Call the backend API
-      const response = await fetch('http://localhost:8000/api/v1/ask', {
+      const response = await fetch('https://ayeshamasood110-rag-chatbot.hf.space/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
