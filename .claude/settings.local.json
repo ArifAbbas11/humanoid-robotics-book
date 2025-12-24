@@ -144,7 +144,9 @@
       "Bash(cat /tmp/claude/-mnt-c-Users-Admin-Documents-humanoid-robotics-book/tasks/ba0af57.output)",
       "Bash(git add Hugging-Face/)",
       "Bash(git add Hugging-Face/RAG_Chatbot)",
-      "Bash(git commit -m \"Resolve merge conflicts and update RAG chatbot files\")"
+      "Bash(git commit -m \"Resolve merge conflicts and update RAG chatbot files\")",
+      "Bash(git commit -m \"Update settings and Hugging Face RAG Chatbot files\")",
+      "Bash(git submodule status)"
     ],
     "deny": [],
     "ask": []
