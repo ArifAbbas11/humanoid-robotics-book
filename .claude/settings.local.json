@@ -141,7 +141,8 @@
       "Bash(cat /tmp/claude/-mnt-c-Users-Admin-Documents-humanoid-robotics-book/tasks/b284678.output)",
       "Bash(curl -X GET http://localhost:8000/api/v1/health)",
       "Bash(curl -X POST http://localhost:8000/api/v1/ask -H \"Content-Type: application/json\" -d '{\"\"question\"\": \"\"What is this book about?\"\", \"\"top_k\"\": 3}')",
-      "Bash(cat /tmp/claude/-mnt-c-Users-Admin-Documents-humanoid-robotics-book/tasks/ba0af57.output)"
+      "Bash(cat /tmp/claude/-mnt-c-Users-Admin-Documents-humanoid-robotics-book/tasks/ba0af57.output)",
+      "Bash(git add Hugging-Face/)"
     ],
     "deny": [],
     "ask": []
