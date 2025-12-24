@@ -146,7 +146,10 @@
       "Bash(git add Hugging-Face/RAG_Chatbot)",
       "Bash(git commit -m \"Resolve merge conflicts and update RAG chatbot files\")",
       "Bash(git commit -m \"Update settings and Hugging Face RAG Chatbot files\")",
-      "Bash(git submodule status)"
+      "Bash(git submodule status)",
+      "Bash(git commit -m \"Remove nested git repo from Hugging Face RAG Chatbot directory and finalize updates\")",
+      "Bash(git add .claude/settings.local.json)",
+      "Bash(git commit -m \"Update settings file\")"
     ],
     "deny": [],
     "ask": []
