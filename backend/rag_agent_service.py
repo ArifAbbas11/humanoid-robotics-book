@@ -489,23 +489,54 @@ async def ingest_content():
     try:
         logger.info("Starting content ingestion process...")
 
-        # Get the book URLs - for now using the main book URL
-        # In a real implementation, you would fetch the sitemap to get all URLs
+        # Get all URLs from the book website by fetching the sitemap
         book_base_url = "https://arifabbas11.github.io/humanoid-robotics-book/"
-        urls_to_process = [
-            book_base_url,
-            f"{book_base_url}intro",
-            f"{book_base_url}ros-fundamentals/intro",
-            f"{book_base_url}simulation/intro",
-            f"{book_base_url}ai-navigation/intro",
-            f"{book_base_url}vla-integration/intro"
-        ]
+        sitemap_url = f"{book_base_url}sitemap.xml"
+
+        urls_to_process = []
+        try:
+            logger.info(f"Fetching sitemap: {sitemap_url}")
+            response = safe_request("GET", sitemap_url)
+            if response:
+                soup = BeautifulSoup(response.content, 'xml')
+                url_elements = soup.find_all('loc')
+                for url_elem in url_elements:
+                    url = url_elem.get_text().strip()
+                    if url and is_valid_url(url, urlparse(book_base_url).netloc):
+                        urls_to_process.append(url)
+                logger.info(f"Found {len(urls_to_process)} URLs from sitemap")
+            else:
+                logger.warning("Failed to fetch sitemap, using default URLs")
+                # Fallback to default URLs if sitemap fetch fails
+                urls_to_process = [
+                    book_base_url,
+                    f"{book_base_url}intro",
+                    f"{book_base_url}ros-fundamentals/intro",
+                    f"{book_base_url}simulation/intro",
+                    f"{book_base_url}ai-navigation/intro",
+                    f"{book_base_url}vla-integration/intro"
+                ]
+        except Exception as e:
+            logger.error(f"Error fetching sitemap: {str(e)}")
+            # Fallback to default URLs if sitemap fetch fails
+            urls_to_process = [
+                book_base_url,
+                f"{book_base_url}intro",
+                f"{book_base_url}ros-fundamentals/intro",
+                f"{book_base_url}simulation/intro",
+                f"{book_base_url}ai-navigation/intro",
+                f"{book_base_url}vla-integration/intro"
+            ]
 
         successful_count = 0
         failed_count = 0
 
-        for url in urls_to_process[:5]:  # Process first 5 URLs to avoid timeout
-            logger.info(f"Processing URL: {url}")
+        # Process all URLs (with progress tracking to avoid timeout issues)
+        total_urls = len(urls_to_process)
+        logger.info(f"Starting to process all {total_urls} URLs...")
+
+        for i, url in enumerate(urls_to_process):
+            logger.info(f"Processing URL {i+1}/{total_urls}: {url}")
 
             content = extract_text_from_url(url)
             if not content:
@@ -534,18 +565,22 @@ async def ingest_content():
             logger.info(f"Generated {len(embeddings)} embeddings successfully")
 
             # Save each chunk with its embedding to Qdrant
-            for i, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
+            for j, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
                 if save_chunk_to_qdrant(chunk, embedding, source_url=url):
-                    logger.debug(f"Saved chunk {i+1}/{len(chunks)} for {url}")
+                    if j % 10 == 0:  # Log progress every 10 chunks
+                        logger.debug(f"Saved chunk {j+1}/{len(chunks)} for {url}")
                 else:
-                    logger.warning(f"Failed to save chunk {i+1}/{len(chunks)} for {url}")
+                    logger.warning(f"Failed to save chunk {j+1}/{len(chunks)} for {url}")
 
             successful_count += 1
-            logger.info(f"Successfully processed URL: {url}")
+            logger.info(f"Successfully processed URL {i+1}/{total_urls}: {url}")
+
+            # Add a small delay to be respectful to the server and avoid rate limiting
+            time.sleep(0.1)
 
         result = {
             "status": "success",
-            "message": f"Processed {successful_count} out of {len(urls_to_process[:5])} URLs successfully",
+            "message": f"Processed {successful_count} out of {len(urls_to_process)} URLs successfully",
             "successful": successful_count,
             "failed": failed_count
         }
