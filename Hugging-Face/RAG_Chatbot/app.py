@@ -287,23 +287,45 @@ def create_session_with_retries(
     session.mount('https://', adapter)
     return session
 
-def safe_request(method: str, url: str, **kwargs) -> requests.Response:
+def safe_request(
+    method: str,
+    url: str,
+    **kwargs
+) -> Optional[requests.Response]:
     """
     Make a safe HTTP request with error handling.
     """
     try:
+        # Use the session with retries
         session = create_session_with_retries()
+
+        # Set default timeout to 60 seconds if not provided (was 30)
         if 'timeout' not in kwargs:
-            kwargs['timeout'] = 30
+            kwargs['timeout'] = 60
+
+        # Add default headers if not provided
         headers = kwargs.get('headers', {})
         headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+            "Accept-Encoding": "gzip, deflate",
+            "Connection": "keep-alive",
         })
         kwargs['headers'] = headers
+
         response = session.request(method, url, **kwargs)
+
+        if response and response.status_code >= 400:
+            logger.warning(f"Request to {url} returned status {response.status_code}")
+            return None
+
         return response
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         logger.error(f"Request failed for {url}: {str(e)}")
+        return None
+    except Exception as e:
+        logger.error(f"Unexpected error during request to {url}: {str(e)}")
         return None
 
 def is_valid_url(url: str, base_domain: str = None) -> bool:
@@ -322,50 +344,129 @@ def is_valid_url(url: str, base_domain: str = None) -> bool:
     except Exception:
         return False
 
-def extract_text_from_url(url: str) -> str:
+def extract_text_from_url(url: str, max_retries: int = 3) -> str:
     """
-    Extract clean text content from a URL.
+    Extract clean text content from a URL while preserving semantic structure.
     """
-    try:
-        response = safe_request("GET", url)
-        if not response:
-            return ""
-
-        soup = BeautifulSoup(response.content, 'html.parser')
-
-        # Remove script and style elements
-        for script in soup(["script", "style", "nav", "header", "footer", "aside", "meta", "link"]):
-            script.decompose()
-
-        content_element = soup.find('body')
-        if not content_element:
-            return ""
-
-        text_parts = []
-        for element in content_element.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'div', 'span', 'code', 'pre'], recursive=True):
-            text = element.get_text(strip=True)
-            if text:
-                if element.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
-                    text_parts.append(f"\n\n{element.name.upper()}: {text}\n")
-                elif element.name == 'li':
-                    text_parts.append(f"  - {text}\n")
-                elif element.name in ['p', 'div']:
-                    text_parts.append(f"{text}\n")
-                elif element.name in ['code', 'pre']:
-                    text_parts.append(f"```\n{text}\n```\n")
-                else:
-                    text_parts.append(f"{text} ")
-
-        content = " ".join(text_parts)
-        import re
-        content = re.sub(r'\n\s*\n', '\n\n', content)
-        content = re.sub(r'[ \t]+', ' ', content)
-        content = content.strip()
-
-        return content
-    except Exception as e:
-        logger.error(f"Error extracting text from URL {url}: {str(e)}")
+    # Validate the URL before attempting to extract content
+    if not is_valid_url(url):
+        logger.error(f"Invalid URL provided for text extraction: {url}")
         return ""
+
+    for attempt in range(max_retries):
+        try:
+            logger.info(f"Attempt {attempt + 1}: Extracting text from URL: {url}")
+
+            # Increase timeout for the request
+            response = safe_request("GET", url)
+            if not response:
+                logger.warning(f"Attempt {attempt + 1}: Failed to fetch content from URL: {url}")
+                if attempt == max_retries - 1:  # Last attempt
+                    return ""
+                time.sleep(2 ** attempt)  # Exponential backoff
+                continue
+
+            # Check if the response is HTML
+            content_type = response.headers.get('content-type', '').lower()
+            if 'text/html' not in content_type:
+                logger.warning(f"URL does not appear to contain HTML content: {url} (Content-Type: {content_type})")
+                return ""
+
+            # Parse the HTML content
+            soup = BeautifulSoup(response.content, 'html.parser')
+
+            # Remove script and style elements
+            for script in soup(["script", "style", "nav", "header", "footer", "aside", "meta", "link"]):
+                script.decompose()
+
+            # Try to find the main content area using various selectors
+            content_element = None
+            for selector in [
+                "article.markdown",
+                "div.theme-doc-markdown",
+                "main div.container",
+                ".markdown",
+                ".container",
+                "article",
+                "main",
+                "body"
+            ]:
+                content_element = soup.select_one(selector)
+                if content_element:
+                    break
+
+            # If no specific content area found, use the body
+            if not content_element:
+                content_element = soup.find('body')
+
+            if not content_element:
+                logger.warning(f"No content found for URL: {url}")
+                return ""
+
+            # Extract text while preserving some structure
+            text_parts = []
+
+            # Process different types of elements to preserve structure
+            for element in content_element.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'div', 'span', 'code', 'pre', 'table', 'tr', 'td', 'th'], recursive=True):
+                # Get the text content
+                text = element.get_text(strip=True)
+
+                if text:
+                    # Add appropriate spacing based on element type
+                    if element.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+                        text_parts.append(f"\n\n{element.name.upper()}: {text}\n")
+                    elif element.name == 'li':
+                        text_parts.append(f"  - {text}\n")
+                    elif element.name in ['p', 'div']:
+                        text_parts.append(f"{text}\n")
+                    elif element.name in ['code', 'pre']:
+                        text_parts.append(f"```\n{text}\n```\n")
+                    elif element.name in ['th', 'td']:
+                        # For table cells, add some formatting
+                        text_parts.append(f"{text} | ")
+                    elif element.name == 'tr':
+                        # Add new line after table rows
+                        text_parts.append(f"\n")
+                    elif element.name == 'table':
+                        # Add more space around tables
+                        text_parts.append(f"\n\nTABLE: {text}\n\n")
+                    else:
+                        text_parts.append(f"{text} ")
+
+            # Join all text parts and clean up
+            content = " ".join(text_parts)
+
+            # Clean up multiple newlines and spaces
+            import re
+            content = re.sub(r'\n\s*\n', '\n\n', content)
+            content = re.sub(r'[ \t]+', ' ', content)
+            content = content.strip()
+
+            # Additional validation: ensure we have meaningful content
+            if len(content) < 10:  # Minimum content length check
+                logger.warning(f"Content extracted from {url} appears to be too short ({len(content)} chars)")
+                return ""
+
+            logger.info(f"Successfully extracted {len(content)} characters from {url}")
+            return content
+
+        except requests.exceptions.Timeout:
+            logger.warning(f"Attempt {attempt + 1}: Timeout error for URL {url}")
+            if attempt == max_retries - 1:
+                return ""
+            time.sleep(2 ** attempt)  # Exponential backoff
+        except requests.exceptions.ConnectionError:
+            logger.warning(f"Attempt {attempt + 1}: Connection error for URL {url}")
+            if attempt == max_retries - 1:
+                return ""
+            time.sleep(2 ** attempt)  # Exponential backoff
+        except Exception as e:
+            logger.error(f"Attempt {attempt + 1}: Error extracting text from URL {url}: {str(e)}")
+            if attempt == max_retries - 1:
+                return ""
+            time.sleep(2 ** attempt)  # Exponential backoff
+
+    return ""
 
 def chunk_text(text: str, chunk_size: int = 512, overlap: int = 50) -> List[str]:
     """

@@ -163,7 +163,10 @@
       "Bash(git add /mnt/c/Users/Admin/Documents/humanoid-robotics-book/Hugging-Face/)",
       "Bash(git check-ignore /mnt/c/Users/Admin/Documents/humanoid-robotics-book/Hugging-Face/)",
       "Bash(git add -f Hugging-Face/)",
-      "Bash(git add -A)"
+      "Bash(git add -A)",
+      "Bash(git submodule update --init --recursive)",
+      "Bash(git rm --cached Hugging-Face/RAG_Chatbot)",
+      "Bash(git commit -m \"Add Hugging Face RAG Chatbot files with updated code to process all URLs from sitemap\")"
     ],
     "deny": [],
     "ask": []
