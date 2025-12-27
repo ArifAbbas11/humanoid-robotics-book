@@ -511,7 +511,8 @@ def embed_texts(texts: List[str]) -> List[List[float]]:
     # Validate input texts
     for i, text in enumerate(texts):
         if not isinstance(text, str):
-            return None
+            logger.warning(f"Text at index {i} is not a string: {type(text)}, converting to string")
+            texts[i] = str(text) if text is not None else " "
         if len(text) == 0:
             texts[i] = " "
 
@@ -523,35 +524,51 @@ def embed_texts(texts: List[str]) -> List[List[float]]:
         for i in range(0, len(texts), MAX_BATCH_SIZE):
             batch = texts[i:i + MAX_BATCH_SIZE]
 
-            # Generate embeddings using Cohere
-            response = cohere_client.embed(
-                texts=batch,
-                model='embed-english-v3.0',
-                input_type='search_document'
-            )
+            # Generate embeddings using Cohere with retry logic
+            batch_embeddings = None
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = cohere_client.embed(
+                        texts=batch,
+                        model='embed-english-v3.0',
+                        input_type='search_document'
+                    )
 
-            if response and hasattr(response, 'embeddings') and response.embeddings:
-                batch_embeddings = response.embeddings
+                    if response and hasattr(response, 'embeddings') and response.embeddings:
+                        batch_embeddings = response.embeddings
+                        break
+                    else:
+                        logger.warning(f"Attempt {attempt + 1}: Cohere API returned empty or invalid response for batch {i//MAX_BATCH_SIZE + 1}")
+                except Exception as e:
+                    logger.warning(f"Attempt {attempt + 1} failed for batch {i//MAX_BATCH_SIZE + 1}: {str(e)}")
+                    if attempt == max_retries - 1:  # Last attempt
+                        raise e
+                    time.sleep(2 ** attempt)  # Exponential backoff
+
+            if batch_embeddings:
                 all_embeddings.extend(batch_embeddings)
             else:
-                logger.error(f"Batch {i//MAX_BATCH_SIZE + 1}: Cohere API returned empty or invalid response")
-                return None
+                logger.error(f"All attempts failed for batch {i//MAX_BATCH_SIZE + 1}, returning partial results")
+                return all_embeddings if all_embeddings else None
 
         return all_embeddings
 
     except Exception as e:
         logger.error(f"Cohere API error during embedding: {str(e)}")
-        return None
+        return all_embeddings if all_embeddings else None  # Return partial results if any
 
 def save_chunk_to_qdrant(text_chunk: str, embedding: List[float], source_url: str = None) -> bool:
     """
     Save a text chunk with its embedding to Qdrant.
     """
     if not text_chunk or not embedding:
+        logger.warning("Text chunk or embedding is empty")
         return False
 
     # Validate embedding dimension
     if len(embedding) != 1024:  # Cohere embedding dimension
+        logger.warning(f"Embedding dimension mismatch: expected 1024, got {len(embedding)}")
         return False
 
     # Generate a unique ID for this chunk based on its content
@@ -580,6 +597,14 @@ def save_chunk_to_qdrant(text_chunk: str, embedding: List[float], source_url: st
         return True
     except Exception as e:
         logger.error(f"Error saving chunk to Qdrant: {str(e)}")
+        # Try to handle common Qdrant errors
+        try:
+            # Check if collection exists
+            if not qdrant_client.collection_exists(collection_name=QDRANT_COLLECTION_NAME):
+                logger.error(f"Qdrant collection {QDRANT_COLLECTION_NAME} does not exist")
+                return False
+        except Exception as collection_check_error:
+            logger.error(f"Error checking collection existence: {str(collection_check_error)}")
         return False
 
 @app.post("/api/v1/ingest")
@@ -639,42 +664,56 @@ async def ingest_content():
         for i, url in enumerate(urls_to_process):
             logger.info(f"Processing URL {i+1}/{total_urls}: {url}")
 
-            content = extract_text_from_url(url)
-            if not content:
-                logger.warning(f"Failed to extract content from {url}")
+            try:
+                content = extract_text_from_url(url)
+                if not content:
+                    logger.warning(f"Failed to extract content from {url}")
+                    failed_count += 1
+                    continue
+
+                logger.info(f"Extracted {len(content)} characters from {url}")
+
+                # Chunk the content
+                chunks = chunk_text(content, CHUNK_SIZE, CHUNK_OVERLAP)
+                if not chunks:
+                    logger.warning(f"No chunks generated from content in {url}")
+                    failed_count += 1
+                    continue
+
+                logger.info(f"Content chunked into {len(chunks)} pieces")
+
+                # Generate embeddings for chunks
+                embeddings = embed_texts(chunks)
+                if not embeddings or len(embeddings) != len(chunks):
+                    logger.error(f"Failed to generate embeddings for {url}")
+                    failed_count += 1
+                    continue
+
+                logger.info(f"Generated {len(embeddings)} embeddings successfully")
+
+                # Save each chunk with its embedding to Qdrant
+                saved_chunks_count = 0
+                for j, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
+                    try:
+                        if save_chunk_to_qdrant(chunk, embedding, source_url=url):
+                            saved_chunks_count += 1
+                            if j % 10 == 0:  # Log progress every 10 chunks
+                                logger.debug(f"Saved chunk {j+1}/{len(chunks)} for {url}")
+                        else:
+                            logger.warning(f"Failed to save chunk {j+1}/{len(chunks)} for {url}")
+                    except Exception as e:
+                        logger.error(f"Error saving chunk {j+1}/{len(chunks)} for {url}: {str(e)}")
+                        continue  # Continue with next chunk even if one fails
+
+                logger.info(f"Successfully saved {saved_chunks_count}/{len(chunks)} chunks for {url}")
+
+                successful_count += 1
+                logger.info(f"Successfully processed URL {i+1}/{total_urls}: {url}")
+
+            except Exception as e:
+                logger.error(f"Error processing URL {i+1}/{total_urls} ({url}): {str(e)}")
                 failed_count += 1
-                continue
-
-            logger.info(f"Extracted {len(content)} characters from {url}")
-
-            # Chunk the content
-            chunks = chunk_text(content, CHUNK_SIZE, CHUNK_OVERLAP)
-            if not chunks:
-                logger.warning(f"No chunks generated from content in {url}")
-                failed_count += 1
-                continue
-
-            logger.info(f"Content chunked into {len(chunks)} pieces")
-
-            # Generate embeddings for chunks
-            embeddings = embed_texts(chunks)
-            if not embeddings or len(embeddings) != len(chunks):
-                logger.error(f"Failed to generate embeddings for {url}")
-                failed_count += 1
-                continue
-
-            logger.info(f"Generated {len(embeddings)} embeddings successfully")
-
-            # Save each chunk with its embedding to Qdrant
-            for j, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
-                if save_chunk_to_qdrant(chunk, embedding, source_url=url):
-                    if j % 10 == 0:  # Log progress every 10 chunks
-                        logger.debug(f"Saved chunk {j+1}/{len(chunks)} for {url}")
-                else:
-                    logger.warning(f"Failed to save chunk {j+1}/{len(chunks)} for {url}")
-
-            successful_count += 1
-            logger.info(f"Successfully processed URL {i+1}/{total_urls}: {url}")
+                continue  # Continue with next URL even if one fails
 
             # Add a small delay to be respectful to the server and avoid rate limiting
             time.sleep(0.1)

@@ -166,7 +166,8 @@
       "Bash(git add -A)",
       "Bash(git submodule update --init --recursive)",
       "Bash(git rm --cached Hugging-Face/RAG_Chatbot)",
-      "Bash(git commit -m \"Add Hugging Face RAG Chatbot files with updated code to process all URLs from sitemap\")"
+      "Bash(git commit -m \"Add Hugging Face RAG Chatbot files with updated code to process all URLs from sitemap\")",
+      "Bash(git commit -m \"Improve URL processing with better error handling and retries to reduce failed URLs\")"
     ],
     "deny": [],
     "ask": []
