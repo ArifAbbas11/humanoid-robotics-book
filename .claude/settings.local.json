@@ -158,7 +158,9 @@
       "Bash(ssh-keygen -t ed25519 -C \"arif_ubuntu@users.noreply.github.com\" -f \"/home/arif_ubuntu/.ssh/id_ed25519\")",
       "Bash(ssh-add ~/.ssh/id_ed25519)",
       "Bash(cat ~/.ssh/id_ed25519.pub)",
-      "Bash(git remote set-url origin git@github.com:ArifAbbas11/humanoid-robotics-book.git)"
+      "Bash(git remote set-url origin git@github.com:ArifAbbas11/humanoid-robotics-book.git)",
+      "Bash(git commit -m \"Update RAG chatbot to process all URLs from sitemap instead of limiting to 10\")",
+      "Bash(git add /mnt/c/Users/Admin/Documents/humanoid-robotics-book/Hugging-Face/)"
     ],
     "deny": [],
     "ask": []
